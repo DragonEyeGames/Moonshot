@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://dstxvvp8b51n4"]
+
+[ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://building.gd" id="1_5j34s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yopf"]
+size = Vector2(576, 1152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5j34s"]
+size = Vector2(32, 1088)
+
+[node name="Building" type="Node2D"]
+script = ExtResource("1_5j34s")
+
+[node name="walls" type="ColorRect" parent="."]
+offset_left = -248.0
+offset_top = -1216.0
+offset_right = 264.0
+offset_bottom = -128.0
+color = Color(0.442911, 0.442911, 0.442911, 1)
+
+[node name="roof" type="ColorRect" parent="."]
+visible = false
+z_index = 2
+offset_left = -248.0
+offset_top = -1216.0
+offset_right = 264.0
+offset_bottom = -128.0
+color = Color(0.808998, 0.808998, 0.808998, 1)
+
+[node name="floor" type="ColorRect" parent="."]
+offset_left = -216.0
+offset_top = -1216.0
+offset_right = 232.0
+offset_bottom = -128.0
+color = Color(0.329158, 0.329158, 0.329158, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, -672)
+shape = SubResource("RectangleShape2D_2yopf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(248, -672)
+shape = SubResource("RectangleShape2D_5j34s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-232, -672)
+shape = SubResource("RectangleShape2D_5j34s")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

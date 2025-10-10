@@ -1,37 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6sw5rfxnhbc1"]
+[gd_scene load_steps=9 format=3 uid="uid://c6sw5rfxnhbc1"]
 
 [ext_resource type="Script" uid="uid://cfwx67ffc12eb" path="res://circle_hub.gd" id="1_ejodb"]
 [ext_resource type="Texture2D" uid="uid://i158conio5sl" path="res://circle.png" id="1_mxr2j"]
-
-[sub_resource type="Animation" id="Animation_48xji"]
-resource_name = "show"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Roof:modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.803922, 0.803922, 0.803922, 0), Color(0.803922, 0.803922, 0.803922, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_ejodb"]
-resource_name = "hide"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Roof:modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.804743, 0.804743, 0.804743, 1), Color(0.803922, 0.803922, 0.803922, 0)]
-}
+[ext_resource type="Texture2D" uid="uid://cwxw2jal4yx3b" path="res://circleLight.png" id="3_mt53i"]
 
 [sub_resource type="Animation" id="Animation_mt53i"]
 length = 0.001
@@ -60,6 +31,36 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_ejodb"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.804743, 0.804743, 0.804743, 1), Color(0.803922, 0.803922, 0.803922, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_48xji"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.803922, 0.803922, 0.803922, 0), Color(0.803922, 0.803922, 0.803922, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2keeq"]
 _data = {
 &"RESET": SubResource("Animation_mt53i"),
@@ -77,8 +78,8 @@ script = ExtResource("1_ejodb")
 
 [node name="Roof" type="Sprite2D" parent="."]
 modulate = Color(0.804743, 0.804743, 0.804743, 1)
-position = Vector2(8, -8)
-scale = Vector2(8.785, 8.785)
+position = Vector2(2.68456, -390.604)
+scale = Vector2(8.785, 6.515)
 texture = ExtResource("1_mxr2j")
 
 [node name="State" type="AnimationPlayer" parent="Roof"]
@@ -91,16 +92,18 @@ libraries = {
 modulate = Color(0.310617, 0.310617, 0.310617, 1)
 z_index = -1
 position = Vector2(8, -8)
-scale = Vector2(8.785, 8.785)
+scale = Vector2(8.785, 6.515)
 texture = ExtResource("1_mxr2j")
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
+scale = Vector2(1, 6.515)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(8, -40)
+scale = Vector2(1, 4.92)
 shape = SubResource("CircleShape2D_mt53i")
 
 [node name="Oxygenator" type="ColorRect" parent="."]
@@ -134,9 +137,17 @@ offset_bottom = -974.597
 color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(1, 0.73)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-310.067, 1107.38, -554.362, 1016.11, -849.664, 778.523, -1075.17, 464.43, -1167.79, 112.752, -1135.57, -379.866, -902.013, -798.658, -445.638, -1140.94, -88.5906, -1221.48, 255.034, -1198.66, 569.128, -1080.54, 879.195, -830.872, 1087.25, -520.805, 1178.52, -69.7987, 1110.07, 394.631, 959.732, 655.034, 696.644, 906.04, 288.591, 1116.78, 285.906, 1161.07, 502.013, 1083.22, 708.725, 962.416, 982.55, 699.329, 1122.15, 441.611, 1194.63, 209.396, 1221.48, -99.3289, 1194.63, -323.49, 1051.01, -646.98, 771.812, -985.235, 555.705, -1118.12, 236.242, -1249.66, -316.779, -1225.5, -672.483, -1051.01, -939.597, -812.081, -1159.73, -421.477, -1225.5, 12.0805, -1158.39, 386.577, -967.785, 714.094, -805.369, 888.591, -565.101, 1059.06, -312.752, 1153.02)
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(2.01343, -37.5838)
+scale = Vector2(11.9219, 8.58588)
+energy = 1.91
+texture = ExtResource("3_mt53i")
+texture_scale = 0.4
 
 [connection signal="body_entered" from="Area2D" to="." method="playerEnter"]
 [connection signal="body_exited" from="Area2D" to="." method="playerExit"]

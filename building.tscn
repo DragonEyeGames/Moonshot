@@ -9,7 +9,7 @@
 [node name="Airlock" parent="." instance=ExtResource("1_5j34s")]
 
 [node name="Circle Hub" parent="." instance=ExtResource("2_2yopf")]
-position = Vector2(16, -2184)
+position = Vector2(32, -2016)
 
 [node name="Solar Panels" parent="." instance=ExtResource("3_f1gjg")]
 position = Vector2(-2240, -2192)

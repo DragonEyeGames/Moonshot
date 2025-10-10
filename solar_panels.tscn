@@ -11,6 +11,7 @@ color = Color(0.137255, 0, 0.854902, 1)
 
 [node name="Panel2" type="ColorRect" parent="Panel"]
 z_index = -1
+layout_mode = 0
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 296.0
@@ -25,6 +26,7 @@ color = Color(0.137255, 0, 0.854902, 1)
 
 [node name="Panel2" type="ColorRect" parent="Panel2"]
 z_index = -1
+layout_mode = 0
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 296.0
@@ -39,6 +41,7 @@ color = Color(0.137255, 0, 0.854902, 1)
 
 [node name="Panel2" type="ColorRect" parent="Panel3"]
 z_index = -1
+layout_mode = 0
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 296.0
@@ -54,6 +57,7 @@ color = Color(0.137255, 0, 0.854902, 1)
 
 [node name="Panel2" type="ColorRect" parent="Panel4"]
 z_index = -1
+layout_mode = 0
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 296.0
@@ -69,6 +73,7 @@ color = Color(0.137255, 0, 0.854902, 1)
 
 [node name="Panel2" type="ColorRect" parent="Panel5"]
 z_index = -1
+layout_mode = 0
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 296.0
@@ -84,6 +89,7 @@ color = Color(0.137255, 0, 0.854902, 1)
 
 [node name="Panel2" type="ColorRect" parent="Panel6"]
 z_index = -1
+layout_mode = 0
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 296.0
@@ -99,6 +105,7 @@ color = Color(0.137255, 0, 0.854902, 1)
 
 [node name="Panel2" type="ColorRect" parent="Panel7"]
 z_index = -1
+layout_mode = 0
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 296.0
@@ -114,6 +121,7 @@ color = Color(0.137255, 0, 0.854902, 1)
 
 [node name="Panel2" type="ColorRect" parent="Panel8"]
 z_index = -1
+layout_mode = 0
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 296.0
@@ -129,6 +137,7 @@ color = Color(0.137255, 0, 0.854902, 1)
 
 [node name="Panel2" type="ColorRect" parent="Panel9"]
 z_index = -1
+layout_mode = 0
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 296.0

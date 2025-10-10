@@ -12,21 +12,31 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	$State.play("open")
+	if(not state=="sealed"):
+		$State.play("open")
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	$State.play("exit")
 	if(not state=="sealed"):
 		GameManager.playerState="outside"
 
 
 func _on_airlock_body_entered(body: Node2D) -> void:
-	if(not state=="sealed"):
-		state="sealed"
+	if(state==""):
+		state="sealing"
 		GameManager.playerState="inside"
 		$State.play("seal")
+		await get_tree().create_timer(3).timeout
+		state="sealed"
 
 
 func _on_airlock_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
+
+
+func _on_outer_body_entered(body: Node2D) -> void:
+	if(state=="sealed"):
+		state="opening"
+		$State.play("exit")
+		await get_tree().create_timer(3).timeout
+		state=""

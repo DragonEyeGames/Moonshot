@@ -1,0 +1,249 @@
+[gd_scene load_steps=11 format=3 uid="uid://dstxvvp8b51n4"]
+
+[ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://airlock.gd" id="1_5j34s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1gjg"]
+size = Vector2(448, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yopf"]
+size = Vector2(576, 1152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnfc1"]
+size = Vector2(448, 464)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5j34s"]
+size = Vector2(32, 1088)
+
+[sub_resource type="Animation" id="Animation_2yopf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("roof:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.808998, 0.808998, 0.808998, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("roof:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("inner airlock:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_f1gjg"]
+resource_name = "exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("roof:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.807843, 0.807843, 0.807843, 0), Color(0.807843, 0.807843, 0.807843, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.5708, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5j34s"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("roof:color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.808998, 0.808998, 0.808998, 1), Color(0.807843, 0.807843, 0.807843, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qnfc1"]
+resource_name = "seal"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.5708, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("inner airlock:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1gjg"]
+_data = {
+&"RESET": SubResource("Animation_2yopf"),
+&"exit": SubResource("Animation_f1gjg"),
+&"open": SubResource("Animation_5j34s"),
+&"seal": SubResource("Animation_qnfc1")
+}
+
+[node name="Airlock" type="Node2D"]
+script = ExtResource("1_5j34s")
+
+[node name="walls" type="ColorRect" parent="."]
+offset_left = -248.0
+offset_top = -1400.0
+offset_right = 264.0
+offset_bottom = -128.0
+color = Color(0.513233, 0.513233, 0.513233, 1)
+
+[node name="floor" type="ColorRect" parent="."]
+offset_left = -216.0
+offset_top = -1400.0
+offset_right = 232.0
+offset_bottom = -128.0
+color = Color(0.288518, 0.288518, 0.288518, 1)
+
+[node name="roof" type="ColorRect" parent="."]
+z_index = 2
+offset_left = -248.0
+offset_top = -1400.0
+offset_right = 264.0
+offset_bottom = -128.0
+color = Color(0.808998, 0.808998, 0.808998, 1)
+
+[node name="door" type="ColorRect" parent="."]
+z_index = 1
+offset_left = -216.0
+offset_top = -176.0
+offset_right = 232.0
+offset_bottom = -128.0
+color = Color(0.244777, 0.244776, 0.244776, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door/StaticBody2D"]
+position = Vector2(224, 24)
+shape = SubResource("RectangleShape2D_f1gjg")
+
+[node name="inner airlock" type="ColorRect" parent="."]
+z_index = 1
+offset_left = -216.0
+offset_top = -952.0
+offset_right = 232.0
+offset_bottom = -904.0
+color = Color(0.244777, 0.244776, 0.244776, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="inner airlock"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inner airlock/StaticBody2D"]
+position = Vector2(224, 24)
+shape = SubResource("RectangleShape2D_f1gjg")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, -672)
+shape = SubResource("RectangleShape2D_2yopf")
+
+[node name="Airlock" type="Area2D" parent="."]
+position = Vector2(1.52588e-05, -128)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Airlock"]
+position = Vector2(8, -856)
+shape = SubResource("RectangleShape2D_qnfc1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(248, -672)
+shape = SubResource("RectangleShape2D_5j34s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-232, -672)
+shape = SubResource("RectangleShape2D_5j34s")
+
+[node name="State" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_f1gjg")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Airlock" to="." method="_on_airlock_body_entered"]
+[connection signal="body_exited" from="Airlock" to="." method="_on_airlock_body_exited"]

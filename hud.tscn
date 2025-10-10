@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://csk5nfyi47xdp"]
+
+[ext_resource type="Script" uid="uid://dilfx7ei5wrr0" path="res://hud.gd" id="1_37p78"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2snw"]
+bg_color = Color(0, 0.124055, 0.999987, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37p78"]
+bg_color = Color(0.188992, 0.415644, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64ctp"]
+bg_color = Color(0.111655, 0.316069, 0.144895, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sq4i"]
+bg_color = Color(0.188235, 0.67451, 0.219608, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_37p78")
+
+[node name="Oxygen" type="ProgressBar" parent="."]
+offset_left = 584.0
+offset_top = 48.0
+offset_right = 1112.0
+offset_bottom = 96.0
+theme_override_styles/background = SubResource("StyleBoxFlat_n2snw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_37p78")
+value = 100.0
+
+[node name="Energy" type="ProgressBar" parent="."]
+offset_left = 584.0
+offset_top = 112.0
+offset_right = 1112.0
+offset_bottom = 160.0
+theme_override_styles/background = SubResource("StyleBoxFlat_64ctp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8sq4i")
+value = 100.0

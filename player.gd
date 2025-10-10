@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 
 func _process(delta: float) -> void:
+	$Helmet/PointLight2D.look_at(get_global_mouse_position())
+	$Helmet/PointLight2D.rotation+=PI/2
 	# Add the gravity.
 	if(GameManager.playerSprinting):
 		speed=600

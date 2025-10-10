@@ -19,6 +19,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if(not state=="sealed"):
 		GameManager.playerState="outside"
+		$State.play("shut")
 
 
 func _on_airlock_body_entered(body: Node2D) -> void:
@@ -38,5 +39,6 @@ func _on_outer_body_entered(body: Node2D) -> void:
 	if(state=="sealed"):
 		state="opening"
 		$State.play("exit")
+		GameManager.helmet.visible=true
 		await get_tree().create_timer(3).timeout
 		state=""

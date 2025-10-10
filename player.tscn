@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://313clql8xlh4"]
+
+[ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://player.gd" id="1_hqtel"]
+[ext_resource type="Texture2D" uid="uid://cqcdyf84adame" path="res://icon.svg" id="2_sweqy"]
+[ext_resource type="Texture2D" uid="uid://bh8srau4aa02y" path="res://helmet-310867_1920.png" id="3_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://dyysu3210vtw8" path="res://flashlight.png" id="4_1jxqw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aq4fw"]
+radius = 72.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 2
+script = ExtResource("1_hqtel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_aq4fw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sweqy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.65, 0.65)
+position_smoothing_enabled = true
+
+[node name="Helmet" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_2hs0m")
+
+[node name="PointLight2D" type="PointLight2D" parent="Helmet"]
+position = Vector2(0.000488281, 0)
+scale = Vector2(12.5, 19.133)
+shadow_enabled = true
+shadow_color = Color(1, 0, 0, 0)
+texture = ExtResource("4_1jxqw")
+offset = Vector2(-34.285, -263.805)
+texture_scale = 0.4

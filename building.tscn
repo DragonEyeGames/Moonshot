@@ -1,8 +1,75 @@
-[gd_scene load_steps=4 format=3 uid="uid://ectb2uu36h7a"]
+[gd_scene load_steps=10 format=3 uid="uid://ectb2uu36h7a"]
 
 [ext_resource type="PackedScene" uid="uid://dstxvvp8b51n4" path="res://airlock.tscn" id="1_5j34s"]
-[ext_resource type="PackedScene" uid="uid://c6sw5rfxnhbc1" path="res://circle_hub.tscn" id="2_2yopf"]
+[ext_resource type="PackedScene" uid="uid://c6sw5rfxnhbc1" path="res://connectingHub.tscn" id="2_2yopf"]
 [ext_resource type="PackedScene" uid="uid://bhfbg0qejw4m0" path="res://solar_panels.tscn" id="3_f1gjg"]
+[ext_resource type="PackedScene" uid="uid://jcr4v1v1xrgu" path="res://kitchen.tscn" id="4_qnfc1"]
+
+[sub_resource type="Animation" id="Animation_qnfc1"]
+resource_name = "reveal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.8039216, 0.8039216, 0.8039216, 1), Color(0.8039216, 0.8039216, 0.8039216, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wall:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.556953, 0.556953, 0.5569529, 1), Color(0.5568628, 0.5568628, 0.5568628, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0rysw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.8039216, 0.8039216, 0.8039216, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wall:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.556953, 0.556953, 0.5569529, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ow2p3"]
+_data = {
+&"RESET": SubResource("Animation_0rysw"),
+&"reveal": SubResource("Animation_qnfc1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vvqs"]
+size = Vector2(944, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8evq1"]
+size = Vector2(944, 32)
 
 [node name="Building" type="Node2D"]
 
@@ -13,3 +80,52 @@ position = Vector2(32, -2016)
 
 [node name="Solar Panels" parent="." instance=ExtResource("3_f1gjg")]
 position = Vector2(-2240, -2192)
+
+[node name="Kitchen" parent="." instance=ExtResource("4_qnfc1")]
+position = Vector2(2448, -2096.0002)
+
+[node name="Hallway" type="Node2D" parent="."]
+position = Vector2(1184, -2008)
+
+[node name="BackWall" type="ColorRect" parent="Hallway"]
+offset_left = -400.0
+offset_top = -296.0
+offset_right = 544.0
+offset_bottom = 200.0
+color = Color(0.18000486, 0.1800049, 0.1800048, 1)
+
+[node name="Floor" type="ColorRect" parent="Hallway"]
+offset_left = -400.0
+offset_top = -136.0
+offset_right = 544.0
+offset_bottom = 168.0
+color = Color(0.35686275, 0.35686275, 0.35686275, 1)
+
+[node name="Wall" type="ColorRect" parent="Hallway"]
+offset_left = -400.0
+offset_top = -24.0
+offset_right = 544.0
+offset_bottom = 200.0
+color = Color(0.556953, 0.556953, 0.5569529, 1)
+
+[node name="Roof" type="ColorRect" parent="Hallway"]
+offset_left = -400.0
+offset_top = -280.0
+offset_right = 544.0
+offset_bottom = -24.0
+color = Color(0.8039216, 0.8039216, 0.8039216, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hallway"]
+libraries = {
+&"": SubResource("AnimationLibrary_ow2p3")
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hallway"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hallway/StaticBody2D"]
+position = Vector2(72, -216)
+shape = SubResource("RectangleShape2D_2vvqs")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hallway/StaticBody2D"]
+position = Vector2(72, 184)
+shape = SubResource("RectangleShape2D_8evq1")

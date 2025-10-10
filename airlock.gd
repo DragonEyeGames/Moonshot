@@ -39,6 +39,6 @@ func _on_outer_body_entered(body: Node2D) -> void:
 	if(state=="sealed"):
 		state="opening"
 		$State.play("exit")
-		GameManager.helmet.visible=true
+		GameManager.playerState="outside"
 		await get_tree().create_timer(3).timeout
 		state=""

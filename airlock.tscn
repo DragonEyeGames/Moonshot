@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dstxvvp8b51n4"]
+[gd_scene load_steps=17 format=3 uid="uid://dstxvvp8b51n4"]
 
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://airlock.gd" id="1_5j34s"]
+[ext_resource type="Texture2D" uid="uid://y61752g3nw8m" path="res://square.png" id="2_bc5nu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1gjg"]
 size = Vector2(224, 192)
@@ -91,6 +92,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-216, -1400)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CPUParticles2D2:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CPUParticles2D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_f1gjg"]
@@ -211,6 +236,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(-216, -1400), Vector2(-440, -1400)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CPUParticles2D2:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
 
 [sub_resource type="Animation" id="Animation_3yst8"]
 resource_name = "shut"
@@ -238,6 +287,14 @@ _data = {
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3yst8"]
 polygon = PackedVector2Array(-248, -1400, -248, -128, -240, -128, -240, -1400)
+
+[sub_resource type="Curve" id="Curve_3yst8"]
+_limits = [0.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0.058139563, 5.05618), 0.0, 0.0, 0, 0, Vector2(1, 10), 7.6498103, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_bc5nu"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Airlock" type="Node2D"]
 script = ExtResource("1_5j34s")
@@ -289,6 +346,7 @@ offset_bottom = -128.0
 color = Color(0.288518, 0.288518, 0.288518, 1)
 
 [node name="roof" type="ColorRect" parent="."]
+light_mask = 2
 z_index = 2
 offset_left = -248.0
 offset_top = -1680.0
@@ -338,7 +396,7 @@ occluder = SubResource("OccluderPolygon2D_bc5nu")
 z_index = 1
 offset_left = 232.0
 offset_top = -472.0
-offset_right = 456.0
+offset_right = 456.00006
 offset_bottom = -128.0
 color = Color(0.244777, 0.244776, 0.244776, 1)
 
@@ -424,6 +482,44 @@ occluder_light_mask = 3
 position = Vector2(504, 0)
 occluder = SubResource("OccluderPolygon2D_3yst8")
 occluder_light_mask = 3
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(0, -448)
+emitting = false
+amount = 20
+explosiveness = 0.6
+emission_shape = 3
+emission_rect_extents = Vector2(100, 1)
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 180.0
+initial_velocity_max = 300.0
+scale_amount_curve = SubResource("Curve_3yst8")
+color_ramp = SubResource("Gradient_bc5nu")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(0, -1088)
+rotation = 3.1415927
+emitting = false
+amount = 20
+explosiveness = 0.6
+emission_shape = 3
+emission_rect_extents = Vector2(100, 1)
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 180.0
+initial_velocity_max = 300.0
+scale_amount_curve = SubResource("Curve_3yst8")
+color_ramp = SubResource("Gradient_bc5nu")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(7.9999866, -932.00006)
+scale = Vector2(2.2755556, 4.0888886)
+texture = ExtResource("2_bc5nu")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

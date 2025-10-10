@@ -9,23 +9,111 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	stamina(delta)
+	food(delta)
+	water(delta)
+	oxygen(delta)
+	energy(delta)
+	health(delta)
+	inventory()
+	dayTime()
+	visuals(delta)
+	
+func food(_delta):
+	if(GameManager.food>100):
+		GameManager.food=100
+	$Stats/Food.value=GameManager.food
+	$Stats/Food.value-=_delta/4.5
+	GameManager.food=$Stats/Food.value
+	if(GameManager.food<=0):
+		GameManager.health-=_delta*4
+		
+func health(_delta):
+	if(GameManager.health>100):
+		GameManager.health=100
+	$Stats/Health.value=GameManager.health
+	if(GameManager.health<=0):
+		GameManager.dead="Death"
+		get_tree().change_scene_to_file("res://dead.tscn")
+	
+func water(_delta):
+	if(GameManager.water>100):
+		GameManager.water=100
+	$Stats/Water.value=GameManager.water
+	$Stats/Water.value-=_delta/2
+	GameManager.water=$Stats/Water.value
+	if(GameManager.water<=0):
+		GameManager.health-=_delta*4
+	
+func stamina(_delta):
 	if(sprintRegen<=0):
-		$Energy.value+=delta*10
-	if(GameManager.playerState=="outside"):
-		$Oxygen.visible=true
-		$Oxygen.value-=delta/2
-		if($Oxygen.value<=0 and playerDead==false):
-			GameManager.player.queue_free()
-			GameManager.player.get_node("Camera2D").reparent(GameManager.player.get_parent())
-			playerDead=true
-			await get_tree().create_timer(1).timeout
-			get_tree().change_scene_to_file("res://oxygenSuffocation.tscn")
-	else:
-		$Oxygen.visible=false
-	if(Input.is_action_pressed("Sprint") and $Energy.value>0):
+		$Stats/Stamina.value+=_delta*10
+	if(Input.is_action_pressed("Sprint") and $Stats/Stamina.value>0 and $Stats/Food.value>25):
 		GameManager.playerSprinting=true
-		$Energy.value-=delta*40
+		GameManager.food-=_delta*2
+		$Stats/Stamina.value-=_delta*40
 		sprintRegen=2
 	else:
-		sprintRegen-=delta
+		sprintRegen-=_delta
 		GameManager.playerSprinting=false
+		
+func oxygen(_delta):
+	if(GameManager.playerState=="outside"):
+		$Stats/Oxygen.value-=_delta/2
+		if(GameManager.helmet.visible==false):
+			$Stats/Oxygen.value-=_delta*200
+			$Stats/Health.value-=_delta*50
+		if($Stats/Oxygen.value<=0 and playerDead==false):
+			GameManager.health-=_delta*25
+		
+func energy(_delta):
+	if(GameManager.flashlightOn):
+		$Stats/Energy.value-=_delta*2
+		if($Stats/Energy.value<=0):
+			GameManager.flashlightOn=false
+		GameManager.playerEnergy=$Stats/Energy.value
+		
+func inventory():
+	if(Input.is_action_just_pressed("1")):
+		if(GameManager.selectedSlot!=0):
+			GameManager.selectedSlot=0
+		else:
+			GameManager.selectedSlot=-1
+	if(Input.is_action_just_pressed("2")):
+		if(GameManager.selectedSlot!=1):
+			GameManager.selectedSlot=1
+		else:
+			GameManager.selectedSlot=-1
+	if(Input.is_action_just_pressed("3")):
+		if(GameManager.selectedSlot!=2):
+			GameManager.selectedSlot=2
+		else:
+			GameManager.selectedSlot=-1
+	if(Input.is_action_just_pressed("4")):
+		if(GameManager.selectedSlot!=3):
+			GameManager.selectedSlot=3
+		else:
+			GameManager.selectedSlot=-1
+	if(Input.is_action_just_pressed("5")):
+		if(GameManager.selectedSlot!=4):
+			GameManager.selectedSlot=4
+		else:
+			GameManager.selectedSlot=-1
+	if(GameManager.selectedSlot+1>len(GameManager.inventory)):
+		GameManager.selectedSlot=len(GameManager.inventory)-1
+		
+func dayTime():
+	$"Date+Time/Day".text = "Day " + str(GameManager.day)
+	var hours = int(floor(GameManager.currentTime))
+	var minutes = int(round((GameManager.currentTime - hours) * 60))
+	$"Date+Time/Time".text = str(hours) + ":" + str(minutes).pad_zeros(2)
+	
+func visuals(_delta):
+	if(GameManager.helmet.visible==true):
+		for stat in $Stats.get_children():
+			stat.visible=true
+	else:
+		$Stats/Oxygen.visible=false
+		$Stats/Energy.visible=false
+		$Stats/Energy.value+=_delta
+		$Stats/Oxygen.value+=_delta*2

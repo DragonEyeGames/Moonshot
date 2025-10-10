@@ -8,7 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-	
-func openMods():
-	GameManager.helmet.visible=false
+	GameManager.basePower-=.9*delta
+	#$PointLight2D2.energy=1.0

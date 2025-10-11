@@ -9,6 +9,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	powerEmission=abs(GameManager.currentTime)/7
+	powerEmission=abs(GameManager.sunPower)/7
 	powerEmission-=dirt
 	GameManager.basePower+=powerEmission*delta

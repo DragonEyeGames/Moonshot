@@ -14,5 +14,5 @@ func _process(delta: float) -> void:
 	if(GameManager.currentTime>24):
 		GameManager.currentTime=0
 		GameManager.day+=1
-	#$DirectionalLight2D.energy= 0.05 + (abs(GameManager.currentTime) - 0) * (1 - 0) / (12-0.05)
+	$DirectionalLight2D.energy = 0.05 + (1 - abs(GameManager.currentTime - 12) / 12) * (1 - 0.05)
 	GameManager.sunPower=$DirectionalLight2D.energy

@@ -14,7 +14,7 @@ var instants = ["Protein", "IceCream", "H Mac", "H Cup"]
 
 var basePower=10
 var health=100
-var currentTime=12
+var currentTime=0
 var day=1
 var sunPower=0
 

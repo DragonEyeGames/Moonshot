@@ -16,3 +16,5 @@ func _process(delta: float) -> void:
 		GameManager.day+=1
 	#$DirectionalLight2D.energy= 0.05 + (abs(GameManager.currentTime) - 0) * (1 - 0) / (12-0.05)
 	GameManager.sunPower=$DirectionalLight2D.energy
+	if(Input.is_action_just_pressed("Escape")):
+		get_tree().quit()

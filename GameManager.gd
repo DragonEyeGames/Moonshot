@@ -16,12 +16,22 @@ var baseWater=90
 var baseHumidity=0
 var suitHumidity=0
 
-var basePower=40
+var basePower=200
 var health=100
 var currentTime=22
 var day=1
 var sunPower=0
-var baseOxygen=50
+var baseOxygen=200
+
+var camera
 
 var food = 100
 var water = 400
+
+func zoomCamera(target, zoom):
+	camera.following=target
+	camera.zoomIn(zoom)
+	
+func unzoomCamera():
+	camera.following=player
+	camera.zoomIn(.75)

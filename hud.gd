@@ -126,9 +126,9 @@ func visuals(_delta):
 	else:
 		$Stats/Oxygen.visible=false
 		$Stats/Energy.visible=false
-		if(GameManager.basePower>30):
+		if(GameManager.basePower>200):
 			$Stats/Energy.value+=_delta
 			GameManager.basePower-=_delta
-		if(GameManager.baseOxygen>30):
+		if(GameManager.baseOxygen>200):
 			$Stats/Oxygen.value+=_delta*2
 			GameManager.baseOxygen-=_delta*2

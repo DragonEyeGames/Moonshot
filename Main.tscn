@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://dnnka5th1gldj"]
+[gd_scene load_steps=9 format=4 uid="uid://dnnka5th1gldj"]
 
 [ext_resource type="Script" uid="uid://dt3i83nbqr5t7" path="res://main.gd" id="1_lgr22"]
 [ext_resource type="Texture2D" uid="uid://bot5iwir3qe7s" path="res://rock.png" id="2_trn2v"]
 [ext_resource type="PackedScene" uid="uid://313clql8xlh4" path="res://player.tscn" id="3_3dxm6"]
+[ext_resource type="Script" uid="uid://ciwk8lbq7ss13" path="res://camera.gd" id="6_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://ectb2uu36h7a" path="res://building.tscn" id="6_5vvyt"]
 [ext_resource type="PackedScene" uid="uid://csk5nfyi47xdp" path="res://hud.tscn" id="7_c6i3y"]
 
@@ -62,3 +63,9 @@ color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.05
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("following")]
+zoom = Vector2(0.75, 0.75)
+position_smoothing_enabled = true
+script = ExtResource("6_3dxm6")
+following = NodePath("../player")

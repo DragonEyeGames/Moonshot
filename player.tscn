@@ -19,10 +19,6 @@ shape = SubResource("CircleShape2D_aq4fw")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_sweqy")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.65, 0.65)
-position_smoothing_enabled = true
-
 [node name="Helmet" type="Sprite2D" parent="."]
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("3_2hs0m")

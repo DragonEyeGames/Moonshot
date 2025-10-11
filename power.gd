@@ -14,4 +14,3 @@ func _process(delta: float) -> void:
 	GameManager.basePower+=powerEmission*delta
 	if(randi_range(0, 250)==5):
 		dirt+=delta*randf_range(1, 2)
-	print(dirt)

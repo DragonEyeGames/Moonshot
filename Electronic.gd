@@ -4,6 +4,7 @@ class_name Electronic
 @export var maxPower := .5
 var power = 0
 @export var efficiency=1
+var priorityNerf=1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	power=maxPower
@@ -14,12 +15,14 @@ func _process(delta: float) -> void:
 	powerSap(delta)
 
 func powerSap(_delta):
+	power*=priorityNerf
 	GameManager.basePower-=power*_delta
 	if(GameManager.basePower<0):
 		if(power<abs(GameManager.basePower)):
 			power=0
+			print("NADA")
 		else:
 			power=abs(GameManager.basePower)
 		GameManager.basePower=0
-	power*=_delta
 	power*=efficiency
+	power*=_delta

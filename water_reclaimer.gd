@@ -8,10 +8,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(GameManager.baseHumidity>50):
+	if(GameManager.baseHumidity>200):
 		efficiency=.8
 		maxPower=1.5
-	elif(GameManager.baseHumidity>20):
+	elif(GameManager.baseHumidity>50):
 		efficiency=1.1
 		maxPower=.7
 	else:
@@ -23,5 +23,5 @@ func _process(delta: float) -> void:
 	if(GameManager.baseHumidity>power):
 		GameManager.baseHumidity-=power
 		GameManager.baseWater+=power
-	$"../RichTextLabel5".text=str(GameManager.baseHumidity)
-	$"../RichTextLabel6".text=str(GameManager.baseWater)
+	$"../RichTextLabel5".text=str(round(GameManager.baseHumidity*25)/100)
+	$"../RichTextLabel6".text=str(round(GameManager.baseWater*25)/100)

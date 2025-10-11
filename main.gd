@@ -9,7 +9,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(GameManager.playerState)
 	GameManager.currentTime+=delta/60
 	if(GameManager.currentTime>24):
 		GameManager.currentTime=0

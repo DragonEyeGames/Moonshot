@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6sw5rfxnhbc1"]
+[gd_scene load_steps=12 format=3 uid="uid://c6sw5rfxnhbc1"]
 
 [ext_resource type="Script" uid="uid://ce4ppyi0o0lys" path="res://connectingHub.gd" id="1_ne08u"]
 [ext_resource type="Texture2D" uid="uid://i158conio5sl" path="res://circle.png" id="2_dc0bu"]
 [ext_resource type="PackedScene" uid="uid://baqwa2wch57ys" path="res://bed.tscn" id="3_dc0bu"]
 [ext_resource type="Script" uid="uid://bx8y41nfeh6og" path="res://oxygenator.gd" id="3_jkvvu"]
 [ext_resource type="PackedScene" uid="uid://dpvvx0k4pp6gi" path="res://suit_holder.tscn" id="4_ne08u"]
+[ext_resource type="Script" uid="uid://d0p4lip8fx5pe" path="res://water_reclaimer.gd" id="4_t0r7i"]
 
 [sub_resource type="Animation" id="Animation_mt53i"]
 length = 0.001
@@ -133,6 +134,7 @@ offset_right = 866.651
 offset_bottom = -840.369
 rotation = 0.575959
 color = Color(0.18359, 0.18359, 0.18359, 1)
+script = ExtResource("4_t0r7i")
 
 [node name="Temperature" type="ColorRect" parent="."]
 offset_left = 37.5839
@@ -179,6 +181,50 @@ offset_left = -216.10739
 offset_top = -532.88586
 offset_right = 295.30203
 offset_bottom = -300.67105
+theme_override_font_sizes/normal_font_size = 119
+text = "Power
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+offset_left = -224.16109
+offset_top = -307.38254
+offset_right = 287.24835
+offset_bottom = -75.167725
+theme_override_font_sizes/normal_font_size = 119
+text = "Power
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+offset_left = -934.2283
+offset_top = -281.87918
+offset_right = -422.81885
+offset_bottom = -49.664368
+theme_override_font_sizes/normal_font_size = 119
+text = "Humid
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+offset_left = -934.2283
+offset_top = -134.22818
+offset_right = -422.81885
+offset_bottom = 97.98663
+theme_override_font_sizes/normal_font_size = 119
+text = "Power
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+offset_left = -942.2819
+offset_top = 91.27515
+offset_right = -430.8725
+offset_bottom = 323.48996
 theme_override_font_sizes/normal_font_size = 119
 text = "Power
 "

@@ -37,13 +37,24 @@ func health(_delta):
 		get_tree().change_scene_to_file("res://dead.tscn")
 	
 func water(_delta):
-	if(GameManager.water>100):
-		GameManager.water=100
+	if(GameManager.water>400):
+		GameManager.baseHumidity+=GameManager.water-400
+		GameManager.water=400
 	$Stats/Water.value=GameManager.water
-	$Stats/Water.value-=_delta/3
+	$Stats/Water.value-=_delta
 	GameManager.water=$Stats/Water.value
+	if(GameManager.helmet.visible==false):
+		GameManager.baseHumidity+=_delta
+		if(GameManager.suitHumidity>_delta):
+			GameManager.suitHumidity-=_delta
+			GameManager.baseHumidity+=_delta
+		else:
+			GameManager.baseHumidity+=GameManager.suitHumidity
+			GameManager.suitHumidity=0
+	else:
+		GameManager.suitHumidity+=_delta*3.5
 	if(GameManager.water<=0):
-		GameManager.health-=_delta*4
+		GameManager.health-=_delta
 	
 func stamina(_delta):
 	if(sprintRegen<=0):
@@ -58,7 +69,7 @@ func stamina(_delta):
 		GameManager.playerSprinting=false
 		
 func oxygen(_delta):
-	if(GameManager.playerState=="outside"):
+	if(GameManager.helmet.visible):
 		$Stats/Oxygen.value-=_delta/2
 		if(GameManager.helmet.visible==false):
 			$Stats/Oxygen.value-=_delta*200
@@ -115,5 +126,9 @@ func visuals(_delta):
 	else:
 		$Stats/Oxygen.visible=false
 		$Stats/Energy.visible=false
-		$Stats/Energy.value+=_delta
-		$Stats/Oxygen.value+=_delta*2
+		if(GameManager.basePower>30):
+			$Stats/Energy.value+=_delta
+			GameManager.basePower-=_delta
+		if(GameManager.baseOxygen>30):
+			$Stats/Oxygen.value+=_delta*2
+			GameManager.baseOxygen-=_delta*2

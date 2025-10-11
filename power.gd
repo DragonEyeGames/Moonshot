@@ -1,7 +1,7 @@
 extends Node2D
 
-var powerEmission:=0
-var dirt:=0
+var powerEmission:=0.0
+var dirt:=0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -9,8 +9,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	powerEmission=abs(GameManager.sunPower)*3
-	powerEmission-=dirt
+	powerEmission=GameManager.sunPower*6
+	powerEmission-=dirt*powerEmission
 	GameManager.basePower+=powerEmission*delta
-	print(GameManager.basePower)
-	print(powerEmission)
+	if(randi_range(0, 250)==5):
+		dirt+=delta*randf_range(1, 2)
+	print(dirt)

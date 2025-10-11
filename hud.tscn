@@ -75,21 +75,22 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1xsix")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rftc2")
-value = 80.0
+value = 100.0
 
 [node name="Water" type="ProgressBar" parent="Stats"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_gpiub")
 theme_override_styles/fill = SubResource("StyleBoxFlat_amv7k")
-value = 80.0
+max_value = 400.0
+value = 400.0
 
 [node name="Health" type="ProgressBar" parent="Stats"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1fv7p")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4u2vk")
-value = 80.0
+value = 100.0
 
 [node name="Inventory" type="HBoxContainer" parent="."]
 anchors_preset = -1

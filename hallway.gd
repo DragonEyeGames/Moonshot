@@ -1,6 +1,4 @@
-extends Building
-
-
+extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -8,6 +6,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#GameManager.basePower-=.9*delta
-	#$PointLight2D2.energy=1.0
 	pass
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	$AnimationPlayer.play("reveal")
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	$AnimationPlayer.play("hide")

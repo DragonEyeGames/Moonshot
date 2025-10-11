@@ -35,3 +35,7 @@ func _process(delta: float) -> void:
 			$Outline.visible=false
 	else:
 		visible=false
+
+
+func _on_button_pressed() -> void:
+	GameManager.selectedSlot=slotIndex

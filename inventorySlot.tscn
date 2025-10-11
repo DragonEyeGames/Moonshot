@@ -36,3 +36,12 @@ texture = ExtResource("1_fu0vh")
 
 [node name="InventoryItems" parent="." instance=ExtResource("2_x41mc")]
 position = Vector2(124.85711, 185.7144)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 256.0
+offset_bottom = 288.0
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

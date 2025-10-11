@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 		GameManager.food-=12
 		GameManager.water-=20
 		GameManager.health+=20
+		GameManager.day+=1
 		await get_tree().create_timer(5).timeout
 		GameManager.playerMove=true
 

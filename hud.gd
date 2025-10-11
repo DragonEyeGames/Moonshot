@@ -40,7 +40,7 @@ func water(_delta):
 	if(GameManager.water>100):
 		GameManager.water=100
 	$Stats/Water.value=GameManager.water
-	$Stats/Water.value-=_delta/2
+	$Stats/Water.value-=_delta/3
 	GameManager.water=$Stats/Water.value
 	if(GameManager.water<=0):
 		GameManager.health-=_delta*4

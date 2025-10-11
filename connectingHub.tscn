@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c6sw5rfxnhbc1"]
 
-[ext_resource type="Script" uid="uid://cfwx67ffc12eb" path="res://circle_hub.gd" id="1_ncwjy"]
+[ext_resource type="Script" uid="uid://ce4ppyi0o0lys" path="res://connectingHub.gd" id="1_ne08u"]
 [ext_resource type="Texture2D" uid="uid://i158conio5sl" path="res://circle.png" id="2_dc0bu"]
 [ext_resource type="PackedScene" uid="uid://baqwa2wch57ys" path="res://bed.tscn" id="3_dc0bu"]
 [ext_resource type="PackedScene" uid="uid://dpvvx0k4pp6gi" path="res://suit_holder.tscn" id="4_ne08u"]
@@ -75,10 +75,11 @@ radius = 1210.01
 [node name="Circle Hub" type="Node2D"]
 z_index = 1
 scale = Vector2(0.745, 0.745)
-script = ExtResource("1_ncwjy")
+script = ExtResource("1_ne08u")
 
 [node name="Roof" type="Sprite2D" parent="."]
 modulate = Color(0.804743, 0.804743, 0.804743, 1)
+light_mask = 0
 position = Vector2(2.68456, -390.604)
 scale = Vector2(8.785, 6.515)
 texture = ExtResource("2_dc0bu")
@@ -141,8 +142,10 @@ color = Color(0.18359, 0.18359, 0.18359, 1)
 scale = Vector2(1, 0.73)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-310.067, 1107.38, -554.362, 1016.11, -849.664, 778.523, -1075.17, 464.43, -1167.79, 112.752, -1135.57, -379.866, -902.013, -798.658, -445.638, -1140.94, -88.5906, -1221.48, 255.034, -1198.66, 569.128, -1080.54, 879.195, -830.872, 1087.25, -520.805, 1178.52, -69.7987, 1110.07, 394.631, 959.732, 655.034, 696.644, 906.04, 288.591, 1116.78, 285.906, 1161.07, 502.013, 1083.22, 708.725, 962.416, 982.55, 699.329, 1122.15, 441.611, 1194.63, 209.396, 1221.48, -99.3289, 1194.63, -323.49, 1051.01, -646.98, 771.812, -985.235, 555.705, -1118.12, 236.242, -1249.66, -316.779, -1225.5, -672.483, -1051.01, -939.597, -812.081, -1159.73, -421.477, -1225.5, 12.0805, -1158.39, 386.577, -967.785, 714.094, -805.369, 888.591, -565.101, 1059.06, -312.752, 1153.02)
-disabled = true
+polygon = PackedVector2Array(-310.067, 1107.38, -554.362, 1016.11, -849.664, 778.523, -1075.17, 464.43, -1167.79, 112.752, -1135.57, -379.866, -902.013, -798.658, -445.638, -1140.94, -88.5906, -1221.48, 255.034, -1198.66, 569.128, -1080.54, 879.195, -830.872, 1087.25, -520.805, 1159.7314, -262.94016, 1191.9463, -275.81134, 1194.63, -323.49, 1051.01, -646.98, 771.812, -985.235, 555.705, -1118.12, 236.242, -1249.66, -316.779, -1225.5, -672.483, -1051.01, -939.597, -812.081, -1159.73, -421.477, -1225.5, 12.0805, -1158.39, 386.577, -967.785, 714.094, -805.369, 888.591, -565.101, 1059.06, -312.752, 1153.02)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(1126.1744, 327.2961, 1157.0469, 338.32858, 1146.3087, 380.61966, 1097.9866, 496.46042, 970.4697, 707.9158, 859.06036, 842.144, 677.8523, 996.5983, 453.69125, 1108.7616, 276.51004, 1151.0526, 276.51004, 1128.9878, 426.8456, 1088.5354, 524.8322, 1037.0507, 712.75165, 923.0486, 915.4362, 717.1095, 1075.1677, 463.36304)
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(-2.68456, -8.05369)
@@ -156,6 +159,28 @@ position = Vector2(-1.3422699, -13.422852)
 
 [node name="SuitHolder" parent="." instance=ExtResource("4_ne08u")]
 position = Vector2(327.51678, 628.1879)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -216.10739
+offset_top = -680.53687
+offset_right = 295.30203
+offset_bottom = -448.32205
+theme_override_font_sizes/normal_font_size = 119
+text = "Power
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = -216.10739
+offset_top = -532.88586
+offset_right = 295.30203
+offset_bottom = -300.67105
+theme_override_font_sizes/normal_font_size = 119
+text = "Power
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="playerEnter"]
 [connection signal="body_exited" from="Area2D" to="." method="playerExit"]

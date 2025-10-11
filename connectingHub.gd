@@ -8,6 +8,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#GameManager.basePower-=.9*delta
+	GameManager.basePower-=.9*delta
 	#$PointLight2D2.energy=1.0
-	pass
+	$RichTextLabel2.text=str(GameManager.basePower)

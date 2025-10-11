@@ -1,4 +1,4 @@
-extends Building
+extends Electronic
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,5 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$PointLight2D2.energy=1.0-GameManager.sunPower
-	$RichTextLabel2.text=str(round(GameManager.basePower*10)/10)
+	power=maxPower
+	powerSap(delta)
+	GameManager.baseOxygen+=power
+	print(power)

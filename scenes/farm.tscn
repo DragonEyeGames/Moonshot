@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5eiodc6x61h"]
+
+[ext_resource type="Script" uid="uid://ci5ughirdgwn8" path="res://scenes/farm.gd" id="1_o03py"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o03py"]
+radius = 337.0534
+
+[node name="Farm" type="ColorRect"]
+offset_left = -221.47652
+offset_top = -234.89934
+offset_right = 237.58391
+offset_bottom = 244.2953
+color = Color(0.26150593, 0.14489442, 0.021798393, 1)
+script = ExtResource("1_o03py")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -34.899323
+offset_top = -26.845638
+offset_right = 493.95975
+offset_bottom = 520.80536
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 52.349
+offset_right = 104.69799
+offset_bottom = 483.2215
+color = Color(0.18845937, 0.09082221, 0.005555805, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 165.10068
+offset_top = -1.3422614
+offset_right = 217.44968
+offset_bottom = 481.87924
+color = Color(0.18845937, 0.09082221, 0.005555805, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 264.42953
+offset_top = -2.6845434
+offset_right = 316.77853
+offset_bottom = 480.53696
+color = Color(0.18845937, 0.09082221, 0.005555805, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 362.4161
+offset_top = 1.3423026
+offset_right = 414.7651
+offset_bottom = 484.5638
+color = Color(0.18845937, 0.09082221, 0.005555805, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(220.47652, 229.89934)
+shape = SubResource("CircleShape2D_o03py")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

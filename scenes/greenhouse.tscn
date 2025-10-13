@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://cpv0gjbcloq3p"]
+[gd_scene load_steps=11 format=3 uid="uid://cpv0gjbcloq3p"]
 
-[ext_resource type="Script" uid="uid://ce4ppyi0o0lys" path="res://scripts/connectingHub.gd" id="1_5q2dv"]
 [ext_resource type="Texture2D" uid="uid://i158conio5sl" path="res://assets/circle.png" id="2_vep7u"]
 [ext_resource type="PackedScene" uid="uid://c5eiodc6x61h" path="res://scenes/farm.tscn" id="3_fc18y"]
 
@@ -111,10 +110,10 @@ _data = {
 [node name="Circle Hub" type="Node2D"]
 z_index = 1
 scale = Vector2(0.745, 0.745)
-script = ExtResource("1_5q2dv")
 
 [node name="Roof" type="Sprite2D" parent="."]
 modulate = Color(0.804743, 0.804743, 0.804743, 1)
+self_modulate = Color(1, 1, 1, 0)
 light_mask = 0
 z_index = 3
 position = Vector2(2.68456, -390.604)

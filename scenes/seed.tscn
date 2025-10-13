@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3w4cpinjn8dd"]
+
+[ext_resource type="Script" uid="uid://bc4ua4pf2tic2" path="res://scenes/seed.gd" id="1_m0bgt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ref04"]
+radius = 20.615528
+
+[node name="Seed" type="ColorRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.31551376, 0.1682393, 0.044631936, 1)
+script = ExtResource("1_m0bgt")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(19, 19)
+shape = SubResource("CircleShape2D_ref04")

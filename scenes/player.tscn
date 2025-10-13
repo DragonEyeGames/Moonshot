@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://313clql8xlh4"]
+[gd_scene load_steps=18 format=3 uid="uid://313clql8xlh4"]
 
 [ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://scripts/player.gd" id="1_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cqcdyf84adame" path="res://assets/icon.svg" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://bh8srau4aa02y" path="res://assets/helmet-310867_1920.png" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://dyysu3210vtw8" path="res://assets/flashlight.png" id="4_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://y61752g3nw8m" path="res://assets/square.png" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://w2ju0oer6ydy" path="res://scenes/seed_bag.tscn" id="6_tuyoq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aq4fw"]
 radius = 72.0
@@ -129,6 +130,9 @@ _data = {
 &"revealToArm": SubResource("Animation_tuyoq")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
+radius = 52.751602
+
 [sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_fjrip"]
 target_nodepath = NodePath("../../IK Targets/TIP")
 tip_nodepath = NodePath("Base/Segment/Hand")
@@ -196,25 +200,35 @@ position = Vector2(801, 709)
 
 [node name="Square2" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 position = Vector2(257, 381)
-rotation = -1.3038228
+rotation = -1.3038225
 scale = Vector2(1.960416, 0.99998677)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square3" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
-position = Vector2(374.42432, 45.968628)
-rotation = -2.3165321
-scale = Vector2(2.2771451, 0.9999992)
+position = Vector2(374.42456, 45.96869)
+rotation = -2.316532
+scale = Vector2(2.2771451, 0.99999917)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square4" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(96.99982, -293.99994)
-rotation = -2.3168666
-scale = Vector2(0.9999997, 0.9999997)
+position = Vector2(97.00012, -293.99994)
+rotation = -2.3168664
+scale = Vector2(0.9999998, 0.9999998)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(92.512695, 7.0788574)
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/OverlayArm/Sprites/Square4"]
+position = Vector2(-53.87378, -21.031097)
+scale = Vector2(1.8277276, 2.0310116)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/OverlayArm/Sprites/Square4/Area2D"]
+position = Vector2(75.39637, 15.6974125)
+shape = SubResource("CircleShape2D_qlg0r")
 
 [node name="Square5" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites/Square4"]
 self_modulate = Color(0.32482845, 0.19841483, 0.042716093, 1)
@@ -280,6 +294,8 @@ position = Vector2(97, -294)
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="SeedBag" parent="CanvasLayer" instance=ExtResource("6_tuyoq")]
 
 [node name="Area2D" type="Area2D" parent="."]
 z_index = 100

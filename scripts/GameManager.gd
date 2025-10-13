@@ -31,6 +31,8 @@ var baseCarbon=200
 
 var playerTool=""
 
+var interactedItem
+
 var carbon=0.0
 
 var camera

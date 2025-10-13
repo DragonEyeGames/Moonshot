@@ -3,13 +3,18 @@ extends CharacterBody2D
 
 @export var  speed = 300.0
 
+var handHeldItem=""
+
 func _ready() -> void:
 	flashlightEvents()
 	GameManager.playerAnimator=$StateController
 
 func _process(delta: float) -> void:
 	$CanvasLayer/OverlayArm/Sprites/Square4/Square5.visible=GameManager.playerTool=="rag"
-	print(GameManager.baseCarbon)
+	$CanvasLayer/SeedBag.visible=GameManager.playerTool=="seedBag"
+	if(handHeldItem!="" and Input.is_action_just_released("Interact")):
+		GameManager.interactedItem.dropSeeds()
+		$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(1, 1)
 	$"CanvasLayer/OverlayArm/IK Targets/TIP".global_position=get_viewport().get_mouse_position()
 	$Area2D.global_position=get_global_mouse_position()
 	$Helmet/PointLight2D.look_at(get_global_mouse_position())
@@ -45,3 +50,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		area.get_parent().modulate.a-=.5
 		if(area.get_parent().modulate.a<=.1):
 			area.get_parent().queue_free()
+			
+func pickUp(item):
+	$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(.9, .9)
+	handHeldItem=item

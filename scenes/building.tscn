@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ectb2uu36h7a"]
+[gd_scene load_steps=7 format=3 uid="uid://ectb2uu36h7a"]
 
 [ext_resource type="PackedScene" uid="uid://dstxvvp8b51n4" path="res://scenes/airlock.tscn" id="1_5j34s"]
 [ext_resource type="PackedScene" uid="uid://c6sw5rfxnhbc1" path="res://scenes/connectingHub.tscn" id="2_2yopf"]
 [ext_resource type="PackedScene" uid="uid://bhfbg0qejw4m0" path="res://scenes/solar_panels.tscn" id="3_f1gjg"]
 [ext_resource type="PackedScene" uid="uid://jcr4v1v1xrgu" path="res://scenes/kitchen.tscn" id="4_qnfc1"]
 [ext_resource type="PackedScene" uid="uid://rm5na5d8nlq5" path="res://scenes/hallway.tscn" id="5_0rysw"]
+[ext_resource type="PackedScene" uid="uid://cpv0gjbcloq3p" path="res://scenes/greenhouse.tscn" id="6_f5uvq"]
 
 [node name="Building" type="Node2D"]
 
@@ -23,3 +24,6 @@ position = Vector2(2448, -2096.0002)
 [node name="Hallway" parent="." instance=ExtResource("5_0rysw")]
 position = Vector2(1184, -2008)
 scale = Vector2(0.865, 1)
+
+[node name="Circle Hub2" parent="." instance=ExtResource("6_f5uvq")]
+position = Vector2(-1759, -623)

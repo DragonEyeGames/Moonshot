@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5eiodc6x61h"]
+[gd_scene load_steps=4 format=3 uid="uid://c5eiodc6x61h"]
 
 [ext_resource type="Script" uid="uid://ci5ughirdgwn8" path="res://scenes/farm.gd" id="1_o03py"]
+[ext_resource type="PackedScene" uid="uid://c3w4cpinjn8dd" path="res://scenes/seed.tscn" id="2_kjpqf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o03py"]
 radius = 337.0534
@@ -16,41 +17,47 @@ script = ExtResource("1_o03py")
 [node name="ColorRect" type="ColorRect" parent="."]
 show_behind_parent = true
 layout_mode = 0
-offset_left = -34.899323
-offset_top = -26.845638
-offset_right = 493.95975
-offset_bottom = 520.80536
+offset_left = 494.47653
+offset_top = -20.100674
+offset_right = 1023.3356
+offset_bottom = 527.55035
+rotation = 1.5707964
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 52.349
-offset_right = 104.69799
-offset_bottom = 483.2215
+offset_left = 466.4765
+offset_top = 324.89935
+offset_right = 518.8255
+offset_bottom = 808.12085
+rotation = 1.5707964
 color = Color(0.18845937, 0.09082221, 0.005555805, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 165.10068
-offset_top = -1.3422614
-offset_right = 217.44968
-offset_bottom = 481.87924
+offset_left = 458.47653
+offset_top = 230.89934
+offset_right = 510.82553
+offset_bottom = 714.12085
+rotation = 1.5707964
 color = Color(0.18845937, 0.09082221, 0.005555805, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 264.42953
-offset_top = -2.6845434
-offset_right = 316.77853
-offset_bottom = 480.53696
+offset_left = 458.4765
+offset_top = 117.89934
+offset_right = 510.8255
+offset_bottom = 601.12085
+rotation = 1.5707964
 color = Color(0.18845937, 0.09082221, 0.005555805, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 362.4161
-offset_top = 1.3423026
-offset_right = 414.7651
-offset_bottom = 484.5638
+offset_left = 469.4765
+offset_top = 4.8993397
+offset_right = 521.8255
+offset_bottom = 488.12085
+rotation = 1.5707964
 color = Color(0.18845937, 0.09082221, 0.005555805, 1)
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -60,6 +67,42 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(220.47652, 229.89934)
 shape = SubResource("CircleShape2D_o03py")
+
+[node name="ZoomPoint" type="Node2D" parent="."]
+position = Vector2(217.47652, 233.89934)
+
+[node name="SeedDropper" type="Node2D" parent="."]
+position = Vector2(226.47652, 237.89934)
+
+[node name="ColorRect6" parent="SeedDropper" instance=ExtResource("2_kjpqf")]
+offset_left = -74.0
+offset_top = 11.0
+offset_right = -34.0
+offset_bottom = 51.000015
+
+[node name="ColorRect" parent="SeedDropper" instance=ExtResource("2_kjpqf")]
+offset_left = 14.0
+offset_top = 78.0
+offset_right = 54.0
+offset_bottom = 118.0
+
+[node name="ColorRect2" parent="SeedDropper" instance=ExtResource("2_kjpqf")]
+offset_left = 91.0
+offset_top = -9.0
+offset_right = 131.0
+offset_bottom = 31.0
+
+[node name="Seed2" parent="SeedDropper" instance=ExtResource("2_kjpqf")]
+offset_left = 34.0
+offset_top = -74.0
+offset_right = 74.0
+offset_bottom = -34.0
+
+[node name="Seed3" parent="SeedDropper" instance=ExtResource("2_kjpqf")]
+offset_left = -70.0
+offset_top = -75.0
+offset_right = -30.0
+offset_bottom = -35.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -97,6 +97,14 @@ Escape={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Ground"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Rag Thing"
+2d_physics/layer_4="Seedz"
+2d_physics/layer_5="Farm Bologna"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

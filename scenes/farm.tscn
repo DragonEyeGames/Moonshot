@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5eiodc6x61h"]
+[gd_scene load_steps=6 format=3 uid="uid://c5eiodc6x61h"]
 
 [ext_resource type="Script" uid="uid://ci5ughirdgwn8" path="res://scenes/farm.gd" id="1_o03py"]
+[ext_resource type="Script" uid="uid://sryc24cvut1g" path="res://scenes/dropper.gd" id="2_jjgid"]
 [ext_resource type="PackedScene" uid="uid://c3w4cpinjn8dd" path="res://scenes/seed.tscn" id="2_kjpqf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o03py"]
 radius = 337.0534
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgid"]
+size = Vector2(476.4765, 491.89935)
 
 [node name="Farm" type="ColorRect"]
 offset_left = -221.47652
@@ -72,7 +76,9 @@ shape = SubResource("CircleShape2D_o03py")
 position = Vector2(217.47652, 233.89934)
 
 [node name="SeedDropper" type="Node2D" parent="."]
-position = Vector2(226.47652, 237.89934)
+visible = false
+position = Vector2(206.47652, -364.10065)
+script = ExtResource("2_jjgid")
 
 [node name="ColorRect6" parent="SeedDropper" instance=ExtResource("2_kjpqf")]
 offset_left = -74.0
@@ -103,6 +109,14 @@ offset_left = -70.0
 offset_top = -75.0
 offset_right = -30.0
 offset_bottom = -35.0
+
+[node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(228.23825, 235.94968)
+shape = SubResource("RectangleShape2D_jjgid")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

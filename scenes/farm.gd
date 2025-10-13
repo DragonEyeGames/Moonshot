@@ -25,4 +25,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	collision=false
 	
 func dropSeeds():
-	pass
+	var dropper=$SeedDropper.duplicate()
+	dropper.visible=true
+	add_child(dropper)
+	dropper.global_position=get_global_mouse_position()
+	dropper.placed=true

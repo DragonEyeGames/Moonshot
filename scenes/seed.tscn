@@ -8,7 +8,8 @@ radius = 20.615528
 [node name="Seed" type="ColorRect"]
 offset_right = 40.0
 offset_bottom = 40.0
-color = Color(0.31551376, 0.1682393, 0.044631936, 1)
+scale = Vector2(0.5, 0.5)
+color = Color(0.12307157, 0.24337173, 0.12275327, 1)
 script = ExtResource("1_m0bgt")
 
 [node name="Area2D" type="Area2D" parent="."]

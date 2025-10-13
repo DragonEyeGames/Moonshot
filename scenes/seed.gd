@@ -11,12 +11,11 @@ func _process(delta: float) -> void:
 		fallDistance-=delta*fallSpeed
 		if(fallDistance<0):
 			fallDistance=0
-			print("STAP")
-		if(fallDistance==0 and colliding):
-			print("BOTANISTS")
+		if(fallDistance==0 and not colliding):
+			queue_free()
+			
 	
 func fall():
-	print("FAAAAAAALLLLLLLING")
 	fallDistance=randi_range(70, 130)
 	fallSpeed=randf_range(90, 110)
 	fallSpeed*=2

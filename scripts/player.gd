@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 	$CanvasLayer/SeedBag.visible=GameManager.playerTool=="seedBag"
 	if(handHeldItem!="" and Input.is_action_just_released("Click")):
 		GameManager.interactedItem.dropSeeds()
+		handHeldItem=""
 		$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(1, 1)
 	$"CanvasLayer/OverlayArm/IK Targets/TIP".global_position=get_viewport().get_mouse_position()
 	$Area2D.global_position=get_global_mouse_position()

@@ -35,6 +35,7 @@ func _process(delta: float) -> void:
 		canZoom=false
 		GameManager.playerMove=false
 		GameManager.playerAnimator.play("fadeToArm")
+		GameManager.playerTool="rag"
 		await get_tree().create_timer(1.1).timeout
 		canZoom=true
 	elif(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and zoomed and canZoom):
@@ -42,6 +43,7 @@ func _process(delta: float) -> void:
 		zoomed=false
 		GameManager.playerAnimator.play("revealToArm")
 		await get_tree().create_timer(1.1).timeout
+		GameManager.playerTool=""
 		GameManager.playerMove=true
 		canZoom=true
 

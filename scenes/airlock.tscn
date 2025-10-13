@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dstxvvp8b51n4"]
+[gd_scene load_steps=28 format=3 uid="uid://dstxvvp8b51n4"]
 
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="1_5j34s"]
 [ext_resource type="Texture2D" uid="uid://bojfmxqgvlflk" path="res://assets/AirlockAssets/backWall.png" id="2_0mhj0"]
@@ -85,6 +85,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(188, 345), Vector2(460, 346)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FrontDoors:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BackDoors:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_wx2ty"]
 length = 0.001
@@ -148,6 +172,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(188, 345)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BackDoors:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("FrontDoors:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_wvv8k"]
 resource_name = "open"
@@ -179,10 +227,87 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_kwrd5"]
+resource_name = "exit"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrontDoors/door2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(204, -158), Vector2(414, -158)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FrontDoors/door:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(211, -158), Vector2(-56, -158)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BackDoors/door3:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-43, 346), Vector2(188, 346)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BackDoors/door4:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(460, 346), Vector2(188, 346)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BackDoors:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FrontDoors:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wx2ty"]
 _data = {
 &"RESET": SubResource("Animation_wx2ty"),
 &"close": SubResource("Animation_18ctq"),
+&"exit": SubResource("Animation_kwrd5"),
 &"open": SubResource("Animation_wvv8k"),
 &"seal": SubResource("Animation_0mhj0")
 }
@@ -192,7 +317,15 @@ size = Vector2(744, 820)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bc5nu"]
 cull_mode = 1
-polygon = PackedVector2Array(-440, -496, -440, -152, -216, -152, -216, -496)
+polygon = PackedVector2Array(-744, 276, 48, 284, 76, -236, -204, -248, -200, -692, 96, -676, 104, -1080, -720, -1076)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wx2ty"]
+cull_mode = 1
+polygon = PackedVector2Array(-744, 276, 0, 288, -28, -216, 276, -236, 252, -660, -24, -648, -40, -1084, -720, -1076)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0mhj0"]
+cull_mode = 1
+polygon = PackedVector2Array(-368, -412, 424, -416, 376, -1752, -332, -1756, -340, -1364, -620, -1356, -640, -908, -352, -864)
 
 [node name="Airlock" type="Node2D"]
 script = ExtResource("1_5j34s")
@@ -310,6 +443,7 @@ libraries = {
 }
 
 [node name="FrontDoors" type="Control" parent="."]
+visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
@@ -332,7 +466,8 @@ shape = SubResource("RectangleShape2D_f1gjg")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="FrontDoors/door2"]
 self_modulate = Color(1, 1, 1, 0)
-position = Vector2(440, 496)
+position = Vector2(140, 1944)
+scale = Vector2(-1, 1)
 occluder = SubResource("OccluderPolygon2D_bc5nu")
 
 [node name="door" type="Sprite2D" parent="FrontDoors"]
@@ -349,8 +484,8 @@ shape = SubResource("RectangleShape2D_f1gjg")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="FrontDoors/door"]
 show_behind_parent = true
-position = Vector2(440, 496)
-occluder = SubResource("OccluderPolygon2D_bc5nu")
+position = Vector2(60, 1932)
+occluder = SubResource("OccluderPolygon2D_wx2ty")
 sdf_collision = false
 
 [node name="BackDoors" type="Control" parent="."]
@@ -375,7 +510,7 @@ position = Vector2(-285, -310)
 shape = SubResource("RectangleShape2D_f1gjg")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="BackDoors/door3"]
-position = Vector2(440, 496)
+position = Vector2(40, -176)
 occluder = SubResource("OccluderPolygon2D_bc5nu")
 
 [node name="door4" type="Sprite2D" parent="BackDoors"]
@@ -392,7 +527,15 @@ shape = SubResource("RectangleShape2D_f1gjg")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="BackDoors/door4"]
 position = Vector2(440, 496)
-occluder = SubResource("OccluderPolygon2D_bc5nu")
+occluder = SubResource("OccluderPolygon2D_0mhj0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -212.0
+offset_top = -363.0
+offset_right = 260.0
+offset_bottom = 552.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

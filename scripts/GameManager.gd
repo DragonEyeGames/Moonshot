@@ -29,6 +29,8 @@ var sunPower=0
 var baseOxygen=700
 var baseCarbon=200
 
+var playerTool=""
+
 var carbon=0.0
 
 var camera

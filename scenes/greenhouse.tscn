@@ -1,10 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cpv0gjbcloq3p"]
+[gd_scene load_steps=11 format=3 uid="uid://cpv0gjbcloq3p"]
 
 [ext_resource type="Script" uid="uid://ce4ppyi0o0lys" path="res://scripts/connectingHub.gd" id="1_5q2dv"]
 [ext_resource type="Texture2D" uid="uid://i158conio5sl" path="res://assets/circle.png" id="2_vep7u"]
-[ext_resource type="PackedScene" uid="uid://f7m0p5xdy0wb" path="res://scenes/waterReclaimer.tscn" id="5_s8ig7"]
-[ext_resource type="PackedScene" uid="uid://baqwa2wch57ys" path="res://scenes/bed.tscn" id="6_eosr2"]
-[ext_resource type="PackedScene" uid="uid://dpvvx0k4pp6gi" path="res://scenes/suit_holder.tscn" id="7_yg6i4"]
 
 [sub_resource type="Animation" id="Animation_mt53i"]
 length = 0.001
@@ -147,19 +144,6 @@ position = Vector2(8, -40)
 scale = Vector2(1, 4.92)
 shape = SubResource("CircleShape2D_mt53i")
 
-[node name="Water Reclaimer" parent="." instance=ExtResource("5_s8ig7")]
-offset_left = 428.18793
-offset_top = -553.02014
-offset_right = 747.188
-offset_bottom = -283.65015
-
-[node name="Temperature" type="ColorRect" parent="."]
-offset_left = 37.5839
-offset_top = -1139.6
-offset_right = 356.584
-offset_bottom = -974.597
-color = Color(0.18359, 0.18359, 0.18359, 1)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 scale = Vector2(1, 0.73)
 
@@ -181,11 +165,52 @@ libraries = {
 &"": SubResource("AnimationLibrary_c6oqt")
 }
 
-[node name="Bed" parent="." instance=ExtResource("6_eosr2")]
-position = Vector2(-1.3422699, -13.422852)
+[node name="Farm" type="ColorRect" parent="."]
+offset_left = -221.47652
+offset_top = -234.89934
+offset_right = 237.58391
+offset_bottom = 244.2953
+color = Color(0.26150593, 0.14489442, 0.021798393, 1)
 
-[node name="SuitHolder" parent="." instance=ExtResource("7_yg6i4")]
-position = Vector2(327.51678, 628.1879)
+[node name="ColorRect" type="ColorRect" parent="Farm"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -34.899323
+offset_top = -26.845638
+offset_right = 493.95975
+offset_bottom = 520.80536
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Farm"]
+layout_mode = 0
+offset_left = 52.349
+offset_right = 104.69799
+offset_bottom = 483.2215
+color = Color(0.18845937, 0.09082221, 0.005555805, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Farm"]
+layout_mode = 0
+offset_left = 165.10068
+offset_top = -1.3422614
+offset_right = 217.44968
+offset_bottom = 481.87924
+color = Color(0.18845937, 0.09082221, 0.005555805, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Farm"]
+layout_mode = 0
+offset_left = 264.42953
+offset_top = -2.6845434
+offset_right = 316.77853
+offset_bottom = 480.53696
+color = Color(0.18845937, 0.09082221, 0.005555805, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Farm"]
+layout_mode = 0
+offset_left = 362.4161
+offset_top = 1.3423026
+offset_right = 414.7651
+offset_bottom = 484.5638
+color = Color(0.18845937, 0.09082221, 0.005555805, 1)
 
 [connection signal="body_entered" from="Area2D" to="." method="playerEnter"]
 [connection signal="body_exited" from="Area2D" to="." method="playerExit"]

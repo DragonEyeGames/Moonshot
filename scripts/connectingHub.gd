@@ -19,8 +19,6 @@ func _process(delta: float) -> void:
 		GameManager.basePower-=($PointLight2D2.energy/4)*delta
 	else:
 		$PointLight2D2.energy=0
-	if(GameManager.playerState=="inside" and GameManager.helmet.visible==false):
-		GameManager.baseOxygen-=.4*delta
 	electronicPrioritizing()
 	
 func electronicPrioritizing():

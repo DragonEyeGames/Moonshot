@@ -8,6 +8,8 @@ func _ready() -> void:
 	GameManager.playerAnimator=$StateController
 
 func _process(delta: float) -> void:
+	$CanvasLayer/OverlayArm/Sprites/Square4/Square5.visible=GameManager.playerTool=="rag"
+	print(GameManager.baseCarbon)
 	$"CanvasLayer/OverlayArm/IK Targets/TIP".global_position=get_viewport().get_mouse_position()
 	$Area2D.global_position=get_global_mouse_position()
 	$Helmet/PointLight2D.look_at(get_global_mouse_position())

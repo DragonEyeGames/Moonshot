@@ -13,11 +13,10 @@ config_version=5
 config/name="Moonshot"
 run/main_scene="uid://dnnka5th1gldj"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://GameManager.gd"
+GameManager="*res://scripts/GameManager.gd"
 
 [display]
 

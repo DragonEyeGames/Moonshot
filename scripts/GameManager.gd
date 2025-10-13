@@ -16,9 +16,9 @@ var baseWater=100
 var baseHumidity=0
 var suitHumidity=0
 
-var solarOutput=0
+var solarOutput:=0
 
-var playerAnimator
+var playerAnimator: AnimationPlayer
 
 var basePower=200
 var health=100

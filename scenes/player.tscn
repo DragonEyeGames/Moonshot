@@ -212,7 +212,7 @@ offset = Vector2(86, 27.586182)
 self_modulate = Color(0, 0, 0, 1)
 position = Vector2(96.99982, -293.99994)
 rotation = -2.3168666
-scale = Vector2(0.9999995, 0.9999995)
+scale = Vector2(0.9999997, 0.9999997)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(92.512695, 7.0788574)
 

@@ -2,16 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxtf4ma6b5hs8"
-path="res://.godot/imported/wurterJug.png-c2b666855f3da236e5da5319a6fdf317.ctex"
-metadata={
-"vram_texture": false
-}
+uid="uid://cwbpqefh0acj"
+valid=false
 
 [deps]
 
 source_file="res://wurterJug.png"
-dest_files=["res://.godot/imported/wurterJug.png-c2b666855f3da236e5da5319a6fdf317.ctex"]
 
 [params]
 

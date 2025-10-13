@@ -2,16 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c70althcu8by2"
-path="res://.godot/imported/cup.png-f1e711920d2209c3c148ed4464799336.ctex"
-metadata={
-"vram_texture": false
-}
+uid="uid://chqg17i03yagd"
+valid=false
 
 [deps]
 
 source_file="res://cup.png"
-dest_files=["res://.godot/imported/cup.png-f1e711920d2209c3c148ed4464799336.ctex"]
 
 [params]
 

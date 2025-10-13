@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpvvx0k4pp6gi"]
+
+[ext_resource type="Script" uid="uid://7vutdwq0ar2g" path="res://scripts/suit_holder.gd" id="1_p73ck"]
+[ext_resource type="Texture2D" uid="uid://bh8srau4aa02y" path="res://assets/helmet-310867_1920.png" id="1_q3247"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dc0bu"]
+radius = 132.0972
+
+[node name="SuitHolder" type="Node2D"]
+script = ExtResource("1_p73ck")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -76.510056
+offset_top = -68.45642
+offset_right = 77.852356
+offset_bottom = 71.14099
+color = Color(0.14767182, 0.14767179, 0.14767179, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dc0bu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_q3247")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

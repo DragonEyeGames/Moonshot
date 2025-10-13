@@ -1,0 +1,191 @@
+[gd_scene load_steps=14 format=3 uid="uid://cpv0gjbcloq3p"]
+
+[ext_resource type="Script" uid="uid://ce4ppyi0o0lys" path="res://scripts/connectingHub.gd" id="1_5q2dv"]
+[ext_resource type="Texture2D" uid="uid://i158conio5sl" path="res://assets/circle.png" id="2_vep7u"]
+[ext_resource type="PackedScene" uid="uid://f7m0p5xdy0wb" path="res://scenes/waterReclaimer.tscn" id="5_s8ig7"]
+[ext_resource type="PackedScene" uid="uid://baqwa2wch57ys" path="res://scenes/bed.tscn" id="6_eosr2"]
+[ext_resource type="PackedScene" uid="uid://dpvvx0k4pp6gi" path="res://scenes/suit_holder.tscn" id="7_yg6i4"]
+
+[sub_resource type="Animation" id="Animation_mt53i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.804743, 0.804743, 0.804743, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Roof:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ejodb"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.804743, 0.804743, 0.804743, 1), Color(0.803922, 0.803922, 0.803922, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_48xji"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.803922, 0.803922, 0.803922, 0), Color(0.803922, 0.803922, 0.803922, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2keeq"]
+_data = {
+&"RESET": SubResource("Animation_mt53i"),
+&"hide": SubResource("Animation_ejodb"),
+&"show": SubResource("Animation_48xji")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mt53i"]
+radius = 1210.01
+
+[sub_resource type="Animation" id="Animation_foqtn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t0r7i"]
+resource_name = "danger"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c6oqt"]
+_data = {
+&"RESET": SubResource("Animation_foqtn"),
+&"danger": SubResource("Animation_t0r7i")
+}
+
+[node name="Circle Hub" type="Node2D"]
+z_index = 1
+scale = Vector2(0.745, 0.745)
+script = ExtResource("1_5q2dv")
+
+[node name="Roof" type="Sprite2D" parent="."]
+modulate = Color(0.804743, 0.804743, 0.804743, 1)
+light_mask = 0
+z_index = 3
+position = Vector2(2.68456, -390.604)
+scale = Vector2(8.785, 6.515)
+texture = ExtResource("2_vep7u")
+
+[node name="State" type="AnimationPlayer" parent="Roof"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_2keeq")
+}
+
+[node name="Floor" type="Sprite2D" parent="."]
+modulate = Color(0.310617, 0.310617, 0.310617, 1)
+z_index = -1
+position = Vector2(8, -8)
+scale = Vector2(8.785, 6.515)
+texture = ExtResource("2_vep7u")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+scale = Vector2(1, 0.145)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, -40)
+scale = Vector2(1, 4.92)
+shape = SubResource("CircleShape2D_mt53i")
+
+[node name="Water Reclaimer" parent="." instance=ExtResource("5_s8ig7")]
+offset_left = 428.18793
+offset_top = -553.02014
+offset_right = 747.188
+offset_bottom = -283.65015
+
+[node name="Temperature" type="ColorRect" parent="."]
+offset_left = 37.5839
+offset_top = -1139.6
+offset_right = 356.584
+offset_bottom = -974.597
+color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(1, 0.73)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-310.067, 1107.38, -554.362, 1016.11, -849.664, 778.523, -1075.17, 464.43, -1167.79, 112.752, -1135.57, -379.866, -902.013, -798.658, -445.638, -1140.94, -88.5906, -1221.48, 255.034, -1198.66, 569.128, -1080.54, 879.195, -830.872, 1087.25, -520.805, 1159.7314, -262.94016, 1191.9463, -275.81134, 1194.63, -323.49, 1051.01, -646.98, 771.812, -985.235, 555.705, -1118.12, 236.242, -1249.66, -316.779, -1225.5, -672.483, -1051.01, -939.597, -812.081, -1159.73, -421.477, -1225.5, 12.0805, -1158.39, 386.577, -967.785, 714.094, -805.369, 888.591, -565.101, 1059.06, -312.752, 1153.02)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(1126.1744, 327.2961, 1157.0469, 338.32858, 1146.3087, 380.61966, 1097.9866, 496.46042, 970.4697, 707.9158, 859.06036, 842.144, 677.8523, 996.5983, 453.69125, 1108.7616, 276.51004, 1151.0526, 276.51004, 1128.9878, 426.8456, 1088.5354, 524.8322, 1037.0507, 712.75165, 923.0486, 915.4362, 717.1095, 1075.1677, 463.36304)
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(4.026846, -22.81879)
+scale = Vector2(11.207, 8.176)
+texture = ExtResource("2_vep7u")
+texture_scale = 0.8
+height = 1024.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PointLight2D2"]
+libraries = {
+&"": SubResource("AnimationLibrary_c6oqt")
+}
+
+[node name="Bed" parent="." instance=ExtResource("6_eosr2")]
+position = Vector2(-1.3422699, -13.422852)
+
+[node name="SuitHolder" parent="." instance=ExtResource("7_yg6i4")]
+position = Vector2(327.51678, 628.1879)
+
+[connection signal="body_entered" from="Area2D" to="." method="playerEnter"]
+[connection signal="body_exited" from="Area2D" to="." method="playerExit"]

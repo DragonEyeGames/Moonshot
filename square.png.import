@@ -2,16 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y61752g3nw8m"
-path="res://.godot/imported/square.png-51b8b31f216285d75f625619e7157806.ctex"
-metadata={
-"vram_texture": false
-}
+uid="uid://b2p0sllwlax07"
+valid=false
 
 [deps]
 
 source_file="res://square.png"
-dest_files=["res://.godot/imported/square.png-51b8b31f216285d75f625619e7157806.ctex"]
 
 [params]
 

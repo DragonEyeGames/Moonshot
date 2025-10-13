@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhfbg0qejw4m0"]
+
+[ext_resource type="PackedScene" uid="uid://d1n5hu37p0cb8" path="res://scenes/panel.tscn" id="1_msrpr"]
+
+[node name="Solar Panels" type="Node2D"]
+
+[node name="Panel" parent="." instance=ExtResource("1_msrpr")]
+offset_left = 712.0
+offset_top = 47.0
+offset_right = 992.0
+offset_bottom = 615.0
+
+[node name="Panel2" parent="." instance=ExtResource("1_msrpr")]
+offset_left = -188.0
+offset_top = 47.0
+offset_right = 92.0
+offset_bottom = 615.0

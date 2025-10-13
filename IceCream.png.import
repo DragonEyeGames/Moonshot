@@ -2,16 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5q3d26io6w74"
-path="res://.godot/imported/IceCream.png-094b387f826ddfeade23e8638266b776.ctex"
-metadata={
-"vram_texture": false
-}
+uid="uid://djfej63pgluf2"
+valid=false
 
 [deps]
 
 source_file="res://IceCream.png"
-dest_files=["res://.godot/imported/IceCream.png-094b387f826ddfeade23e8638266b776.ctex"]
 
 [params]
 

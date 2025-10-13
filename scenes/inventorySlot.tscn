@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://coamir61ehm7a"]
+
+[ext_resource type="Texture2D" uid="uid://dshej1qvgo0ir" path="res://assets/Inventory.png" id="1_fu0vh"]
+[ext_resource type="Script" uid="uid://bfd5brr76ecg7" path="res://scripts/inventorySlot.gd" id="1_x41mc"]
+[ext_resource type="PackedScene" uid="uid://b8fbtnlq1oocd" path="res://scenes/inventoryItems.tscn" id="2_x41mc"]
+
+[node name="Slot" type="Control"]
+custom_minimum_size = Vector2(300, 256)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_x41mc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.785767
+offset_top = 41.071533
+offset_right = -51.92859
+offset_bottom = -31.6427
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.40392157)
+
+[node name="Inventory" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+position = Vector2(128, 160)
+scale = Vector2(0.98, 0.98)
+texture = ExtResource("1_fu0vh")
+
+[node name="Outline" type="Sprite2D" parent="."]
+position = Vector2(128, 160)
+texture = ExtResource("1_fu0vh")
+
+[node name="InventoryItems" parent="." instance=ExtResource("2_x41mc")]
+position = Vector2(124.85711, 185.7144)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 256.0
+offset_bottom = 288.0
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

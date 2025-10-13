@@ -1,0 +1,121 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp884u7yo5ue"]
+
+[ext_resource type="Script" uid="uid://b7gq5aprsioys" path="res://scripts/energyMonitor.gd" id="1_tmmqt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmmqt"]
+radius = 278.25888
+
+[node name="EnergyPanel" type="ColorRect"]
+offset_left = -152.0
+offset_top = -150.0
+offset_right = 166.9997
+offset_bottom = 133.22156
+pivot_offset = Vector2(155.72, 153.015)
+color = Color(0.18359, 0.18359, 0.18359, 1)
+script = ExtResource("1_tmmqt")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 318.12085
+offset_bottom = 67.1142
+theme_override_font_sizes/normal_font_size = 42
+text = "ENERGY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 106.489944
+offset_top = 119.65781
+offset_right = 189.71144
+offset_bottom = 155.89944
+color = Color(0.029506557, 0.029506557, 0.029506557, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 0
+offset_right = 84.56378
+offset_bottom = 37.583923
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 198.76509
+offset_top = 119.64432
+offset_right = 281.98657
+offset_bottom = 155.88596
+color = Color(0.029506557, 0.029506557, 0.029506557, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect3"]
+layout_mode = 0
+offset_right = 84.56378
+offset_bottom = 37.583923
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 14.765089
+offset_top = 119.64432
+offset_right = 97.98659
+offset_bottom = 155.88596
+color = Color(0.029506557, 0.029506557, 0.029506557, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect4"]
+layout_mode = 0
+offset_right = 84.56378
+offset_bottom = 37.583923
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 112.76509
+offset_top = 96.64432
+offset_right = 193.30202
+offset_bottom = 136.64432
+text = "CURRENT"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 20.765089
+offset_top = 96.64432
+offset_right = 101.30202
+offset_bottom = 136.64432
+text = "INPUT"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 197.76509
+offset_top = 96.64432
+offset_right = 292.76508
+offset_bottom = 136.64432
+text = "CHANGE"
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = -1
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(155, 175)
+shape = SubResource("CircleShape2D_tmmqt")
+
+[node name="ZoomPoint" type="Node2D" parent="."]
+position = Vector2(156, 153)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

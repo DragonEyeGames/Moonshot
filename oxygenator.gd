@@ -1,6 +1,5 @@
 extends Electronic
 
-var overriden=false
 var colliding=false
 var zoomed = false
 var canZoom=true

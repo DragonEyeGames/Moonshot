@@ -1,0 +1,153 @@
+[gd_scene load_steps=15 format=3 uid="uid://csk5nfyi47xdp"]
+
+[ext_resource type="Script" uid="uid://dilfx7ei5wrr0" path="res://scripts/hud.gd" id="1_37p78"]
+[ext_resource type="PackedScene" uid="uid://coamir61ehm7a" path="res://scenes/inventorySlot.tscn" id="2_64ctp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61f8s"]
+bg_color = Color(0.5555985, 0.69966775, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g10ll"]
+bg_color = Color(0.7875102, 0.8585349, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_640wx"]
+bg_color = Color(0.41898027, 0.3666514, 0.11657084, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2258"]
+bg_color = Color(0.6666667, 0.5882353, 0.21568628, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64ctp"]
+bg_color = Color(0.111655, 0.316069, 0.144895, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sq4i"]
+bg_color = Color(0.188235, 0.67451, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xsix"]
+bg_color = Color(0.39416727, 0.17881674, 0.04693389, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rftc2"]
+bg_color = Color(0.660212, 0.3239567, 0.11432507, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpiub"]
+bg_color = Color(0.078431375, 0.18039216, 0.77254903, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amv7k"]
+bg_color = Color(0.2881284, 0.46765363, 0.9791246, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fv7p"]
+bg_color = Color(0.54885155, 0.09412434, 0.031897306, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4u2vk"]
+bg_color = Color(0.84526026, 0.17486033, 0.08260592, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_37p78")
+
+[node name="Stats" type="VBoxContainer" parent="."]
+offset_left = 1336.0
+offset_top = 24.0
+offset_right = 1880.0
+offset_bottom = 352.0
+
+[node name="Oxygen" type="ProgressBar" parent="Stats"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_61f8s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_g10ll")
+value = 100.0
+
+[node name="Stamina" type="ProgressBar" parent="Stats"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_640wx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_a2258")
+value = 100.0
+
+[node name="Energy" type="ProgressBar" parent="Stats"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_64ctp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8sq4i")
+value = 100.0
+
+[node name="Food" type="ProgressBar" parent="Stats"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_1xsix")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rftc2")
+value = 100.0
+
+[node name="Water" type="ProgressBar" parent="Stats"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_gpiub")
+theme_override_styles/fill = SubResource("StyleBoxFlat_amv7k")
+max_value = 400.0
+value = 400.0
+
+[node name="Health" type="ProgressBar" parent="Stats"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_1fv7p")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4u2vk")
+value = 100.0
+
+[node name="Inventory" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.12083333
+anchor_top = 0.6148148
+anchor_right = 0.87083334
+anchor_bottom = 0.9037037
+offset_left = 344.0
+offset_top = 135.99994
+offset_right = 344.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.56, 0.56)
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Slot1" parent="Inventory" instance=ExtResource("2_64ctp")]
+layout_mode = 2
+
+[node name="Slot2" parent="Inventory" instance=ExtResource("2_64ctp")]
+layout_mode = 2
+slotIndex = 1
+
+[node name="Slot3" parent="Inventory" instance=ExtResource("2_64ctp")]
+layout_mode = 2
+slotIndex = 2
+
+[node name="Slot4" parent="Inventory" instance=ExtResource("2_64ctp")]
+layout_mode = 2
+slotIndex = 3
+
+[node name="Slot5" parent="Inventory" instance=ExtResource("2_64ctp")]
+layout_mode = 2
+slotIndex = 4
+
+[node name="Date+Time" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Day" type="RichTextLabel" parent="Date+Time"]
+layout_mode = 0
+offset_right = 328.0
+offset_bottom = 128.0
+theme_override_font_sizes/normal_font_size = 70
+text = "Day 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="RichTextLabel" parent="Date+Time"]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 328.0
+offset_bottom = 216.0
+theme_override_font_sizes/normal_font_size = 57
+text = "12:00"
+horizontal_alignment = 1
+vertical_alignment = 1

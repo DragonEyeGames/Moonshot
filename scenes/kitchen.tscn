@@ -1,0 +1,145 @@
+[gd_scene load_steps=11 format=3 uid="uid://jcr4v1v1xrgu"]
+
+[ext_resource type="Script" uid="uid://cfwx67ffc12eb" path="res://scripts/circle_hub.gd" id="1_ipk1y"]
+[ext_resource type="Texture2D" uid="uid://i158conio5sl" path="res://assets/circle.png" id="2_xsyy8"]
+[ext_resource type="PackedScene" uid="uid://sesvget8ak2p" path="res://scenes/shelf.tscn" id="3_xsyy8"]
+[ext_resource type="PackedScene" uid="uid://c2xxynf0fcwu0" path="res://scenes/waterStation.tscn" id="4_kdutl"]
+
+[sub_resource type="Animation" id="Animation_mt53i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.804743, 0.804743, 0.804743, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Roof:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ejodb"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.804743, 0.804743, 0.804743, 1), Color(0.803922, 0.803922, 0.803922, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_48xji"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.803922, 0.803922, 0.803922, 0), Color(0.803922, 0.803922, 0.803922, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2keeq"]
+_data = {
+&"RESET": SubResource("Animation_mt53i"),
+&"hide": SubResource("Animation_ejodb"),
+&"show": SubResource("Animation_48xji")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mt53i"]
+radius = 1210.01
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kdutl"]
+polygon = PackedVector2Array(-1824.3652, 707.75165, -1845.8417, 707.75165, -1802.8887, 471.51, -1588.1235, 192.31537, -1308.929, 9.765015, -965.3048, -108.355774, -406.91547, -129.83228, -84.76782, -33.18799, 129.99731, 63.4563, 409.1919, 310.4362, 548.7893, 546.6778, 581.004, 707.75165, 548.7893, 933.255, 473.62146, 1105.0671, 334.02417, 1298.3557, 65.56775, 1480.906, -278.05643, 1631.2417, -535.77454, 1663.4563, -804.23096, 1652.7181, -997.51953, 1609.7651, -1233.7612, 1545.3356, -1427.0498, 1448.6913, -1555.9088, 1352.047, -1759.9357, 1126.5436, -1716.9827, 1115.8054, -1534.4324, 1330.5704, -1394.835, 1427.2148, -1233.7612, 1513.1208, -997.51953, 1599.0269, -793.4927, 1631.2417, -525.0363, 1631.2417, -299.53293, 1588.2886, -74.02954, 1513.1208, 54.82953, 1437.953, 54.82953, 1437.953, 312.5476, 1266.1409, 473.62146, 1072.8523, 516.57446, 879.5637, 538.051, 729.22815, 516.57446, 578.8926, 441.40674, 396.34222, 334.02417, 267.48315, 226.6416, 170.83887, 65.56775, 63.4563, -74.02954, -0.97320557, -235.1034, -65.40277, -385.43896, -97.61749, -471.34503, -108.355774, -750.5397, -108.355774, -943.82825, -86.87927, -1104.9021, -43.92627, -1233.7612, 9.765015, -1351.882, 63.4563, -1437.7881, 117.14758, -1545.1707, 192.31537, -1631.0767, 299.69794, -1695.5061, 374.86572, -1781.4122, 503.7248)
+
+[node name="Kitchen" type="Node2D"]
+z_index = 1
+scale = Vector2(0.745, 0.745)
+script = ExtResource("1_ipk1y")
+
+[node name="Roof" type="Sprite2D" parent="."]
+modulate = Color(0.804743, 0.804743, 0.804743, 1)
+light_mask = 2
+z_index = 3
+position = Vector2(2.68456, -390.604)
+scale = Vector2(8.785, 6.515)
+texture = ExtResource("2_xsyy8")
+
+[node name="State" type="AnimationPlayer" parent="Roof"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_2keeq")
+}
+
+[node name="Floor" type="Sprite2D" parent="."]
+modulate = Color(0.310617, 0.310617, 0.310617, 1)
+z_index = -1
+position = Vector2(8, -8)
+scale = Vector2(8.785, 6.515)
+texture = ExtResource("2_xsyy8")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+scale = Vector2(1, 0.145)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, -40)
+scale = Vector2(1, 4.92)
+shape = SubResource("CircleShape2D_mt53i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(1, 0.73)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-1181.208, -102.96957, -1135.57, -379.866, -902.013, -798.658, -445.638, -1140.94, -88.5906, -1221.48, 255.034, -1198.66, 569.128, -1080.54, 879.195, -830.872, 1087.25, -520.805, 1178.52, -69.7987, 1110.07, 394.631, 959.732, 655.034, 696.644, 906.04, 569.1275, 1000.27576, 343.62415, 1103.2454, 118.120804, 1162.0851, -150.33557, 1162.0851, -354.3624, 1117.9553, -590.604, 1000.27576, -751.6778, 882.5963, -891.27515, 750.20685, -1073.8254, 456.0081, -1116.7784, 470.71802, -998.65765, 661.9472, -912.75165, 779.6267, -783.8926, 912.0162, -590.604, 1044.4056, -354.3624, 1132.6653, -161.07382, 1191.505, 107.382545, 1206.215, 365.10065, 1162.0851, 502.013, 1083.22, 708.725, 962.416, 982.55, 699.329, 1122.15, 441.611, 1194.63, 209.396, 1221.48, -99.3289, 1194.63, -323.49, 1051.01, -646.98, 771.812, -985.235, 555.705, -1118.12, 236.242, -1249.66, -316.779, -1225.5, -672.483, -1051.01, -939.597, -812.081, -1159.73, -421.477, -1202.6846, -102.96957)
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(-2.68456, -8.05369)
+scale = Vector2(11.207, 8.176)
+texture = ExtResource("2_xsyy8")
+texture_scale = 0.8
+height = 1024.0
+
+[node name="Shelf" parent="." instance=ExtResource("3_xsyy8")]
+position = Vector2(0, -139.59732)
+items = ["Mac", "Protein", "IceCream", "IceCream", "Protein", "", "", ""]
+
+[node name="Rehydrator" parent="." instance=ExtResource("4_kdutl")]
+position = Vector2(0, -826.84564)
+
+[node name="Shelf2" parent="." instance=ExtResource("3_xsyy8")]
+position = Vector2(418.79193, -601.3423)
+items = ["Cup", "Cup", "Cup", "Cup", "", "", "", ""]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(643.15704, -782.9194)
+occluder = SubResource("OccluderPolygon2D_kdutl")
+
+[connection signal="body_entered" from="Area2D" to="." method="playerEnter"]
+[connection signal="body_exited" from="Area2D" to="." method="playerExit"]

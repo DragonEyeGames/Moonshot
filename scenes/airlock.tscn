@@ -1,0 +1,221 @@
+[gd_scene load_steps=20 format=3 uid="uid://dstxvvp8b51n4"]
+
+[ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="1_5j34s"]
+[ext_resource type="Texture2D" uid="uid://bojfmxqgvlflk" path="res://assets/AirlockAssets/backWall.png" id="2_0mhj0"]
+[ext_resource type="Texture2D" uid="uid://y61752g3nw8m" path="res://assets/square.png" id="2_bc5nu"]
+[ext_resource type="Texture2D" uid="uid://btv6xlxdodgyl" path="res://assets/AirlockAssets/frontWall.png" id="3_wx2ty"]
+[ext_resource type="Texture2D" uid="uid://0tu0e1ax2pc4" path="res://assets/AirlockAssets/Flour.png" id="4_wvv8k"]
+[ext_resource type="Texture2D" uid="uid://cflbt7lvi1n5s" path="res://assets/AirlockAssets/Roof.png" id="5_18ctq"]
+[ext_resource type="Texture2D" uid="uid://d4i4k8uswnv5j" path="res://assets/AirlockAssets/backLeftDoor.png" id="6_kwrd5"]
+[ext_resource type="Texture2D" uid="uid://csa4bjj7rjuee" path="res://assets/AirlockAssets/FrontRightDoor.png" id="7_ychmf"]
+[ext_resource type="Texture2D" uid="uid://7jbc4hmy2ndl" path="res://assets/AirlockAssets/FrontLeftDoor.png" id="8_alqu4"]
+[ext_resource type="Texture2D" uid="uid://ttlbmv4h4ent" path="res://assets/AirlockAssets/backRightDoor.png" id="9_u3qpa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1gjg"]
+size = Vector2(224, 192)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bc5nu"]
+cull_mode = 1
+polygon = PackedVector2Array(-440, -496, -440, -152, -216, -152, -216, -496)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yopf"]
+size = Vector2(512, 1151)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v125v"]
+size = Vector2(448, 385)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1m7r"]
+size = Vector2(448, 275)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5j34s"]
+size = Vector2(32, 1088)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3yst8"]
+polygon = PackedVector2Array(-248, -1400, -248, -128, -240, -128, -240, -1400)
+
+[sub_resource type="Curve" id="Curve_3yst8"]
+_limits = [0.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0.058139563, 5.05618), 0.0, 0.0, 0, 0, Vector2(1, 10), 7.6498103, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_bc5nu"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Airlock" type="Node2D"]
+script = ExtResource("1_5j34s")
+
+[node name="walls5" type="Sprite2D" parent="."]
+z_index = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_0mhj0")
+
+[node name="walls3" type="Sprite2D" parent="."]
+z_index = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_wx2ty")
+
+[node name="floor" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_wvv8k")
+
+[node name="roof" type="Sprite2D" parent="."]
+light_mask = 2
+z_index = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_18ctq")
+
+[node name="door3" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_kwrd5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="door3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door3/StaticBody2D"]
+position = Vector2(112, 248)
+shape = SubResource("RectangleShape2D_f1gjg")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="door3"]
+position = Vector2(440, 496)
+occluder = SubResource("OccluderPolygon2D_bc5nu")
+
+[node name="door2" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_ychmf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="door2"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door2/StaticBody2D"]
+position = Vector2(112, 248)
+shape = SubResource("RectangleShape2D_f1gjg")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="door2"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(440, 496)
+occluder = SubResource("OccluderPolygon2D_bc5nu")
+
+[node name="door" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_alqu4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door/StaticBody2D"]
+position = Vector2(112, 248)
+shape = SubResource("RectangleShape2D_f1gjg")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="door"]
+show_behind_parent = true
+position = Vector2(440, 496)
+occluder = SubResource("OccluderPolygon2D_bc5nu")
+sdf_collision = false
+
+[node name="door4" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_u3qpa")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="door4"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door4/StaticBody2D"]
+position = Vector2(112, 248)
+shape = SubResource("RectangleShape2D_f1gjg")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="door4"]
+position = Vector2(440, 496)
+occluder = SubResource("OccluderPolygon2D_bc5nu")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(19, 178.5)
+shape = SubResource("RectangleShape2D_2yopf")
+
+[node name="Airlock" type="Area2D" parent="."]
+position = Vector2(1.52588e-05, -128)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Airlock"]
+position = Vector2(8, -57.5)
+shape = SubResource("RectangleShape2D_v125v")
+
+[node name="Outer" type="Area2D" parent="."]
+position = Vector2(0, 496)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer"]
+position = Vector2(8, -113.5)
+shape = SubResource("RectangleShape2D_p1m7r")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(248, -672)
+shape = SubResource("RectangleShape2D_5j34s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-232, -672)
+shape = SubResource("RectangleShape2D_5j34s")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_3yst8")
+occluder_light_mask = 3
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2(504, 0)
+occluder = SubResource("OccluderPolygon2D_3yst8")
+occluder_light_mask = 3
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(0, -448)
+emitting = false
+amount = 20
+explosiveness = 0.6
+emission_shape = 3
+emission_rect_extents = Vector2(100, 1)
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 180.0
+initial_velocity_max = 300.0
+scale_amount_curve = SubResource("Curve_3yst8")
+color_ramp = SubResource("Gradient_bc5nu")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(0, -1088)
+rotation = 3.1415927
+emitting = false
+amount = 20
+explosiveness = 0.6
+emission_shape = 3
+emission_rect_extents = Vector2(100, 1)
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 180.0
+initial_velocity_max = 300.0
+scale_amount_curve = SubResource("Curve_3yst8")
+color_ramp = SubResource("Gradient_bc5nu")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(34, 81.00006)
+scale = Vector2(2.2755556, 4.2400002)
+texture = ExtResource("2_bc5nu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Airlock" to="." method="_on_airlock_body_entered"]
+[connection signal="body_exited" from="Airlock" to="." method="_on_airlock_body_exited"]
+[connection signal="body_entered" from="Outer" to="." method="_on_outer_body_entered"]

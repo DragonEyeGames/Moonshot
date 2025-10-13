@@ -2,16 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bot5iwir3qe7s"
-path="res://.godot/imported/rock.png-2fd843802c09e25179696ea826da5ac7.ctex"
-metadata={
-"vram_texture": false
-}
+uid="uid://cvqnv2tbp0ubf"
+valid=false
 
 [deps]
 
 source_file="res://rock.png"
-dest_files=["res://.godot/imported/rock.png-2fd843802c09e25179696ea826da5ac7.ctex"]
 
 [params]
 

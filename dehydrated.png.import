@@ -2,16 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfffmhh10mmyc"
-path="res://.godot/imported/dehydrated.png-3a504b78676bcd9453ad52a77b9ec657.ctex"
-metadata={
-"vram_texture": false
-}
+uid="uid://jpd1iyar0jry"
+valid=false
 
 [deps]
 
 source_file="res://dehydrated.png"
-dest_files=["res://.godot/imported/dehydrated.png-3a504b78676bcd9453ad52a77b9ec657.ctex"]
 
 [params]
 

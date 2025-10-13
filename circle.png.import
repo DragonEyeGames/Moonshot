@@ -2,16 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i158conio5sl"
-path="res://.godot/imported/circle.png-10953cad44a8947fbdd4128a631e9e52.ctex"
-metadata={
-"vram_texture": false
-}
+uid="uid://bxmx1shr1lhs1"
+valid=false
 
 [deps]
 
 source_file="res://circle.png"
-dest_files=["res://.godot/imported/circle.png-10953cad44a8947fbdd4128a631e9e52.ctex"]
 
 [params]
 

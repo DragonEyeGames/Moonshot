@@ -1,0 +1,296 @@
+[gd_scene load_steps=16 format=3 uid="uid://313clql8xlh4"]
+
+[ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://scripts/player.gd" id="1_hqtel"]
+[ext_resource type="Texture2D" uid="uid://cqcdyf84adame" path="res://assets/icon.svg" id="2_sweqy"]
+[ext_resource type="Texture2D" uid="uid://bh8srau4aa02y" path="res://assets/helmet-310867_1920.png" id="3_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://dyysu3210vtw8" path="res://assets/flashlight.png" id="4_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://y61752g3nw8m" path="res://assets/square.png" id="5_qlg0r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aq4fw"]
+radius = 72.0
+
+[sub_resource type="Animation" id="Animation_sweqy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/OverlayArm:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2hs0m"]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hqtel"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qlg0r"]
+resource_name = "fadeToArm"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/OverlayArm:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "revealToArm"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/OverlayArm:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1jxqw"]
+_data = {
+&"RESET": SubResource("Animation_sweqy"),
+&"appear": SubResource("Animation_2hs0m"),
+&"fade": SubResource("Animation_hqtel"),
+&"fadeToArm": SubResource("Animation_qlg0r"),
+&"revealToArm": SubResource("Animation_tuyoq")
+}
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_fjrip"]
+target_nodepath = NodePath("../../IK Targets/TIP")
+tip_nodepath = NodePath("Base/Segment/Hand")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("Base")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Base/Segment")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = -3.8959987
+joint_data/1/constraint_angle_max = 149.474
+joint_data/1/constraint_angle_invert = false
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_smehm"]
+enabled = true
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DCCDIK_fjrip")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
+radius = 97.869804
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 2
+script = ExtResource("1_hqtel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_aq4fw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sweqy")
+
+[node name="Helmet" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_2hs0m")
+
+[node name="PointLight2D" type="PointLight2D" parent="Helmet"]
+position = Vector2(0.000488281, 0)
+scale = Vector2(12.5, 19.133)
+shadow_enabled = true
+shadow_color = Color(1, 0, 0, 0)
+texture = ExtResource("4_1jxqw")
+offset = Vector2(-34.285, -263.805)
+texture_scale = 0.4
+
+[node name="StateController" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1jxqw")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="OverlayArm" type="Node2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+z_index = 4
+position = Vector2(801, 709)
+
+[node name="Sprites" type="Node2D" parent="CanvasLayer/OverlayArm"]
+
+[node name="Square2" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
+position = Vector2(257, 381)
+rotation = -1.3038228
+scale = Vector2(1.960416, 0.99998677)
+texture = ExtResource("5_qlg0r")
+offset = Vector2(86, 27.586182)
+
+[node name="Square3" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
+position = Vector2(374.42432, 45.968628)
+rotation = -2.3165321
+scale = Vector2(2.2771451, 0.9999992)
+texture = ExtResource("5_qlg0r")
+offset = Vector2(86, 27.586182)
+
+[node name="Square4" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(96.99982, -293.99994)
+rotation = -2.3168666
+scale = Vector2(0.9999995, 0.9999995)
+texture = ExtResource("5_qlg0r")
+offset = Vector2(92.512695, 7.0788574)
+
+[node name="Square5" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites/Square4"]
+self_modulate = Color(0.32482845, 0.19841483, 0.042716093, 1)
+show_behind_parent = true
+z_index = -1
+position = Vector2(-53.873856, -21.031061)
+scale = Vector2(1.8277276, 2.0310116)
+texture = ExtResource("5_qlg0r")
+offset = Vector2(92.512695, 7.0788574)
+
+[node name="Bones" type="Node2D" parent="CanvasLayer/OverlayArm"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="CanvasLayer/OverlayArm/Bones"]
+modification_stack = SubResource("SkeletonModificationStack2D_smehm")
+
+[node name="Base" type="Bone2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D"]
+position = Vector2(257, 381)
+rotation = -1.3038228
+scale = Vector2(0.99999917, 0.99999917)
+rest = Transform2D(0.26381347, -0.96457285, 0.96457285, 0.26381347, 257, 381)
+auto_calculate_length_and_angle = false
+length = 406.88
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D/Base"]
+remote_path = NodePath("../../../../Sprites/Square2")
+update_scale = false
+
+[node name="Segment" type="Bone2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D/Base"]
+position = Vector2(354.1409, 24.878662)
+rotation = -1.0127094
+scale = Vector2(1.000004, 1.000004)
+rest = Transform2D(0.5295665, -0.8482732, 0.8482732, 0.5295665, 354.14087, 24.878784)
+auto_calculate_length_and_angle = false
+length = 203.706
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D/Base/Segment"]
+remote_path = NodePath("../../../../../Sprites/Square3")
+update_scale = false
+
+[node name="Hand" type="Bone2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D/Base/Segment"]
+position = Vector2(437.97168, 26.87989)
+rotation = -0.00033456483
+scale = Vector2(0.9999992, 0.9999992)
+rest = Transform2D(0.99999917, -0.00033456457, 0.00033456457, 0.99999917, 437.97168, 26.87989)
+auto_calculate_length_and_angle = false
+length = 114.749
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D/Base/Segment/Hand"]
+remote_path = NodePath("../../../../../../Sprites/Square4")
+update_scale = false
+
+[node name="IK Targets" type="Node2D" parent="CanvasLayer/OverlayArm"]
+
+[node name="TIP" type="Node2D" parent="CanvasLayer/OverlayArm/IK Targets"]
+position = Vector2(97, -294)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/OverlayArm/IK Targets/TIP"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 100
+position = Vector2(919.12305, 468.83795)
+rotation = -2.3168664
+scale = Vector2(0.728, 0.809)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(14.889832, -4.4592648)
+shape = SubResource("CircleShape2D_tuyoq")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

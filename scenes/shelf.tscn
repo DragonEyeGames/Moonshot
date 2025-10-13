@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://sesvget8ak2p"]
+
+[ext_resource type="Texture2D" uid="uid://chtdaquk74bsq" path="res://assets/shelf.png" id="1_0edba"]
+[ext_resource type="Script" uid="uid://c2djasrejrea" path="res://scripts/shelf.gd" id="1_0iu12"]
+[ext_resource type="Texture2D" uid="uid://c5q3d26io6w74" path="res://assets/IceCream.png" id="2_aw007"]
+[ext_resource type="Texture2D" uid="uid://372hu3xsfi0g" path="res://assets/proteinBar.png" id="4_7o7sa"]
+[ext_resource type="Texture2D" uid="uid://dfffmhh10mmyc" path="res://assets/dehydrated.png" id="5_xng2s"]
+[ext_resource type="Texture2D" uid="uid://c70althcu8by2" path="res://assets/cup.png" id="6_878aq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7o7sa"]
+radius = 144.0
+height = 432.0
+
+[node name="Shelf" type="Node2D"]
+script = ExtResource("1_0iu12")
+
+[node name="Shelf" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_0edba")
+
+[node name="shelfArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shelfArea"]
+shape = SubResource("CapsuleShape2D_7o7sa")
+
+[node name="Possibilities" type="Node2D" parent="."]
+visible = false
+
+[node name="IceCream" type="Node2D" parent="Possibilities"]
+visible = false
+
+[node name="IceCream" type="Sprite2D" parent="Possibilities/IceCream"]
+position = Vector2(2.3841858e-06, -9.536743e-07)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_aw007")
+
+[node name="Mac" type="Node2D" parent="Possibilities"]
+visible = false
+
+[node name="Mac" type="Sprite2D" parent="Possibilities/Mac"]
+position = Vector2(-7.6293945e-06, 3.8146973e-06)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("5_xng2s")
+
+[node name="Cup" type="Node2D" parent="Possibilities"]
+visible = false
+
+[node name="Cup" type="Sprite2D" parent="Possibilities/Cup"]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("6_878aq")
+
+[node name="Protein" type="Node2D" parent="Possibilities"]
+visible = false
+position = Vector2(48, -112)
+
+[node name="Protein" type="Sprite2D" parent="Possibilities/Protein"]
+position = Vector2(-3.8146973e-06, -2.2888184e-05)
+scale = Vector2(0.045, 0.045)
+texture = ExtResource("4_7o7sa")
+
+[connection signal="body_entered" from="shelfArea" to="." method="_on_shelf_area_body_entered"]
+[connection signal="body_exited" from="shelfArea" to="." method="_on_shelf_area_body_exited"]

@@ -2,16 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2pnhnvx1kk01"
-path="res://.godot/imported/macHydrated.png-e1313cd10cd062cfcb7e2be4a84cead0.ctex"
-metadata={
-"vram_texture": false
-}
+uid="uid://ckv3pku135lmj"
+valid=false
 
 [deps]
 
 source_file="res://macHydrated.png"
-dest_files=["res://.godot/imported/macHydrated.png-e1313cd10cd062cfcb7e2be4a84cead0.ctex"]
 
 [params]
 

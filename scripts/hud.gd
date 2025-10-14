@@ -34,7 +34,7 @@ func health(_delta):
 	$Stats/Health.value=GameManager.health
 	if(GameManager.health<=0):
 		GameManager.dead="Death"
-		get_tree().change_scene_to_file("res://dead.tscn")
+		get_tree().change_scene_to_file("res://scenes/dead.tscn")
 	
 func water(_delta):
 	if(GameManager.water>400):

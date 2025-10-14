@@ -6,7 +6,7 @@ extends CharacterBody2D
 var canPickUp=false
 var pickable
 var canPlace=false
-
+var currentlyHeld
 var handHeldItem=""
 
 func _ready() -> void:
@@ -15,19 +15,18 @@ func _ready() -> void:
 	GameManager.playerAnimator=$StateController
 
 func _process(delta: float) -> void:
+	if(GameManager.carrots>0 and not "Carrots" in GameManager.inventory and len(GameManager.inventory) <= 4):
+		GameManager.inventory.append("Carrots")
 	$CanvasLayer/OverlayArm/Sprites/Square4/Square5.visible=GameManager.playerTool=="rag"
 	$CanvasLayer/SeedBag.visible=GameManager.playerTool=="seedBag"
-	$CanvasLayer/PlantBag.visile=GameManager.playerTool=="plantBag"
+	$CanvasLayer/PlantBag.visible=GameManager.playerTool=="plantBag"
 	$CanvasLayer/OverlayArm/Sprites/Square4/wateringCan.visible=GameManager.playerTool=="wateringCan"
-	if(canPlace and Input.is_action_just_released("Click")):
-		pickable.queue_free()
 	if(handHeldItem=="seeds" and Input.is_action_just_released("Click")):
 		GameManager.interactedItem.dropSeeds()
 		handHeldItem=""
 		$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(1, 1)
 	$"CanvasLayer/OverlayArm/IK Targets/TIP".global_position=get_viewport().get_mouse_position()
 	$Area2D.global_position=get_global_mouse_position()
-	print($Area2D.visible)
 	$Helmet/PointLight2D.look_at(get_global_mouse_position())
 	$Helmet/PointLight2D.rotation+=PI/2
 	if(Input.is_action_just_pressed("Flashlight")):
@@ -47,11 +46,11 @@ func _process(delta: float) -> void:
 	if(GameManager.playerMove):
 		move_and_slide()
 	if(canPickUp and Input.is_action_just_pressed("Click") and pickable!=null):
-		print("PPPPIIIIIIIIIIICCCCCCCCKKKKKKKKK            UUUUUUUUUPPPPPPPP")
 		pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
 		pickable.scale*=10
 		pickable.rotation+=PI/2
 		handHeldItem="plant"
+		currentlyHeld=pickable
 		pickable.global_position=$CanvasLayer/OverlayArm/Sprites/Square4.global_position
 		pickable=null
 		
@@ -69,11 +68,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		area.get_parent().modulate.a-=.5
 		if(area.get_parent().modulate.a<=.1):
 			area.get_parent().queue_free()
-	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and area.name=="Plant" and handHeldItem==""):
+	print(GameManager.playerTool)
+	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and area.name=="Plant" and handHeldItem=="" and GameManager.playerTool=="plantBag"):
 		canPickUp=true
 		pickable=area.get_parent()
-	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and area.name=="Bag" and handHeldItem=="plant"):
-		canPlace=true
 			
 func pickUp(item):
 	$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(.9, .9)

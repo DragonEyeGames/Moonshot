@@ -202,23 +202,23 @@ position = Vector2(801, 709)
 
 [node name="Square2" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 position = Vector2(257, 381)
-rotation = -1.3038225
+rotation = -1.3038228
 scale = Vector2(1.960416, 0.99998677)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square3" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
-position = Vector2(374.42456, 45.96869)
-rotation = -2.316532
-scale = Vector2(2.2771451, 0.99999917)
+position = Vector2(374.42432, 45.968628)
+rotation = -2.3165321
+scale = Vector2(2.2771451, 0.9999992)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square4" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(97.00012, -293.99994)
-rotation = -2.3168664
-scale = Vector2(0.9999998, 0.9999998)
+position = Vector2(96.99982, -293.99994)
+rotation = -2.3168666
+scale = Vector2(0.9999997, 0.9999997)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(92.512695, 7.0788574)
 
@@ -301,10 +301,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PlantBag" parent="CanvasLayer" instance=ExtResource("7_smehm")]
-offset_left = 24.871948
-offset_top = 830.7454
-offset_right = 705.0388
-offset_bottom = 1888.2734
+offset_left = 319.0
+offset_top = 423.0
+offset_right = 999.1669
+offset_bottom = 1480.5281
 
 [node name="SeedBag" parent="CanvasLayer" instance=ExtResource("6_tuyoq")]
 

@@ -10,7 +10,7 @@ var inventory=["Jug", "Seeds"]
 var selectedSlot=0
 var playerMove=true
 var dead=""
-var instants = ["Protein", "IceCream", "H Mac", "H Cup"]
+var instants = ["Protein", "IceCream", "H Mac", "H Cup", "Carrots"]
 
 var baseWater=100
 var baseHumidity=0
@@ -38,8 +38,7 @@ var interactedItem
 var carbon=0.0
 
 var camera
-
-var carrots=0
+var carrots=4
 
 var food = 100
 var water = 400

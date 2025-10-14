@@ -10,6 +10,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(len(GameManager.inventory)>=slotIndex+1):
 		visible=true
+		if(GameManager.inventory[slotIndex]=="Carrots"):
+			$InventoryItems.get_node(GameManager.inventory[slotIndex]).get_child(0).text=str(GameManager.carrots) + " Carrot(s)"
 		for child in $InventoryItems.get_children():
 			child.visible=false
 		$InventoryItems.get_node(GameManager.inventory[slotIndex]).visible=true
@@ -30,6 +32,14 @@ func _process(delta: float) -> void:
 				elif(itemSelected=="H Cup"):
 					GameManager.water+=20
 					GameManager.inventory[slotIndex]="Cup"
+				elif(itemSelected=="Carrots"):
+					GameManager.water+=7.5
+					GameManager.food+=15
+					GameManager.carrots-=1
+					if(GameManager.carrots<=0):
+						GameManager.inventory.remove_at(slotIndex)
+				else:
+					print(itemSelected)
 				GameManager.selectedSlot=-1
 				$Outline.visible=false
 		else:

@@ -8,9 +8,6 @@ var reparented=false
 var water:=0.0
 var state="seed"
 
-func _ready() -> void:
-	Engine.time_scale=5
-
 func _process(delta: float) -> void:
 	if(fallen and fallDistance>0):
 		position.y+=fallSpeed*delta

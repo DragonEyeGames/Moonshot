@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bnoqv312svl4k"]
 
-[ext_resource type="Script" uid="uid://cptnghp2dlnhk" path="res://scenes/seed_bag.gd" id="1_nbkw2"]
+[ext_resource type="Script" uid="uid://beaps3n1ubghn" path="res://scenes/plantBag.gd" id="1_nbkw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
 size = Vector2(641.6424, 1014.4601)
@@ -16,8 +16,8 @@ color = Color(0.34414157, 0.17461061, 0.025434045, 1)
 script = ExtResource("1_nbkw2")
 
 [node name="Bag" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 0
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bag"]
 position = Vector2(341.97275, 524.3237)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://f7m0p5xdy0wb"]
+[gd_scene load_steps=4 format=3 uid="uid://f7m0p5xdy0wb"]
 
 [ext_resource type="Script" uid="uid://d0p4lip8fx5pe" path="res://scripts/water_reclaimer.gd" id="1_qj4il"]
+[ext_resource type="PackedScene" uid="uid://xl7hoyu6js47" path="res://scenes/jugFiller.tscn" id="2_tmb4y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q457c"]
 radius = 278.25888
@@ -161,6 +162,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
+
+[node name="JugFiller" parent="." instance=ExtResource("2_tmb4y")]
+layout_mode = 0
+offset_left = 381.349
+offset_top = 97.369995
+offset_right = 432.349
+offset_bottom = 311.37
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

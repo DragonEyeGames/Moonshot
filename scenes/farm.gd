@@ -21,7 +21,8 @@ func _process(delta: float) -> void:
 	elif(collision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]=="Jug" and $ColorRect6/WurterJug.visible==false):
 		GameManager.inventory.erase("Jug")
 		$ColorRect6/WurterJug.visible=true
-		water=100
+		water=GameManager.pickedUpJugWater
+		GameManager.pickedUpJugWater=-1
 	elif(collision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and not zoomed and canZoom):
 		GameManager.playerTool="plantBag"
 		zoom()

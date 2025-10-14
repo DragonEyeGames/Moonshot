@@ -2,7 +2,7 @@ extends Node2D
 
 var colliding
 var interactingList=["Mac", "Cup"]
-var water=0
+var water=100
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -14,6 +14,13 @@ func _process(delta: float) -> void:
 	if(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and len(GameManager.inventory)<=4 and $WurterJug.visible):
 		GameManager.inventory.append("Jug")
 		$WurterJug.visible=false
+		GameManager.pickedUpJugWater=water
+	elif(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]=="Jug" and $WurterJug.visible==false):
+		GameManager.inventory.erase("Jug")
+		$WurterJug.visible=true
+		water=GameManager.pickedUpJugWater
+		GameManager.pickedUpJugWater=-1
+		GameManager.selectedSlot=-1
 	if(colliding and Input.is_action_just_pressed("Interact") and len(GameManager.inventory)>0 and interactingList.has(GameManager.inventory[GameManager.selectedSlot]) and not GameManager.selectedSlot==-1):
 		if(GameManager.inventory[GameManager.selectedSlot]=='Cup'):
 			if(water>=20):

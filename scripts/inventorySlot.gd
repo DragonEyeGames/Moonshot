@@ -12,6 +12,8 @@ func _process(delta: float) -> void:
 		visible=true
 		if(GameManager.inventory[slotIndex]=="Carrots"):
 			$InventoryItems.get_node(GameManager.inventory[slotIndex]).get_child(0).text=str(GameManager.carrots) + " Carrot(s)"
+		if(GameManager.inventory[slotIndex]=="Jug"):
+			$InventoryItems.get_node(GameManager.inventory[slotIndex]).get_child(0).text=str(round(GameManager.pickedUpJugWater*100)/100) + " Water(s)"
 		for child in $InventoryItems.get_children():
 			child.visible=false
 		$InventoryItems.get_node(GameManager.inventory[slotIndex]).visible=true

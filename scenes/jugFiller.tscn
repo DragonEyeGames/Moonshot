@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://xl7hoyu6js47"]
+
+[ext_resource type="Script" uid="uid://cccwphmjkmgii" path="res://scenes/jugFiller.gd" id="1_e7322"]
+[ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/wurterJug.png" id="2_ttvhk"]
+
+[sub_resource type="Curve" id="Curve_qj4il"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(0.99803144, 3.7987013), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_tmb4y"]
+offsets = PackedFloat32Array(0, 0.7929515, 1)
+colors = PackedColorArray(0, 0, 0.78039217, 1, 0.38414696, 0.34579346, 0.73345345, 1, 0.42745098, 0.59607846, 1, 0)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e7322"]
+radius = 128.0
+height = 306.0
+
+[node name="JugFiller" type="ColorRect"]
+offset_left = 397.349
+offset_top = 64.369995
+offset_right = 448.349
+offset_bottom = 278.37
+color = Color(0.18431373, 0.18431373, 0.18431373, 1)
+script = ExtResource("1_e7322")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 1.0
+offset_right = 189.0
+offset_bottom = 219.0
+color = Color(0.18431373, 0.18431373, 0.18431373, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 1.0
+offset_right = 162.0
+offset_bottom = 69.0
+color = Color(0.18431373, 0.18431373, 0.18431373, 1)
+
+[node name="Water" type="CPUParticles2D" parent="."]
+position = Vector2(92, 63)
+emitting = false
+amount = 200
+lifetime = 0.53
+lifetime_randomness = 0.14
+direction = Vector2(0, 1)
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+scale_amount_curve = SubResource("Curve_qj4il")
+color_ramp = SubResource("Gradient_tmb4y")
+
+[node name="Jug" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(92.99999, 151.99998)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_ttvhk")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 14.0
+offset_right = 99.0
+offset_bottom = 45.0
+text = "E"
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(98.651, 130.63)
+shape = SubResource("CapsuleShape2D_e7322")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

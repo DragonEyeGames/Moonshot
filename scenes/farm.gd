@@ -1,6 +1,7 @@
 extends ColorRect
 
 var collision=false
+var jugCollision=false
 var zoomed=false
 var canZoom=true
 var state="unplanted"
@@ -18,14 +19,19 @@ func _process(delta: float) -> void:
 		#GameManager.inventory.erase("Watering Can")
 		#GameManager.playerTool="wateringCan"
 		#zoom()
-	elif(collision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]=="Jug" and $ColorRect6/WurterJug.visible==false):
+	elif(jugCollision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]=="Jug" and $ColorRect6/WurterJug.visible==false):
 		GameManager.inventory.erase("Jug")
 		$ColorRect6/WurterJug.visible=true
 		water=GameManager.pickedUpJugWater
 		GameManager.pickedUpJugWater=-1
-	elif(collision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and not zoomed and canZoom):
+	elif(collision and not jugCollision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and not zoomed and canZoom):
 		GameManager.playerTool="plantBag"
 		zoom()
+	elif(jugCollision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and len(GameManager.inventory)<=4):
+		GameManager.inventory.append("Jug")
+		$ColorRect6/WurterJug.visible=false
+		GameManager.pickedUpJugWater=water
+		water=0
 	#for child in $"Seed Storage".get_children():
 		#if(child.modulate.a>.1):
 			#child.modulate.a-=delta/10
@@ -34,8 +40,8 @@ func _process(delta: float) -> void:
 	
 	if($ColorRect6/WurterJug.visible and water>0):
 		if(water>0):
-			standingWater+=delta*4
-			water-=delta*4
+			standingWater+=delta*10
+			water-=delta*10
 			if(water<0):
 				standingWater-=abs(water)
 				water=0
@@ -76,3 +82,11 @@ func unzoom():
 	await get_tree().create_timer(1.1).timeout
 	GameManager.playerMove=true
 	canZoom=true
+
+
+func _on_jug_body_entered(body: Node2D) -> void:
+	jugCollision=true
+
+
+func _on_jug_body_exited(body: Node2D) -> void:
+	jugCollision=false

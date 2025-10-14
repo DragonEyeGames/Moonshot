@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5eiodc6x61h"]
+[gd_scene load_steps=8 format=3 uid="uid://c5eiodc6x61h"]
 
 [ext_resource type="Script" uid="uid://ci5ughirdgwn8" path="res://scenes/farm.gd" id="1_o03py"]
 [ext_resource type="Script" uid="uid://sryc24cvut1g" path="res://scenes/dropper.gd" id="2_jjgid"]
@@ -10,6 +10,9 @@ radius = 337.0534
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgid"]
 size = Vector2(476.4765, 491.89935)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3ns2"]
+radius = 115.212845
 
 [node name="Farm" type="ColorRect"]
 offset_left = -221.47652
@@ -146,5 +149,15 @@ offset_right = 505.4765
 offset_bottom = 511.89935
 color = Color(0.059416607, 0.030704005, 0.002594001, 1)
 
+[node name="Jug" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jug"]
+position = Vector2(224.47652, -44.100662)
+shape = SubResource("CircleShape2D_k3ns2")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Jug" to="." method="_on_jug_body_entered"]
+[connection signal="body_exited" from="Jug" to="." method="_on_jug_body_exited"]

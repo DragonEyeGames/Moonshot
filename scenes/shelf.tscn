@@ -44,6 +44,14 @@ position = Vector2(-7.6293945e-06, 3.8146973e-06)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("5_xng2s")
 
+[node name="Seeds" type="Node2D" parent="Possibilities"]
+visible = false
+
+[node name="Seeds" type="Sprite2D" parent="Possibilities/Seeds"]
+position = Vector2(-7.6293945e-06, 3.8146973e-06)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("5_xng2s")
+
 [node name="Cup" type="Node2D" parent="Possibilities"]
 visible = false
 

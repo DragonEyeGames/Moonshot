@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpv0gjbcloq3p"]
+[gd_scene load_steps=12 format=3 uid="uid://cpv0gjbcloq3p"]
 
 [ext_resource type="Texture2D" uid="uid://i158conio5sl" path="res://assets/circle.png" id="2_vep7u"]
+[ext_resource type="PackedScene" uid="uid://sesvget8ak2p" path="res://scenes/shelf.tscn" id="3_a8eqe"]
 [ext_resource type="PackedScene" uid="uid://c5eiodc6x61h" path="res://scenes/farm.tscn" id="3_fc18y"]
 
 [sub_resource type="Animation" id="Animation_mt53i"]
@@ -166,6 +167,10 @@ libraries = {
 }
 
 [node name="Farm" parent="." instance=ExtResource("3_fc18y")]
+
+[node name="Shelf" parent="." instance=ExtResource("3_a8eqe")]
+position = Vector2(753.02014, -303.3557)
+items = ["Seeds", "Seeds", "", "", "", "", "", ""]
 
 [connection signal="body_entered" from="Area2D" to="." method="playerEnter"]
 [connection signal="body_exited" from="Area2D" to="." method="playerExit"]

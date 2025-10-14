@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://313clql8xlh4"]
+[gd_scene load_steps=19 format=3 uid="uid://313clql8xlh4"]
 
 [ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://scripts/player.gd" id="1_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cqcdyf84adame" path="res://assets/icon.svg" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://bh8srau4aa02y" path="res://assets/helmet-310867_1920.png" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://dyysu3210vtw8" path="res://assets/flashlight.png" id="4_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://y61752g3nw8m" path="res://assets/square.png" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://dka8iksr4cahl" path="res://scenes/wateringCan.tscn" id="6_fjrip"]
 [ext_resource type="PackedScene" uid="uid://w2ju0oer6ydy" path="res://scenes/seed_bag.tscn" id="6_tuyoq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aq4fw"]
@@ -238,6 +239,8 @@ position = Vector2(-53.873856, -21.031061)
 scale = Vector2(1.8277276, 2.0310116)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(92.512695, 7.0788574)
+
+[node name="wateringCan" parent="CanvasLayer/OverlayArm/Sprites/Square4" instance=ExtResource("6_fjrip")]
 
 [node name="Bones" type="Node2D" parent="CanvasLayer/OverlayArm"]
 

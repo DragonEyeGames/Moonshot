@@ -241,6 +241,7 @@ texture = ExtResource("5_qlg0r")
 offset = Vector2(92.512695, 7.0788574)
 
 [node name="wateringCan" parent="CanvasLayer/OverlayArm/Sprites/Square4" instance=ExtResource("6_fjrip")]
+position = Vector2(36.952164, 21.89854)
 
 [node name="Bones" type="Node2D" parent="CanvasLayer/OverlayArm"]
 

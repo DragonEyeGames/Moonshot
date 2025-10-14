@@ -6,9 +6,12 @@
 radius = 20.615528
 
 [node name="Seed" type="ColorRect"]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.5, 0.5)
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+scale = Vector2(0.25, 0.25)
+pivot_offset = Vector2(20, 20)
 color = Color(0.7523463, 0.68147445, 0.3521932, 1)
 script = ExtResource("1_m0bgt")
 
@@ -19,5 +22,35 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(19, 19)
 shape = SubResource("CircleShape2D_ref04")
+
+[node name="stem" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 20.0
+offset_right = 56.0
+offset_bottom = 100.0
+rotation = 3.1415927
+scale = Vector2(1, 1e-05)
+color = Color(0.007901493, 0.5104505, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="stem"]
+layout_mode = 0
+offset_left = 20.000008
+offset_top = 61.333336
+offset_right = 58.036324
+offset_bottom = 81.19715
+rotation = 0.52534413
+scale = Vector2(1e-05, 1)
+color = Color(0.007843138, 0.50980395, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="stem"]
+layout_mode = 0
+offset_left = 16.000011
+offset_top = 74.66667
+offset_right = 54.036327
+offset_bottom = 94.53049
+rotation = 2.6179938
+scale = Vector2(1e-05, 1)
+color = Color(0.007843138, 0.50980395, 0, 1)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

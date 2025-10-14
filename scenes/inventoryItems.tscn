@@ -128,3 +128,39 @@ theme_override_font_sizes/normal_font_size = 200
 text = "Cup o' Water"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Jug" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("6_vb3cu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Jug"]
+offset_left = -3520.0
+offset_top = -5440.0
+offset_right = -2097.7778
+offset_bottom = -4853.3335
+scale = Vector2(5.4, 5.4)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 200
+text = "Jug"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Watering Can" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("6_vb3cu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Watering Can"]
+offset_left = -3520.0
+offset_top = -5440.0
+offset_right = -2097.7778
+offset_bottom = -4853.3335
+scale = Vector2(5.4, 5.4)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 200
+text = "Watering Can"
+horizontal_alignment = 1
+vertical_alignment = 1

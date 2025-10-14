@@ -6,7 +6,7 @@ var playerSprinting := false
 var playerState="outside"
 var flashlightOn=true
 var playerEnergy:=100.0
-var inventory=["Seeds"]
+var inventory=["Jug", "Seeds"]
 var selectedSlot=0
 var playerMove=true
 var dead=""
@@ -15,6 +15,8 @@ var instants = ["Protein", "IceCream", "H Mac", "H Cup"]
 var baseWater=100
 var baseHumidity=0
 var suitHumidity=0
+
+var playerHand
 
 var solarOutput:=0
 

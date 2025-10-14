@@ -10,7 +10,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	water=GameManager.water
+	#water=GameManager.water
+	if(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and len(GameManager.inventory)<=4 and $WurterJug.visible):
+		GameManager.inventory.append("Jug")
+		$WurterJug.visible=false
 	if(colliding and Input.is_action_just_pressed("Interact") and len(GameManager.inventory)>0 and interactingList.has(GameManager.inventory[GameManager.selectedSlot]) and not GameManager.selectedSlot==-1):
 		if(GameManager.inventory[GameManager.selectedSlot]=='Cup'):
 			if(water>=20):
@@ -24,7 +27,7 @@ func _process(delta: float) -> void:
 				return
 		GameManager.inventory[GameManager.selectedSlot]="H " + GameManager.inventory[GameManager.selectedSlot]
 		GameManager.selectedSlot=-1
-	GameManager.water=water
+	#GameManager.water=water
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

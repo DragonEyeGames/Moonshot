@@ -7,12 +7,14 @@ var handHeldItem=""
 
 func _ready() -> void:
 	flashlightEvents()
+	GameManager.playerHand=$CanvasLayer/OverlayArm/Bones/Skeleton2D/Base/Segment/Hand
 	GameManager.playerAnimator=$StateController
 
 func _process(delta: float) -> void:
 	$CanvasLayer/OverlayArm/Sprites/Square4/Square5.visible=GameManager.playerTool=="rag"
 	$CanvasLayer/SeedBag.visible=GameManager.playerTool=="seedBag"
-	if(handHeldItem!="" and Input.is_action_just_released("Click")):
+	$CanvasLayer/OverlayArm/Sprites/Square4/wateringCan.visible=GameManager.playerTool=="wateringCan"
+	if(handHeldItem=="seeds" and Input.is_action_just_released("Click")):
 		GameManager.interactedItem.dropSeeds()
 		handHeldItem=""
 		$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(1, 1)

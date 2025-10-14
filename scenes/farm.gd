@@ -18,11 +18,13 @@ func _process(delta: float) -> void:
 		#GameManager.inventory.erase("Watering Can")
 		#GameManager.playerTool="wateringCan"
 		#zoom()
-	elif(collision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]=="Jug"):
-		if($ColorRect6/WurterJug.visible==false):
-			GameManager.inventory.erase("Jug")
-			$ColorRect6/WurterJug.visible=true
-			water=100
+	elif(collision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]=="Jug" and $ColorRect6/WurterJug.visible==false):
+		GameManager.inventory.erase("Jug")
+		$ColorRect6/WurterJug.visible=true
+		water=10000
+	elif(collision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and not zoomed and canZoom):
+		GameManager.playerTool="plantBag"
+		zoom()
 	#for child in $"Seed Storage".get_children():
 		#if(child.modulate.a>.1):
 			#child.modulate.a-=delta/10
@@ -36,7 +38,7 @@ func _process(delta: float) -> void:
 				water=0
 			#print(water)
 	$ColorRect7.modulate.a=standingWater/200
-	print($ColorRect7.modulate.a)
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	collision=true
 

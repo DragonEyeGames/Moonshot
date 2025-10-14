@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3w4cpinjn8dd"]
+[gd_scene load_steps=4 format=3 uid="uid://c3w4cpinjn8dd"]
 
 [ext_resource type="Script" uid="uid://bc4ua4pf2tic2" path="res://scenes/seed.gd" id="1_m0bgt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ref04"]
 radius = 20.615528
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0bgt"]
+radius = 20.0
+height = 112.0
 
 [node name="Seed" type="ColorRect"]
 offset_left = -20.0
@@ -52,5 +56,14 @@ offset_bottom = 94.53049
 rotation = 2.6179938
 scale = Vector2(1e-05, 1)
 color = Color(0.007843138, 0.50980395, 0, 1)
+
+[node name="Plant" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plant"]
+position = Vector2(20, -4)
+shape = SubResource("CapsuleShape2D_m0bgt")
+disabled = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

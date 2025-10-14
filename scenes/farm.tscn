@@ -120,6 +120,7 @@ position = Vector2(228.23825, 235.94968)
 shape = SubResource("RectangleShape2D_jjgid")
 
 [node name="Seed Storage" type="Node2D" parent="."]
+z_index = 1
 
 [node name="ColorRect6" type="ColorRect" parent="."]
 layout_mode = 0

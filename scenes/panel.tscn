@@ -48,11 +48,11 @@ offset_right = -18.538773
 offset_bottom = -0.5729847
 color = Color(0.34325507, 0.3346033, 0.31122136, 1)
 
-[node name="Area2D" type="Area2D" parent="Speckle"]
+[node name="SpeckleArea" type="Area2D" parent="Speckle"]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Speckle/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Speckle/SpeckleArea"]
 position = Vector2(4.4612503, 5.427002)
 shape = SubResource("CircleShape2D_8e8e8")
 

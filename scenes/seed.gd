@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 		fallDistance-=delta*fallSpeed
 		if(fallDistance<0):
 			fallDistance=0
-		if(fallDistance==0 and not colliding):
+		if(fallDistance==0 and (not colliding or randi_range(1, 4)==1)):
 			queue_free()
 	if(reparented==false and get_parent().name=="Seed Storage"):
 		reparented=true
@@ -76,9 +76,10 @@ func _process(delta: float) -> void:
 			farm.standingWater-=delta
 			water+=delta
 			if(water<=15):
-				$".".scale+=Vector2(delta/10, delta/10)
+				$".".scale+=Vector2(delta/15, delta/15)
 			else:
 				state="mature"
+				$Plant/CollisionShape2D.disabled=false
 		else:
 			water+=farm.standingWater
 			farm.standingWater=0

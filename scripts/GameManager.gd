@@ -39,6 +39,8 @@ var carbon=0.0
 
 var camera
 
+var carrots=0
+
 var food = 100
 var water = 400
 

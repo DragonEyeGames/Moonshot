@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnoqv312svl4k"]
+
+[ext_resource type="Script" uid="uid://cptnghp2dlnhk" path="res://scenes/seed_bag.gd" id="1_nbkw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
+size = Vector2(641.6424, 1014.4601)
+
+[node name="PlantBag" type="ColorRect"]
+z_index = 10
+offset_left = 311.80466
+offset_top = 406.40982
+offset_right = 991.97156
+offset_bottom = 1463.9379
+rotation = 1.2489982
+color = Color(0.34414157, 0.17461061, 0.025434045, 1)
+script = ExtResource("1_nbkw2")
+
+[node name="Bag" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bag"]
+position = Vector2(341.97275, 524.3237)
+shape = SubResource("RectangleShape2D_tuyoq")
+
+[connection signal="area_entered" from="Bag" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Bag" to="." method="_on_area_2d_area_exited"]

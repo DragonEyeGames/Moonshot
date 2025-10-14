@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://313clql8xlh4"]
+[gd_scene load_steps=20 format=3 uid="uid://313clql8xlh4"]
 
 [ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://scripts/player.gd" id="1_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cqcdyf84adame" path="res://assets/icon.svg" id="2_sweqy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://y61752g3nw8m" path="res://assets/square.png" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://dka8iksr4cahl" path="res://scenes/wateringCan.tscn" id="6_fjrip"]
 [ext_resource type="PackedScene" uid="uid://w2ju0oer6ydy" path="res://scenes/seed_bag.tscn" id="6_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://bnoqv312svl4k" path="res://scenes/plant_bag.tscn" id="7_smehm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aq4fw"]
 radius = 72.0
@@ -299,13 +300,19 @@ visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="PlantBag" parent="CanvasLayer" instance=ExtResource("7_smehm")]
+offset_left = 24.871948
+offset_top = 830.7454
+offset_right = 705.0388
+offset_bottom = 1888.2734
+
 [node name="SeedBag" parent="CanvasLayer" instance=ExtResource("6_tuyoq")]
 
 [node name="Area2D" type="Area2D" parent="."]
 z_index = 100
 position = Vector2(919.12305, 468.83795)
 rotation = -2.3168664
-scale = Vector2(0.728, 0.809)
+scale = Vector2(0.5, 0.556)
 collision_layer = 0
 collision_mask = 4
 

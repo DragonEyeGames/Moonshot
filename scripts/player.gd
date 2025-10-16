@@ -17,6 +17,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(GameManager.carrots>0 and not "Carrots" in GameManager.inventory and len(GameManager.inventory) <= 4):
 		GameManager.inventory.append("Carrots")
+	$CanvasLayer/OverlayArm/Sprites/Square4/tape.visible=GameManager.playerTool=="tape"
 	$CanvasLayer/OverlayArm/Sprites/Square4/Square5.visible=GameManager.playerTool=="rag"
 	$CanvasLayer/SeedBag.visible=GameManager.playerTool=="seedBag"
 	$CanvasLayer/PlantBag.visible=GameManager.playerTool=="plantBag"

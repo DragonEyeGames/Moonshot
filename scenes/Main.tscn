@@ -50,7 +50,7 @@ tile_map_data = PackedByteArray("AAD/////AAAAAAIAAAAAAP//AAAAAAIAAAAAAAAAAAAAAAI
 tile_set = SubResource("TileSet_8tn2x")
 
 [node name="player" parent="." instance=ExtResource("3_jlsqs")]
-position = Vector2(-331, -1861)
+position = Vector2(-2375, -1748)
 
 [node name="Building" parent="." instance=ExtResource("4_q8u5g")]
 position = Vector2(-16, -192)
@@ -62,7 +62,6 @@ visibility_layer = 0
 color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.05
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("following")]
 zoom = Vector2(0.75, 0.75)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://313clql8xlh4"]
+[gd_scene load_steps=21 format=3 uid="uid://313clql8xlh4"]
 
 [ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://scripts/player.gd" id="1_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cqcdyf84adame" path="res://assets/icon.svg" id="2_sweqy"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dka8iksr4cahl" path="res://scenes/wateringCan.tscn" id="6_fjrip"]
 [ext_resource type="PackedScene" uid="uid://w2ju0oer6ydy" path="res://scenes/seed_bag.tscn" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://bnoqv312svl4k" path="res://scenes/plant_bag.tscn" id="7_smehm"]
+[ext_resource type="Script" uid="uid://cp0sd7il7sd3y" path="res://scenes/tape.gd" id="7_ur7pv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aq4fw"]
 radius = 72.0
@@ -233,6 +234,7 @@ position = Vector2(75.39637, 15.6974125)
 shape = SubResource("CircleShape2D_qlg0r")
 
 [node name="Square5" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites/Square4"]
+visible = false
 self_modulate = Color(0.32482845, 0.19841483, 0.042716093, 1)
 show_behind_parent = true
 z_index = -1
@@ -242,7 +244,26 @@ texture = ExtResource("5_qlg0r")
 offset = Vector2(92.512695, 7.0788574)
 
 [node name="wateringCan" parent="CanvasLayer/OverlayArm/Sprites/Square4" instance=ExtResource("6_fjrip")]
+visible = false
 position = Vector2(36.952164, 21.89854)
+
+[node name="tape" type="Node2D" parent="CanvasLayer/OverlayArm/Sprites/Square4"]
+position = Vector2(84.608826, 10.116409)
+scale = Vector2(1.2, 1.2)
+script = ExtResource("7_ur7pv")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/OverlayArm/Sprites/Square4/tape"]
+z_index = -1
+offset_left = -269.81573
+offset_top = -41.04204
+offset_right = 241.6294
+offset_bottom = 61.281445
+scale = Vector2(0.8, 1)
+pivot_offset = Vector2(272.52982, 43.717224)
+color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+
+[node name="TapeStart" type="Node2D" parent="CanvasLayer/OverlayArm/Sprites/Square4/tape"]
+position = Vector2(191.32742, 6.624466)
 
 [node name="Bones" type="Node2D" parent="CanvasLayer/OverlayArm"]
 

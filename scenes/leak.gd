@@ -39,3 +39,7 @@ func unzoom():
 	await get_tree().create_timer(1.1).timeout
 	GameManager.playerMove=true
 	canZoom=true
+
+
+func _on_area_2d_2_area_entered(area: Area2D) -> void:
+	print("TAPE VIA AREA")

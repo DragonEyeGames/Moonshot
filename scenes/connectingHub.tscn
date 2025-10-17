@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6sw5rfxnhbc1"]
+[gd_scene load_steps=17 format=3 uid="uid://c6sw5rfxnhbc1"]
 
 [ext_resource type="Script" uid="uid://ce4ppyi0o0lys" path="res://scripts/connectingHub.gd" id="1_6s44l"]
-[ext_resource type="Texture2D" uid="uid://i158conio5sl" path="res://assets/circle.png" id="2_ckbkb"]
-[ext_resource type="PackedScene" uid="uid://wfovgqfhltfq" path="res://scenes/oxygenator.tscn" id="3_6n71y"]
-[ext_resource type="PackedScene" uid="uid://dp884u7yo5ue" path="res://scenes/energyPanel.tscn" id="4_vc0o1"]
-[ext_resource type="PackedScene" uid="uid://f7m0p5xdy0wb" path="res://scenes/waterReclaimer.tscn" id="5_xq3ii"]
+[ext_resource type="Texture2D" uid="uid://dxaxo0gldp6tb" path="res://assets/Circle Building/BuildingRoof.png" id="2_6n71y"]
+[ext_resource type="Texture2D" uid="uid://ckns5f251qlo3" path="res://assets/Circle Building/BuildingFloor.png" id="3_vc0o1"]
+[ext_resource type="Texture2D" uid="uid://b2o4dkbqhhuf0" path="res://assets/Circle Building/BuildingLight.png" id="4_ckbkb"]
 [ext_resource type="PackedScene" uid="uid://baqwa2wch57ys" path="res://scenes/bed.tscn" id="6_slu8u"]
+[ext_resource type="Texture2D" uid="uid://cu1wcy3kbe7oc" path="res://assets/Circle Building/BuildingFrontDoor.png" id="7_ckbkb"]
 [ext_resource type="PackedScene" uid="uid://dpvvx0k4pp6gi" path="res://scenes/suit_holder.tscn" id="7_xkuj7"]
+[ext_resource type="Texture2D" uid="uid://b4whrnyeukevj" path="res://assets/Circle Building/BuildingBackWall.png" id="8_slu8u"]
 
 [sub_resource type="Animation" id="Animation_mt53i"]
 length = 0.001
@@ -34,6 +35,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FrontWall:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Airlock/walls5:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ejodb"]
 resource_name = "hide"
@@ -48,6 +73,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.804743, 0.804743, 0.804743, 1), Color(0.803922, 0.803922, 0.803922, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FrontWall:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Airlock/walls5:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_48xji"]
@@ -64,6 +113,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0.803922, 0.803922, 0.803922, 0), Color(0.803922, 0.803922, 0.803922, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FrontWall:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2keeq"]
 _data = {
@@ -73,7 +134,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt53i"]
-radius = 1210.01
+radius = 1446.5892
 
 [sub_resource type="Animation" id="Animation_foqtn"]
 length = 0.001
@@ -121,9 +182,7 @@ script = ExtResource("1_6s44l")
 modulate = Color(0.804743, 0.804743, 0.804743, 1)
 light_mask = 0
 z_index = 3
-position = Vector2(2.68456, -390.604)
-scale = Vector2(8.785, 6.515)
-texture = ExtResource("2_ckbkb")
+texture = ExtResource("2_6n71y")
 
 [node name="State" type="AnimationPlayer" parent="Roof"]
 root_node = NodePath("../..")
@@ -134,53 +193,17 @@ libraries = {
 [node name="Floor" type="Sprite2D" parent="."]
 modulate = Color(0.310617, 0.310617, 0.310617, 1)
 z_index = -1
-position = Vector2(8, -8)
-scale = Vector2(8.785, 6.515)
-texture = ExtResource("2_ckbkb")
+texture = ExtResource("3_vc0o1")
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
-scale = Vector2(1, 0.145)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(8, -40)
-scale = Vector2(1, 4.92)
+z_index = 1
+position = Vector2(8.053691, 206.71143)
+scale = Vector2(1, 0.85)
 shape = SubResource("CircleShape2D_mt53i")
-
-[node name="Oxygenator" parent="." instance=ExtResource("3_6n71y")]
-offset_left = -775.8389
-offset_top = -569.1275
-offset_right = -456.83923
-offset_bottom = -285.90594
-
-[node name="EnergyPanel" parent="." instance=ExtResource("4_vc0o1")]
-offset_left = -175.83893
-offset_top = -771.81213
-offset_right = 143.16077
-offset_bottom = -488.59058
-
-[node name="Atmospheric Regulator" type="ColorRect" parent="."]
-offset_left = -821.477
-offset_top = -822.819
-offset_right = -502.477
-offset_bottom = -657.819
-rotation = -0.579449
-color = Color(0.18359, 0.18359, 0.18359, 1)
-
-[node name="Water Reclaimer" parent="." instance=ExtResource("5_xq3ii")]
-offset_left = 428.18793
-offset_top = -553.02014
-offset_right = 747.188
-offset_bottom = -283.65015
-
-[node name="Temperature" type="ColorRect" parent="."]
-offset_left = 37.5839
-offset_top = -1139.6
-offset_right = 356.584
-offset_bottom = -974.597
-color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 scale = Vector2(1, 0.73)
@@ -192,10 +215,7 @@ polygon = PackedVector2Array(-310.067, 1107.38, -554.362, 1016.11, -849.664, 778
 polygon = PackedVector2Array(1126.1744, 327.2961, 1157.0469, 338.32858, 1146.3087, 380.61966, 1097.9866, 496.46042, 970.4697, 707.9158, 859.06036, 842.144, 677.8523, 996.5983, 453.69125, 1108.7616, 276.51004, 1151.0526, 276.51004, 1128.9878, 426.8456, 1088.5354, 524.8322, 1037.0507, 712.75165, 923.0486, 915.4362, 717.1095, 1075.1677, 463.36304)
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(4.026846, -22.81879)
-scale = Vector2(11.207, 8.176)
-texture = ExtResource("2_ckbkb")
-texture_scale = 0.8
+texture = ExtResource("4_ckbkb")
 height = 1024.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PointLight2D2"]
@@ -204,10 +224,19 @@ libraries = {
 }
 
 [node name="Bed" parent="." instance=ExtResource("6_slu8u")]
-position = Vector2(-1.3422699, -13.422852)
+position = Vector2(-12.080537, 48.322147)
+scale = Vector2(1.995, 1.995)
 
 [node name="SuitHolder" parent="." instance=ExtResource("7_xkuj7")]
 position = Vector2(327.51678, 628.1879)
+
+[node name="FrontWall" type="Sprite2D" parent="."]
+light_mask = 2
+z_index = 1
+texture = ExtResource("7_ckbkb")
+
+[node name="BackWall" type="Sprite2D" parent="."]
+texture = ExtResource("8_slu8u")
 
 [connection signal="body_entered" from="Area2D" to="." method="playerEnter"]
 [connection signal="body_exited" from="Area2D" to="." method="playerExit"]

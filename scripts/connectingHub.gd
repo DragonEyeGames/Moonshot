@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 		GameManager.basePower-=($PointLight2D2.energy/4)*delta
 	else:
 		$PointLight2D2.energy=0
-	electronicPrioritizing()
+	#electronicPrioritizing()
 	
 func electronicPrioritizing():
 	$"Water Reclaimer".priorityNerf=1

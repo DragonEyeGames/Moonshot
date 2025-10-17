@@ -169,6 +169,8 @@ collision_layer = 2
 script = ExtResource("1_hqtel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 22)
+scale = Vector2(1, 0.595)
 shape = SubResource("CircleShape2D_aq4fw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -203,22 +205,23 @@ position = Vector2(811, 815)
 
 [node name="Square2" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 position = Vector2(257, 381)
-rotation = -1.3038223
+rotation = -1.3038225
 scale = Vector2(1.9604162, 0.9999864)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square3" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
-position = Vector2(374.42432, 45.968445)
-rotation = -2.3165317
+position = Vector2(374.42444, 45.968628)
+rotation = -2.316532
 scale = Vector2(2.277147, 1)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square4" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(96.99994, -294.00024)
-rotation = -2.3168662
+position = Vector2(97, -294)
+rotation = -2.3168664
+scale = Vector2(1.0000001, 1.0000001)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(92.512695, 7.0788574)
 

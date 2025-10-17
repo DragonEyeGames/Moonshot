@@ -656,6 +656,30 @@ color = Color(0.22670749, 0.22670749, 0.22670746, 1)
 [node name="Leak" parent="Oxygenator Room/Oxygen Pipe" instance=ExtResource("12_blq7k")]
 position = Vector2(2659.061, -75.167625)
 
+[node name="Leak2" parent="Oxygenator Room/Oxygen Pipe" instance=ExtResource("12_blq7k")]
+position = Vector2(1962.4167, -76.50991)
+rotation = 0.0017341923
+
+[node name="Leak3" parent="Oxygenator Room/Oxygen Pipe" instance=ExtResource("12_blq7k")]
+position = Vector2(1218.7925, -93.95958)
+rotation = 0.0017341923
+
+[node name="Leak4" parent="Oxygenator Room/Oxygen Pipe" instance=ExtResource("12_blq7k")]
+position = Vector2(869.7992, -45.63743)
+rotation = 0.0017341923
+
+[node name="Leak5" parent="Oxygenator Room/Oxygen Pipe" instance=ExtResource("12_blq7k")]
+position = Vector2(481.8797, -103.35555)
+rotation = 0.0017341923
+
+[node name="Leak6" parent="Oxygenator Room/Oxygen Pipe" instance=ExtResource("12_blq7k")]
+position = Vector2(1582.5508, -85.90588)
+rotation = 0.0017341923
+
+[node name="Leak7" parent="Oxygenator Room/Oxygen Pipe" instance=ExtResource("12_blq7k")]
+position = Vector2(2289.9333, -72.48306)
+rotation = 0.0017341923
+
 [node name="Storeroom" parent="." instance=ExtResource("2_2yopf")]
 position = Vector2(-51, -3915)
 script = null

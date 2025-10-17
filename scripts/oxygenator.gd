@@ -1,5 +1,6 @@
 extends ElectronicZoom
 
+var leak = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -36,9 +37,12 @@ func _process(delta: float) -> void:
 		$ColorRect2.color=Color(.05, .05, .05)
 	power=maxPower
 	powerSap(delta)
-	if(power<=GameManager.baseCarbon):
-		GameManager.baseOxygen+=power
-		GameManager.baseCarbon-=power
+	if(power-(leak*delta)<=GameManager.baseCarbon):
+		GameManager.baseOxygen+=power-(leak*delta)
+		GameManager.baseCarbon-=power+(leak*delta)
+		if(GameManager.baseOxygen<0):
+			GameManager.baseCarbon+=abs(GameManager.baseOxygen)
+			GameManager.baseOxygen=0
 	else:
 		GameManager.baseOxygen+=GameManager.baseCarbon
 		GameManager.baseCarbon=0

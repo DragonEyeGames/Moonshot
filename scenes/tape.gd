@@ -2,10 +2,21 @@ extends Node2D
 
 var currentLine: Line2D = null
 
+var usedTape=0
+var currentUsedTape=0
+var tapeLeft=500
+
 func _physics_process(delta: float) -> void:
+	tapeLeft=500-currentUsedTape-usedTape
+	# Step 1: map proportionally
+	var mapped = 0.4 + (tapeLeft - 0) * (1.2 - 0.4) / (500 - 0)
+	# Step 2: clamp between low_out and high_out
+	mapped = clamp(mapped, .4, 1.2)
+	print(mapped)
+	$".".scale.x=mapped
 	global_rotation_degrees = 90
 
-	if Input.is_action_just_pressed("Click") and visible:
+	if Input.is_action_just_pressed("Click") and $"../../..".modulate.a>0 and tapeLeft>0:
 		# --- Create the line ---
 		currentLine = Line2D.new()
 		GameManager.tapeHolder.add_child(currentLine)
@@ -52,15 +63,26 @@ func _physics_process(delta: float) -> void:
 				end - perp,
 				end + perp
 			]
+			
+		var startPos = currentLine.points[0]
+		var endPos = currentLine.points[1]
+		var distance = startPos.distance_to(endPos)
+		currentUsedTape=distance
+		tapeLeft=500-currentUsedTape-usedTape
+		if(tapeLeft<=0):
+			tapeLeft=0
+			currentLine = null
+			usedTape+=currentUsedTape
+			currentUsedTape=0
 
-	if Input.is_action_just_released("Click") and visible:
+	if Input.is_action_just_released("Click") and $"../../..".modulate.a>0:
 		currentLine = null
+		usedTape+=currentUsedTape
+		currentUsedTape=0
 
 
 func _on_tape_entered(body: Node) -> void:
-	if(body.get_parent().get_node("airflow").emitting):
-		body.get_parent().get_node("airflow").emitting=false
+	body.get_parent().coverings+=1
 		
 func _on_tape_exited(body: Node) -> void:
-	if(body.get_parent().get_node("airflow").emitting==false):
-		body.get_parent().get_node("airflow").emitting=true
+	body.get_parent().coverings-=1

@@ -197,29 +197,28 @@ libraries = {
 [node name="OverlayArm" type="Node2D" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
 z_index = 4
-position = Vector2(801, 709)
+position = Vector2(811, 815)
 
 [node name="Sprites" type="Node2D" parent="CanvasLayer/OverlayArm"]
 
 [node name="Square2" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 position = Vector2(257, 381)
-rotation = -1.3038228
-scale = Vector2(1.960416, 0.99998677)
+rotation = -1.3038223
+scale = Vector2(1.9604162, 0.9999864)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square3" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
-position = Vector2(374.42432, 45.968628)
-rotation = -2.3165321
-scale = Vector2(2.2771451, 0.9999992)
+position = Vector2(374.42432, 45.968445)
+rotation = -2.3165317
+scale = Vector2(2.277147, 1)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square4" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(96.99982, -293.99994)
-rotation = -2.3168666
-scale = Vector2(0.9999997, 0.9999997)
+position = Vector2(96.99994, -294.00024)
+rotation = -2.3168662
 texture = ExtResource("5_qlg0r")
 offset = Vector2(92.512695, 7.0788574)
 
@@ -249,6 +248,7 @@ position = Vector2(36.952164, 21.89854)
 
 [node name="tape" type="Node2D" parent="CanvasLayer/OverlayArm/Sprites/Square4"]
 position = Vector2(84.608826, 10.116409)
+rotation = 3.1415927
 scale = Vector2(1.2, 1.2)
 script = ExtResource("7_ur7pv")
 
@@ -263,7 +263,7 @@ pivot_offset = Vector2(272.52982, 43.717224)
 color = Color(0.21950102, 0.21950102, 0.21950102, 1)
 
 [node name="TapeStart" type="Node2D" parent="CanvasLayer/OverlayArm/Sprites/Square4/tape"]
-position = Vector2(191.32742, 6.624466)
+position = Vector2(-205.14389, 16.917953)
 
 [node name="Bones" type="Node2D" parent="CanvasLayer/OverlayArm"]
 

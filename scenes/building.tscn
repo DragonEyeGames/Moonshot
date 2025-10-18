@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://ectb2uu36h7a"]
+[gd_scene load_steps=80 format=3 uid="uid://ectb2uu36h7a"]
 
 [ext_resource type="Script" uid="uid://doqvjt1ivyo14" path="res://scenes/building.gd" id="1_nm462"]
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="2_vs5tt"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://ttlbmv4h4ent" path="res://assets/AirlockAssets/backRightDoor.png" id="11_t2gq3"]
 [ext_resource type="PackedScene" uid="uid://c2krhqnewioyn" path="res://scenes/leak.tscn" id="12_blq7k"]
 [ext_resource type="Script" uid="uid://ce4ppyi0o0lys" path="res://scripts/connectingHub.gd" id="12_gwfoe"]
+[ext_resource type="Script" uid="uid://80130qpkri3o" path="res://scripts/building.gd" id="12_rh2sc"]
 [ext_resource type="Texture2D" uid="uid://dxaxo0gldp6tb" path="res://assets/Circle Building/BuildingRoof.png" id="13_2l1rv"]
 [ext_resource type="Texture2D" uid="uid://7be7jvqt7t8j" path="res://assets/Circle Building/BuildingFrontWall.png" id="14_vs5tt"]
 [ext_resource type="Texture2D" uid="uid://b2o4dkbqhhuf0" path="res://assets/Circle Building/BuildingLight.png" id="15_acxlu"]
@@ -27,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://dpvvx0k4pp6gi" path="res://scenes/suit_holder.tscn" id="17_8yjaw"]
 [ext_resource type="Texture2D" uid="uid://cu1wcy3kbe7oc" path="res://assets/Circle Building/BuildingFrontDoor.png" id="18_vkygi"]
 [ext_resource type="Texture2D" uid="uid://b4whrnyeukevj" path="res://assets/Circle Building/BuildingBackWall.png" id="19_c646r"]
+[ext_resource type="Texture2D" uid="uid://d02jo0htw5klf" path="res://assets/Circle Building/BuildingBackDoor.png" id="21_2f2c6"]
 [ext_resource type="PackedScene" uid="uid://sesvget8ak2p" path="res://scenes/shelf.tscn" id="29_ll25w"]
 [ext_resource type="PackedScene" uid="uid://c8vxpavn3ffq0" path="res://scenes/generic_circle_building.tscn" id="29_vs5tt"]
 [ext_resource type="PackedScene" uid="uid://c2xxynf0fcwu0" path="res://scenes/waterStation.tscn" id="30_2f2c6"]
@@ -65,6 +67,9 @@ polygon = PackedVector2Array(-744, 276, 0, 288, -28, -216, 276, -236, 252, -660,
 cull_mode = 1
 polygon = PackedVector2Array(-744, 276, 48, 284, 76, -236, -204, -248, -200, -692, 96, -676, 104, -1080, -720, -1076)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ll25w"]
+polygon = PackedVector2Array(20.885056, 541.2222, 411.68964, 537.6667, 411.68964, 890.55554, -7.8505707, 892.3333)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0mhj0"]
 size = Vector2(744, 372)
 
@@ -72,215 +77,91 @@ size = Vector2(744, 372)
 cull_mode = 1
 polygon = PackedVector2Array(-368, -412, 424, -416, 376, -1752, -332, -1756, -340, -1364, -620, -1356, -640, -908, -352, -864)
 
-[sub_resource type="Animation" id="Animation_dc40y"]
-resource_name = "seal"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FrontDoors/door:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-154.47125, 202.00002), Vector2(109.896545, 202.00002)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FrontDoors/door2:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(563.91956, 223.33333), Vector2(362.77014, 219.77777)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BackDoors/door3:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(81.804596, 207.88889), Vector2(-137.73563, 209.66666)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BackDoors/door4:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(290.99997, 217.66667), Vector2(570.3103, 214.11111)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FrontDoors:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BackDoors:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("BackDoors/door3/StaticBody2D/CollisionShape2D:disabled")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("BackDoors/door4/StaticBody2D/CollisionShape2D:disabled")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("FrontDoors/door/StaticBody2D/CollisionShape2D:disabled")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("FrontDoors/door2/StaticBody2D/CollisionShape2D:disabled")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_hs87p"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FrontDoors/door:position")
+tracks/0/path = NodePath("BackDoors/door4:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-154.47125, 202.00002)]
+"values": [Vector2(290.99997, 217.66667)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FrontDoors/door2:position")
+tracks/1/path = NodePath("BackDoors/LightOccluder2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(563.91956, 223.33333)]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BackDoors/door3:position")
+tracks/2/path = NodePath("BackDoors/door3/LightOccluder2D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(81.804596, 207.88889)]
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BackDoors/door4:position")
+tracks/3/path = NodePath("FrontDoors/LightOccluder2D:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(290.99997, 217.66667)]
+"values": [false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("roof:modulate")
+tracks/4/path = NodePath("FrontDoors/door2/StaticBody2D/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("FrontDoors:visible")
+tracks/5/path = NodePath("FrontDoors/door/StaticBody2D/CollisionShape2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("BackDoors:visible")
+tracks/6/path = NodePath("BackDoors/door4/StaticBody2D/CollisionShape2D:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [false]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -291,171 +172,80 @@ tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [false]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("BackDoors/door4/StaticBody2D/CollisionShape2D:disabled")
+tracks/8/path = NodePath("BackDoors:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [true]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("FrontDoors/door/StaticBody2D/CollisionShape2D:disabled")
+tracks/9/path = NodePath("FrontDoors:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [false]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("FrontDoors/door2/StaticBody2D/CollisionShape2D:disabled")
+tracks/10/path = NodePath("BackDoors/door3:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_t2gq3"]
-resource_name = "exit"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BackDoors/door4:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(570.3103, 214.11111), Vector2(291, 217.6)]
+"values": [Vector2(81.804596, 207.88889)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BackDoors/door3:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-137.73563, 209.66666), Vector2(81.8, 207.8)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FrontDoors/door2:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(362.77014, 219.77777), Vector2(563.9, 223.2)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FrontDoors/door:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(109.896545, 202.00002), Vector2(-154, 202)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FrontDoors:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("FrontDoors/door2/StaticBody2D/CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("FrontDoors/door/StaticBody2D/CollisionShape2D:disabled")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("BackDoors/door3/StaticBody2D/CollisionShape2D:disabled")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("FrontDoors/door2:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(563.91956, 223.33333)]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("BackDoors/door4/StaticBody2D/CollisionShape2D:disabled")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("FrontDoors/door:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_gwfoe"]
-resource_name = "open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("roof:modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Vector2(-154.47125, 202.00002)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("roof:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_2l1rv"]
@@ -473,6 +263,329 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_t2gq3"]
+resource_name = "exit"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackDoors/LightOccluder2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FrontDoors/LightOccluder2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BackDoors:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BackDoors/door4/StaticBody2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BackDoors/door3/StaticBody2D/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FrontDoors/door/StaticBody2D/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("FrontDoors/door2/StaticBody2D/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("FrontDoors:visible")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FrontDoors/door:position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(109.896545, 202.00002), Vector2(-154, 202)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("FrontDoors/door2:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(362.77014, 219.77777), Vector2(563.9, 223.2)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BackDoors/door3:position")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-137.73563, 209.66666), Vector2(81.8, 207.8)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BackDoors/door4:position")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(570.3103, 214.11111), Vector2(291, 217.6)]
+}
+
+[sub_resource type="Animation" id="Animation_gwfoe"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("roof:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dc40y"]
+resource_name = "seal"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackDoors/LightOccluder2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.02),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackDoors/door3/LightOccluder2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FrontDoors/LightOccluder2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FrontDoors/door2/StaticBody2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FrontDoors/door/StaticBody2D/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BackDoors/door4/StaticBody2D/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BackDoors/door3/StaticBody2D/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BackDoors:visible")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FrontDoors:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BackDoors/door4:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(290.99997, 217.66667), Vector2(570.3103, 214.11111)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BackDoors/door3:position")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(81.804596, 207.88889), Vector2(-137.73563, 209.66666)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("FrontDoors/door2:position")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(563.91956, 223.33333), Vector2(362.77014, 219.77777)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("FrontDoors/door:position")
+tracks/12/interp = 2
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-154.47125, 202.00002), Vector2(109.896545, 202.00002)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gwfoe"]
 _data = {
 &"RESET": SubResource("Animation_hs87p"),
@@ -480,6 +593,58 @@ _data = {
 &"exit": SubResource("Animation_t2gq3"),
 &"open": SubResource("Animation_gwfoe"),
 &"seal": SubResource("Animation_dc40y")
+}
+
+[sub_resource type="Animation" id="Animation_acxlu"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ss7wp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8yjaw"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vkygi"]
+_data = {
+&"RESET": SubResource("Animation_ss7wp"),
+&"hide": SubResource("Animation_acxlu"),
+&"show": SubResource("Animation_8yjaw")
 }
 
 [sub_resource type="Animation" id="Animation_mt53i"]
@@ -1077,6 +1242,12 @@ position = Vector2(-473.56326, 440.8889)
 scale = Vector2(-1, 1)
 occluder = SubResource("OccluderPolygon2D_bc5nu")
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Airlock/FrontDoors"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(13.344828, -497.55557)
+occluder = SubResource("OccluderPolygon2D_ll25w")
+
 [node name="BackDoors" type="Control" parent="Airlock"]
 z_index = -1
 clip_contents = true
@@ -1125,6 +1296,11 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(46.8967, 1009.3334)
 occluder = SubResource("OccluderPolygon2D_0mhj0")
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Airlock/BackDoors"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-0.9540251, -531.6667)
+occluder = SubResource("OccluderPolygon2D_ll25w")
+
 [node name="ColorRect" type="ColorRect" parent="Airlock"]
 z_index = -1
 offset_left = -212.0
@@ -1137,6 +1313,86 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_gwfoe")
 }
+
+[node name="Vert Hallway" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(25, -2970)
+scale = Vector2(0.87, 1.125)
+script = ExtResource("12_rh2sc")
+
+[node name="walls5" type="Sprite2D" parent="Vert Hallway"]
+light_mask = 2
+z_index = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_ll25w")
+
+[node name="walls3" type="Sprite2D" parent="Vert Hallway"]
+light_mask = 2
+z_index = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_2f2c6")
+
+[node name="floor" type="Sprite2D" parent="Vert Hallway"]
+position = Vector2(-9.770065, 0)
+scale = Vector2(0.30337057, 0.25)
+texture = ExtResource("5_rh2sc")
+
+[node name="Roof" type="Sprite2D" parent="Vert Hallway"]
+light_mask = 2
+z_index = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_dc40y")
+
+[node name="State" type="AnimationPlayer" parent="Vert Hallway/Roof"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_vkygi")
+}
+
+[node name="Area2D" type="Area2D" parent="Vert Hallway"]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vert Hallway/Area2D"]
+position = Vector2(19, 178.5)
+shape = SubResource("RectangleShape2D_2yopf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Vert Hallway"]
+visible = false
+z_index = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vert Hallway/StaticBody2D"]
+position = Vector2(245.5, 284)
+shape = SubResource("RectangleShape2D_5j34s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Vert Hallway/StaticBody2D"]
+position = Vector2(-194, 284)
+shape = SubResource("RectangleShape2D_5j34s")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Vert Hallway"]
+occluder = SubResource("OccluderPolygon2D_3yst8")
+occluder_light_mask = 3
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Vert Hallway"]
+position = Vector2(450.5747, 0.8888889)
+occluder = SubResource("OccluderPolygon2D_3yst8")
+occluder_light_mask = 3
+
+[node name="PointLight2D" type="PointLight2D" parent="Vert Hallway"]
+light_mask = 4
+position = Vector2(34, 289.6667)
+scale = Vector2(2.2755556, 2.3851857)
+texture = ExtResource("7_jc16f")
+
+[node name="ColorRect" type="ColorRect" parent="Vert Hallway"]
+z_index = -1
+offset_left = -212.0
+offset_top = 19.555542
+offset_right = 260.0
+offset_bottom = 552.0
+color = Color(0, 0, 0, 1)
 
 [node name="Systems Connector" type="Node2D" parent="."]
 position = Vector2(-2405.9998, -1971)
@@ -1273,7 +1529,7 @@ position = Vector2(741.8182, 759.9999)
 scale = Vector2(1.645, 1.645)
 
 [node name="BackWall" type="Sprite2D" parent="Entrance Point"]
-texture = ExtResource("19_c646r")
+texture = ExtResource("21_2f2c6")
 
 [node name="Solar Panels" parent="." instance=ExtResource("3_f1gjg")]
 position = Vector2(-2091, -1089)
@@ -1618,7 +1874,7 @@ rotation = 0.0017341923
 position = Vector2(-3792, -1904)
 
 [node name="Circle Hub" parent="." instance=ExtResource("29_vs5tt")]
-position = Vector2(-21, -3941)
+position = Vector2(32, -3740.9998)
 
 [node name="Kitchen" type="Node2D" parent="."]
 position = Vector2(2622, -1929)
@@ -1702,6 +1958,8 @@ texture = ExtResource("19_c646r")
 [connection signal="body_entered" from="Airlock/Airlock" to="Airlock" method="_on_airlock_body_entered"]
 [connection signal="body_exited" from="Airlock/Airlock" to="Airlock" method="_on_airlock_body_exited"]
 [connection signal="body_entered" from="Airlock/Outer" to="Airlock" method="_on_outer_body_entered"]
+[connection signal="body_entered" from="Vert Hallway/Area2D" to="Vert Hallway" method="playerEnter"]
+[connection signal="body_exited" from="Vert Hallway/Area2D" to="Vert Hallway" method="playerExit"]
 [connection signal="body_entered" from="Systems Connector/Area2D" to="Systems Connector" method="playerEnter"]
 [connection signal="body_exited" from="Systems Connector/Area2D" to="Systems Connector" method="playerExit"]
 [connection signal="body_entered" from="Entrance Point/Area2D" to="Entrance Point" method="playerEnter"]

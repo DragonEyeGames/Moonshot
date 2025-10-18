@@ -4,7 +4,7 @@ var helmet
 var player
 var playerSprinting := false
 var playerState="outside"
-var flashlightOn=true
+var flashlightOn=false
 var playerEnergy:=100.0
 var inventory=[]
 var selectedSlot=0

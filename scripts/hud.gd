@@ -129,6 +129,11 @@ func dayTime():
 	$"Date+Time/Day".text = "Day " + str(GameManager.day)
 	var hours = int(floor(GameManager.currentTime))
 	var minutes = int(round((GameManager.currentTime - hours) * 60))
+	if(minutes>=60):
+		minutes=0
+		hours+=1
+		if(hours>24):
+			hours=1
 	$"Date+Time/Time".text = str(hours) + ":" + str(minutes).pad_zeros(2)
 	
 func visuals(_delta):

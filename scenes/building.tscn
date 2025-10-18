@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://ectb2uu36h7a"]
+[gd_scene load_steps=95 format=3 uid="uid://ectb2uu36h7a"]
 
 [ext_resource type="Script" uid="uid://doqvjt1ivyo14" path="res://scenes/building.gd" id="1_nm462"]
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="2_vs5tt"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://rm5na5d8nlq5" path="res://scenes/hallway.tscn" id="5_0rysw"]
 [ext_resource type="Texture2D" uid="uid://0tu0e1ax2pc4" path="res://assets/AirlockAssets/Flour.png" id="5_rh2sc"]
 [ext_resource type="Texture2D" uid="uid://cflbt7lvi1n5s" path="res://assets/AirlockAssets/Roof.png" id="6_dc40y"]
-[ext_resource type="PackedScene" uid="uid://cpv0gjbcloq3p" path="res://scenes/greenhouse.tscn" id="6_f5uvq"]
 [ext_resource type="Texture2D" uid="uid://y61752g3nw8m" path="res://assets/square.png" id="7_jc16f"]
 [ext_resource type="Texture2D" uid="uid://csa4bjj7rjuee" path="res://assets/AirlockAssets/FrontRightDoor.png" id="8_hs87p"]
 [ext_resource type="Texture2D" uid="uid://i158conio5sl" path="res://assets/circle.png" id="8_jc16f"]
@@ -29,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://cu1wcy3kbe7oc" path="res://assets/Circle Building/BuildingFrontDoor.png" id="18_vkygi"]
 [ext_resource type="Texture2D" uid="uid://b4whrnyeukevj" path="res://assets/Circle Building/BuildingBackWall.png" id="19_c646r"]
 [ext_resource type="Texture2D" uid="uid://d02jo0htw5klf" path="res://assets/Circle Building/BuildingBackDoor.png" id="21_2f2c6"]
+[ext_resource type="PackedScene" uid="uid://c5eiodc6x61h" path="res://scenes/farm.tscn" id="26_2f2c6"]
 [ext_resource type="PackedScene" uid="uid://sesvget8ak2p" path="res://scenes/shelf.tscn" id="29_ll25w"]
 [ext_resource type="PackedScene" uid="uid://c2xxynf0fcwu0" path="res://scenes/waterStation.tscn" id="30_2f2c6"]
 
@@ -962,6 +962,110 @@ _data = {
 &"danger": SubResource("Animation_ijljr")
 }
 
+[sub_resource type="Animation" id="Animation_swn71"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.804743, 0.804743, 0.804743, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Roof:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_a1e86"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.804743, 0.804743, 0.804743, 1), Color(0.803922, 0.803922, 0.803922, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ln3cc"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Roof:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.803922, 0.803922, 0.803922, 0), Color(0.803922, 0.803922, 0.803922, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8cwg4"]
+_data = {
+&"RESET": SubResource("Animation_swn71"),
+&"hide": SubResource("Animation_a1e86"),
+&"show": SubResource("Animation_ln3cc")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pt15o"]
+radius = 1210.01
+
+[sub_resource type="Animation" id="Animation_hr3pe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ryhcm"]
+resource_name = "danger"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rt3qn"]
+_data = {
+&"RESET": SubResource("Animation_hr3pe"),
+&"danger": SubResource("Animation_ryhcm")
+}
+
 [sub_resource type="Animation" id="Animation_tq4q2"]
 length = 0.001
 tracks/0/type = "value"
@@ -1753,8 +1857,70 @@ scale = Vector2(0.74822503, 1)
 position = Vector2(1317.0001, -1939)
 scale = Vector2(0.865, 1)
 
-[node name="Farm" parent="." instance=ExtResource("6_f5uvq")]
+[node name="Farm" type="Node2D" parent="."]
+z_index = 1
 position = Vector2(2429, -3970.0002)
+scale = Vector2(0.745, 0.745)
+
+[node name="Roof" type="Sprite2D" parent="Farm"]
+modulate = Color(0.804743, 0.804743, 0.804743, 1)
+self_modulate = Color(1, 1, 1, 0)
+light_mask = 0
+z_index = 3
+position = Vector2(2.68456, -390.604)
+scale = Vector2(8.785, 6.515)
+texture = ExtResource("8_jc16f")
+
+[node name="State" type="AnimationPlayer" parent="Farm/Roof"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_8cwg4")
+}
+
+[node name="Floor" type="Sprite2D" parent="Farm"]
+modulate = Color(0.310617, 0.310617, 0.310617, 1)
+z_index = -1
+position = Vector2(8, -8)
+scale = Vector2(8.785, 6.515)
+texture = ExtResource("8_jc16f")
+
+[node name="Area2D" type="Area2D" parent="Farm"]
+visible = false
+scale = Vector2(1, 0.145)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Farm/Area2D"]
+position = Vector2(8, -40)
+scale = Vector2(1, 4.92)
+shape = SubResource("CircleShape2D_pt15o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Farm"]
+scale = Vector2(1, 0.73)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Farm/StaticBody2D"]
+polygon = PackedVector2Array(-310.067, 1107.38, -554.362, 1016.11, -849.664, 778.523, -1075.17, 464.43, -1167.79, 112.752, -1135.57, -379.866, -902.013, -798.658, -445.638, -1140.94, -88.5906, -1221.48, 255.034, -1198.66, 569.128, -1080.54, 879.195, -830.872, 1087.25, -520.805, 1159.7314, -262.94016, 1191.9463, -275.81134, 1194.63, -323.49, 1051.01, -646.98, 771.812, -985.235, 555.705, -1118.12, 236.242, -1249.66, -316.779, -1225.5, -672.483, -1051.01, -939.597, -812.081, -1159.73, -421.477, -1225.5, 12.0805, -1158.39, 386.577, -967.785, 714.094, -805.369, 888.591, -565.101, 1059.06, -312.752, 1153.02)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Farm/StaticBody2D"]
+polygon = PackedVector2Array(1126.1744, 327.2961, 1157.0469, 338.32858, 1146.3087, 380.61966, 1097.9866, 496.46042, 970.4697, 707.9158, 859.06036, 842.144, 677.8523, 996.5983, 453.69125, 1108.7616, 276.51004, 1151.0526, 276.51004, 1128.9878, 426.8456, 1088.5354, 524.8322, 1037.0507, 712.75165, 923.0486, 915.4362, 717.1095, 1075.1677, 463.36304)
+
+[node name="PointLight2D2" type="PointLight2D" parent="Farm"]
+position = Vector2(4.026846, -22.81879)
+scale = Vector2(11.207, 8.176)
+texture = ExtResource("8_jc16f")
+texture_scale = 0.8
+height = 1024.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Farm/PointLight2D2"]
+libraries = {
+&"": SubResource("AnimationLibrary_rt3qn")
+}
+
+[node name="Farm" parent="Farm" instance=ExtResource("26_2f2c6")]
+
+[node name="Shelf" parent="Farm" instance=ExtResource("29_ll25w")]
+position = Vector2(753.02014, -303.3557)
+items = ["SeedBag", "SeedBag", "", "", "", "", "", ""]
 
 [node name="Water Reclaimer" type="Node2D" parent="."]
 z_index = 1
@@ -2233,6 +2399,8 @@ texture = ExtResource("19_c646r")
 [connection signal="body_exited" from="Systems Connector/Area2D" to="Systems Connector" method="playerExit"]
 [connection signal="body_entered" from="Entrance Point/Area2D" to="Entrance Point" method="playerEnter"]
 [connection signal="body_exited" from="Entrance Point/Area2D" to="Entrance Point" method="playerExit"]
+[connection signal="body_entered" from="Farm/Area2D" to="Farm" method="playerEnter"]
+[connection signal="body_exited" from="Farm/Area2D" to="Farm" method="playerExit"]
 [connection signal="body_entered" from="Water Reclaimer/Area2D" to="Water Reclaimer" method="playerEnter"]
 [connection signal="body_exited" from="Water Reclaimer/Area2D" to="Water Reclaimer" method="playerExit"]
 [connection signal="body_entered" from="Oxygenator Room/Area2D" to="Oxygenator Room" method="playerEnter"]

@@ -8,10 +8,11 @@ func _process(_delta: float) -> void:
 	if(Input.is_action_just_released("Click") and collision and GameManager.player.currentlyHeld!=null):
 		GameManager.player.currentlyHeld.queue_free()
 		GameManager.player.handHeldItem=""
+		print(GameManager.player.pickedUpType)
 		if(GameManager.player.pickedUpType=="plant"):
 			GameManager.carrots+=1
-		elif(GameManager.player.pickedUpType=="seedbag"):
-			GameManager.inventory.append("Seeds")
+		else:
+			GameManager.inventory.append(GameManager.player.pickedUpType)
 	if(Input.is_action_just_pressed("Interact") and not fading and visible):
 		fading=true
 		if(GameManager.interactedItem!=null):

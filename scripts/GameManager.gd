@@ -28,7 +28,7 @@ var playerAnimator: AnimationPlayer
 
 var basePower=200
 var health=100
-var currentTime=22
+var currentTime=12
 var day=1
 var sunPower=0
 

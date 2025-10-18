@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bnoqv312svl4k" path="res://scenes/plant_bag.tscn" id="7_smehm"]
 [ext_resource type="Script" uid="uid://cp0sd7il7sd3y" path="res://scenes/tape.gd" id="7_ur7pv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_aq4fw"]
-radius = 72.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur7pv"]
+radius = 46.0
+height = 134.0
 
 [sub_resource type="Animation" id="Animation_sweqy"]
 length = 0.001
@@ -169,9 +170,9 @@ collision_layer = 2
 script = ExtResource("1_hqtel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 22)
-scale = Vector2(1, 0.595)
-shape = SubResource("CircleShape2D_aq4fw")
+position = Vector2(-3, 20)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ur7pv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_sweqy")

@@ -12,11 +12,10 @@ func _physics_process(_delta: float) -> void:
 	var mapped = 0.4 + (tapeLeft - 0) * (1.2 - 0.4) / (500 - 0)
 	# Step 2: clamp between low_out and high_out
 	mapped = clamp(mapped, .4, 1.2)
-	print(mapped)
 	$".".scale.x=mapped
 	global_rotation_degrees = 90
 
-	if Input.is_action_just_pressed("Click") and $"../../..".modulate.a>0 and tapeLeft>0:
+	if Input.is_action_just_pressed("Click") and $"../../..".modulate.a>0 and tapeLeft>0 and visible:
 		# --- Create the line ---
 		currentLine = Line2D.new()
 		GameManager.tapeHolder.add_child(currentLine)
@@ -75,7 +74,7 @@ func _physics_process(_delta: float) -> void:
 			usedTape+=currentUsedTape
 			currentUsedTape=0
 
-	if Input.is_action_just_released("Click") and $"../../..".modulate.a>0:
+	if Input.is_action_just_released("Click") and $"../../..".modulate.a>0 and visible:
 		currentLine = null
 		usedTape+=currentUsedTape
 		currentUsedTape=0

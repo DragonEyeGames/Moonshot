@@ -3,11 +3,12 @@ extends CharacterBody2D
 
 @export var  speed = 300.0
 
-var canPickUp=false
+var canPickUp:=false
 var pickable
-var canPlace=false
+var canPlace:=false
 var currentlyHeld
-var handHeldItem=""
+var handHeldItem:=""
+var pickedUpType:=""
 
 func _ready() -> void:
 	flashlightEvents()
@@ -15,12 +16,13 @@ func _ready() -> void:
 	GameManager.playerAnimator=$StateController
 
 func _process(_delta: float) -> void:
+	$Area2D/CollisionShape2D.scale=Vector2(1/GameManager.camera.zoom.x, 1/GameManager.camera.zoom.y)
 	if(GameManager.carrots>0 and not "Carrots" in GameManager.inventory and len(GameManager.inventory) <= 4):
 		GameManager.inventory.append("Carrots")
 	$CanvasLayer/OverlayArm/Sprites/Square4/tape.visible=GameManager.playerTool=="tape"
 	$CanvasLayer/OverlayArm/Sprites/Square4/Square5.visible=GameManager.playerTool=="rag"
 	$CanvasLayer/SeedBag.visible=GameManager.playerTool=="seedBag"
-	$CanvasLayer/PlantBag.visible=GameManager.playerTool=="plantBag"
+	$CanvasLayer/PlantBag.visible=GameManager.playerTool=="bag"
 	$CanvasLayer/OverlayArm/Sprites/Square4/wateringCan.visible=GameManager.playerTool=="wateringCan"
 	if(handHeldItem=="seeds" and Input.is_action_just_released("Click")):
 		GameManager.interactedItem.dropSeeds()
@@ -48,9 +50,9 @@ func _process(_delta: float) -> void:
 		move_and_slide()
 	if(canPickUp and Input.is_action_just_pressed("Click") and pickable!=null):
 		pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
-		pickable.scale*=10
-		pickable.rotation+=PI/2
-		handHeldItem="plant"
+		pickable.scale=GameManager.camera.zoom*pickable.scale
+		#pickable.rotation+=PI/2
+		handHeldItem=pickedUpType.to_lower()
 		currentlyHeld=pickable
 		pickable.global_position=$CanvasLayer/OverlayArm/Sprites/Square4.global_position
 		pickable=null
@@ -69,9 +71,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		area.get_parent().modulate.a-=.5
 		if(area.get_parent().modulate.a<=.1):
 			area.get_parent().queue_free()
-	print(GameManager.playerTool)
-	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and area.name=="Plant" and handHeldItem=="" and GameManager.playerTool=="plantBag"):
+	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag"):
 		canPickUp=true
+		pickedUpType=area.name
 		pickable=area.get_parent()
 			
 func pickUp(item):

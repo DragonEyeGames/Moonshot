@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		water=GameManager.pickedUpJugWater
 		GameManager.pickedUpJugWater=-1
 	elif(collision and not jugCollision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and not zoomed and canZoom):
-		GameManager.playerTool="plantBag"
+		GameManager.playerTool="bag"
 		zoom()
 	elif(jugCollision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and len(GameManager.inventory)<=4):
 		GameManager.inventory.append("Jug")

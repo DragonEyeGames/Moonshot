@@ -16,16 +16,16 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if(colliding and Input.is_action_just_pressed("Interact") and len($Shelf.get_children())>0 and len(GameManager.inventory)<=4):
 		var item = str($Shelf.get_child(0).get_child(0).name)
 		GameManager.inventory.append(item)
 		$Shelf.get_child(0).queue_free()
 
 
-func _on_shelf_area_body_entered(body: Node2D) -> void:
+func _on_shelf_area_body_entered(_body: Node2D) -> void:
 	colliding=true
 
 
-func _on_shelf_area_body_exited(body: Node2D) -> void:
+func _on_shelf_area_body_exited(_body: Node2D) -> void:
 	colliding=false

@@ -48,11 +48,11 @@ func _process(delta: float) -> void:
 			#print(water)
 	$ColorRect7.modulate.a=standingWater/200
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	collision=true
 
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	collision=false
 	
 func dropSeeds():
@@ -84,9 +84,9 @@ func unzoom():
 	canZoom=true
 
 
-func _on_jug_body_entered(body: Node2D) -> void:
+func _on_jug_body_entered(_body: Node2D) -> void:
 	jugCollision=true
 
 
-func _on_jug_body_exited(body: Node2D) -> void:
+func _on_jug_body_exited(_body: Node2D) -> void:
 	jugCollision=false

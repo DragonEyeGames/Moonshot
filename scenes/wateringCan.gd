@@ -2,7 +2,7 @@ extends Node2D
 
 var pouring=false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if(visible):
 		if(GameManager.playerHand.get_child(0).update_rotation):
 			GameManager.playerHand.rotation=0

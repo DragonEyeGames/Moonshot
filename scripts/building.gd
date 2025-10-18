@@ -9,14 +9,14 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
-func playerEnter(area: Node2D):
+func playerEnter(_area: Node2D):
 	openMods()
 	$Roof/State.play("hide")
 	
-func playerExit(area: Node2D):
+func playerExit(_area: Node2D):
 	$Roof/State.play("show")
 
 func openMods():

@@ -30,11 +30,11 @@ func _process(delta: float) -> void:
 		GameManager.pickedUpJugWater=-1
 		GameManager.selectedSlot=-1
 		$Jug.visible=true
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	collision=true
 
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	collision=false
 
 

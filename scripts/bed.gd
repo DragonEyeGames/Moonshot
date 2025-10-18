@@ -7,7 +7,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if(playerEntered and Input.is_action_just_pressed("Interact")):
 		var tween = create_tween()
 		tween.tween_property(GameManager.player, "global_position", global_position, 1)
@@ -27,8 +27,8 @@ func _process(delta: float) -> void:
 		GameManager.playerMove=true
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	playerEntered=true
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	playerEntered=false

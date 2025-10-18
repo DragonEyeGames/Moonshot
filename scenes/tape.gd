@@ -6,7 +6,7 @@ var usedTape=0
 var currentUsedTape=0
 var tapeLeft=500
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	tapeLeft=500-currentUsedTape-usedTape
 	# Step 1: map proportionally
 	var mapped = 0.4 + (tapeLeft - 0) * (1.2 - 0.4) / (500 - 0)

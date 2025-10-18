@@ -14,7 +14,7 @@ func _ready() -> void:
 	GameManager.playerHand=$CanvasLayer/OverlayArm/Bones/Skeleton2D/Base/Segment/Hand
 	GameManager.playerAnimator=$StateController
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if(GameManager.carrots>0 and not "Carrots" in GameManager.inventory and len(GameManager.inventory) <= 4):
 		GameManager.inventory.append("Carrots")
 	$CanvasLayer/OverlayArm/Sprites/Square4/tape.visible=GameManager.playerTool=="tape"
@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 	else:
 		speed=300
 	velocity = Input.get_vector("Left", "Right", "Up", "Down")
-	var healthMod = GameManager.health/100
+	var healthMod = float(GameManager.health/100.0)
 	if(healthMod<.6):
 		healthMod=.6
 	velocity*=speed*healthMod

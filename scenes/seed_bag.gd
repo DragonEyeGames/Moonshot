@@ -4,7 +4,7 @@ var collision=false
 var seeds=3
 var fading=false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if(collision and Input.is_action_just_pressed("Click") and seeds>0):
 		GameManager.player.pickUp("seeds")
 		seeds-=1
@@ -18,11 +18,11 @@ func _process(delta: float) -> void:
 		await get_tree().create_timer(1).timeout
 		fading=false
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_area_2d_area_entered(_area: Area2D) -> void:
 	if(visible):
 		collision=true
 
 
-func _on_area_2d_area_exited(area: Area2D) -> void:
+func _on_area_2d_area_exited(_area: Area2D) -> void:
 	if(visible):
 		collision=false

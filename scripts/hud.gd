@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	inventory()
 	dayTime()
 	visuals(delta)
-	$RichTextLabel.text= "FPS: " + str(Engine.get_frames_per_second())
+	$RichTextLabel.text = "FPS: " + str(Engine.get_frames_per_second())
 	
 func food(_delta):
 	if(GameManager.food>100):

@@ -43,7 +43,7 @@ size = Vector2(448, 275)
 size = Vector2(93, 548)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3yst8"]
-polygon = PackedVector2Array(-248, -1400, -248, -128, -240, -128, -240, -1400)
+polygon = PackedVector2Array(-241, 16, -248, 558, -155, 556, -161, 10)
 
 [sub_resource type="Curve" id="Curve_3yst8"]
 _limits = [0.0, 10.0, 0.0, 1.0]
@@ -139,6 +139,30 @@ tracks/6/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BackDoors/door3/StaticBody2D/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BackDoors/door4/StaticBody2D/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_18ctq"]
 resource_name = "close"
@@ -225,10 +249,34 @@ tracks/5/path = NodePath("FrontDoors:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(3),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BackDoors/door3/StaticBody2D/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.07),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BackDoors/door4/StaticBody2D/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2.83),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_wvv8k"]
@@ -378,7 +426,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("FrontWall:modulate")
+tracks/2/path = NodePath("Roof/FrontWall:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -417,7 +465,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FrontWall:modulate")
+tracks/1/path = NodePath("Roof/FrontWall:modulate")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -456,7 +504,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FrontWall:modulate")
+tracks/1/path = NodePath("Roof/FrontWall:modulate")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -828,8 +876,8 @@ scale_amount_curve = SubResource("Curve_3yst8")
 color_ramp = SubResource("Gradient_bc5nu")
 
 [node name="PointLight2D" type="PointLight2D" parent="Airlock"]
-position = Vector2(34, 81.00006)
-scale = Vector2(2.2755556, 4.2400002)
+position = Vector2(34, 289.6667)
+scale = Vector2(2.2755556, 2.3851857)
 texture = ExtResource("7_jc16f")
 
 [node name="DoorController" type="AnimationPlayer" parent="Airlock"]
@@ -927,7 +975,7 @@ occluder = SubResource("OccluderPolygon2D_0mhj0")
 [node name="ColorRect" type="ColorRect" parent="Airlock"]
 z_index = -1
 offset_left = -212.0
-offset_top = -363.0
+offset_top = 19.555542
 offset_right = 260.0
 offset_bottom = 552.0
 color = Color(0, 0, 0, 1)
@@ -949,6 +997,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_2keeq")
 }
 
+[node name="FrontWall" type="Sprite2D" parent="Circle Hub/Roof"]
+light_mask = 2
+z_index = -1
+texture = ExtResource("18_vkygi")
+
 [node name="Floor" type="Sprite2D" parent="Circle Hub"]
 modulate = Color(0.310617, 0.310617, 0.310617, 1)
 z_index = -1
@@ -968,11 +1021,13 @@ shape = SubResource("CircleShape2D_mt53i")
 scale = Vector2(1, 0.73)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Circle Hub/StaticBody2D"]
+z_index = 1
 position = Vector2(-78.181816, 774.5952)
-polygon = PackedVector2Array(-310.067, 1107.38, -554.362, 1016.11, -849.664, 778.523, -1075.17, 464.43, -1167.79, 112.752, -1135.57, -379.866, -902.013, -798.658, -445.638, -1140.94, -88.5906, -1221.48, 255.034, -1198.66, 569.128, -1080.54, 879.195, -830.872, 1087.25, -520.805, 1159.7314, -262.94016, 1191.9463, -275.81134, 1194.63, -323.49, 1051.01, -646.98, 771.812, -985.235, 555.705, -1118.12, 236.242, -1249.66, -316.779, -1225.5, -672.483, -1051.01, -939.597, -812.081, -1159.73, -421.477, -1225.5, 12.0805, -1158.39, 386.577, -967.785, 714.094, -805.369, 888.591, -565.101, 1059.06, -312.752, 1153.02)
+polygon = PackedVector2Array(-316.36362, 1120.7969, -552.7273, 1008.71704, -790.90906, 874.22144, -940, 744.7073, -1085.4545, 570.36084, -1227.2727, 298.8789, -1276.3636, 244.08447, -1321.8181, 206.72461, -1361.8181, 194.27148, -1345.4545, 241.59375, -1265.4545, 373.59888, -1245.4545, 415.93994, -1138.1818, 600.2488, -1012.72723, 779.5764, -820, 941.46924, -574.5455, 1088.4182, -312.72726, 1188.0447)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Circle Hub/StaticBody2D"]
 polygon = PackedVector2Array(1126.1744, 327.2961, 1157.0469, 338.32858, 1146.3087, 380.61966, 1097.9866, 496.46042, 970.4697, 707.9158, 859.06036, 842.144, 677.8523, 996.5983, 453.69125, 1108.7616, 276.51004, 1151.0526, 276.51004, 1128.9878, 426.8456, 1088.5354, 524.8322, 1037.0507, 712.75165, 923.0486, 915.4362, 717.1095, 1075.1677, 463.36304)
+disabled = true
 
 [node name="PointLight2D2" type="PointLight2D" parent="Circle Hub"]
 texture = ExtResource("15_acxlu")
@@ -988,12 +1043,8 @@ position = Vector2(-12.080537, 48.322147)
 scale = Vector2(1.995, 1.995)
 
 [node name="SuitHolder" parent="Circle Hub" instance=ExtResource("17_8yjaw")]
-position = Vector2(327.51678, 628.1879)
-
-[node name="FrontWall" type="Sprite2D" parent="Circle Hub"]
-light_mask = 2
-z_index = 1
-texture = ExtResource("18_vkygi")
+position = Vector2(741.8182, 759.9999)
+scale = Vector2(1.645, 1.645)
 
 [node name="BackWall" type="Sprite2D" parent="Circle Hub"]
 texture = ExtResource("19_c646r")
@@ -1002,10 +1053,10 @@ texture = ExtResource("19_c646r")
 position = Vector2(-2091, -1089)
 
 [node name="Kitchen" parent="." instance=ExtResource("4_qnfc1")]
-position = Vector2(2448, -2096.0002)
+position = Vector2(2675.0002, -1779.0001)
 
 [node name="Hallway2" parent="." instance=ExtResource("5_0rysw")]
-position = Vector2(-1182.0002, -2001)
+position = Vector2(-1181, -1969)
 scale = Vector2(0.74822503, 1)
 
 [node name="Hallway3" type="Node2D" parent="."]
@@ -1088,7 +1139,7 @@ position = Vector2(0, 464)
 occluder = SubResource("OccluderPolygon2D_n7rl0")
 
 [node name="Hallway" parent="." instance=ExtResource("5_0rysw")]
-position = Vector2(1184, -2008)
+position = Vector2(1317.0001, -1939)
 scale = Vector2(0.865, 1)
 
 [node name="Farm" parent="." instance=ExtResource("6_f5uvq")]
@@ -1096,7 +1147,7 @@ position = Vector2(2429, -3970.0002)
 
 [node name="Core System Connector" type="Node2D" parent="."]
 z_index = 1
-position = Vector2(-2293.0002, -2028)
+position = Vector2(-2596, -1991)
 scale = Vector2(0.745, 0.745)
 
 [node name="Roof" type="Sprite2D" parent="Core System Connector"]

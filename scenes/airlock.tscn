@@ -24,7 +24,7 @@ size = Vector2(448, 275)
 size = Vector2(93, 548)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3yst8"]
-polygon = PackedVector2Array(-248, -1400, -248, -128, -240, -128, -240, -1400)
+polygon = PackedVector2Array(-241, 16, -248, 558, -155, 556, -161, 10)
 
 [sub_resource type="Curve" id="Curve_3yst8"]
 _limits = [0.0, 10.0, 0.0, 1.0]
@@ -120,6 +120,30 @@ tracks/6/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BackDoors/door3/StaticBody2D/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BackDoors/door4/StaticBody2D/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_18ctq"]
 resource_name = "close"
@@ -206,10 +230,34 @@ tracks/5/path = NodePath("FrontDoors:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(3),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BackDoors/door3/StaticBody2D/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.07),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BackDoors/door4/StaticBody2D/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2.83),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_wvv8k"]
@@ -355,6 +403,7 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_18ctq")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -363,6 +412,7 @@ position = Vector2(19, 178.5)
 shape = SubResource("RectangleShape2D_2yopf")
 
 [node name="Airlock" type="Area2D" parent="."]
+visible = false
 position = Vector2(1.52588e-05, -128)
 collision_layer = 0
 collision_mask = 2
@@ -372,6 +422,7 @@ position = Vector2(18.999985, 127)
 shape = SubResource("RectangleShape2D_v125v")
 
 [node name="Outer" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, 496)
 collision_layer = 0
 collision_mask = 2
@@ -381,6 +432,7 @@ position = Vector2(8, -113.5)
 shape = SubResource("RectangleShape2D_p1m7r")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 z_index = 2
 collision_mask = 0
 
@@ -393,11 +445,13 @@ position = Vector2(-194, 284)
 shape = SubResource("RectangleShape2D_5j34s")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_3yst8")
 occluder_light_mask = 3
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
-position = Vector2(504, 0)
+modulate = Color(1, 1, 1, 0)
+position = Vector2(448, 0)
 occluder = SubResource("OccluderPolygon2D_3yst8")
 occluder_light_mask = 3
 
@@ -534,7 +588,7 @@ occluder = SubResource("OccluderPolygon2D_0mhj0")
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
 offset_left = -212.0
-offset_top = -363.0
+offset_top = 24.0
 offset_right = 260.0
 offset_bottom = 552.0
 color = Color(0, 0, 0, 1)

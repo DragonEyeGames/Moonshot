@@ -47,17 +47,17 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_aw007")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Possibilities/IceCream"]
-position = Vector2(3, 140)
+position = Vector2(-0.32951355, -0.22395325)
 scale = Vector2(0.95, 0.95)
-polygon = PackedVector2Array(0, -124.21053, -35.78947, -138.94737, -35.78947, -153.68422, -4.2105255, -171.57895, 28.421055, -154.73685, 30.526318, -143.1579)
+polygon = PackedVector2Array(3.5047512, 23.393623, -32.28472, 8.656784, -32.28472, -6.080063, -0.7057743, -23.974792, 31.925806, -7.1326904, 34.031067, 4.4462585)
 
 [node name="IceCream" type="Area2D" parent="Possibilities/IceCream"]
 collision_layer = 2052
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Possibilities/IceCream/IceCream"]
-position = Vector2(3, 147)
-polygon = PackedVector2Array(0, -125, -34, -139, -34, -153, -4, -170, 27, -154, 29, -143)
+position = Vector2(-0.32951593, -0.22392273)
+polygon = PackedVector2Array(3.329516, 22.223923, -30.670485, 8.223923, -30.670485, -5.7760773, -0.67048407, -22.776077, 30.329515, -6.7760773, 32.329517, 4.2239227)
 
 [node name="Mac" type="RigidBody2D" parent="Possibilities"]
 visible = false
@@ -74,16 +74,16 @@ scale = Vector2(0.07, 0.07)
 texture = ExtResource("5_xng2s")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Possibilities/Mac"]
-position = Vector2(3, 147)
-polygon = PackedVector2Array(16, -118, -17, -118, -26, -123, -26, -158, -32, -159, -31, -175, 25, -173, 21, -161, 17, -158, 16, -153)
+position = Vector2(-1.7855325, -0.49736023)
+polygon = PackedVector2Array(20.785532, 29.49736, -12.214468, 29.49736, -21.214468, 24.49736, -21.214468, -10.50264, -27.214468, -11.50264, -26.214468, -27.50264, 29.785532, -25.50264, 25.785532, -13.50264, 21.785532, -10.50264, 20.785532, -5.50264)
 
 [node name="Mac" type="Area2D" parent="Possibilities/Mac"]
 collision_layer = 2052
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Possibilities/Mac/Mac"]
-position = Vector2(3, 147)
-polygon = PackedVector2Array(16, -118, -17, -118, -26, -123, -26, -158, -32, -159, -31, -175, 25, -173, 21, -161, 17, -158, 16, -153)
+position = Vector2(-1.7855325, -0.49736023)
+polygon = PackedVector2Array(20.785532, 29.49736, -12.214468, 29.49736, -21.214468, 24.49736, -21.214468, -10.50264, -27.214468, -11.50264, -26.214468, -27.50264, 29.785532, -25.50264, 25.785532, -13.50264, 21.785532, -10.50264, 20.785532, -5.50264)
 
 [node name="SeedBag" type="RigidBody2D" parent="Possibilities"]
 visible = false
@@ -92,8 +92,8 @@ collision_layer = 512
 collision_mask = 256
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Possibilities/SeedBag"]
-position = Vector2(3, 147)
-polygon = PackedVector2Array(16, -118, -17, -118, -26, -123, -26, -158, -32, -159, -31, -175, 25, -173, 21, -161, 17, -158, 16, -153)
+position = Vector2(-1.7855325, -0.49736023)
+polygon = PackedVector2Array(20.785532, 29.49736, -12.214468, 29.49736, -21.214468, 24.49736, -21.214468, -10.50264, -27.214468, -11.50264, -26.214468, -27.50264, 29.785532, -25.50264, 25.785532, -13.50264, 21.785532, -10.50264, 20.785532, -5.50264)
 
 [node name="Sprite" type="Sprite2D" parent="Possibilities/SeedBag"]
 position = Vector2(-7.6293945e-06, 3.8146973e-06)
@@ -125,8 +125,8 @@ collision_layer = 2052
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Possibilities/SeedBag/SeedBag"]
-position = Vector2(3, 147)
-polygon = PackedVector2Array(16, -118, -17, -118, -26, -123, -26, -158, -32, -159, -31, -175, 25, -173, 21, -161, 17, -158, 16, -153)
+position = Vector2(-1.7855325, -0.49736023)
+polygon = PackedVector2Array(20.785532, 29.49736, -12.214468, 29.49736, -21.214468, 24.49736, -21.214468, -10.50264, -27.214468, -11.50264, -26.214468, -27.50264, 29.785532, -25.50264, 25.785532, -13.50264, 21.785532, -10.50264, 20.785532, -5.50264)
 
 [node name="Cup" type="RigidBody2D" parent="Possibilities"]
 visible = false
@@ -139,16 +139,16 @@ scale = Vector2(0.125, 0.125)
 texture = ExtResource("6_878aq")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Possibilities/Cup"]
-position = Vector2(3, 147)
-polygon = PackedVector2Array(7, -128, -3, -126, -14, -128, -18, -165, -19, -167, 12, -167, 11, -165)
+position = Vector2(-0.49815068, -9.5252)
+polygon = PackedVector2Array(10.49815, 28.5252, -10.50185, 28.5252, -14.50185, -8.4748, -15.50185, -10.4748, 15.49815, -10.4748, 14.49815, -8.4748)
 
 [node name="Cup" type="Area2D" parent="Possibilities/Cup"]
 collision_layer = 2052
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Possibilities/Cup/Cup"]
-position = Vector2(3, 147)
-polygon = PackedVector2Array(7, -128, -3, -126, -14, -128, -18, -165, -19, -167, 12, -167, 11, -165)
+position = Vector2(-0.4981501, -9.525192)
+polygon = PackedVector2Array(10.49815, 28.525192, -10.50185, 28.525192, -14.50185, -8.474808, -15.50185, -10.474808, 15.49815, -10.474808, 14.49815, -8.474808)
 
 [node name="Protein" type="RigidBody2D" parent="Possibilities"]
 visible = false
@@ -160,8 +160,8 @@ center_of_mass = Vector2(2, -2)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Possibilities/Protein"]
 z_index = 1
-position = Vector2(2, 147)
-polygon = PackedVector2Array(-14, -127, -36, -135, -34, -146, 14, -167, 29, -163, 28, -152)
+position = Vector2(-1.3492758, -0.24133301)
+polygon = PackedVector2Array(-10.650724, 20.241333, -32.650723, 12.241333, -30.650724, 1.241333, 17.349276, -19.758667, 32.349277, -15.758667, 31.349276, -4.758667)
 
 [node name="Sprite" type="Sprite2D" parent="Possibilities/Protein"]
 position = Vector2(-3.8146973e-06, -2.2888184e-05)
@@ -173,8 +173,8 @@ collision_layer = 2052
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Possibilities/Protein/Protein"]
-position = Vector2(3, 147)
-polygon = PackedVector2Array(-14, -127, -36, -135, -34, -146, 14, -167, 29, -163, 28, -152)
+position = Vector2(-0.34927583, -0.24133301)
+polygon = PackedVector2Array(-10.650724, 20.241333, -32.650723, 12.241333, -30.650724, 1.241333, 17.349276, -19.758667, 32.349277, -15.758667, 31.349276, -4.758667)
 
 [node name="ZoomPoint" type="Node2D" parent="."]
 

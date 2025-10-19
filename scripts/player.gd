@@ -72,7 +72,8 @@ func _process(_delta: float) -> void:
 			#pickable.rotation+=PI/2
 			handHeldItem=pickedUpType.to_lower()
 			currentlyHeld=pickable
-			pickable.scale*=GameManager.camera.zoom
+			for child in pickable.get_children():
+				child.scale*=GameManager.camera.zoom
 			#pickable.scale*=GameManager.camera.zoom
 			pickable.position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.position
 		else:
@@ -99,15 +100,16 @@ func _process(_delta: float) -> void:
 			handHeldItem=pickedUpType.to_lower()
 			currentlyHeld=pickable
 	if(Input.is_action_just_released("Click") and pickable!=null and pickedUp):
-		
 		if(bagOpen==false):
+			$CanvasLayer/PlantBag.loadInventory()
 			pickable.set_deferred("freeze", true)
 			await get_tree().create_timer(0).timeout
 			pickedUp=false
 			canPickUp=false
 			var screenPos=pickable.global_position
 			pickable.reparent(GameManager.collisionTool)
-			pickable.scale/=GameManager.camera.zoom
+			for child in pickable.get_children():
+				child.scale/=GameManager.camera.zoom
 			pickable.global_position=get_canvas_transform().affine_inverse() * screenPos
 			await get_tree().create_timer(0).timeout
 			if(pickable):

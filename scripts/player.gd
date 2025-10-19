@@ -56,15 +56,14 @@ func _process(_delta: float) -> void:
 		pickable.freeze=true
 		pickedUp=true
 		pickedUpParent=pickable.get_parent()
+		var oldPos = pickable.global_position
 		pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
 		#pickable.rotation+=PI/2
 		handHeldItem=pickedUpType.to_lower()
 		currentlyHeld=pickable
 		pickable.scale*=GameManager.camera.zoom
 		#pickable.scale*=GameManager.camera.zoom
-		#var cam = get_viewport().get_camera_2d()
-		#var screen_pos = cam.get_canvas_transform().affine_inverse() * world_pos
-		pickable.global_position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.global_position
+		pickable.position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.position
 		await get_tree().create_timer(.1).timeout
 	if(Input.is_action_just_released("Click") and pickable!=null and pickedUp):
 		pickedUp=false

@@ -2291,6 +2291,7 @@ items = ["IceCream", "IceCream", "IceCream", "IceCream", "Protein", "Protein", "
 z_index = 1
 position = Vector2(-74.54547, -420.00052)
 scale = Vector2(1.8181818, 1.8181818)
+items = ["Tape", "Tape", "", "", "", "", "", ""]
 
 [node name="Shelf3" parent="Store Room" instance=ExtResource("29_ll25w")]
 z_index = 1

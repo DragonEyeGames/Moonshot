@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://coaotjijpvoi2"]
+[gd_scene load_steps=10 format=3 uid="uid://coaotjijpvoi2"]
 
 [ext_resource type="Script" uid="uid://b4dbcic140cnp" path="res://scenes/bag_items.gd" id="1_6dd0p"]
 [ext_resource type="Texture2D" uid="uid://372hu3xsfi0g" path="res://assets/proteinBar.png" id="1_fik7w"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c70althcu8by2" path="res://assets/cup.png" id="5_pi86y"]
 [ext_resource type="Texture2D" uid="uid://rciu6av3yice" path="res://assets/agua.png" id="6_78mh5"]
 [ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/wurterJug.png" id="8_kawho"]
+[ext_resource type="Texture2D" uid="uid://boi5dfsykcyy0" path="res://assets/DuctTape.png" id="9_tyo4a"]
 
 [node name="BagItems" type="Node2D"]
 script = ExtResource("1_6dd0p")
@@ -257,3 +258,30 @@ offset = Vector2(0, 2.2222223)
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="H Mac"]
 scale = Vector2(6.095, 6.095)
 polygon = PackedVector2Array(-12.087512, -9.125132, -0.04294728, -12.024749, 12.0016165, -8.902084, 16.90866, -3.1028495, 15.124281, 2.4733372, 11.555521, 8.049525, 5.979335, 11.395238, -0.26599476, 12.287427, -6.9574194, 11.395238, -12.756654, 7.1573353, -16.77151, -1.3184698)
+
+[node name="Tape" type="RigidBody2D" parent="."]
+visible = false
+collision_layer = 512
+collision_mask = 256
+center_of_mass_mode = 1
+center_of_mass = Vector2(2, -2)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Tape"]
+z_index = 1
+scale = Vector2(4.945, 4.945)
+polygon = PackedVector2Array(-16.198032, 4.5931168, -16.198032, -5.4068832, -11.198033, -12.406883, -3.1980333, -16.406883, 9.801967, -14.406883, 15.801967, -9.406883, 15.801967, -1.4068832, 13.801967, 6.5931168, 9.801967, 13.593117, 3.8019667, 17.593117, -2.1980333, 17.593117, -12.198033, 10.593117)
+
+[node name="Sprite" type="Sprite2D" parent="Tape"]
+position = Vector2(9.536743e-07, -4.7683716e-07)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("9_tyo4a")
+offset = Vector2(-266.66663, 133.33333)
+
+[node name="Protein" type="Area2D" parent="Tape"]
+scale = Vector2(4.935, 4.935)
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Tape/Protein"]
+z_index = 1
+polygon = PackedVector2Array(-16.198032, 4.5931168, -16.198032, -5.4068832, -11.198033, -12.406883, -3.1980333, -16.406883, 9.801967, -14.406883, 15.801967, -9.406883, 15.801967, -1.4068832, 13.801967, 6.5931168, 9.801967, 13.593117, 3.8019667, 17.593117, -2.1980333, 17.593117, -12.198033, 10.593117)

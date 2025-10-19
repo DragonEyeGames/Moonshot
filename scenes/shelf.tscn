@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://sesvget8ak2p"]
+[gd_scene load_steps=11 format=3 uid="uid://sesvget8ak2p"]
 
 [ext_resource type="Texture2D" uid="uid://chtdaquk74bsq" path="res://assets/shelf.png" id="1_0edba"]
 [ext_resource type="Script" uid="uid://c2djasrejrea" path="res://scripts/shelf.gd" id="1_0iu12"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://372hu3xsfi0g" path="res://assets/proteinBar.png" id="4_7o7sa"]
 [ext_resource type="Texture2D" uid="uid://dfffmhh10mmyc" path="res://assets/dehydrated.png" id="5_xng2s"]
 [ext_resource type="Texture2D" uid="uid://c70althcu8by2" path="res://assets/cup.png" id="6_878aq"]
+[ext_resource type="Texture2D" uid="uid://boi5dfsykcyy0" path="res://assets/DuctTape.png" id="7_oyalq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7o7sa"]
 radius = 144.0
@@ -175,6 +176,33 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Possibilities/Protein/Protein"]
 position = Vector2(-0.34927583, -0.24133301)
 polygon = PackedVector2Array(-10.650724, 20.241333, -32.650723, 12.241333, -30.650724, 1.241333, 17.349276, -19.758667, 32.349277, -15.758667, 31.349276, -4.758667)
+
+[node name="Tape" type="RigidBody2D" parent="Possibilities"]
+visible = false
+position = Vector2(48, -112)
+collision_layer = 512
+collision_mask = 256
+center_of_mass_mode = 1
+center_of_mass = Vector2(2, -2)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Possibilities/Tape"]
+z_index = 1
+position = Vector2(-1.3492758, -0.24133301)
+polygon = PackedVector2Array(-2.6507225, -0.758667, -2.6507225, -10.758667, 2.3492775, -17.758667, 10.3492775, -21.758667, 23.349277, -19.758667, 29.349277, -14.758667, 29.349277, -6.758667, 27.349277, 1.241333, 23.349277, 8.241333, 17.349277, 12.241333, 11.3492775, 12.241333, 1.3492775, 5.241333)
+
+[node name="Sprite" type="Sprite2D" parent="Possibilities/Tape"]
+position = Vector2(-3.8146973e-06, -2.2888184e-05)
+scale = Vector2(0.045, 0.045)
+texture = ExtResource("7_oyalq")
+
+[node name="Protein" type="Area2D" parent="Possibilities/Tape"]
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Possibilities/Tape/Protein"]
+z_index = 1
+position = Vector2(-1.3492758, -0.24133301)
+polygon = PackedVector2Array(-2.6507225, -0.758667, -2.6507225, -10.758667, 2.3492775, -17.758667, 10.3492775, -21.758667, 23.349277, -19.758667, 29.349277, -14.758667, 29.349277, -6.758667, 27.349277, 1.241333, 23.349277, 8.241333, 17.349277, 12.241333, 11.3492775, 12.241333, 1.3492775, 5.241333)
 
 [node name="ZoomPoint" type="Node2D" parent="."]
 

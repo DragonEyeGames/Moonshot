@@ -326,6 +326,9 @@ color = Color(0.21950102, 0.21950102, 0.21950102, 1)
 [node name="TapeStart" type="Node2D" parent="CanvasLayer/OverlayArm/Sprites/Square4/tape"]
 position = Vector2(-205.14389, 16.917953)
 
+[node name="Position" type="Node2D" parent="CanvasLayer/OverlayArm/Sprites/Square4"]
+position = Vector2(84.55326, 8.703087)
+
 [node name="Bones" type="Node2D" parent="CanvasLayer/OverlayArm"]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="CanvasLayer/OverlayArm/Bones"]

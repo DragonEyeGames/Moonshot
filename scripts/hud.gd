@@ -165,4 +165,4 @@ func fade():
 func reveal():
 	for child in get_children():
 		var tween = create_tween()
-		tween.tween_property(child, "modulate:a", 0, 1)
+		tween.tween_property(child, "modulate:a", 1, 1)

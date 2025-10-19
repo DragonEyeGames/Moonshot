@@ -112,6 +112,9 @@ Click={
 2d_physics/layer_6="Bag o' Holding"
 2d_physics/layer_8="Tape"
 2d_physics/layer_9="Shelf"
+2d_physics/layer_10="Shelf Killzone"
+2d_physics/layer_11="Mouse Pickable"
+2d_physics/layer_12="In Bag Items"
 
 [rendering]
 

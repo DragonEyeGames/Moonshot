@@ -11,6 +11,7 @@ var handHeldItem:=""
 var pickedUpType:=""
 var pickedUpParent
 var pickedUp=false
+var bagOpen=false
 
 func _ready() -> void:
 	flashlightEvents()
@@ -52,28 +53,64 @@ func _process(_delta: float) -> void:
 	if(GameManager.playerMove):
 		move_and_slide()
 	if(canPickUp and pickedUp == false and Input.is_action_just_pressed("Click") and pickable!=null):
-		#var world_pos=pickable.global_position
-		pickable.freeze=true
-		pickedUp=true
-		pickedUpParent=pickable.get_parent()
-		var oldPos = pickable.global_position
-		pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
-		#pickable.rotation+=PI/2
-		handHeldItem=pickedUpType.to_lower()
-		currentlyHeld=pickable
-		pickable.scale*=GameManager.camera.zoom
-		#pickable.scale*=GameManager.camera.zoom
-		pickable.position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.position
-		await get_tree().create_timer(.1).timeout
+		if(bagOpen==false):
+			#var world_pos=pickable.global_position
+			pickable.freeze=true
+			pickedUp=true
+			pickedUpParent=pickable.get_parent()
+			#var oldPos = pickable.global_position
+			pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
+			#pickable.rotation+=PI/2
+			handHeldItem=pickedUpType.to_lower()
+			currentlyHeld=pickable
+			pickable.scale*=GameManager.camera.zoom
+			#pickable.scale*=GameManager.camera.zoom
+			pickable.position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.position
+		else:
+			pickedUp=true
+			pickedUpParent=pickable.get_parent()
+			#var oldPos = pickable.global_position
+			if(pickedUpType=="BagItem"):
+				var oldPickable=pickable
+				pickable=oldPickable.duplicate()
+				oldPickable.get_parent().add_child(pickable)
+				#for child in pickable.get_children():
+					#child.scale/=GameManager.camera.zoom
+					#print(oldPickable.name)
+				pickable.get_node("BagItem").name=oldPickable.name
+				#oldPickable.get_parent().add_child(pickable)
+				#for child in pickable.get_children():
+					#child.scale/=GameManager.camera.zoom
+				#oldPickable.reparent($CanvasLayer/PlantBag)
+				oldPickable.visible=false
+				pickable.visible=true
+				#pickable.scale=Vector2.ONE
+			pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
+			#pickable.rotation+=PI/2
+			handHeldItem=pickedUpType.to_lower()
+			currentlyHeld=pickable
 	if(Input.is_action_just_released("Click") and pickable!=null and pickedUp):
-		pickedUp=false
-		var screenPos=pickable.global_position
-		pickable.reparent(pickedUpParent)
-		pickable.scale/=GameManager.camera.zoom
-		pickable.global_position=get_canvas_transform().affine_inverse() * screenPos
-		pickable.freeze=false
-		pickable=null
-		handHeldItem=""
+		if(bagOpen==false):
+			pickable.set_deferred("freeze", true)
+			await get_tree().create_timer(0).timeout
+			pickedUp=false
+			canPickUp=false
+			var screenPos=pickable.global_position
+			pickable.reparent(GameManager.collisionTool)
+			pickable.scale/=GameManager.camera.zoom
+			pickable.global_position=get_canvas_transform().affine_inverse() * screenPos
+			await get_tree().create_timer(0).timeout
+			if(pickable):
+				pickable.set_deferred("freeze", false)
+			await get_tree().create_timer(0).timeout
+			pickable=null
+			handHeldItem=""
+		else:
+			pickedUp=false
+			canPickUp=false
+			pickable.reparent($CanvasLayer/PlantBag)
+			pickable=null
+			handHeldItem=""
 		
 func flashlightEvents():
 	await get_tree().create_timer(randf_range(.05*GameManager.playerEnergy, .2*GameManager.playerEnergy)).timeout
@@ -89,7 +126,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		area.get_parent().modulate.a-=.5
 		if(area.get_parent().modulate.a<=.1):
 			area.get_parent().queue_free()
-	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag"):
+	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag" and bagOpen==false):
 		canPickUp=true
 		pickedUpType=area.name
 		pickable=area.get_parent()
@@ -97,3 +134,22 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func pickUp(item):
 	$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(.9, .9)
 	handHeldItem=item
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag"):
+		if(pickable==area.get_parent()):
+			pickable=null
+
+
+func _in_bag_entered(area: Area2D) -> void:
+	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag" and bagOpen==true):
+		canPickUp=true
+		pickedUpType=area.name
+		pickable=area.get_parent()
+
+
+func _in_bag_exited(area: Area2D) -> void:
+	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag" and bagOpen==true):
+		if(pickable==area.get_parent()):
+			pickable=null

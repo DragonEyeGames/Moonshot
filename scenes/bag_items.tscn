@@ -1,0 +1,112 @@
+[gd_scene load_steps=7 format=3 uid="uid://coaotjijpvoi2"]
+
+[ext_resource type="Texture2D" uid="uid://372hu3xsfi0g" path="res://assets/proteinBar.png" id="1_fik7w"]
+[ext_resource type="Texture2D" uid="uid://c5q3d26io6w74" path="res://assets/IceCream.png" id="2_6dd0p"]
+[ext_resource type="Texture2D" uid="uid://dfffmhh10mmyc" path="res://assets/dehydrated.png" id="3_kawho"]
+[ext_resource type="Texture2D" uid="uid://d2pnhnvx1kk01" path="res://assets/macHydrated.png" id="4_tyo4a"]
+[ext_resource type="Texture2D" uid="uid://c70althcu8by2" path="res://assets/cup.png" id="5_pi86y"]
+[ext_resource type="Texture2D" uid="uid://rciu6av3yice" path="res://assets/agua.png" id="6_78mh5"]
+
+[node name="BagItems" type="Node2D"]
+
+[node name="Protein" type="RigidBody2D" parent="."]
+visible = false
+collision_layer = 512
+collision_mask = 256
+center_of_mass_mode = 1
+center_of_mass = Vector2(2, -2)
+freeze = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Protein"]
+z_index = 1
+position = Vector2(-0.06935692, -1.6326294)
+scale = Vector2(3.755, 3.755)
+polygon = PackedVector2Array(-10.650724, 20.241333, -32.650723, 12.241333, -30.650724, 1.241333, 17.349276, -19.758667, 32.349277, -15.758667, 31.349276, -4.758667)
+
+[node name="Sprite" type="Sprite2D" parent="Protein"]
+position = Vector2(-3.8146973e-06, -2.2888184e-05)
+scale = Vector2(0.171, 0.171)
+texture = ExtResource("1_fik7w")
+
+[node name="BagItem" type="Area2D" parent="Protein"]
+scale = Vector2(3.695, 3.695)
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Protein/BagItem"]
+position = Vector2(-0.34927583, -0.24133301)
+polygon = PackedVector2Array(-10.650724, 20.241333, -32.650723, 12.241333, -30.650724, 1.241333, 17.349276, -19.758667, 32.349277, -15.758667, 31.349276, -4.758667)
+
+[node name="Carrots" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_6dd0p")
+
+[node name="Mac" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_kawho")
+
+[node name="SeedBag" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_kawho")
+
+[node name="H Mac" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 24)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("4_tyo4a")
+
+[node name="Cup" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 24)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("5_pi86y")
+
+[node name="H Cup" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("6_78mh5")
+
+[node name="Jug" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("6_78mh5")
+
+[node name="Watering Can" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("6_78mh5")
+
+[node name="IceCream" type="RigidBody2D" parent="."]
+visible = false
+position = Vector2(0, 1)
+scale = Vector2(1.025, 1.025)
+collision_layer = 512
+collision_mask = 256
+center_of_mass_mode = 1
+center_of_mass = Vector2(10, 0)
+freeze = true
+
+[node name="Sprite" type="Sprite2D" parent="IceCream"]
+position = Vector2(2.3841858e-06, -9.536743e-07)
+scale = Vector2(0.145, 0.145)
+texture = ExtResource("2_6dd0p")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="IceCream"]
+position = Vector2(-0.32951355, -0.22395325)
+scale = Vector2(2.735, 2.735)
+polygon = PackedVector2Array(3.5047512, 23.393623, -32.28472, 8.656784, -32.28472, -6.080063, -0.7057743, -23.974792, 31.925806, -7.1326904, 34.031067, 4.4462585)
+
+[node name="IceCream" type="Area2D" parent="IceCream"]
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="IceCream/IceCream"]
+position = Vector2(-0.32951593, -0.22392273)
+scale = Vector2(2.865, 2.865)
+polygon = PackedVector2Array(3.329516, 22.223923, -30.670485, 8.223923, -30.670485, -5.7760773, -0.67048407, -22.776077, 30.329515, -6.7760773, 32.329517, 4.2239227)

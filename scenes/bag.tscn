@@ -1,0 +1,298 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnoqv312svl4k"]
+
+[ext_resource type="Script" uid="uid://beaps3n1ubghn" path="res://scenes/bag.gd" id="1_6bjnb"]
+[ext_resource type="PackedScene" uid="uid://coaotjijpvoi2" path="res://scenes/bag_items.tscn" id="2_8dtae"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
+size = Vector2(641.6424, 1014.4601)
+
+[sub_resource type="Animation" id="Animation_6blhx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(680.1669, 1057.5281)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(311.80466, 406.40982)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.2489982]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.745, 0.73)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.20392157, 0.09411765, 0.007843138, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cover:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.34509805, 0.1764706, 0.023529412, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qlbld"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(680.1669, 1057.5281)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(311.80466, 406.40982), Vector2(367, 174)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.2489982, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.745, 0.73)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:color")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.20392157, 0.09411765, 0.007843138, 0), Color(0.20392157, 0.09411765, 0.007843138, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cover:color")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.34509805, 0.1764706, 0.023529412, 1), Color(0.34509805, 0.1764706, 0.023529412, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8dtae"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(367, 174), Vector2(311.80466, 406.40982)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.2489982]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.745, 0.73), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.20392157, 0.09411765, 0.007843138, 1), Color(0.20392157, 0.09411765, 0.007843138, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cover:color")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.34509805, 0.1764706, 0.023529412, 0), Color(0.34509805, 0.1764706, 0.023529412, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_la0sw"]
+_data = {
+&"RESET": SubResource("Animation_6blhx"),
+&"close": SubResource("Animation_8dtae"),
+&"open": SubResource("Animation_qlbld")
+}
+
+[node name="bag" type="ColorRect"]
+offset_left = 311.80466
+offset_top = 406.40982
+offset_right = 991.97156
+offset_bottom = 1463.9379
+rotation = 1.2489982
+scale = Vector2(1.745, 0.73)
+mouse_filter = 2
+color = Color(0.34414157, 0.17461061, 0.025434045, 1)
+script = ExtResource("1_6bjnb")
+
+[node name="Bag" type="Area2D" parent="."]
+collision_layer = 1024
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bag"]
+position = Vector2(341.97275, 524.3237)
+shape = SubResource("RectangleShape2D_tuyoq")
+
+[node name="open" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_la0sw")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 18.911163
+offset_top = 41.095886
+offset_right = 661.8911
+offset_bottom = 1015.0684
+mouse_filter = 2
+color = Color(0.20392157, 0.09411765, 0.007843138, 0)
+
+[node name="Cover" type="ColorRect" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.34509805, 0.1764706, 0.023529412, 1)
+
+[node name="Bag O\' Holding" type="Node2D" parent="."]
+
+[node name="BagItems" parent="Bag O\' Holding" instance=ExtResource("2_8dtae")]
+position = Vector2(162.49557, 728.59784)
+scale = Vector2(0.57000005, 1.37)
+
+[node name="BagItems2" parent="Bag O\' Holding" instance=ExtResource("2_8dtae")]
+position = Vector2(341.49176, 492.06796)
+scale = Vector2(0.57000005, 1.37)
+
+[node name="BagItems3" parent="Bag O\' Holding" instance=ExtResource("2_8dtae")]
+position = Vector2(408.83862, 694.7732)
+scale = Vector2(0.57000005, 1.37)
+
+[node name="BagItems4" parent="Bag O\' Holding" instance=ExtResource("2_8dtae")]
+position = Vector2(518.9075, 241.3078)
+scale = Vector2(0.57000005, 1.37)
+
+[node name="BagItems5" parent="Bag O\' Holding" instance=ExtResource("2_8dtae")]
+position = Vector2(157.45552, 316.86905)
+scale = Vector2(0.57000005, 1.37)
+
+[connection signal="area_entered" from="Bag" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Bag" to="." method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Bag" to="." method="_on_bag_mouse_entered"]
+[connection signal="mouse_exited" from="Bag" to="." method="_on_bag_mouse_exited"]

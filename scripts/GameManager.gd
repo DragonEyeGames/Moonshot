@@ -15,6 +15,7 @@ var instants = ["Protein", "IceCream", "H Mac", "H Cup", "Carrots"]
 var tapeHolder
 
 var hud
+var collisionTool=null
 
 var baseWater=100
 var baseHumidity=0

@@ -50,6 +50,8 @@ func zoom():
 	GameManager.playerAnimator.play("fadeToArm")
 	GameManager.player.handHeldItem=""
 	GameManager.playerTool="bag"
+	GameManager.collisionTool=self
+	GameManager.player.get_node("CanvasLayer").get_node("PlantBag").newThings()
 	await get_tree().create_timer(1.1).timeout
 	canZoom=true
 
@@ -62,3 +64,16 @@ func unzoom():
 	GameManager.playerAnimator.play("revealToArm")
 	await get_tree().create_timer(1.1).timeout
 	canZoom=true
+
+
+func _on_killzone_body_entered(body: Node2D) -> void:
+	if(GameManager.player.pickable==body):
+		GameManager.player.handHeldItem=""
+		GameManager.player.pickable=null
+	body.set_deferred("freeze", true)
+	await get_tree().create_timer(.1).timeout
+	body.rotation=0
+	body.linear_velocity=Vector2.ZERO
+	body.global_position=body.get_parent().global_position
+	await get_tree().create_timer(.1).timeout
+	body.set_deferred("freeze", false)

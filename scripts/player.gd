@@ -50,16 +50,18 @@ func _process(_delta: float) -> void:
 	if(GameManager.playerMove):
 		move_and_slide()
 	if(canPickUp and Input.is_action_just_pressed("Click") and pickable!=null):
-		#pickable.scale*=GameManager.camera.zoom
 		#var world_pos=pickable.global_position
+		pickable.freeze=true
 		pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
 		#pickable.rotation+=PI/2
 		handHeldItem=pickedUpType.to_lower()
 		currentlyHeld=pickable
 		pickable.scale*=GameManager.camera.zoom
+		#pickable.scale*=GameManager.camera.zoom
 		#var cam = get_viewport().get_camera_2d()
 		#var screen_pos = cam.get_canvas_transform().affine_inverse() * world_pos
 		pickable.global_position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.global_position
+		await get_tree().create_timer(.1).timeout
 		pickable=null
 		
 func flashlightEvents():

@@ -14,6 +14,8 @@ var instants = ["Protein", "IceCream", "H Mac", "H Cup", "Carrots"]
 
 var tapeHolder
 
+var hud
+
 var baseWater=100
 var baseHumidity=0
 var suitHumidity=0

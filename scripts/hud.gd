@@ -166,3 +166,7 @@ func reveal():
 	for child in get_children():
 		var tween = create_tween()
 		tween.tween_property(child, "modulate:a", 1, 1)
+		
+func maxOut():
+	for child in $Inventory.get_children():
+		child.maxOut()

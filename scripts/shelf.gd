@@ -19,12 +19,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	#prints(zoomed, len(GameManager.inventory)>4)
 	if(colliding and Input.is_action_just_pressed("Interact")):
-		if(not zoomed and canZoom):
+		if(not zoomed and canZoom and len(GameManager.inventory)<=4):
 			GameManager.interactedItem=null
 			zoom()
-		elif(zoom and canZoom):
+		elif(zoomed and canZoom):
 			unzoom()
+		elif(canZoom and not zoomed):
+			GameManager.hud.maxOut()
+	if(zoomed and len(GameManager.inventory)>4):
+		unzoom()
+		GameManager.hud.maxOut()
 			
 
 

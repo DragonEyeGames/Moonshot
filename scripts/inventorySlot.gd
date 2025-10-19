@@ -52,3 +52,6 @@ func _process(_delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	GameManager.selectedSlot=slotIndex
+	
+func maxOut():
+	$AnimationPlayer.play("tooMany")

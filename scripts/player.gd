@@ -14,6 +14,7 @@ func _ready() -> void:
 	flashlightEvents()
 	GameManager.playerHand=$CanvasLayer/OverlayArm/Bones/Skeleton2D/Base/Segment/Hand
 	GameManager.playerAnimator=$StateController
+	GameManager.hud=$HUD
 
 func _process(_delta: float) -> void:
 	$Area2D/CollisionShape2D.scale=Vector2(1/GameManager.camera.zoom.x, 1/GameManager.camera.zoom.y)

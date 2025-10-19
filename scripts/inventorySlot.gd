@@ -10,16 +10,17 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if(len(GameManager.inventory)>=slotIndex+1):
 		visible=true
-		if(GameManager.inventory[slotIndex]=="Carrots"):
+		if(GameManager.inventory[slotIndex]["name"]=="Carrots"):
 			$InventoryItems.get_node(GameManager.inventory[slotIndex]).get_child(0).text=str(GameManager.carrots) + " Carrot(s)"
-		if(GameManager.inventory[slotIndex]=="Jug"):
+		if(GameManager.inventory[slotIndex]["name"]=="Jug"):
 			$InventoryItems.get_node(GameManager.inventory[slotIndex]).get_child(0).text=str(round(GameManager.pickedUpJugWater*100)/100) + " Water(s)"
 		for child in $InventoryItems.get_children():
 			child.visible=false
-		$InventoryItems.get_node(GameManager.inventory[slotIndex]).visible=true
+		print(GameManager.inventory[slotIndex])
+		$InventoryItems.get_node(GameManager.inventory[slotIndex]["name"]).visible=true
 		if(GameManager.selectedSlot==slotIndex):
 			$Outline.visible=true
-			var itemSelected = GameManager.inventory[slotIndex]
+			var itemSelected = GameManager.inventory[slotIndex]["name"]
 			if(Input.is_action_just_pressed("Interact") and itemSelected in GameManager.instants):
 				if(itemSelected=="IceCream"):
 					GameManager.food+=12

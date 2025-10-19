@@ -195,11 +195,11 @@ position = Vector2(-3.8146973e-06, -2.2888184e-05)
 scale = Vector2(0.045, 0.045)
 texture = ExtResource("7_oyalq")
 
-[node name="Protein" type="Area2D" parent="Possibilities/Tape"]
+[node name="Tape" type="Area2D" parent="Possibilities/Tape"]
 collision_layer = 2052
 collision_mask = 0
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Possibilities/Tape/Protein"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Possibilities/Tape/Tape"]
 z_index = 1
 position = Vector2(-1.3492758, -0.24133301)
 polygon = PackedVector2Array(-2.6507225, -0.758667, -2.6507225, -10.758667, 2.3492775, -17.758667, 10.3492775, -21.758667, 23.349277, -19.758667, 29.349277, -14.758667, 29.349277, -6.758667, 27.349277, 1.241333, 23.349277, 8.241333, 17.349277, 12.241333, 11.3492775, 12.241333, 1.3492775, 5.241333)

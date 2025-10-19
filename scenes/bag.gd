@@ -15,6 +15,7 @@ func _ready():
 	newThings()
 	
 func _process(delta: float) -> void:
+	print(GameManager.inventory)
 	if(not mouseEntered and open):
 		mouseTimeOut+=delta
 	if(mouseTimeOut>1):
@@ -33,7 +34,8 @@ func _process(delta: float) -> void:
 			if(GameManager.player.pickedUpType=="plant"):
 				GameManager.carrots+=1
 			else:
-				GameManager.inventory.append(GameManager.player.pickedUpType)
+				print("ADD")
+				GameManager.add(GameManager.player.pickedUpType, 1)
 			print($"Bag O' Holding".get_child(len(GameManager.inventory)-1).get_node(GameManager.player.pickedUpType))
 			$"Bag O' Holding".get_child(len(GameManager.inventory)-1).get_node(GameManager.player.pickedUpType).visible=true
 			GameManager.player.currentlyHeld.queue_free()
@@ -84,4 +86,4 @@ func loadInventory():
 	GameManager.inventory.clear()
 	for child in $"Bag O' Holding".get_children():
 		if(child.visible):
-			GameManager.inventory.append(child.item)
+			GameManager.add(child.item, 1)

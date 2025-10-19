@@ -157,3 +157,12 @@ func visuals(_delta):
 				GameManager.baseCarbon+=abs(GameManager.carbon)
 				GameManager.carbon=0
 				
+func fade():
+	for child in get_children():
+		var tween = create_tween()
+		tween.tween_property(child, "modulate:a", 0, 1)
+		
+func reveal():
+	for child in get_children():
+		var tween = create_tween()
+		tween.tween_property(child, "modulate:a", 0, 1)

@@ -12,9 +12,9 @@ func _ready() -> void:
 		if(not items[index]==""):
 			var selectedItem=$Possibilities.get_node(items[index]).duplicate()
 			selectedItem.visible=true
-			selectedItem.position=positions[index]
-			$Shelf.add_child(selectedItem)
-			selectedItem.scale=Vector2(.5, .5)
+			get_node(str(index+1)).add_child(selectedItem)
+			selectedItem.global_position=get_node(str(index+1)).global_position
+			#selectedItem.scale=Vector2(.5, .5)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

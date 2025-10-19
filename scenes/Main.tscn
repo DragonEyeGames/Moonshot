@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://dnnka5th1gldj"]
+[gd_scene load_steps=8 format=4 uid="uid://dnnka5th1gldj"]
 
 [ext_resource type="Script" uid="uid://dt3i83nbqr5t7" path="res://scripts/main.gd" id="1_c01mt"]
 [ext_resource type="Texture2D" uid="uid://bot5iwir3qe7s" path="res://assets/rock.png" id="2_nxtc6"]
 [ext_resource type="PackedScene" uid="uid://313clql8xlh4" path="res://scenes/player.tscn" id="3_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://ectb2uu36h7a" path="res://scenes/building.tscn" id="4_q8u5g"]
-[ext_resource type="PackedScene" uid="uid://csk5nfyi47xdp" path="res://scenes/hud.tscn" id="5_lhr70"]
 [ext_resource type="Script" uid="uid://ciwk8lbq7ss13" path="res://scripts/camera.gd" id="6_wp0k4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2au82"]
@@ -55,8 +54,6 @@ position = Vector2(2767, -3958)
 
 [node name="Building" parent="." instance=ExtResource("4_q8u5g")]
 position = Vector2(-16, -192)
-
-[node name="HUD" parent="." instance=ExtResource("5_lhr70")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visibility_layer = 0

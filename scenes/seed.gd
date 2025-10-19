@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 			water+=farm.standingWater
 			farm.standingWater=0
 		if(water<=3):
-			$stem.scale.y=water/2
+			$stem.scale.y=(water-3)/2
 		else:
 			state="sprout"
 	elif(state=="sprout"):

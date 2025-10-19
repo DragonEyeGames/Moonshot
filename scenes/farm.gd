@@ -10,8 +10,8 @@ var water=100
 var standingWater=0
 
 func _process(delta: float) -> void:
-	if(collision and state=="unplanted" and Input.is_action_just_pressed("Interact") and not zoomed and canZoom and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]=="Seeds"):
-		GameManager.inventory.erase("Seeds")
+	if(collision and state=="unplanted" and Input.is_action_just_pressed("Interact") and not zoomed and canZoom and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]=="SeedBag"):
+		GameManager.inventory.erase("SeedBag")
 		GameManager.playerTool="seedBag"
 		state="planted"
 		zoom()

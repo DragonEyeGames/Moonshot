@@ -133,5 +133,29 @@ polygon = PackedVector2Array(-14, -127, -36, -135, -34, -146, 14, -167, 29, -163
 
 [node name="ZoomPoint" type="Node2D" parent="."]
 
+[node name="1" type="Node2D" parent="."]
+position = Vector2(-56, -126)
+
+[node name="2" type="Node2D" parent="."]
+position = Vector2(53, -129)
+
+[node name="3" type="Node2D" parent="."]
+position = Vector2(-53, -48)
+
+[node name="4" type="Node2D" parent="."]
+position = Vector2(54, -45)
+
+[node name="5" type="Node2D" parent="."]
+position = Vector2(-49, 27)
+
+[node name="6" type="Node2D" parent="."]
+position = Vector2(58, 26)
+
+[node name="7" type="Node2D" parent="."]
+position = Vector2(-52, 100)
+
+[node name="8" type="Node2D" parent="."]
+position = Vector2(58, 100)
+
 [connection signal="body_entered" from="shelfArea" to="." method="_on_shelf_area_body_entered"]
 [connection signal="body_exited" from="shelfArea" to="." method="_on_shelf_area_body_exited"]

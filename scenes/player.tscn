@@ -258,30 +258,33 @@ libraries = {
 modulate = Color(1, 1, 1, 0)
 z_index = 4
 position = Vector2(811, 815)
+scale = Vector2(1.26, 1.26)
 
 [node name="Sprites" type="Node2D" parent="CanvasLayer/OverlayArm"]
 
 [node name="Square2" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
-position = Vector2(257, 381)
-rotation = -1.3038225
-scale = Vector2(1.9604162, 0.9999864)
+position = Vector2(257.00043, 381.00018)
+rotation = -1.9291836
+scale = Vector2(1.9573188, 1.0226954)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square3" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
-position = Vector2(374.42444, 45.968628)
-rotation = -2.316532
-scale = Vector2(2.277147, 1)
+position = Vector2(156.79663, 40.954956)
+rotation = -1.9988344
+scale = Vector2(2.272656, 1.0247847)
+skew = 0.003266096
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square4" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(97, -294)
-rotation = -2.3168664
-scale = Vector2(1.0000001, 1.0000001)
+position = Vector2(5.8062134, -386.1075)
+rotation = -1.9993162
+scale = Vector2(0.9979503, 1.0247902)
+skew = 0.0035156012
 texture = ExtResource("5_qlg0r")
-offset = Vector2(92.512695, 7.0788574)
+offset = Vector2(4.777954, 1.1951294)
 
 [node name="Area2D" type="Area2D" parent="CanvasLayer/OverlayArm/Sprites/Square4"]
 position = Vector2(-53.87378, -21.031097)
@@ -349,9 +352,9 @@ remote_path = NodePath("../../../../Sprites/Square2")
 update_scale = false
 
 [node name="Segment" type="Bone2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D/Base"]
-position = Vector2(354.14093, 24.878662)
-rotation = -1.0127094
-scale = Vector2(1.000004, 1.000004)
+position = Vector2(354.17297, 24.873413)
+rotation = -0.067998216
+scale = Vector2(0.99999654, 0.99999654)
 rest = Transform2D(0.5295665, -0.8482732, 0.8482732, 0.5295665, 354.14087, 24.878784)
 auto_calculate_length_and_angle = false
 length = 203.706
@@ -378,7 +381,7 @@ update_scale = false
 [node name="IK Targets" type="Node2D" parent="CanvasLayer/OverlayArm"]
 
 [node name="TIP" type="Node2D" parent="CanvasLayer/OverlayArm/IK Targets"]
-position = Vector2(97, -294)
+position = Vector2(-3, -413)
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/OverlayArm/IK Targets/TIP"]
 visible = false

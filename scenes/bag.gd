@@ -79,3 +79,9 @@ func newThings():
 			child.visible=false
 		$"Bag O' Holding".get_child(index).get_node(item).visible=true
 		index+=1
+		
+func loadInventory():
+	GameManager.inventory.clear()
+	for child in $"Bag O' Holding".get_children():
+		if(child.visible):
+			GameManager.inventory.append(child.item)

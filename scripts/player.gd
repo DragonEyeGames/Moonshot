@@ -54,6 +54,15 @@ func _process(_delta: float) -> void:
 		move_and_slide()
 	if(canPickUp and pickedUp == false and Input.is_action_just_pressed("Click") and pickable!=null):
 		if(bagOpen==false):
+			$CanvasLayer/PlantBag.loadInventory()
+			if(len(GameManager.inventory)>4):
+				$CanvasLayer/PlantBag.get_node("full").play("full")
+				canPickUp=false
+				pickedUpType=""
+				pickable=null
+				return
+			if(pickable==null):
+				return
 			#var world_pos=pickable.global_position
 			pickable.freeze=true
 			pickedUp=true
@@ -90,6 +99,7 @@ func _process(_delta: float) -> void:
 			handHeldItem=pickedUpType.to_lower()
 			currentlyHeld=pickable
 	if(Input.is_action_just_released("Click") and pickable!=null and pickedUp):
+		
 		if(bagOpen==false):
 			pickable.set_deferred("freeze", true)
 			await get_tree().create_timer(0).timeout

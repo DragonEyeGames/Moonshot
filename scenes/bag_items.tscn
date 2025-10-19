@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://coaotjijpvoi2"]
+[gd_scene load_steps=8 format=3 uid="uid://coaotjijpvoi2"]
 
+[ext_resource type="Script" uid="uid://b4dbcic140cnp" path="res://scenes/bag_items.gd" id="1_6dd0p"]
 [ext_resource type="Texture2D" uid="uid://372hu3xsfi0g" path="res://assets/proteinBar.png" id="1_fik7w"]
 [ext_resource type="Texture2D" uid="uid://c5q3d26io6w74" path="res://assets/IceCream.png" id="2_6dd0p"]
 [ext_resource type="Texture2D" uid="uid://dfffmhh10mmyc" path="res://assets/dehydrated.png" id="3_kawho"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://rciu6av3yice" path="res://assets/agua.png" id="6_78mh5"]
 
 [node name="BagItems" type="Node2D"]
+script = ExtResource("1_6dd0p")
 
 [node name="Protein" type="RigidBody2D" parent="."]
 visible = false

@@ -5,13 +5,37 @@
 [node name="Solar Panels" type="Node2D"]
 
 [node name="Panel" parent="." instance=ExtResource("1_msrpr")]
+z_index = 1
 offset_left = 712.0
 offset_top = 47.0
 offset_right = 992.0
 offset_bottom = 615.0
 
 [node name="Panel2" parent="." instance=ExtResource("1_msrpr")]
+z_index = 1
 offset_left = -188.0
 offset_top = 47.0
 offset_right = 92.0
 offset_bottom = 615.0
+
+[node name="Panel3" parent="." instance=ExtResource("1_msrpr")]
+z_index = 1
+offset_left = 1607.0
+offset_top = 41.0
+offset_right = 1887.0
+offset_bottom = 609.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 273.0
+offset_top = -781.0
+offset_right = 561.0
+offset_bottom = -528.0
+color = Color(0.23392546, 0.23392546, 0.23392543, 1)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-477, 64, -198, -128, 116, -203, 323, -307, 430, -539)
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PackedVector2Array(436, 92, 543, -90, 468, -169, 468, -275, 452, -376, 424, -536, 669, -432, 841, -348, 916, -206, 995, -115, 1133, -78, 1249, -62, 1340, 38)
+default_color = Color(0, 0, 0, 1)

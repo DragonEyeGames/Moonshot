@@ -58,6 +58,7 @@ func unzoom():
 	zoomed=false
 	canZoom=false
 	GameManager.playerMove=true
+	GameManager.playerTool=""
 	GameManager.playerAnimator.play("revealToArm")
 	await get_tree().create_timer(1.1).timeout
 	canZoom=true

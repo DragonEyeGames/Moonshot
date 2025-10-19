@@ -8,7 +8,6 @@ func _process(_delta: float) -> void:
 	if(Input.is_action_just_released("Click") and collision and GameManager.player.currentlyHeld!=null):
 		GameManager.player.currentlyHeld.queue_free()
 		GameManager.player.handHeldItem=""
-		print(GameManager.player.pickedUpType)
 		if(GameManager.player.pickedUpType=="plant"):
 			GameManager.carrots+=1
 		else:

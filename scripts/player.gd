@@ -9,6 +9,8 @@ var canPlace:=false
 var currentlyHeld
 var handHeldItem:=""
 var pickedUpType:=""
+var pickedUpParent
+var pickedUp=false
 
 func _ready() -> void:
 	flashlightEvents()
@@ -49,9 +51,11 @@ func _process(_delta: float) -> void:
 	velocity*=speed*healthMod
 	if(GameManager.playerMove):
 		move_and_slide()
-	if(canPickUp and Input.is_action_just_pressed("Click") and pickable!=null):
+	if(canPickUp and pickedUp == false and Input.is_action_just_pressed("Click") and pickable!=null):
 		#var world_pos=pickable.global_position
 		pickable.freeze=true
+		pickedUp=true
+		pickedUpParent=pickable.get_parent()
 		pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
 		#pickable.rotation+=PI/2
 		handHeldItem=pickedUpType.to_lower()
@@ -62,7 +66,15 @@ func _process(_delta: float) -> void:
 		#var screen_pos = cam.get_canvas_transform().affine_inverse() * world_pos
 		pickable.global_position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.global_position
 		await get_tree().create_timer(.1).timeout
+	if(Input.is_action_just_released("Click") and pickable!=null and pickedUp):
+		pickedUp=false
+		var screenPos=pickable.global_position
+		pickable.reparent(pickedUpParent)
+		pickable.scale/=GameManager.camera.zoom
+		pickable.global_position=get_canvas_transform().affine_inverse() * screenPos
+		pickable.freeze=false
 		pickable=null
+		handHeldItem=""
 		
 func flashlightEvents():
 	await get_tree().create_timer(randf_range(.05*GameManager.playerEnergy, .2*GameManager.playerEnergy)).timeout

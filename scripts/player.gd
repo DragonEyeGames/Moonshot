@@ -25,7 +25,6 @@ func _ready() -> void:
 	GameManager.hud=$HUD
 
 func _process(_delta: float) -> void:
-	print(pickable)
 	perFrameUpdate()
 	seedCheck()
 	flashlight()

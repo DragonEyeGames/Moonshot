@@ -228,6 +228,7 @@ _data = {
 }
 
 [node name="bag" type="ColorRect"]
+z_index = -1
 offset_left = 311.80466
 offset_top = 406.40982
 offset_right = 991.97156
@@ -238,7 +239,7 @@ color = Color(0.34414157, 0.17461061, 0.025434045, 1)
 script = ExtResource("1_6bjnb")
 
 [node name="Bag" type="Area2D" parent="."]
-visible = false
+z_index = 11
 collision_layer = 1024
 collision_mask = 8
 
@@ -279,11 +280,13 @@ position = Vector2(162.49551, 728.5979)
 scale = Vector2(0.57000005, 1.3700001)
 
 [node name="Interior" type="ColorRect" parent="."]
+z_index = -1
 layout_mode = 0
 offset_left = 14.32665
 offset_top = 21.917816
 offset_right = 666.4756
 offset_bottom = 1032.8767
+mouse_filter = 2
 color = Color(0.2384842, 0.11481408, 0.011228062, 1)
 
 [node name="Cover" type="ColorRect" parent="."]
@@ -294,6 +297,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.34509805, 0.1764706, 0.023529412, 1)
 
 [connection signal="area_entered" from="Bag" to="." method="_on_area_2d_area_entered"]

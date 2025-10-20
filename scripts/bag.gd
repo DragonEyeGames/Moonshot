@@ -64,6 +64,7 @@ func _on_area_2d_area_exited(_area: Area2D) -> void:
 
 
 func _on_bag_mouse_entered() -> void:
+	print("LA MOS")
 	mouseTimeIn=0
 	mouseTimeOut=0
 	mouseEntered=true

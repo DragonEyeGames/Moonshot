@@ -47,50 +47,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:scale")
+tracks/3/path = NodePath("warning:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.745, 0.73)]
+"values": [Color(0.20392157, 0.09411765, 0.007843138, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ColorRect:color")
+tracks/4/path = NodePath("Cover:color")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.20392157, 0.09411765, 0.007843138, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Cover:color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Color(0.34509805, 0.1764706, 0.023529412, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("warning:color")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_8dtae"]
@@ -134,22 +110,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ColorRect:color")
+tracks/3/path = NodePath("Cover:color")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.20392157, 0.09411765, 0.007843138, 1), Color(0.20392157, 0.09411765, 0.007843138, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Cover:color")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -209,22 +173,10 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ColorRect:color")
+tracks/4/path = NodePath("Cover:color")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.20392157, 0.09411765, 0.007843138, 0), Color(0.20392157, 0.09411765, 0.007843138, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Cover:color")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -281,12 +233,12 @@ offset_top = 406.40982
 offset_right = 991.97156
 offset_bottom = 1463.9379
 rotation = 1.2489982
-scale = Vector2(1.745, 0.73)
 mouse_filter = 2
 color = Color(0.34414157, 0.17461061, 0.025434045, 1)
 script = ExtResource("1_6bjnb")
 
 [node name="Bag" type="Area2D" parent="."]
+visible = false
 collision_layer = 1024
 collision_mask = 8
 
@@ -299,29 +251,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_la0sw")
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 18.911163
-offset_top = 41.095886
-offset_right = 661.8911
-offset_bottom = 1015.0684
-mouse_filter = 2
-color = Color(0.20392157, 0.09411765, 0.007843138, 0)
-
-[node name="Cover" type="ColorRect" parent="."]
-z_index = 10
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.34509805, 0.1764706, 0.023529412, 1)
-
 [node name="Bag O\' Holding" type="Node2D" parent="."]
 
 [node name="warning" type="ColorRect" parent="."]
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -344,6 +277,24 @@ libraries = {
 visible = false
 position = Vector2(162.49551, 728.5979)
 scale = Vector2(0.57000005, 1.3700001)
+
+[node name="Interior" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 14.32665
+offset_top = 21.917816
+offset_right = 666.4756
+offset_bottom = 1032.8767
+color = Color(0.2384842, 0.11481408, 0.011228062, 1)
+
+[node name="Cover" type="ColorRect" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.34509805, 0.1764706, 0.023529412, 1)
 
 [connection signal="area_entered" from="Bag" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Bag" to="." method="_on_area_2d_area_exited"]

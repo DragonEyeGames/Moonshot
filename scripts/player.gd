@@ -1,16 +1,21 @@
 extends CharacterBody2D
-
+class_name Player
 
 @export var  speed = 300.0
 
+#If the play can pick up an item. Used when an item is hovered to let the player know if it is even a valid option
 var canPickUp:=true
-var pickable
-var canPlace:=false
-var currentlyHeld
+
+#This is one of the most important things. It is the picked up item itself.
+var pickable: Node2D
+
+#The item (type) being held
 var handHeldItem:=""
-var pickedUpType:=""
-var pickedUpParent
+
+#Whether or not there is an item in the players hand
 var pickedUp=false
+
+#Whether or not the bag that items can be deposited in is open
 var bagOpen=false
 
 func _ready() -> void:
@@ -20,67 +25,31 @@ func _ready() -> void:
 	GameManager.hud=$HUD
 
 func _process(_delta: float) -> void:
+	print(pickable)
 	perFrameUpdate()
 	seedCheck()
 	flashlight()
 	sprintCheck()
 	movement()
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	#All of the fun interactions with moving stuff to and fro shelves
 	if(pickedUp == false and Input.is_action_just_pressed("Click") and pickable!=null):
 		canPickUp=false
 		if(bagOpen==false):
-			closedBagPickup()
+			await closedBagPickup()
 		else:
-			pickedUp=true
-			pickedUpParent=pickable.get_parent()
-			if(pickedUpType=="BagItem"):
-				var oldPickable=pickable
-				pickable=oldPickable.duplicate(true)
-				print("DUPLIKILL")
-				pickable.scale=Vector2(.57, 1.37)
-				oldPickable.get_parent().add_child(pickable)
-				#pickable.get_node("BagItem").name=oldPickable.name
-				oldPickable.queue_free()
-				pickable.visible=true
-			pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
-			handHeldItem=pickedUpType
-			currentlyHeld=pickable
-	if(Input.is_action_just_released("Click") and pickable!=null and pickedUp):
-		prints(bagOpen, " RELEASE")
+			await openBagPickup()
+	elif(Input.is_action_just_released("Click") and pickable!=null and pickedUp and not ($CanvasLayer/PlantBag.collision and bagOpen==false)):
 		if(bagOpen==false):
-			$CanvasLayer/PlantBag.loadInventory()
-			pickable.set_deferred("freeze", true)
-			await get_tree().create_timer(0).timeout
-			pickedUp=false
-			canPickUp=false
-			var screenPos=pickable.global_position
-			pickable.reparent(GameManager.collisionTool)
-			for child in pickable.get_children():
-				child.scale/=GameManager.camera.zoom
-			pickable.global_position=get_canvas_transform().affine_inverse() * screenPos
-			await get_tree().create_timer(0).timeout
-			if(pickable):
-				pickable.set_deferred("freeze", false)
-			await get_tree().create_timer(0).timeout
-			pickable=null
-			handHeldItem=""
+			await closedBagDrop()
 		else:
-			pickedUp=false
-			canPickUp=false
-			if(pickedUpType=="BagItem"):
-				for child in pickable.get_children():
-					if(child.visible):
-						pickedUpType=child.name
-						break
-			$CanvasLayer/PlantBag.newItem(pickedUpType, pickable.global_position, pickable.rotation)
-			pickable.queue_free()
-			pickable=null
-			handHeldItem=""
+			await openBagDrop()
+		pickable=null
+		pickedUp=false
+		handHeldItem=""
+		await get_tree().create_timer(.05).timeout
 		canPickUp=true
-	elif(Input.is_action_just_released("Click")):
-		prints(pickable!=null, pickedUp)
 		
 func flashlightEvents():
 	await get_tree().create_timer(randf_range(.05*GameManager.playerEnergy, .2*GameManager.playerEnergy)).timeout
@@ -98,7 +67,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			area.get_parent().queue_free()
 	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag" and bagOpen==false):
 		if(canPickUp):
-			pickedUpType=area.name
+			handHeldItem=area.name
 			pickable=area.get_parent()
 
 func pickUp(item):
@@ -118,10 +87,10 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 func _in_bag_entered(area: Area2D) -> void:
 	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag" and bagOpen==true):
 		if canPickUp:
-			pickedUpType=area.name
+			handHeldItem=area.name
 			pickable=area.get_parent()
 			var oldParent=area.get_parent().get_parent()
-			pickable.reparent($CanvasLayer/PlantBag)
+			pickable.call_deferred("reparent", $CanvasLayer/PlantBag)
 			if(oldParent!=$CanvasLayer/PlantBag):
 				oldParent.queue_free()
 
@@ -175,12 +144,12 @@ func movement():
 		move_and_slide()
 		
 func closedBagPickup():
-	pickedUpType=str(pickable.get_child(-1).name)
+	handHeldItem=str(pickable.get_child(-1).name)
 	$CanvasLayer/PlantBag.loadInventory()
 	if(len(GameManager.inventory)>4):
 		$CanvasLayer/PlantBag.get_node("full").play("full")
 		canPickUp=false
-		pickedUpType=""
+		handHeldItem=""
 		pickable=null
 		print("NNNNNNNYYYYYYYYYYYLLLLLLLLLLLL")
 		return
@@ -189,14 +158,51 @@ func closedBagPickup():
 	#var world_pos=pickable.global_position
 	pickable.freeze=true
 	pickedUp=true
-	pickedUpParent=pickable.get_parent()
 	#var oldPos = pickable.global_position
 	pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
 	#pickable.rotation+=PI/2
-	handHeldItem=pickedUpType.to_lower()
-	currentlyHeld=pickable
 	prints("ESTA UNA ", pickable)
 	for child in pickable.get_children():
 		child.scale*=GameManager.camera.zoom
 	#pickable.scale*=GameManager.camera.zoom
 	pickable.position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.position
+
+func openBagPickup():
+	pickedUp=true
+	if(handHeldItem=="BagItem"):
+		var oldPickable=pickable
+		pickable=oldPickable.duplicate(true)
+		print("DUPLIKILL")
+		pickable.scale=Vector2(.57, 1.37)
+		oldPickable.get_parent().add_child(pickable)
+		#pickable.get_node("BagItem").name=oldPickable.name
+		oldPickable.queue_free()
+		pickable.visible=true
+	pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
+	
+func closedBagDrop():
+	$CanvasLayer/PlantBag.loadInventory()
+	pickable.set_deferred("freeze", true)
+	await get_tree().create_timer(0).timeout
+	var screenPos=pickable.global_position
+	pickable.reparent(GameManager.collisionTool)
+	for child in pickable.get_children():
+		child.scale/=GameManager.camera.zoom
+	pickable.global_position=get_canvas_transform().affine_inverse() * screenPos
+	await get_tree().create_timer(0).timeout
+	if(pickable):
+		pickable.set_deferred("freeze", false)
+	await get_tree().create_timer(0).timeout
+	pickable=null
+	handHeldItem=""
+
+func openBagDrop():
+	if(handHeldItem=="BagItem"):
+		for child in pickable.get_children():
+			if(child.visible):
+				handHeldItem=child.name
+				break
+	$CanvasLayer/PlantBag.newItem(handHeldItem, pickable.global_position, pickable.rotation)
+	var pickableSafe=pickable
+	pickableSafe.queue_free()
+	pickable=null

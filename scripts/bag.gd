@@ -1,4 +1,4 @@
-extends ColorRect
+extends Control
 
 var collision=false
 
@@ -28,20 +28,23 @@ func _process(delta: float) -> void:
 		openBag()
 	elif(mouseEntered and Input.is_action_just_pressed("Click") and GameManager.player.handHeldItem=="" and not open):
 		openBag()
-	elif(Input.is_action_just_released("Click") and collision and GameManager.player.currentlyHeld!=null):
+	elif(Input.is_action_just_released("Click") and collision and GameManager.player.pickable!=null):
 		if(GameManager.player.bagOpen==false):
-			if(GameManager.player.pickedUpType=="plant"):
+			if(GameManager.player.handHeldItem=="plant"):
 				GameManager.carrots+=1
 			else:
-				GameManager.add(GameManager.player.pickedUpType, 1)
+				GameManager.add(GameManager.player.handHeldItem, 1)
 				var holder=$BagItems.duplicate()
 				$"Bag O' Holding".add_child(holder)
 				holder.visible=true
-				$"Bag O' Holding".get_child(-1).get_node(GameManager.player.pickedUpType).visible=true
+				$"Bag O' Holding".get_child(-1).get_node(GameManager.player.handHeldItem).visible=true
 				await get_tree().create_timer(.1).timeout
 				loadInventory()
-			GameManager.player.currentlyHeld.queue_free()
+			if(GameManager.player.pickable):
+				GameManager.player.pickable.queue_free()
 			GameManager.player.handHeldItem=""
+			GameManager.player.pickedUp=false
+			GameManager.player.canPickUp=true
 	elif(Input.is_action_just_pressed("Interact") and not fading and visible):
 		fading=true
 		if(GameManager.interactedItem!=null):
@@ -77,7 +80,7 @@ func openBag():
 	GameManager.player.bagOpen=true
 
 func newThings():
-	var index=0
+	var _index=0
 	#for item in GameManager.inventory:
 	#	for child in $"Bag O' Holding".get_child(index).get_children():
 	#		child.visible=false
@@ -104,3 +107,5 @@ func newItem(type, newLocation, newRotation):
 	$"Bag O' Holding".add_child(holder)
 	holder.get_node(type).visible=true
 	holder.global_position=newLocation
+	holder.scale = Vector2.ONE
+	holder.rotation=newRotation

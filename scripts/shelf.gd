@@ -70,6 +70,8 @@ func _on_killzone_body_entered(body: Node2D) -> void:
 	if(GameManager.player.pickable==body):
 		GameManager.player.handHeldItem=""
 		GameManager.player.pickable=null
+		GameManager.player.canPickUp=true
+		GameManager.player.pickedUp=false
 	body.set_deferred("freeze", true)
 	await get_tree().create_timer(.1).timeout
 	if(not body):

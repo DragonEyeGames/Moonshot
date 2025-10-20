@@ -1,7 +1,7 @@
 extends Node
 
 var helmet
-var player
+var player: Player
 var playerSprinting := false
 var playerState="outside"
 var flashlightOn=false

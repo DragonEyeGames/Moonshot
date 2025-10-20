@@ -57,6 +57,15 @@ func add(item, count):
 			thing["count"] += count
 			return
 	inventory.append({"name": item, "count": count})
+	
+func subtract(item, count):
+	for thing in inventory:
+		if thing["name"] == item:
+			thing["count"] -= count
+			if(thing["count"]<=0):
+				inventory.erase(thing)
+			return
+	inventory.append({"name": item, "count": count})
 
 func zoomCamera(target, zoom):
 	camera.following=target

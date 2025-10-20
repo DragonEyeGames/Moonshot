@@ -87,24 +87,23 @@ func newThings():
 func loadInventory():
 	GameManager.inventory.clear()
 	for child in $"Bag O' Holding".get_children():
-		print("LWOERLWE")
 		if(child.visible):
 			GameManager.add(child.item, 1)
 	var items=0
 	for item in GameManager.inventory:
-		print("LOWKE")
 		for i in range(item["count"]):
+			if(len($"Bag O' Holding".get_children())<items-1):
+				var holder=$BagItems.duplicate()
+				$"Bag O' Holding".add_child(holder)
+				holder.visible=true
+			print($"Bag O' Holding".get_child(items).get_children())
+			print(item["name"])
 			$"Bag O' Holding".get_child(items).get_node(item["name"]).visible=true
 			items+=1
 	
-func newItem(type, newLocation, newRotation, newScale):
+func newItem(type, newLocation, newRotation):
 	var holder=$BagItems.duplicate()
 	$"Bag O' Holding".add_child(holder)
-	print(type)
 	holder.get_node(type).visible=true
-	print(holder)
 	holder.global_position=newLocation
-	holder.global_rotation=newRotation
-	holder.scale=newScale
 	await get_tree().create_timer(.1).timeout
-	print(holder.scale)

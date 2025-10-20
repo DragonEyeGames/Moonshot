@@ -54,6 +54,7 @@ func _process(_delta: float) -> void:
 		move_and_slide()
 	if(canPickUp and pickedUp == false and Input.is_action_just_pressed("Click") and pickable!=null):
 		if(bagOpen==false):
+			pickedUpType=str(pickable.get_child(-1).name)
 			$CanvasLayer/PlantBag.loadInventory()
 			if(len(GameManager.inventory)>4):
 				$CanvasLayer/PlantBag.get_node("full").play("full")
@@ -81,7 +82,8 @@ func _process(_delta: float) -> void:
 			pickedUpParent=pickable.get_parent()
 			if(pickedUpType=="BagItem"):
 				var oldPickable=pickable
-				pickable=oldPickable.duplicate()
+				pickable=oldPickable.duplicate(true)
+				pickable.scale=Vector2(.57, 1.37)
 				oldPickable.get_parent().add_child(pickable)
 				#pickable.get_node("BagItem").name=oldPickable.name
 				oldPickable.queue_free()
@@ -110,9 +112,12 @@ func _process(_delta: float) -> void:
 		else:
 			pickedUp=false
 			canPickUp=false
-			#pickable.reparent($"CanvasLayer/PlantBag/Bag O' Holding")
-			print(pickable.get_parent())
-			$CanvasLayer/PlantBag.newItem(pickedUpType, pickable.global_position, pickable.rotation, pickable.scale)
+			if(pickedUpType=="BagItem"):
+				for child in pickable.get_children():
+					if(child.visible):
+						pickedUpType=child.name
+						break
+			$CanvasLayer/PlantBag.newItem(pickedUpType, pickable.global_position, pickable.rotation)
 			pickable.queue_free()
 			pickable=null
 			handHeldItem=""
@@ -133,9 +138,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			area.get_parent().queue_free()
 	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag" and bagOpen==false):
 		canPickUp=true
-		pickedUpType=area.name
+		#pickedUpType=area.name
 		pickable=area.get_parent()
-			
+
 func pickUp(item):
 	$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(.9, .9)
 	handHeldItem=item
@@ -150,7 +155,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 func _in_bag_entered(area: Area2D) -> void:
 	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag" and bagOpen==true):
 		canPickUp=true
-		pickedUpType=area.name
+		#pickedUpType=area.name
 		pickable=area.get_parent()
 
 

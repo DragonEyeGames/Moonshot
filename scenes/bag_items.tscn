@@ -32,12 +32,12 @@ position = Vector2(-3.8146973e-06, -2.2888184e-05)
 scale = Vector2(0.171, 0.171)
 texture = ExtResource("1_fik7w")
 
-[node name="BagItem" type="Area2D" parent="Protein"]
+[node name="Protein" type="Area2D" parent="Protein"]
 scale = Vector2(3.695, 3.695)
 collision_layer = 2052
 collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Protein/BagItem"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Protein/Protein"]
 position = Vector2(-0.34927583, -0.24133301)
 polygon = PackedVector2Array(-10.650724, 20.241333, -32.650723, 12.241333, -30.650724, 1.241333, 17.349276, -19.758667, 32.349277, -15.758667, 31.349276, -4.758667)
 
@@ -211,16 +211,6 @@ collision_layer = 512
 collision_mask = 256
 freeze = true
 
-[node name="H Cup" type="Area2D" parent="H Cup"]
-position = Vector2(2.3841858e-07, 1.9073486e-06)
-scale = Vector2(3.645, 3.645)
-collision_layer = 2052
-collision_mask = 0
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="H Cup/H Cup"]
-scale = Vector2(1.23, 1.23)
-polygon = PackedVector2Array(5.7429647, 17.014544, -5.632457, 17.014544, -8.085979, -14.658197, -0.502365, -15.550388, 7.973439, -14.881246)
-
 [node name="Sprite" type="Sprite2D" parent="H Cup"]
 position = Vector2(-5.9604645e-08, -3.8146973e-06)
 scale = Vector2(0.025, 0.025)
@@ -231,11 +221,30 @@ offset = Vector2(0, 200)
 scale = Vector2(4.485, 4.485)
 polygon = PackedVector2Array(5.7429647, 17.014544, -5.632457, 17.014544, -8.085979, -14.658197, -0.502365, -15.550388, 7.973439, -14.881246)
 
+[node name="H Cup" type="Area2D" parent="H Cup"]
+position = Vector2(2.3841858e-07, 1.9073486e-06)
+scale = Vector2(3.645, 3.645)
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="H Cup/H Cup"]
+scale = Vector2(1.23, 1.23)
+polygon = PackedVector2Array(5.7429647, 17.014544, -5.632457, 17.014544, -8.085979, -14.658197, -0.502365, -15.550388, 7.973439, -14.881246)
+
 [node name="H Mac" type="RigidBody2D" parent="."]
 visible = false
 collision_layer = 512
 collision_mask = 256
 freeze = true
+
+[node name="Sprite" type="Sprite2D" parent="H Mac"]
+scale = Vector2(0.605, 0.605)
+texture = ExtResource("4_tyo4a")
+offset = Vector2(0, 2.2222223)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="H Mac"]
+scale = Vector2(6.095, 6.095)
+polygon = PackedVector2Array(-12.087512, -9.125132, -0.04294728, -12.024749, 12.0016165, -8.902084, 16.90866, -3.1028495, 15.124281, 2.4733372, 11.555521, 8.049525, 5.979335, 11.395238, -0.26599476, 12.287427, -6.9574194, 11.395238, -12.756654, 7.1573353, -16.77151, -1.3184698)
 
 [node name="H Mac" type="Area2D" parent="H Mac"]
 position = Vector2(2.3841858e-07, 1.9073486e-06)
@@ -247,15 +256,6 @@ collision_mask = 0
 position = Vector2(-5.9604645e-08, 4.7683716e-07)
 scale = Vector2(1.67, 1.67)
 polygon = PackedVector2Array(-12.087512, -9.125132, -0.04294736, -12.024749, 12.0016165, -8.902084, 16.90866, -3.1028495, 15.124281, 2.4733372, 11.555521, 8.049525, 5.979335, 11.395238, -0.26599485, 12.287427, -6.9574194, 11.395238, -12.756654, 7.1573353, -16.77151, -1.3184698)
-
-[node name="Sprite" type="Sprite2D" parent="H Mac"]
-scale = Vector2(0.605, 0.605)
-texture = ExtResource("4_tyo4a")
-offset = Vector2(0, 2.2222223)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="H Mac"]
-scale = Vector2(6.095, 6.095)
-polygon = PackedVector2Array(-12.087512, -9.125132, -0.04294728, -12.024749, 12.0016165, -8.902084, 16.90866, -3.1028495, 15.124281, 2.4733372, 11.555521, 8.049525, 5.979335, 11.395238, -0.26599476, 12.287427, -6.9574194, 11.395238, -12.756654, 7.1573353, -16.77151, -1.3184698)
 
 [node name="Tape" type="RigidBody2D" parent="."]
 visible = false
@@ -276,11 +276,11 @@ scale = Vector2(0.22, 0.22)
 texture = ExtResource("9_tyo4a")
 offset = Vector2(-266.66663, 133.33333)
 
-[node name="Protein" type="Area2D" parent="Tape"]
+[node name="Tape" type="Area2D" parent="Tape"]
 scale = Vector2(4.935, 4.935)
 collision_layer = 2052
 collision_mask = 0
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Tape/Protein"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Tape/Tape"]
 z_index = 1
 polygon = PackedVector2Array(-16.198032, 4.5931168, -16.198032, -5.4068832, -11.198033, -12.406883, -3.1980333, -16.406883, 9.801967, -14.406883, 15.801967, -9.406883, 15.801967, -1.4068832, 13.801967, 6.5931168, 9.801967, 13.593117, 3.8019667, 17.593117, -2.1980333, 17.593117, -12.198033, 10.593117)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dka8iksr4cahl"]
 
-[ext_resource type="Script" uid="uid://cnepkfhyog0ro" path="res://scenes/wateringCan.gd" id="1_xxyd1"]
+[ext_resource type="Script" uid="uid://cnepkfhyog0ro" path="res://scripts/wateringCan.gd" id="1_xxyd1"]
 
 [sub_resource type="Curve" id="Curve_xxyd1"]
 _limits = [0.0, 20.0, 0.0, 1.0]

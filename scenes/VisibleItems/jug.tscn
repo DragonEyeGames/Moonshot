@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cba4fq4q3t4ra"]
+
+[ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/wurterJug.png" id="1_mom0h"]
+
+[node name="Jug" type="RigidBody2D"]
+visible = false
+collision_layer = 512
+collision_mask = 256
+freeze = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.26, 1.26)
+polygon = PackedVector2Array(10.82447, 26.045456, -10.199044, 26.045456, -10.47567, -3.0001893, -2.730164, -7.1495667, -2.1769137, -13.511947, 1.9724641, -13.511947, 2.5257144, -7.1495667, 10.271219, -3.2768145)
+
+[node name="Jug" type="Area2D" parent="."]
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Jug"]
+scale = Vector2(1.26, 1.26)
+polygon = PackedVector2Array(10.82447, 26.045456, -10.199044, 26.045456, -10.47567, -3.0001893, -2.730164, -7.1495667, -2.1769137, -13.511947, 1.9724641, -13.511947, 2.5257144, -7.1495667, 10.271219, -3.2768145)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("1_mom0h")
+offset = Vector2(0, 127.125496)

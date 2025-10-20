@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://w2ju0oer6ydy"]
 
-[ext_resource type="Script" uid="uid://cptnghp2dlnhk" path="res://scenes/seed_bag.gd" id="1_de5rq"]
+[ext_resource type="Script" uid="uid://cptnghp2dlnhk" path="res://scripts/seed_bag.gd" id="1_de5rq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
 size = Vector2(641.6424, 1014.4601)

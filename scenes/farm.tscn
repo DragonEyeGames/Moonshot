@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c5eiodc6x61h"]
 
-[ext_resource type="Script" uid="uid://ci5ughirdgwn8" path="res://scenes/farm.gd" id="1_o03py"]
-[ext_resource type="Script" uid="uid://sryc24cvut1g" path="res://scenes/dropper.gd" id="2_jjgid"]
+[ext_resource type="Script" uid="uid://ci5ughirdgwn8" path="res://scripts/farm.gd" id="1_o03py"]
+[ext_resource type="Script" uid="uid://sryc24cvut1g" path="res://scripts/dropper.gd" id="2_jjgid"]
 [ext_resource type="PackedScene" uid="uid://c3w4cpinjn8dd" path="res://scenes/seed.tscn" id="2_kjpqf"]
 [ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/wurterJug.png" id="4_k3ns2"]
 

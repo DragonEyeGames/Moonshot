@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bnoqv312svl4k"]
 
-[ext_resource type="Script" uid="uid://beaps3n1ubghn" path="res://scenes/bag.gd" id="1_6bjnb"]
+[ext_resource type="Script" uid="uid://beaps3n1ubghn" path="res://scripts/bag.gd" id="1_6bjnb"]
 [ext_resource type="PackedScene" uid="uid://coaotjijpvoi2" path="res://scenes/bag_items.tscn" id="2_8dtae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]

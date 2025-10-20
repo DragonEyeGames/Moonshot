@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dka8iksr4cahl" path="res://scenes/wateringCan.tscn" id="6_fjrip"]
 [ext_resource type="PackedScene" uid="uid://w2ju0oer6ydy" path="res://scenes/seed_bag.tscn" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://bnoqv312svl4k" path="res://scenes/bag.tscn" id="7_smehm"]
-[ext_resource type="Script" uid="uid://cp0sd7il7sd3y" path="res://scenes/tape.gd" id="7_ur7pv"]
+[ext_resource type="Script" uid="uid://cp0sd7il7sd3y" path="res://scripts/tape.gd" id="7_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://csk5nfyi47xdp" path="res://scenes/hud.tscn" id="10_y4r1p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur7pv"]
@@ -263,26 +263,24 @@ scale = Vector2(1.26, 1.26)
 [node name="Sprites" type="Node2D" parent="CanvasLayer/OverlayArm"]
 
 [node name="Square2" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
-position = Vector2(257.00043, 381.00018)
-rotation = -1.9354584
-scale = Vector2(1.9545968, 1.0212599)
+position = Vector2(257.00006, 381.00006)
+rotation = -1.9149005
+scale = Vector2(1.9545962, 1.0212588)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square3" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
-position = Vector2(154.7887, 42.067627)
-rotation = -2.0051215
-scale = Vector2(2.2674136, 1.0220915)
-skew = 0.0032900572
+position = Vector2(160.9342, 39.199158)
+rotation = -1.9828987
+scale = Vector2(2.2674108, 1.0220865)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square4" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(-0.58569336, -405.62854)
-rotation = -2.0056698
-scale = Vector2(0.99456626, 1.0211543)
-skew = 0.0036342144
+position = Vector2(10.14093, -372.8697)
+rotation = -1.9832332
+scale = Vector2(0.9945658, 1.0211513)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(4.777954, 1.1951294)
 
@@ -338,9 +336,9 @@ position = Vector2(84.55326, 8.703087)
 modification_stack = SubResource("SkeletonModificationStack2D_smehm")
 
 [node name="Base" type="Bone2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D"]
-position = Vector2(257, 381)
-rotation = -1.3038225
-scale = Vector2(0.99999917, 0.99999917)
+position = Vector2(257.00006, 381.00006)
+rotation = -1.9149005
+scale = Vector2(0.9999982, 0.9999982)
 rest = Transform2D(0.26381347, -0.96457285, 0.96457285, 0.26381347, 257, 381)
 auto_calculate_length_and_angle = false
 length = 406.88
@@ -352,9 +350,9 @@ remote_path = NodePath("../../../../Sprites/Square2")
 update_scale = false
 
 [node name="Segment" type="Bone2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D/Base"]
-position = Vector2(354.17297, 24.873413)
-rotation = -0.067998216
-scale = Vector2(0.99999654, 0.99999654)
+position = Vector2(354.1726, 24.873505)
+rotation = -0.06799824
+scale = Vector2(0.9999956, 0.9999956)
 rest = Transform2D(0.5295665, -0.8482732, 0.8482732, 0.5295665, 354.14087, 24.878784)
 auto_calculate_length_and_angle = false
 length = 203.706

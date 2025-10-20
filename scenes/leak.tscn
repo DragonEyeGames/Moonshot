@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2krhqnewioyn"]
 
-[ext_resource type="Script" uid="uid://c7g5ct1ry7wrd" path="res://scenes/leak.gd" id="1_hg431"]
+[ext_resource type="Script" uid="uid://c7g5ct1ry7wrd" path="res://scripts/leak.gd" id="1_hg431"]
 
 [sub_resource type="Gradient" id="Gradient_blq7k"]
 colors = PackedColorArray(1, 1, 1, 0.7294118, 1, 1, 1, 0)

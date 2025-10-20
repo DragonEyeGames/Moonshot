@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cljdup7ghuiy1"]
+
+[ext_resource type="Texture2D" uid="uid://d2pnhnvx1kk01" path="res://assets/macHydrated.png" id="1_6x27p"]
+
+[node name="H Mac" type="RigidBody2D"]
+visible = false
+collision_layer = 512
+collision_mask = 256
+freeze = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_6x27p")
+offset = Vector2(0, 2.2222223)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.84, 1.84)
+polygon = PackedVector2Array(-12.087512, -9.125132, -0.04294728, -12.024749, 12.0016165, -8.902084, 16.90866, -3.1028495, 15.124281, 2.4733372, 11.555521, 8.049525, 5.979335, 11.395238, -0.26599476, 12.287427, -6.9574194, 11.395238, -12.756654, 7.1573353, -16.77151, -1.3184698)
+
+[node name="H Mac" type="Area2D" parent="."]
+position = Vector2(2.3841858e-07, 1.9073486e-06)
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="H Mac"]
+scale = Vector2(1.84, 1.84)
+polygon = PackedVector2Array(-12.087512, -9.125132, -0.04294728, -12.024749, 12.0016165, -8.902084, 16.90866, -3.1028495, 15.124281, 2.4733372, 11.555521, 8.049525, 5.979335, 11.395238, -0.26599476, 12.287427, -6.9574194, 11.395238, -12.756654, 7.1573353, -16.77151, -1.3184698)

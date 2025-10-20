@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://xl7hoyu6js47"]
 
-[ext_resource type="Script" uid="uid://cccwphmjkmgii" path="res://scenes/jugFiller.gd" id="1_e7322"]
+[ext_resource type="Script" uid="uid://cccwphmjkmgii" path="res://scripts/jugFiller.gd" id="1_e7322"]
 [ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/wurterJug.png" id="2_ttvhk"]
 
 [sub_resource type="Curve" id="Curve_qj4il"]

@@ -3,16 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://c70althcu8by2" path="res://assets/cup.png" id="1_vafus"]
 
 [node name="Cup" type="RigidBody2D"]
-visible = false
 collision_layer = 512
 collision_mask = 256
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("1_vafus")
+offset = Vector2(0, 72)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-position = Vector2(-0.49815068, -9.5252)
 polygon = PackedVector2Array(10.49815, 28.5252, -10.50185, 28.5252, -14.50185, -8.4748, -15.50185, -10.4748, 15.49815, -10.4748, 14.49815, -8.4748)
 
 [node name="Cup" type="Area2D" parent="."]
@@ -20,5 +19,4 @@ collision_layer = 2052
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cup"]
-position = Vector2(-0.4981501, -9.525192)
 polygon = PackedVector2Array(10.49815, 28.525192, -10.50185, 28.525192, -14.50185, -8.474808, -15.50185, -10.474808, 15.49815, -10.474808, 14.49815, -8.474808)

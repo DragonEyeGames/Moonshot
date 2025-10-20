@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 			$InventoryItems.get_node(GameManager.inventory[slotIndex]).get_child(0).text=str(round(GameManager.pickedUpJugWater*100)/100) + " Water(s)"
 		for child in $InventoryItems.get_children():
 			child.visible=false
-		print(GameManager.inventory[slotIndex])
+		#print(GameManager.inventory[slotIndex])
 		$InventoryItems.get_node(GameManager.inventory[slotIndex]["name"]).visible=true
 		if(GameManager.selectedSlot==slotIndex):
 			$Outline.visible=true

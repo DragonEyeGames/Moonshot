@@ -79,25 +79,15 @@ func _process(_delta: float) -> void:
 		else:
 			pickedUp=true
 			pickedUpParent=pickable.get_parent()
-			#var oldPos = pickable.global_position
 			if(pickedUpType=="BagItem"):
 				var oldPickable=pickable
 				pickable=oldPickable.duplicate()
 				oldPickable.get_parent().add_child(pickable)
-				#for child in pickable.get_children():
-					#child.scale/=GameManager.camera.zoom
-					#print(oldPickable.name)
-				pickable.get_node("BagItem").name=oldPickable.name
-				#oldPickable.get_parent().add_child(pickable)
-				#for child in pickable.get_children():
-					#child.scale/=GameManager.camera.zoom
-				#oldPickable.reparent($CanvasLayer/PlantBag)
-				oldPickable.visible=false
+				#pickable.get_node("BagItem").name=oldPickable.name
+				oldPickable.queue_free()
 				pickable.visible=true
-				#pickable.scale=Vector2.ONE
 			pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
-			#pickable.rotation+=PI/2
-			handHeldItem=pickedUpType.to_lower()
+			handHeldItem=pickedUpType
 			currentlyHeld=pickable
 	if(Input.is_action_just_released("Click") and pickable!=null and pickedUp):
 		if(bagOpen==false):
@@ -120,7 +110,10 @@ func _process(_delta: float) -> void:
 		else:
 			pickedUp=false
 			canPickUp=false
-			pickable.reparent($CanvasLayer/PlantBag)
+			#pickable.reparent($"CanvasLayer/PlantBag/Bag O' Holding")
+			print(pickable.get_parent())
+			$CanvasLayer/PlantBag.newItem(pickedUpType, pickable.global_position, pickable.rotation, pickable.scale)
+			pickable.queue_free()
 			pickable=null
 			handHeldItem=""
 		

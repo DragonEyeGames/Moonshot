@@ -46,6 +46,34 @@ visible = false
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_6dd0p")
 
+[node name="Cup" type="RigidBody2D" parent="."]
+visible = false
+collision_layer = 512
+collision_mask = 256
+freeze = true
+
+[node name="Sprite" type="Sprite2D" parent="Cup"]
+position = Vector2(0, -1.9073486e-06)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("5_pi86y")
+offset = Vector2(0, 66.66667)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Cup"]
+position = Vector2(0, -9.536743e-07)
+scale = Vector2(3.615, 3.615)
+polygon = PackedVector2Array(10.5, 28.748888, -10.5, 28.748888, -14.5, -8.251111, -15.5, -10.251111, 15.5, -10.251111, 14.5, -8.251111)
+
+[node name="Cup" type="Area2D" parent="Cup"]
+position = Vector2(2.3841858e-07, 1.9073486e-06)
+scale = Vector2(3.645, 3.645)
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cup/Cup"]
+position = Vector2(-5.9604645e-08, 0)
+scale = Vector2(0.965, 0.965)
+polygon = PackedVector2Array(10.803358, 29.567085, -10.803358, 29.567085, -14.783543, -8.528968, -15.920738, -10.51906, 15.920738, -10.51906, 14.783543, -8.528968)
+
 [node name="IceCream" type="RigidBody2D" parent="."]
 visible = false
 position = Vector2(0, 1)
@@ -132,12 +160,11 @@ center_of_mass = Vector2(0, 10)
 freeze = true
 
 [node name="Sprite" type="Sprite2D" parent="Mac"]
-position = Vector2(-7.6293945e-06, 3.8146973e-06)
 scale = Vector2(0.245, 0.245)
 texture = ExtResource("3_kawho")
+offset = Vector2(32.65306, 16.32653)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Mac"]
-position = Vector2(-8, -3)
 scale = Vector2(3.46, 3.46)
 polygon = PackedVector2Array(20.785532, 29.49736, -12.214468, 29.49736, -21.214468, 24.49736, -21.214468, -10.50264, -27.214468, -11.50264, -26.214468, -27.50264, 29.785532, -25.50264, 25.785532, -13.50264, 21.785532, -10.50264, 20.785532, -5.50264)
 
@@ -147,37 +174,8 @@ collision_layer = 2052
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mac/Mac"]
-position = Vector2(-5, -1)
 scale = Vector2(2.215, 2.215)
 polygon = PackedVector2Array(20.785532, 29.49736, -12.214468, 29.49736, -21.214468, 24.49736, -21.214468, -10.50264, -27.214468, -11.50264, -26.214468, -27.50264, 29.785532, -25.50264, 25.785532, -13.50264, 21.785532, -10.50264, 20.785532, -5.50264)
-
-[node name="Cup" type="RigidBody2D" parent="."]
-visible = false
-collision_layer = 512
-collision_mask = 256
-freeze = true
-
-[node name="Sprite" type="Sprite2D" parent="Cup"]
-position = Vector2(0, -1.9073486e-06)
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("5_pi86y")
-offset = Vector2(0, 66.66667)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Cup"]
-position = Vector2(0, -9.536743e-07)
-scale = Vector2(3.615, 3.615)
-polygon = PackedVector2Array(10.5, 28.748888, -10.5, 28.748888, -14.5, -8.251111, -15.5, -10.251111, 15.5, -10.251111, 14.5, -8.251111)
-
-[node name="Cup" type="Area2D" parent="Cup"]
-position = Vector2(2.3841858e-07, 1.9073486e-06)
-scale = Vector2(3.645, 3.645)
-collision_layer = 2052
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cup/Cup"]
-position = Vector2(-5.9604645e-08, 0)
-scale = Vector2(0.965, 0.965)
-polygon = PackedVector2Array(10.803358, 29.567085, -10.803358, 29.567085, -14.783543, -8.528968, -15.920738, -10.51906, 15.920738, -10.51906, 14.783543, -8.528968)
 
 [node name="Jug" type="RigidBody2D" parent="."]
 visible = false

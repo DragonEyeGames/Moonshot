@@ -11,11 +11,10 @@ var mouseTimeOut=0
 
 var open=false
 
-func _ready():
-	newThings()
+#func _ready():
+	#newThings()
 	
 func _process(delta: float) -> void:
-	print(GameManager.inventory)
 	if(not mouseEntered and open):
 		mouseTimeOut+=delta
 	if(mouseTimeOut>1):
@@ -34,10 +33,13 @@ func _process(delta: float) -> void:
 			if(GameManager.player.pickedUpType=="plant"):
 				GameManager.carrots+=1
 			else:
-				print("ADD")
 				GameManager.add(GameManager.player.pickedUpType, 1)
-			print($"Bag O' Holding".get_child(len(GameManager.inventory)-1).get_node(GameManager.player.pickedUpType))
-			$"Bag O' Holding".get_child(len(GameManager.inventory)-1).get_node(GameManager.player.pickedUpType).visible=true
+				var holder=$BagItems.duplicate()
+				$"Bag O' Holding".add_child(holder)
+				holder.visible=true
+				$"Bag O' Holding".get_child(-1).get_node(GameManager.player.pickedUpType).visible=true
+				await get_tree().create_timer(.1).timeout
+				loadInventory()
 			GameManager.player.currentlyHeld.queue_free()
 			GameManager.player.handHeldItem=""
 	elif(Input.is_action_just_pressed("Interact") and not fading and visible):
@@ -76,14 +78,33 @@ func openBag():
 
 func newThings():
 	var index=0
-	for item in GameManager.inventory:
-		for child in $"Bag O' Holding".get_child(index).get_children():
-			child.visible=false
-		$"Bag O' Holding".get_child(index).get_node(item).visible=true
-		index+=1
+	#for item in GameManager.inventory:
+	#	for child in $"Bag O' Holding".get_child(index).get_children():
+	#		child.visible=false
+	#	$"Bag O' Holding".get_child(index).get_node(item).visible=true
+	#	index+=1
 		
 func loadInventory():
 	GameManager.inventory.clear()
 	for child in $"Bag O' Holding".get_children():
+		print("LWOERLWE")
 		if(child.visible):
 			GameManager.add(child.item, 1)
+	var items=0
+	for item in GameManager.inventory:
+		print("LOWKE")
+		for i in range(item["count"]):
+			$"Bag O' Holding".get_child(items).get_node(item["name"]).visible=true
+			items+=1
+	
+func newItem(type, newLocation, newRotation, newScale):
+	var holder=$BagItems.duplicate()
+	$"Bag O' Holding".add_child(holder)
+	print(type)
+	holder.get_node(type).visible=true
+	print(holder)
+	holder.global_position=newLocation
+	holder.global_rotation=newRotation
+	holder.scale=newScale
+	await get_tree().create_timer(.1).timeout
+	print(holder.scale)

@@ -74,35 +74,6 @@ position = Vector2(-5.9604645e-08, 0)
 scale = Vector2(0.965, 0.965)
 polygon = PackedVector2Array(10.803358, 29.567085, -10.803358, 29.567085, -14.783543, -8.528968, -15.920738, -10.51906, 15.920738, -10.51906, 14.783543, -8.528968)
 
-[node name="IceCream" type="RigidBody2D" parent="."]
-visible = false
-position = Vector2(0, 1)
-scale = Vector2(1.025, 1.025)
-collision_layer = 512
-collision_mask = 256
-center_of_mass_mode = 1
-center_of_mass = Vector2(10, 0)
-freeze = true
-
-[node name="Sprite" type="Sprite2D" parent="IceCream"]
-position = Vector2(2.3841858e-06, -9.536743e-07)
-scale = Vector2(0.145, 0.145)
-texture = ExtResource("2_6dd0p")
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="IceCream"]
-position = Vector2(-0.32951355, -0.22395325)
-scale = Vector2(2.735, 2.735)
-polygon = PackedVector2Array(3.5047512, 23.393623, -32.28472, 8.656784, -32.28472, -6.080063, -0.7057743, -23.974792, 31.925806, -7.1326904, 34.031067, 4.4462585)
-
-[node name="IceCream" type="Area2D" parent="IceCream"]
-collision_layer = 2052
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="IceCream/IceCream"]
-position = Vector2(-0.32951593, -0.22392273)
-scale = Vector2(2.865, 2.865)
-polygon = PackedVector2Array(3.329516, 22.223923, -30.670485, 8.223923, -30.670485, -5.7760773, -0.67048407, -22.776077, 30.329515, -6.7760773, 32.329517, 4.2239227)
-
 [node name="SeedBag" type="RigidBody2D" parent="."]
 visible = false
 collision_layer = 512
@@ -284,3 +255,26 @@ collision_mask = 0
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Tape/Tape"]
 z_index = 1
 polygon = PackedVector2Array(-16.198032, 4.5931168, -16.198032, -5.4068832, -11.198033, -12.406883, -3.1980333, -16.406883, 9.801967, -14.406883, 15.801967, -9.406883, 15.801967, -1.4068832, 13.801967, 6.5931168, 9.801967, 13.593117, 3.8019667, 17.593117, -2.1980333, 17.593117, -12.198033, 10.593117)
+
+[node name="IceCream" type="RigidBody2D" parent="."]
+visible = false
+collision_layer = 512
+collision_mask = 256
+center_of_mass_mode = 1
+center_of_mass = Vector2(10, 0)
+
+[node name="Sprite" type="Sprite2D" parent="IceCream"]
+position = Vector2(2.3841858e-06, -9.536743e-07)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_6dd0p")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="IceCream"]
+scale = Vector2(0.95, 0.95)
+polygon = PackedVector2Array(3.5047512, 23.393623, -32.28472, 8.656784, -32.28472, -6.080063, -0.7057743, -23.974792, 31.925806, -7.1326904, 34.031067, 4.4462585)
+
+[node name="IceCream" type="Area2D" parent="IceCream"]
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="IceCream/IceCream"]
+polygon = PackedVector2Array(3.329516, 22.223923, -30.670485, 8.223923, -30.670485, -5.7760773, -0.67048407, -22.776077, 30.329515, -6.7760773, 32.329517, 4.2239227)

@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var  speed = 300.0
 
-var canPickUp:=false
+var canPickUp:=true
 var pickable
 var canPlace:=false
 var currentlyHeld
@@ -52,7 +52,8 @@ func _process(_delta: float) -> void:
 	velocity*=speed*healthMod
 	if(GameManager.playerMove):
 		move_and_slide()
-	if(canPickUp and pickedUp == false and Input.is_action_just_pressed("Click") and pickable!=null):
+	if(pickedUp == false and Input.is_action_just_pressed("Click") and pickable!=null):
+		canPickUp=false
 		if(bagOpen==false):
 			pickedUpType=str(pickable.get_child(-1).name)
 			$CanvasLayer/PlantBag.loadInventory()
@@ -61,6 +62,7 @@ func _process(_delta: float) -> void:
 				canPickUp=false
 				pickedUpType=""
 				pickable=null
+				print("NNNNNNNYYYYYYYYYYYLLLLLLLLLLLL")
 				return
 			if(pickable==null):
 				return
@@ -73,6 +75,7 @@ func _process(_delta: float) -> void:
 			#pickable.rotation+=PI/2
 			handHeldItem=pickedUpType.to_lower()
 			currentlyHeld=pickable
+			prints("ESTA UNA ", pickable)
 			for child in pickable.get_children():
 				child.scale*=GameManager.camera.zoom
 			#pickable.scale*=GameManager.camera.zoom
@@ -83,6 +86,7 @@ func _process(_delta: float) -> void:
 			if(pickedUpType=="BagItem"):
 				var oldPickable=pickable
 				pickable=oldPickable.duplicate(true)
+				print("DUPLIKILL")
 				pickable.scale=Vector2(.57, 1.37)
 				oldPickable.get_parent().add_child(pickable)
 				#pickable.get_node("BagItem").name=oldPickable.name
@@ -92,6 +96,7 @@ func _process(_delta: float) -> void:
 			handHeldItem=pickedUpType
 			currentlyHeld=pickable
 	if(Input.is_action_just_released("Click") and pickable!=null and pickedUp):
+		prints(bagOpen, " RELEASE")
 		if(bagOpen==false):
 			$CanvasLayer/PlantBag.loadInventory()
 			pickable.set_deferred("freeze", true)
@@ -121,6 +126,9 @@ func _process(_delta: float) -> void:
 			pickable.queue_free()
 			pickable=null
 			handHeldItem=""
+		canPickUp=true
+	elif(Input.is_action_just_released("Click")):
+		prints(pickable!=null, pickedUp)
 		
 func flashlightEvents():
 	await get_tree().create_timer(randf_range(.05*GameManager.playerEnergy, .2*GameManager.playerEnergy)).timeout
@@ -137,9 +145,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		if(area.get_parent().modulate.a<=.1):
 			area.get_parent().queue_free()
 	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag" and bagOpen==false):
-		canPickUp=true
-		#pickedUpType=area.name
-		pickable=area.get_parent()
+		if(canPickUp):
+			pickedUpType=area.name
+			pickable=area.get_parent()
 
 func pickUp(item):
 	$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(.9, .9)
@@ -147,6 +155,9 @@ func pickUp(item):
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
+	await get_tree().create_timer(.1).timeout
+	if(not area):
+		return
 	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag"):
 		if(pickable==area.get_parent()):
 			pickable=null
@@ -154,12 +165,19 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 func _in_bag_entered(area: Area2D) -> void:
 	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag" and bagOpen==true):
-		canPickUp=true
-		#pickedUpType=area.name
-		pickable=area.get_parent()
+		if canPickUp:
+			pickedUpType=area.name
+			pickable=area.get_parent()
+			var oldParent=area.get_parent().get_parent()
+			pickable.reparent($CanvasLayer/PlantBag)
+			if(oldParent!=$CanvasLayer/PlantBag):
+				oldParent.queue_free()
 
 
 func _in_bag_exited(area: Area2D) -> void:
+	await get_tree().create_timer(.1).timeout
+	if(not area):
+		return
 	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag" and bagOpen==true):
 		if(pickable==area.get_parent()):
 			pickable=null

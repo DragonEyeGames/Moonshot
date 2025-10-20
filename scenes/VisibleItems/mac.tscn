@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://04xxddr7x5qo"]
+
+[ext_resource type="Texture2D" uid="uid://dfffmhh10mmyc" path="res://assets/dehydrated.png" id="1_tny0f"]
+
+[node name="Mac" type="RigidBody2D"]
+visible = false
+collision_layer = 512
+collision_mask = 256
+mass = 10.0
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 10)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-7.6293945e-06, 3.8146973e-06)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("1_tny0f")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1.7855325, -0.49736023)
+polygon = PackedVector2Array(20.785532, 29.49736, -12.214468, 29.49736, -21.214468, 24.49736, -21.214468, -10.50264, -27.214468, -11.50264, -26.214468, -27.50264, 29.785532, -25.50264, 25.785532, -13.50264, 21.785532, -10.50264, 20.785532, -5.50264)
+
+[node name="Mac" type="Area2D" parent="."]
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mac"]
+position = Vector2(-1.7855325, -0.49736023)
+polygon = PackedVector2Array(20.785532, 29.49736, -12.214468, 29.49736, -21.214468, 24.49736, -21.214468, -10.50264, -27.214468, -11.50264, -26.214468, -27.50264, 29.785532, -25.50264, 25.785532, -13.50264, 21.785532, -10.50264, 20.785532, -5.50264)

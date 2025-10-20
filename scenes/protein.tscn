@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcqfarm5epv4u"]
+
+[ext_resource type="Texture2D" uid="uid://372hu3xsfi0g" path="res://assets/proteinBar.png" id="1_ryv7m"]
+
+[node name="Protein" type="RigidBody2D"]
+visible = false
+collision_layer = 512
+collision_mask = 256
+center_of_mass_mode = 1
+center_of_mass = Vector2(2, -2)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+z_index = 1
+position = Vector2(-1.3492758, -0.24133301)
+polygon = PackedVector2Array(-10.650724, 20.241333, -32.650723, 12.241333, -30.650724, 1.241333, 17.349276, -19.758667, 32.349277, -15.758667, 31.349276, -4.758667)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-3.8146973e-06, -2.2888184e-05)
+scale = Vector2(0.045, 0.045)
+texture = ExtResource("1_ryv7m")
+
+[node name="Protein" type="Area2D" parent="."]
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Protein"]
+position = Vector2(-0.34927583, -0.24133301)
+polygon = PackedVector2Array(-10.650724, 20.241333, -32.650723, 12.241333, -30.650724, 1.241333, 17.349276, -19.758667, 32.349277, -15.758667, 31.349276, -4.758667)

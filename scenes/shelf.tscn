@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://chtdaquk74bsq" path="res://assets/shelf.png" id="1_0edba"]
 [ext_resource type="Script" uid="uid://c2djasrejrea" path="res://scripts/shelf.gd" id="1_0iu12"]
-[ext_resource type="Texture2D" uid="uid://c5q3d26io6w74" path="res://assets/IceCream.png" id="2_aw007"]
+[ext_resource type="PackedScene" uid="uid://cp40em5umyxl8" path="res://scenes/VisibleItems/iceCream.tscn" id="3_oyalq"]
 [ext_resource type="Texture2D" uid="uid://372hu3xsfi0g" path="res://assets/proteinBar.png" id="4_7o7sa"]
 [ext_resource type="Texture2D" uid="uid://dfffmhh10mmyc" path="res://assets/dehydrated.png" id="5_xng2s"]
 [ext_resource type="Texture2D" uid="uid://c70althcu8by2" path="res://assets/cup.png" id="6_878aq"]
@@ -34,31 +34,7 @@ shape = SubResource("CapsuleShape2D_7o7sa")
 
 [node name="Possibilities" type="Node2D" parent="."]
 
-[node name="IceCream" type="RigidBody2D" parent="Possibilities"]
-visible = false
-position = Vector2(-49, 29)
-collision_layer = 512
-collision_mask = 256
-center_of_mass_mode = 1
-center_of_mass = Vector2(10, 0)
-
-[node name="Sprite" type="Sprite2D" parent="Possibilities/IceCream"]
-position = Vector2(2.3841858e-06, -9.536743e-07)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_aw007")
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Possibilities/IceCream"]
-position = Vector2(-0.32951355, -0.22395325)
-scale = Vector2(0.95, 0.95)
-polygon = PackedVector2Array(3.5047512, 23.393623, -32.28472, 8.656784, -32.28472, -6.080063, -0.7057743, -23.974792, 31.925806, -7.1326904, 34.031067, 4.4462585)
-
-[node name="IceCream" type="Area2D" parent="Possibilities/IceCream"]
-collision_layer = 2052
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Possibilities/IceCream/IceCream"]
-position = Vector2(-0.32951593, -0.22392273)
-polygon = PackedVector2Array(3.329516, 22.223923, -30.670485, 8.223923, -30.670485, -5.7760773, -0.67048407, -22.776077, 30.329515, -6.7760773, 32.329517, 4.2239227)
+[node name="IceCream" parent="Possibilities" instance=ExtResource("3_oyalq")]
 
 [node name="Mac" type="RigidBody2D" parent="Possibilities"]
 visible = false

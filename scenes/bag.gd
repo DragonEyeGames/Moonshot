@@ -96,8 +96,6 @@ func loadInventory():
 				var holder=$BagItems.duplicate()
 				$"Bag O' Holding".add_child(holder)
 				holder.visible=true
-			print($"Bag O' Holding".get_child(items).get_children())
-			print(item["name"])
 			$"Bag O' Holding".get_child(items).get_node(item["name"]).visible=true
 			items+=1
 	
@@ -106,4 +104,3 @@ func newItem(type, newLocation, newRotation):
 	$"Bag O' Holding".add_child(holder)
 	holder.get_node(type).visible=true
 	holder.global_position=newLocation
-	await get_tree().create_timer(.1).timeout

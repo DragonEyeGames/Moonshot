@@ -10,8 +10,8 @@ var water=100
 var standingWater=0
 
 func _process(delta: float) -> void:
-	if(collision and state=="unplanted" and Input.is_action_just_pressed("Interact") and not zoomed and canZoom and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]=="SeedBag"):
-		GameManager.inventory.erase("SeedBag")
+	if(collision and state=="unplanted" and Input.is_action_just_pressed("Interact") and not zoomed and canZoom and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]["name"]=="SeedBag"):
+		GameManager.subtract("SeedBag", 1)
 		GameManager.playerTool="seedBag"
 		state="planted"
 		zoom()
@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 		GameManager.playerTool="bag"
 		zoom()
 	elif(jugCollision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and len(GameManager.inventory)<=4):
-		GameManager.inventory.append("Jug")
+		GameManager.inventory.add("Jug", 1)
 		$ColorRect6/WurterJug.visible=false
 		GameManager.pickedUpJugWater=water
 		water=0

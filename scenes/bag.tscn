@@ -228,12 +228,13 @@ _data = {
 }
 
 [node name="bag" type="ColorRect"]
-z_index = -1
+z_index = -2
 offset_left = 311.80466
 offset_top = 406.40982
 offset_right = 991.97156
 offset_bottom = 1463.9379
 rotation = 1.2489982
+scale = Vector2(1.745, 0.73)
 mouse_filter = 2
 color = Color(0.34414157, 0.17461061, 0.025434045, 1)
 script = ExtResource("1_6bjnb")
@@ -276,11 +277,12 @@ libraries = {
 
 [node name="BagItems" parent="." instance=ExtResource("2_8dtae")]
 visible = false
+z_index = -1
+z_as_relative = false
 position = Vector2(162.49551, 728.5979)
 scale = Vector2(0.57000005, 1.3700001)
 
 [node name="Interior" type="ColorRect" parent="."]
-z_index = -1
 layout_mode = 0
 offset_left = 14.32665
 offset_top = 21.917816

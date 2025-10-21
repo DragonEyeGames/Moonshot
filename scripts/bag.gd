@@ -103,10 +103,10 @@ func loadInventory():
 			$"Bag O' Holding".get_child(items).get_node(item["name"]).visible=true
 			items+=1
 	
-func newItem(type, newLocation, newRotation):
+func newItem(type, newLocation, _newRotation):
 	var holder=$BagItems.duplicate()
 	$"Bag O' Holding".add_child(holder)
 	holder.get_node(type).visible=true
 	holder.global_position=newLocation
-	holder.scale = Vector2.ONE
-	holder.rotation=newRotation
+	#holder.scale = Vector2.ONE
+	holder.rotation=0#newRotation

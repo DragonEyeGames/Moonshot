@@ -150,7 +150,6 @@ func closedBagPickup():
 		canPickUp=false
 		handHeldItem=""
 		pickable=null
-		print("NNNNNNNYYYYYYYYYYYLLLLLLLLLLLL")
 		return
 	if(pickable==null):
 		return
@@ -160,7 +159,6 @@ func closedBagPickup():
 	#var oldPos = pickable.global_position
 	pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
 	#pickable.rotation+=PI/2
-	prints("ESTA UNA ", pickable)
 	for child in pickable.get_children():
 		child.scale*=GameManager.camera.zoom
 	#pickable.scale*=GameManager.camera.zoom
@@ -171,7 +169,6 @@ func openBagPickup():
 	if(handHeldItem=="BagItem"):
 		var oldPickable=pickable
 		pickable=oldPickable.duplicate(true)
-		print("DUPLIKILL")
 		pickable.scale=Vector2(.57, 1.37)
 		oldPickable.get_parent().add_child(pickable)
 		#pickable.get_node("BagItem").name=oldPickable.name

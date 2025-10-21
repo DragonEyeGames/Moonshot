@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 		if(GameManager.inventory[slotIndex]["name"]=="Carrots"):
 			$InventoryItems.get_node(GameManager.inventory[slotIndex]).get_child(0).text=str(GameManager.carrots) + " Carrot(s)"
 		if(GameManager.inventory[slotIndex]["name"]=="Jug"):
-			$InventoryItems.get_node(GameManager.inventory[slotIndex]).get_child(0).text=str(round(GameManager.pickedUpJugWater*100)/100) + " Water(s)"
+			$InventoryItems.get_node(GameManager.inventory[slotIndex]["name"]).get_child(0).text=str(round(GameManager.inventory[slotIndex]["count"]*100)/100) + " Water(s)"
 		for child in $InventoryItems.get_children():
 			child.visible=false
 		#print(GameManager.inventory[slotIndex])

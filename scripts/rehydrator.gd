@@ -12,14 +12,14 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	#water=GameManager.water
 	if(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and len(GameManager.inventory)<=4 and $WurterJug.visible):
-		GameManager.inventory.append("Jug")
-		$WurterJug.visible=false
 		GameManager.pickedUpJugWater=water
-	elif(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]=="Jug" and $WurterJug.visible==false):
-		GameManager.inventory.erase("Jug")
+		GameManager.add("Jug", 1)
+		$WurterJug.visible=false
+	elif(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]["name"]=="Jug" and $WurterJug.visible==false):
+		water=GameManager.inventory[GameManager.selectedSlot]["count"]
+		GameManager.inventory.remove_at(GameManager.selectedSlot)
 		$WurterJug.visible=true
-		water=GameManager.pickedUpJugWater
-		GameManager.pickedUpJugWater=-1
+		GameManager.pickedUpJugWater=0
 		GameManager.selectedSlot=-1
 	if(colliding and Input.is_action_just_pressed("Interact") and len(GameManager.inventory)>0 and interactingList.has(GameManager.inventory[GameManager.selectedSlot]) and not GameManager.selectedSlot==-1):
 		if(GameManager.inventory[GameManager.selectedSlot]=='Cup'):

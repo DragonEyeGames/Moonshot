@@ -6,11 +6,13 @@ var playerSprinting := false
 var playerState="outside"
 var flashlightOn=false
 var playerEnergy:=100.0
-var inventory=[]
+var inventory=[{"name": "Tape", "count": 15}]
 var selectedSlot=0
 var playerMove=true
 var dead=""
 var instants = ["Protein", "IceCream", "H Mac", "H Cup", "Carrots"]
+var nonstackingList = ["Tape", "H Cup", "Jug"]
+var nonstackingDict = [{"name": "Tape", "amount": 15}, {"name": "Tape", "amount": 1}, {"name": "Tape", "amount": pickedUpJugWater}]
 
 var tapeHolder
 
@@ -21,7 +23,7 @@ var baseWater=100
 var baseHumidity=0
 var suitHumidity=0
 
-var pickedUpJugWater=-1
+var pickedUpJugWater=0
 
 var playerHand
 
@@ -51,11 +53,18 @@ var carrots=0
 var food = 100
 var water = 400
 
+func _process(_delta: float) -> void:
+	nonstackingDict[2]["amount"] = pickedUpJugWater
+	
 func add(item, count):
 	for thing in inventory:
-		if thing["name"] == item:
+		if thing["name"] == item and not thing["name"] in nonstackingList:
 			thing["count"] += count
 			return
+	if(item in nonstackingList):
+		for nonstackable in nonstackingDict:
+			if(nonstackable["name"]==item):
+				count=nonstackable["amount"]
 	inventory.append({"name": item, "count": count})
 	
 func subtract(item, count):

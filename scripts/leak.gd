@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if(colliding and Input.is_action_just_pressed("Interact")):
-		if(zoomed==false and canZoom):
+		if(zoomed==false and canZoom and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]["name"]=="Tape"):
 			zoom()
 		elif(zoomed and canZoom):
 			unzoom()

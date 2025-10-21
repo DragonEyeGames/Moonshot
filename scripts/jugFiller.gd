@@ -20,13 +20,13 @@ func _process(delta: float) -> void:
 		else:
 			$Water.emitting=false
 	if(Input.is_action_just_pressed("Interact") and collision and len(GameManager.inventory)<=4 and $Jug.visible):
-		GameManager.inventory.append("Jug")
+		GameManager.add("Jug", water)
 		GameManager.pickedUpJugWater=water
 		water=0
 		$Jug.visible=false
-	elif(Input.is_action_just_pressed("Interact") and collision and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]=="Jug" and $Jug.visible==false):
-		GameManager.inventory.erase("Jug")
-		water=GameManager.pickedUpJugWater
+	elif(Input.is_action_just_pressed("Interact") and collision and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]["name"]=="Jug" and $Jug.visible==false):
+		water=GameManager.inventory[GameManager.selectedSlot]["count"]
+		GameManager.inventory.remove_at(GameManager.selectedSlot)
 		GameManager.pickedUpJugWater=-1
 		GameManager.selectedSlot=-1
 		$Jug.visible=true

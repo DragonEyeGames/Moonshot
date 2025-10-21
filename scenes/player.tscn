@@ -309,6 +309,7 @@ visible = false
 position = Vector2(36.952164, 21.89854)
 
 [node name="tape" type="Node2D" parent="CanvasLayer/OverlayArm/Sprites/Square4"]
+visible = false
 position = Vector2(84.608826, 10.116409)
 rotation = 3.1415927
 scale = Vector2(1.2, 1.2)

@@ -110,6 +110,8 @@ func seedCheck():
 		
 func perFrameUpdate():
 	$Area2D/CollisionShape2D.scale=Vector2(1/GameManager.camera.zoom.x, 1/GameManager.camera.zoom.y)
+	
+	#Visisble the TAPE
 	$CanvasLayer/OverlayArm/Sprites/Square4/tape.visible=GameManager.playerTool=="tape"
 	$CanvasLayer/OverlayArm/Sprites/Square4/Square5.visible=GameManager.playerTool=="rag"
 	$CanvasLayer/SeedBag.visible=GameManager.playerTool=="seedBag"

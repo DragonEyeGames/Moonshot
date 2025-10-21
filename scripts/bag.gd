@@ -64,7 +64,6 @@ func _on_area_2d_area_exited(_area: Area2D) -> void:
 
 
 func _on_bag_mouse_entered() -> void:
-	print("LA MOS")
 	mouseTimeIn=0
 	mouseTimeOut=0
 	mouseEntered=true
@@ -104,6 +103,7 @@ func loadInventory():
 			items+=1
 	
 func newItem(type, newLocation, _newRotation):
+	print(type)
 	var holder=$BagItems.duplicate()
 	$"Bag O' Holding".add_child(holder)
 	holder.get_node(type).visible=true

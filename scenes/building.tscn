@@ -2364,7 +2364,7 @@ script = ExtResource("12_gwfoe")
 z_index = 1
 position = Vector2(-821.81824, -421.8182)
 scale = Vector2(1.565, 1.565)
-items = ["Mac", "Protein", "IceCream", "IceCream", "Protein", "", "", ""]
+items = ["Mac", "Protein", "IceCream", "IceCream", "Protein", "Jug", "H Cup", ""]
 
 [node name="Rehydrator" parent="Kitchen" instance=ExtResource("30_2f2c6")]
 position = Vector2(3.8146973e-06, -490.90912)

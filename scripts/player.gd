@@ -115,10 +115,14 @@ func perFrameUpdate():
 	#Set the areas properties so it collision as if in a canvas layer at mouse pos
 	$Area2D/CollisionShape2D.scale=Vector2(1/GameManager.camera.zoom.x, 1/GameManager.camera.zoom.y)
 	$Area2D.global_position=get_canvas_transform().affine_inverse() * $CanvasLayer/OverlayArm/Sprites/Square4.global_position
+	$Area2D.rotation=$CanvasLayer/OverlayArm/Sprites/Square4.rotation
 	
 	#Visisble the tools
 	$CanvasLayer/OverlayArm/Sprites/Square4/tape.visible=GameManager.playerTool=="tape"
 	$CanvasLayer/OverlayArm/Sprites/Square4/Square5.visible=GameManager.playerTool=="rag"
+	if($Area2D/CollisionShape2D2.disabled==(GameManager.playerTool=="rag")):
+		$Area2D/CollisionShape2D2.set_deferred("disabled", not GameManager.playerTool=="rag")
+	
 	$CanvasLayer/SeedBag.visible=GameManager.playerTool=="seedBag"
 	$CanvasLayer/PlantBag.visible=GameManager.playerTool=="bag"
 	

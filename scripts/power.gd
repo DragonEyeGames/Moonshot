@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 			)
 	GameManager.solarOutput=powerEmission
 	
-	if(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and not zoomed and canZoom):
+	if(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]["name"]=="Rag" and not zoomed and canZoom):
 		GameManager.zoomCamera($ZoomPoint, 3)
 		zoomed=true
 		canZoom=false
@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 		GameManager.playerTool="rag"
 		await get_tree().create_timer(1.1).timeout
 		canZoom=true
-	elif(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and zoomed and canZoom):
+	elif(colliding and Input.is_action_just_pressed("Interact") and zoomed and canZoom):
 		GameManager.unzoomCamera()
 		zoomed=false
 		GameManager.playerAnimator.play("revealToArm")

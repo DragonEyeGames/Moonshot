@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://chncs0swd8q8"]
+
+[ext_resource type="Texture2D" uid="uid://bvpfpu83as5gb" path="res://assets/Rag.png" id="1_37m6g"]
+
+[node name="Rag" type="RigidBody2D"]
+collision_layer = 512
+collision_mask = 256
+center_of_mass_mode = 1
+center_of_mass = Vector2(2, -2)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -4.3368087e-19)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_37m6g")
+offset = Vector2(22.222225, 1.2126597e-10)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.53, 1.53)
+polygon = PackedVector2Array(-12, -6, -14, -4, -16, 5, -3, 12, 10, 12, 21, 0, 19, -9, 2, -17)
+
+[node name="Rag" type="Area2D" parent="."]
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rag"]
+scale = Vector2(1.53, 1.53)
+polygon = PackedVector2Array(-12, -6, -14, -4, -16, 5, -3, 12, 10, 12, 21, 0, 19, -9, 2, -17)

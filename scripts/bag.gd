@@ -33,12 +33,8 @@ func _process(delta: float) -> void:
 			if(GameManager.player.handHeldItem=="plant"):
 				GameManager.carrots+=1
 			else:
-				GameManager.add(GameManager.player.handHeldItem, 1)
-				var holder=$BagItems.duplicate()
-				$"Bag O' Holding".add_child(holder)
-				holder.visible=true
-				$"Bag O' Holding".get_child(-1).get_node(GameManager.player.handHeldItem).visible=true
-				await get_tree().create_timer(.1).timeout
+				await GameManager.add(GameManager.player.handHeldItem, 1)
+				print(GameManager.inventory)
 				loadInventory()
 			if(GameManager.player.pickable):
 				GameManager.player.pickable.queue_free()
@@ -88,22 +84,33 @@ func newThings():
 	#	index+=1
 		
 func loadInventory():
-	GameManager.inventory.clear()
+	#GameManager.inventory.clear()
+	#for child in $"Bag O' Holding".get_children():
+	#	if(child.visible):
+	#		GameManager.add(child.item, 1)
 	for child in $"Bag O' Holding".get_children():
-		if(child.visible):
-			GameManager.add(child.item, 1)
+		child.queue_free()
 	var items=0
 	for item in GameManager.inventory:
-		for i in range(item["count"]):
-			if(len($"Bag O' Holding".get_children())<items-1):
+		if(not item["name"] in GameManager.nonstackingList):
+			for i in range(item["count"]):
+				if(len($"Bag O' Holding".get_children())<items+1):
+					var holder=$BagItems.duplicate()
+					$"Bag O' Holding".add_child(holder)
+					holder.global_position=$"Points of Movement".get_child(randi_range(0, len($"Points of Movement".get_children())-1)).global_position
+					holder.visible=true
+				$"Bag O' Holding".get_child(items).get_node(item["name"]).visible=true
+				items+=1
+		else:
+			if(len($"Bag O' Holding".get_children())<items+1):
 				var holder=$BagItems.duplicate()
 				$"Bag O' Holding".add_child(holder)
 				holder.visible=true
+				holder.global_position=$"Points of Movement".get_child(randi_range(0, len($"Points of Movement".get_children())-1)).global_position
 			$"Bag O' Holding".get_child(items).get_node(item["name"]).visible=true
 			items+=1
 	
 func newItem(type, newLocation, _newRotation):
-	print(type)
 	var holder=$BagItems.duplicate()
 	$"Bag O' Holding".add_child(holder)
 	holder.get_node(type).visible=true

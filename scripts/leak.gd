@@ -18,6 +18,9 @@ func _process(_delta: float) -> void:
 	if(coverings>0 and $airflow.emitting):
 		$airflow.emitting=false
 		$"../../Oxygenator".leak-=1
+	elif(coverings<=0 and not $airflow.emitting):
+		$airflow.emitting=true
+		$"../../Oxygenator".leak+=1
 		
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
@@ -43,6 +46,7 @@ func unzoom():
 	zoomed=false
 	canZoom=false
 	GameManager.playerAnimator.play("revealToArm")
+	GameManager.playerTool=""
 	await get_tree().create_timer(1.1).timeout
 	GameManager.playerMove=true
 	canZoom=true

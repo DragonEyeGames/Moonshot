@@ -4,8 +4,8 @@ var currentLine: Line2D = null
 
 var usedTape=0
 var currentUsedTape=0
-var tapeLeft=500
-
+var tapeLeft:=500.0
+var maxTape=500
 enum State {
 	IDLE,
 	SELECTED,
@@ -32,9 +32,10 @@ func _on_tape_entered(body: Node) -> void:
 		
 func _on_tape_exited(body: Node) -> void:
 	body.get_parent().coverings-=1
+	print(body.get_parent().coverings)
 	
 func perFrameUpdates():
-	tapeLeft=500-currentUsedTape-usedTape
+	tapeLeft=maxTape-currentUsedTape-usedTape
 	# Step 1: map proportionally
 	var mapped = 0.4 + (tapeLeft - 0) * (1.2 - 0.4) / (500 - 0)
 	# Step 2: clamp between low_out and high_out
@@ -43,11 +44,10 @@ func perFrameUpdates():
 	global_rotation_degrees = 90
 	
 func checkOver():
-	print(GameManager.playerTool)
 	if(GameManager.playerTool!="tape" ):
 		currentState=State.IDLE
 		if(tapeLeft>0):
-			GameManager.inventory.append({"name": "Tape", "count": tapeLeft/100*3})
+			GameManager.inventory.append({"name": "Tape", "count": round(tapeLeft/100*3*100)/100})
 		tapeLeft=0
 		currentUsedTape=0
 		usedTape=0
@@ -55,10 +55,10 @@ func checkOver():
 func idle():
 	if(visible and GameManager.playerTool=="tape" and GameManager.selectedSlot!=-1):
 		tapeLeft=GameManager.inventory[GameManager.selectedSlot]["count"]*100/3
+		maxTape=tapeLeft
 		GameManager.inventory.remove_at(GameManager.selectedSlot)
 		usedTape=0
 		currentUsedTape=0
-		GameManager.selectedSlot=-1
 		currentState=State.SELECTED
 		
 func selected():

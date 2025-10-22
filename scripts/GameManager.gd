@@ -1,12 +1,21 @@
 extends Node
 
+#the space suit for the player
 var helmet
 var player: Player
 var playerSprinting := false
-var playerState="outside"
+
+#the player state state machine
+enum possibleStates {
+	OUTSIDE,
+	INSIDE
+}
+
+var playerState: possibleStates=possibleStates.OUTSIDE
+
 var flashlightOn=false
 var playerEnergy:=100.0
-var inventory=[{"name": "Tape", "count": 15}]
+var inventory=[]
 var selectedSlot=0
 var playerMove=true
 var dead=""
@@ -65,6 +74,7 @@ func add(item, count):
 		for nonstackable in nonstackingDict:
 			if(nonstackable["name"]==item):
 				count=nonstackable["amount"]
+				break
 	inventory.append({"name": item, "count": count})
 	
 func subtract(item, count):

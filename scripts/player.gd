@@ -109,20 +109,23 @@ func seedCheck():
 		$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(1, 1)
 		
 func perFrameUpdate():
+	#Set the areas properties so it collision as if in a canvas layer at mouse pos
 	$Area2D/CollisionShape2D.scale=Vector2(1/GameManager.camera.zoom.x, 1/GameManager.camera.zoom.y)
+	$Area2D.global_position=get_global_mouse_position()
 	
-	#Visisble the TAPE
+	#Visisble the tools
 	$CanvasLayer/OverlayArm/Sprites/Square4/tape.visible=GameManager.playerTool=="tape"
 	$CanvasLayer/OverlayArm/Sprites/Square4/Square5.visible=GameManager.playerTool=="rag"
 	$CanvasLayer/SeedBag.visible=GameManager.playerTool=="seedBag"
 	$CanvasLayer/PlantBag.visible=GameManager.playerTool=="bag"
-	$CanvasLayer/OverlayArm/Sprites/Square4/wateringCan.visible=GameManager.playerTool=="wateringCan"
+	
+	#Move the arm
 	$"CanvasLayer/OverlayArm/IK Targets/TIP".global_position=get_viewport().get_mouse_position()
-	$Area2D.global_position=get_global_mouse_position()
-	$Helmet/PointLight2D.look_at(get_global_mouse_position())
-	$Helmet/PointLight2D.rotation+=PI/2
+
 	
 func flashlight():
+	$Helmet/PointLight2D.look_at(get_global_mouse_position())
+	$Helmet/PointLight2D.rotation+=PI/2
 	if(Input.is_action_just_pressed("Flashlight")):
 		GameManager.flashlightOn=!GameManager.flashlightOn
 	if(GameManager.playerEnergy<=0 and GameManager.flashlightOn):
@@ -147,7 +150,7 @@ func movement():
 func closedBagPickup():
 	handHeldItem=str(pickable.get_child(-1).name)
 	$CanvasLayer/PlantBag.loadInventory()
-	if(len(GameManager.inventory)>4):
+	if(not maxedInventory(handHeldItem)):
 		$CanvasLayer/PlantBag.get_node("full").play("full")
 		canPickUp=false
 		handHeldItem=""
@@ -204,3 +207,12 @@ func openBagDrop():
 	var pickableSafe=pickable
 	pickableSafe.queue_free()
 	pickable=null
+	
+func maxedInventory(item) -> bool:
+	if(len(GameManager.inventory)>4):
+		for child in GameManager.inventory:
+			if child["name"]==item:
+				return true
+		return false
+	else:
+		return true

@@ -85,7 +85,7 @@ func oxygen(_delta):
 			$Stats/Health.value-=_delta*50
 		if($Stats/Oxygen.value<=0 and playerDead==false):
 			GameManager.health-=_delta*25
-	elif(GameManager.playerState=="inside" and GameManager.helmet.visible==false):
+	elif(GameManager.playerState==GameManager.possibleStates.INSIDE and GameManager.helmet.visible==false):
 		GameManager.baseOxygen-=.4*_delta
 		GameManager.baseCarbon+=.4*_delta
 		

@@ -305,115 +305,55 @@ color = Color(0.34509805, 0.1764706, 0.023529412, 1)
 [node name="Points of Movement" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="Points of Movement"]
-position = Vector2(61.31805, 102.739716)
+position = Vector2(130.08595, 102.739716)
 
 [node name="Marker2D2" type="Marker2D" parent="Points of Movement"]
-position = Vector2(85.959885, 228.7671)
+position = Vector2(543.83954, 180.8219)
 
 [node name="Marker2D3" type="Marker2D" parent="Points of Movement"]
-position = Vector2(68.76791, 431.50684)
+position = Vector2(229.79941, 286.30136)
 
 [node name="Marker2D4" type="Marker2D" parent="Points of Movement"]
-position = Vector2(119.19771, 536.98627)
+position = Vector2(418.91113, 242.46573)
 
 [node name="Marker2D5" type="Marker2D" parent="Points of Movement"]
-position = Vector2(65.32951, 665.7534)
+position = Vector2(99.140396, 449.31506)
 
 [node name="Marker2D6" type="Marker2D" parent="Points of Movement"]
-position = Vector2(103.15186, 806.8493)
+position = Vector2(240.68768, 508.2192)
 
 [node name="Marker2D7" type="Marker2D" parent="Points of Movement"]
-position = Vector2(65.32951, 917.8082)
+position = Vector2(88.25215, 794.52057)
 
 [node name="Marker2D8" type="Marker2D" parent="Points of Movement"]
-position = Vector2(168.48137, 909.58905)
+position = Vector2(568.4813, 398.6302)
 
 [node name="Marker2D9" type="Marker2D" parent="Points of Movement"]
-position = Vector2(283.6676, 935.61646)
+position = Vector2(182.23494, 893.1507)
 
 [node name="Marker2D10" type="Marker2D" parent="Points of Movement"]
-position = Vector2(384.5272, 920.548)
+position = Vector2(320.91687, 884.93146)
 
 [node name="Marker2D11" type="Marker2D" parent="Points of Movement"]
-position = Vector2(486.53293, 909.589)
+position = Vector2(483.6676, 773.97253)
 
 [node name="Marker2D12" type="Marker2D" parent="Points of Movement"]
-position = Vector2(556.44696, 909.589)
+position = Vector2(557.5931, 886.3014)
 
 [node name="Marker2D13" type="Marker2D" parent="Points of Movement"]
 position = Vector2(616.6189, 765.7534)
 
-[node name="Marker2D14" type="Marker2D" parent="Points of Movement"]
-position = Vector2(541.54724, 706.8493)
-
-[node name="Marker2D15" type="Marker2D" parent="Points of Movement"]
-position = Vector2(437.24927, 686.3014)
-
 [node name="Marker2D16" type="Marker2D" parent="Points of Movement"]
 position = Vector2(362.17764, 694.52057)
-
-[node name="Marker2D17" type="Marker2D" parent="Points of Movement"]
-position = Vector2(287.10602, 691.7808)
 
 [node name="Marker2D18" type="Marker2D" parent="Points of Movement"]
 position = Vector2(174.7851, 665.7534)
 
 [node name="Marker2D19" type="Marker2D" parent="Points of Movement"]
-position = Vector2(198.28079, 536.9863)
-
-[node name="Marker2D20" type="Marker2D" parent="Points of Movement"]
-position = Vector2(303.7249, 528.76715)
-
-[node name="Marker2D21" type="Marker2D" parent="Points of Movement"]
-position = Vector2(409.16904, 524.6576)
+position = Vector2(333.52435, 342.46576)
 
 [node name="Marker2D22" type="Marker2D" parent="Points of Movement"]
-position = Vector2(512.3209, 524.65753)
-
-[node name="Marker2D23" type="Marker2D" parent="Points of Movement"]
-position = Vector2(556.447, 386.3014)
-
-[node name="Marker2D24" type="Marker2D" parent="Points of Movement"]
-position = Vector2(463.0373, 316.43835)
-
-[node name="Marker2D25" type="Marker2D" parent="Points of Movement"]
-position = Vector2(384.52728, 352.05478)
-
-[node name="Marker2D26" type="Marker2D" parent="Points of Movement"]
-position = Vector2(283.6676, 386.30136)
-
-[node name="Marker2D27" type="Marker2D" parent="Points of Movement"]
-position = Vector2(213.75357, 324.65753)
-
-[node name="Marker2D28" type="Marker2D" parent="Points of Movement"]
-position = Vector2(154.15472, 386.30136)
-
-[node name="Marker2D29" type="Marker2D" parent="Points of Movement"]
-position = Vector2(162.75072, 145.20549)
-
-[node name="Marker2D30" type="Marker2D" parent="Points of Movement"]
-position = Vector2(323.78223, 102.73974)
-
-[node name="Marker2D31" type="Marker2D" parent="Points of Movement"]
-position = Vector2(340.9742, 217.80823)
-
-[node name="Marker2D32" type="Marker2D" parent="Points of Movement"]
-position = Vector2(391.40402, 109.58906)
-
-[node name="Marker2D33" type="Marker2D" parent="Points of Movement"]
-position = Vector2(483.66766, 157.53424)
-
-[node name="Marker2D34" type="Marker2D" parent="Points of Movement"]
-position = Vector2(562.75073, 104.10959)
-
-[node name="Marker2D35" type="Marker2D" parent="Points of Movement"]
-position = Vector2(615.4728, 194.52054)
-
-[node name="Marker2D36" type="Marker2D" parent="Points of Movement"]
-position = Vector2(601.7192, 520.5479)
-
-[node name="Marker2D37" type="Marker2D" parent="Points of Movement"]
-position = Vector2(239.54153, 124.65753)
+position = Vector2(500.28653, 479.45206)
 
 [connection signal="area_entered" from="Bag" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Bag" to="." method="_on_area_2d_area_exited"]

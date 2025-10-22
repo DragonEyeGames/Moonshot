@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://313clql8xlh4"]
+[gd_scene load_steps=21 format=3 uid="uid://313clql8xlh4"]
 
 [ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://scripts/player.gd" id="1_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cqcdyf84adame" path="res://assets/icon.svg" id="2_sweqy"]
@@ -218,9 +218,6 @@ enabled = true
 modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DCCDIK_fjrip")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
-radius = 97.869804
-
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 2
 collision_layer = 2
@@ -393,15 +390,13 @@ offset_bottom = 40.0
 
 [node name="Area2D" type="Area2D" parent="."]
 z_index = 100
-position = Vector2(919.12305, 468.83795)
-rotation = -2.3168664
-scale = Vector2(0.5, 0.556)
+position = Vector2(80.99997, 868)
+scale = Vector2(2.585, 2.031)
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(14.889832, -4.4592648)
-shape = SubResource("CircleShape2D_tuyoq")
+shape = SubResource("CircleShape2D_qlg0r")
 
 [node name="HUD" parent="." instance=ExtResource("10_y4r1p")]
 

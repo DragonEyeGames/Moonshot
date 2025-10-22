@@ -64,7 +64,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		area.get_parent().modulate.a-=.5
 		if(area.get_parent().modulate.a<=.1):
 			area.get_parent().queue_free()
-	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag" and bagOpen==false):
+	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and GameManager.playerTool=="bag" and bagOpen==false):
 		if(canPickUp):
 			handHeldItem=area.name
 			pickable=area.get_parent()
@@ -75,12 +75,15 @@ func pickUp(item):
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	await get_tree().create_timer(.1).timeout
+	await get_tree().create_timer(.05).timeout
 	if(not area):
 		return
-	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag"):
-		if(pickable==area.get_parent()):
+	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and GameManager.playerTool=="bag"):
+		if(pickable==area.get_parent() and not pickedUp):
 			pickable=null
+			handHeldItem=""
+		else:
+			print(pickable)
 
 
 func _in_bag_entered(area: Area2D) -> void:
@@ -111,7 +114,7 @@ func seedCheck():
 func perFrameUpdate():
 	#Set the areas properties so it collision as if in a canvas layer at mouse pos
 	$Area2D/CollisionShape2D.scale=Vector2(1/GameManager.camera.zoom.x, 1/GameManager.camera.zoom.y)
-	$Area2D.global_position=get_global_mouse_position()
+	$Area2D.global_position=get_canvas_transform().affine_inverse() * $CanvasLayer/OverlayArm/Sprites/Square4.global_position
 	
 	#Visisble the tools
 	$CanvasLayer/OverlayArm/Sprites/Square4/tape.visible=GameManager.playerTool=="tape"

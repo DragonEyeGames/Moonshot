@@ -2005,6 +2005,12 @@ texture = ExtResource("21_2f2c6")
 [node name="Solar Panels" parent="." instance=ExtResource("3_f1gjg")]
 position = Vector2(-2886, 106)
 
+[node name="Line2D3" type="Line2D" parent="Solar Panels"]
+points = PackedVector2Array(418, -776, 487, -969, 441, -1054, 467, -1132, 455, -1277, 390, -1405, 453, -1496, 489, -1560, 501, -1642, 482, -1686, 453, -1734, 468, -1861, 487, -1927, 487, -1962, 487, -2005)
+width = 15.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 1
+
 [node name="Hallway2" parent="." instance=ExtResource("5_0rysw")]
 position = Vector2(-1189, -1957)
 scale = Vector2(0.74822503, 1)

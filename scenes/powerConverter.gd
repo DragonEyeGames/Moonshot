@@ -8,6 +8,9 @@ var dragging=false
 var collided=false
 var selectedWire=null
 var selectedInt
+
+var connectedWires=0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	flicker()
@@ -37,6 +40,7 @@ func _process(_delta: float) -> void:
 			dragging=false
 			selectedWire.points[-1]=selectedWire.to_local($Hole.get_child(selectedInt+4).get_child(0).global_position)
 			selectedWire.get_node("Area2D").get_child(0).disabled=true
+			connectedWires+=1
 		
 		selectedWire=null
 

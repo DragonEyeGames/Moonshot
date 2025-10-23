@@ -1,8 +1,74 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhfbg0qejw4m0"]
+[gd_scene load_steps=10 format=3 uid="uid://bhfbg0qejw4m0"]
 
 [ext_resource type="PackedScene" uid="uid://d1n5hu37p0cb8" path="res://scenes/panel.tscn" id="1_msrpr"]
+[ext_resource type="Script" uid="uid://bjmuh4wp33sof" path="res://scenes/powerConverter.gd" id="1_v5rch"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0m43s"]
+radius = 208.11775
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v5rch"]
+radius = 12.0
+
+[sub_resource type="Gradient" id="Gradient_v5rch"]
+offsets = PackedFloat32Array(0, 0.013215859, 0.052863438, 0.08370044)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_v5rch"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0m43s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iavrl"]
+resource_name = "close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iavrl"]
+_data = {
+&"RESET": SubResource("Animation_0m43s"),
+&"close": SubResource("Animation_iavrl"),
+&"open": SubResource("Animation_v5rch")
+}
 
 [node name="Solar Panels" type="Node2D"]
+script = ExtResource("1_v5rch")
 
 [node name="Panel" parent="." instance=ExtResource("1_msrpr")]
 z_index = 1
@@ -39,3 +105,213 @@ default_color = Color(0, 0, 0, 1)
 [node name="Line2D2" type="Line2D" parent="."]
 points = PackedVector2Array(436, 92, 543, -90, 468, -169, 468, -275, 452, -376, 424, -536, 669, -432, 841, -348, 916, -206, 995, -115, 1133, -78, 1249, -62, 1340, 38)
 default_color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(415, -650)
+shape = SubResource("CircleShape2D_0m43s")
+
+[node name="Hole" type="ColorRect" parent="."]
+clip_contents = true
+offset_left = 300.0
+offset_top = -748.0
+offset_right = 537.0
+offset_bottom = -566.0
+color = Color(0, 0, 0, 1)
+
+[node name="Start" type="Line2D" parent="Hole"]
+position = Vector2(-5, -48)
+points = PackedVector2Array(-10, 82, 8.932602, 82, 38.44159, 82, 48, 82)
+default_color = Color(0.6189329, 1.732707e-06, 3.85046e-07, 1)
+
+[node name="Area2D" type="Area2D" parent="Hole/Start"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hole/Start/Area2D"]
+position = Vector2(44, 82)
+shape = SubResource("CircleShape2D_v5rch")
+
+[node name="Start2" type="Line2D" parent="Hole"]
+position = Vector2(1, 29)
+points = PackedVector2Array(-10, 82, 8.932602, 82, 48, 82)
+default_color = Color(3.85046e-06, 0, 0.8422105, 1)
+
+[node name="Area2D2" type="Area2D" parent="Hole/Start2"]
+position = Vector2(-4, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hole/Start2/Area2D2"]
+position = Vector2(44, 82)
+shape = SubResource("CircleShape2D_v5rch")
+
+[node name="Start3" type="Line2D" parent="Hole"]
+position = Vector2(-1, -12)
+points = PackedVector2Array(-10, 82, 8.932602, 82, 48, 82)
+default_color = Color(1.4439226e-07, 0.56607246, 0.14590678, 1)
+
+[node name="Area2D3" type="Area2D" parent="Hole/Start3"]
+position = Vector2(-1, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hole/Start3/Area2D3"]
+position = Vector2(44, 82)
+shape = SubResource("CircleShape2D_v5rch")
+
+[node name="Start4" type="Line2D" parent="Hole"]
+position = Vector2(0, 66)
+points = PackedVector2Array(-10, 82, 8.932602, 82, 48, 82)
+default_color = Color(0.67940176, 0.67940164, 0, 1)
+
+[node name="Area2D4" type="Area2D" parent="Hole/Start4"]
+position = Vector2(-2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hole/Start4/Area2D4"]
+position = Vector2(44, 82)
+shape = SubResource("CircleShape2D_v5rch")
+
+[node name="Goal" type="Line2D" parent="Hole"]
+position = Vector2(214, 61)
+points = PackedVector2Array(-10, 82, 8.932602, 82, 48, 82)
+default_color = Color(0.6189329, 1.732707e-06, 3.85046e-07, 1)
+
+[node name="Goal2" type="Line2D" parent="Hole"]
+position = Vector2(216, -40)
+points = PackedVector2Array(-10, 82, 8.932602, 82, 48, 82)
+default_color = Color(3.85046e-06, 0, 0.8422105, 1)
+
+[node name="Goal3" type="Line2D" parent="Hole"]
+position = Vector2(214, -8)
+points = PackedVector2Array(-10, 82, 8.932602, 82, 48, 82)
+default_color = Color(1.4439226e-07, 0.56607246, 0.14590678, 1)
+
+[node name="Goal4" type="Line2D" parent="Hole"]
+position = Vector2(216, 31)
+points = PackedVector2Array(-10, 82, 8.932602, 82, 48, 82)
+default_color = Color(0.67940176, 0.67940164, 0, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Hole"]
+position = Vector2(38, 34)
+amount = 15
+lifetime = 10.0
+explosiveness = 0.82
+randomness = 0.74
+lifetime_randomness = 1.0
+spread = 26.22
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 110.0
+color_ramp = SubResource("Gradient_v5rch")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Hole"]
+position = Vector2(41, 70)
+amount = 15
+lifetime = 10.0
+explosiveness = 0.82
+randomness = 0.74
+lifetime_randomness = 1.0
+spread = 26.22
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 110.0
+color_ramp = SubResource("Gradient_v5rch")
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="Hole"]
+position = Vector2(41, 112)
+amount = 15
+lifetime = 10.0
+explosiveness = 0.82
+randomness = 0.74
+lifetime_randomness = 1.0
+spread = 26.22
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 110.0
+color_ramp = SubResource("Gradient_v5rch")
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="Hole"]
+position = Vector2(38, 149)
+amount = 15
+lifetime = 10.0
+explosiveness = 0.82
+randomness = 0.74
+lifetime_randomness = 1.0
+spread = 26.22
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 110.0
+color_ramp = SubResource("Gradient_v5rch")
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="Hole"]
+position = Vector2(208, 143)
+amount = 15
+lifetime = 10.0
+explosiveness = 0.82
+randomness = 0.74
+lifetime_randomness = 1.0
+direction = Vector2(-1, 0)
+spread = 26.22
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 110.0
+color_ramp = SubResource("Gradient_v5rch")
+
+[node name="CPUParticles2D6" type="CPUParticles2D" parent="Hole"]
+position = Vector2(212, 113)
+amount = 15
+lifetime = 10.0
+explosiveness = 0.82
+randomness = 0.74
+lifetime_randomness = 1.0
+direction = Vector2(-1, 0)
+spread = 26.22
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 110.0
+color_ramp = SubResource("Gradient_v5rch")
+
+[node name="CPUParticles2D7" type="CPUParticles2D" parent="Hole"]
+position = Vector2(209, 73)
+amount = 15
+lifetime = 10.0
+explosiveness = 0.82
+randomness = 0.74
+lifetime_randomness = 1.0
+direction = Vector2(-1, 0)
+spread = 26.22
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 110.0
+color_ramp = SubResource("Gradient_v5rch")
+
+[node name="CPUParticles2D8" type="CPUParticles2D" parent="Hole"]
+position = Vector2(212, 40)
+amount = 15
+lifetime = 10.0
+explosiveness = 0.82
+randomness = 0.74
+lifetime_randomness = 1.0
+direction = Vector2(-1, 0)
+spread = 26.22
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 110.0
+color_ramp = SubResource("Gradient_v5rch")
+
+[node name="Door" type="ColorRect" parent="."]
+offset_left = 300.005
+offset_top = -748.0
+offset_right = 537.005
+offset_bottom = -566.0
+color = Color(0.15487596, 0.154876, 0.1548759, 1)
+
+[node name="ZoomPoint" type="Node2D" parent="."]
+position = Vector2(418, -660)
+
+[node name="Motion Controller" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_iavrl")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

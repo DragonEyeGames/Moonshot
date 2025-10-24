@@ -15,7 +15,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	powerEmission=GameManager.sunPower*6
 	powerEmission-=dirt*powerEmission
-	GameManager.basePower+=powerEmission*delta
 	if(randi_range(0, 500)==5):
 		var random=randf_range(1, 2)
 		dirt+=delta*random

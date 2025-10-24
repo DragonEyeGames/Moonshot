@@ -8,7 +8,7 @@ var dragging=false
 var collided=false
 var selectedWire=null
 var selectedInt
-
+var completed=false
 var connectedWires=0
 
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +17,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if(colliding and Input.is_action_just_pressed("Interact") and canZoom and not zoomed):
 		await zoom()
 		$"Motion Controller".play("open")
@@ -46,6 +46,15 @@ func _process(_delta: float) -> void:
 			$"Hole/Particle Holder".get_child(selectedInt+4).visible=false
 		
 		selectedWire=null
+	if(not completed and connectedWires>=4):
+		completed=true
+		await unzoom()
+		$"Motion Controller".play("close")
+	if(completed):
+		var powerEmission:=0.0
+		for child in $Panels.get_children():
+			powerEmission+=child.powerEmission
+		GameManager.basePower+=powerEmission*delta
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	colliding=true

@@ -72,30 +72,6 @@ _data = {
 [node name="Solar Panels" type="Node2D"]
 script = ExtResource("1_v5rch")
 
-[node name="Panel" parent="." instance=ExtResource("1_msrpr")]
-z_index = 1
-offset_left = 712.0
-offset_top = 47.0
-offset_right = 992.0
-offset_bottom = 615.0
-mouse_filter = 2
-
-[node name="Panel2" parent="." instance=ExtResource("1_msrpr")]
-z_index = 1
-offset_left = -188.0
-offset_top = 47.0
-offset_right = 92.0
-offset_bottom = 615.0
-mouse_filter = 2
-
-[node name="Panel3" parent="." instance=ExtResource("1_msrpr")]
-z_index = 1
-offset_left = 1607.0
-offset_top = 41.0
-offset_right = 1887.0
-offset_bottom = 609.0
-mouse_filter = 2
-
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 273.0
 offset_top = -781.0
@@ -233,6 +209,7 @@ position = Vector2(38, 34)
 emitting = false
 amount = 15
 lifetime = 10.0
+one_shot = true
 explosiveness = 0.82
 randomness = 0.74
 lifetime_randomness = 1.0
@@ -247,6 +224,7 @@ position = Vector2(41, 70)
 emitting = false
 amount = 15
 lifetime = 10.0
+one_shot = true
 explosiveness = 0.82
 randomness = 0.74
 lifetime_randomness = 1.0
@@ -261,6 +239,7 @@ position = Vector2(41, 112)
 emitting = false
 amount = 15
 lifetime = 10.0
+one_shot = true
 explosiveness = 0.82
 randomness = 0.74
 lifetime_randomness = 1.0
@@ -275,6 +254,7 @@ position = Vector2(38, 149)
 emitting = false
 amount = 15
 lifetime = 10.0
+one_shot = true
 explosiveness = 0.82
 randomness = 0.74
 lifetime_randomness = 1.0
@@ -289,6 +269,7 @@ position = Vector2(208, 143)
 emitting = false
 amount = 15
 lifetime = 10.0
+one_shot = true
 explosiveness = 0.82
 randomness = 0.74
 lifetime_randomness = 1.0
@@ -304,6 +285,7 @@ position = Vector2(212, 41)
 emitting = false
 amount = 15
 lifetime = 10.0
+one_shot = true
 explosiveness = 0.82
 randomness = 0.74
 lifetime_randomness = 1.0
@@ -319,6 +301,7 @@ position = Vector2(209, 73)
 emitting = false
 amount = 15
 lifetime = 10.0
+one_shot = true
 explosiveness = 0.82
 randomness = 0.74
 lifetime_randomness = 1.0
@@ -334,6 +317,7 @@ position = Vector2(212, 113)
 emitting = false
 amount = 15
 lifetime = 10.0
+one_shot = true
 explosiveness = 0.82
 randomness = 0.74
 lifetime_randomness = 1.0
@@ -347,8 +331,8 @@ color_ramp = SubResource("Gradient_v5rch")
 [node name="Door" type="ColorRect" parent="."]
 offset_left = 300.005
 offset_top = -748.0
-offset_right = 537.005
-offset_bottom = -566.0
+offset_right = 540.0
+offset_bottom = -565.0
 mouse_filter = 2
 color = Color(0.15487596, 0.154876, 0.1548759, 1)
 
@@ -359,6 +343,32 @@ position = Vector2(418, -660)
 libraries = {
 &"": SubResource("AnimationLibrary_iavrl")
 }
+
+[node name="Panels" type="Node2D" parent="."]
+
+[node name="Panel" parent="Panels" instance=ExtResource("1_msrpr")]
+z_index = 1
+offset_left = 712.0
+offset_top = 47.0
+offset_right = 992.0
+offset_bottom = 615.0
+mouse_filter = 2
+
+[node name="Panel2" parent="Panels" instance=ExtResource("1_msrpr")]
+z_index = 1
+offset_left = -188.0
+offset_top = 47.0
+offset_right = 92.0
+offset_bottom = 615.0
+mouse_filter = 2
+
+[node name="Panel3" parent="Panels" instance=ExtResource("1_msrpr")]
+z_index = 1
+offset_left = 1607.0
+offset_top = 41.0
+offset_right = 1887.0
+offset_bottom = 609.0
+mouse_filter = 2
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -132,7 +132,7 @@ color = Color(0.61745477, 0.61745477, 0.6174547, 1)
 
 [node name="RedStart" type="Line2D" parent="Hole"]
 position = Vector2(-5, -48)
-points = PackedVector2Array(-10, 82, 8.932602, 82, 38.44159, 82, 48, 82)
+points = PackedVector2Array(-10, 82, 48, 82)
 default_color = Color(0.6189329, 1.732707e-06, 3.85046e-07, 1)
 
 [node name="Area2D" type="Area2D" parent="Hole/RedStart"]
@@ -146,7 +146,7 @@ shape = SubResource("CircleShape2D_v5rch")
 
 [node name="BlueStart" type="Line2D" parent="Hole"]
 position = Vector2(1, 29)
-points = PackedVector2Array(-10, 82, 8.932602, 82, 48, 82)
+points = PackedVector2Array(-10, 82, 48, 82)
 default_color = Color(3.85046e-06, 0, 0.8422105, 1)
 
 [node name="Area2D" type="Area2D" parent="Hole/BlueStart"]
@@ -157,7 +157,7 @@ shape = SubResource("CircleShape2D_v5rch")
 
 [node name="GreenStart" type="Line2D" parent="Hole"]
 position = Vector2(-1, -12)
-points = PackedVector2Array(-10, 82, 8.932602, 82, 48, 82)
+points = PackedVector2Array(-10, 82, 48, 82)
 default_color = Color(1.4439226e-07, 0.56607246, 0.14590678, 1)
 
 [node name="Area2D" type="Area2D" parent="Hole/GreenStart"]
@@ -168,7 +168,7 @@ shape = SubResource("CircleShape2D_v5rch")
 
 [node name="YellowStart" type="Line2D" parent="Hole"]
 position = Vector2(0, 66)
-points = PackedVector2Array(-10, 82, 8.932602, 82, 48, 82)
+points = PackedVector2Array(-10, 82, 48, 82)
 default_color = Color(0.67940176, 0.67940164, 0, 1)
 
 [node name="Area2D" type="Area2D" parent="Hole/YellowStart"]
@@ -179,10 +179,11 @@ shape = SubResource("CircleShape2D_v5rch")
 
 [node name="RedGoal" type="Line2D" parent="Hole"]
 position = Vector2(214, 61)
-points = PackedVector2Array(-10, 82, 8.932602, 82, 48, 82)
+points = PackedVector2Array(29, 82, -7, 82)
 default_color = Color(0.6189329, 1.732707e-06, 3.85046e-07, 1)
 
 [node name="Area2D" type="Area2D" parent="Hole/RedGoal"]
+z_index = 1
 position = Vector2(-7, 82)
 collision_mask = 4096
 
@@ -191,7 +192,7 @@ shape = SubResource("CircleShape2D_iavrl")
 
 [node name="BlueGoal" type="Line2D" parent="Hole"]
 position = Vector2(216, -40)
-points = PackedVector2Array(-10, 82, 8.932602, 82, 48, 82)
+points = PackedVector2Array(36, 82, -5, 82)
 default_color = Color(3.85046e-06, 0, 0.8422105, 1)
 
 [node name="Area2D" type="Area2D" parent="Hole/BlueGoal"]
@@ -203,7 +204,7 @@ shape = SubResource("CircleShape2D_iavrl")
 
 [node name="GreenGoal" type="Line2D" parent="Hole"]
 position = Vector2(214, -8)
-points = PackedVector2Array(-10, 82, 8.932602, 82, 48, 82)
+points = PackedVector2Array(36, 82, -6, 82)
 default_color = Color(1.4439226e-07, 0.56607246, 0.14590678, 1)
 
 [node name="Area2D" type="Area2D" parent="Hole/GreenGoal"]
@@ -215,7 +216,7 @@ shape = SubResource("CircleShape2D_iavrl")
 
 [node name="YellowGoal" type="Line2D" parent="Hole"]
 position = Vector2(216, 31)
-points = PackedVector2Array(-10, 82, 8.932602, 82, 48, 82)
+points = PackedVector2Array(37, 82, -5, 82)
 default_color = Color(0.67940176, 0.67940164, 0, 1)
 
 [node name="Area2D" type="Area2D" parent="Hole/YellowGoal"]
@@ -299,7 +300,7 @@ initial_velocity_max = 110.0
 color_ramp = SubResource("Gradient_v5rch")
 
 [node name="Particles6" type="CPUParticles2D" parent="Hole/Particle Holder"]
-position = Vector2(212, 113)
+position = Vector2(212, 41)
 emitting = false
 amount = 15
 lifetime = 10.0
@@ -329,7 +330,7 @@ initial_velocity_max = 110.0
 color_ramp = SubResource("Gradient_v5rch")
 
 [node name="Particles8" type="CPUParticles2D" parent="Hole/Particle Holder"]
-position = Vector2(212, 40)
+position = Vector2(212, 113)
 emitting = false
 amount = 15
 lifetime = 10.0

@@ -34,13 +34,16 @@ func _process(_delta: float) -> void:
 	if(Input.is_action_just_released("Click") and dragging):
 		if(not collided):
 			dragging=false
-			selectedWire.remove_point(4)
+			selectedWire.remove_point(2)
 			selectedWire.get_node("Area2D").position=Vector2(48, 81)
 		else:
 			dragging=false
-			selectedWire.points[-1]=selectedWire.to_local($Hole.get_child(selectedInt+4).get_child(0).global_position)
+			selectedWire.points[-1]=selectedWire.to_local($Hole.get_child(selectedInt+4).to_global($Hole.get_child(selectedInt+4).points[-1]))
+			$Hole.get_child(selectedInt+4).add_point($Hole.get_child(selectedInt+4).to_local(selectedWire.to_global(selectedWire.points[-2])))
 			selectedWire.get_node("Area2D").get_child(0).disabled=true
 			connectedWires+=1
+			$"Hole/Particle Holder".get_child(selectedInt).visible=false
+			$"Hole/Particle Holder".get_child(selectedInt+4).visible=false
 		
 		selectedWire=null
 

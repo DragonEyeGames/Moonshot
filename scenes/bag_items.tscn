@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://coaotjijpvoi2"]
+[gd_scene load_steps=14 format=3 uid="uid://coaotjijpvoi2"]
 
 [ext_resource type="Script" uid="uid://b4dbcic140cnp" path="res://scripts/bag_items.gd" id="1_6dd0p"]
 [ext_resource type="Texture2D" uid="uid://c5q3d26io6w74" path="res://assets/IceCream.png" id="2_6dd0p"]
 [ext_resource type="PackedScene" uid="uid://cba4fq4q3t4ra" path="res://scenes/VisibleItems/jug.tscn" id="3_78mh5"]
 [ext_resource type="PackedScene" uid="uid://dc3osrlnf768a" path="res://scenes/VisibleItems/h_cup.tscn" id="4_78mh5"]
+[ext_resource type="PackedScene" uid="uid://bn36inecn6soy" path="res://scenes/VisibleItems/filter.tscn" id="4_fuds8"]
 [ext_resource type="PackedScene" uid="uid://cljdup7ghuiy1" path="res://scenes/VisibleItems/hMac.tscn" id="6_ylmxj"]
 [ext_resource type="PackedScene" uid="uid://chncs0swd8q8" path="res://scenes/VisibleItems/rag.tscn" id="8_ylmxj"]
 [ext_resource type="PackedScene" uid="uid://550t1wp0jtst" path="res://scenes/VisibleItems/tape.tscn" id="10_78mh5"]
@@ -22,6 +23,9 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_6dd0p")
 
 [node name="Jug" parent="." instance=ExtResource("3_78mh5")]
+
+[node name="Filter" parent="." instance=ExtResource("4_fuds8")]
+visible = false
 
 [node name="H Cup" parent="." instance=ExtResource("4_78mh5")]
 

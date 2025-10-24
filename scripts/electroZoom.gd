@@ -13,23 +13,23 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 func _on_area_2d_body_exited(_body: Node2D) -> void:
 	colliding=false
 	
-func zoom():
-	GameManager.zoomCamera($ZoomPoint, 3.8)
+func zoom(type="fade"):
+	GameManager.zoomCamera($ZoomPoint, 4.5)
 	zoomed=true
 	canZoom=false
 	GameManager.playerMove=false
 	GameManager.flashlightOn=false
-	GameManager.playerAnimator.play("fade")
+	GameManager.playerAnimator.play(type)
 	await get_tree().create_timer(1.1).timeout
 	$ColorRect5.visible=false
 	canZoom=true
 
-func unzoom():
+func unzoom(type="appear"):
 	GameManager.unzoomCamera()
 	zoomed=false
 	canZoom=false
 	$ColorRect5.visible=true
-	GameManager.playerAnimator.play("appear")
+	GameManager.playerAnimator.play(type)
 	await get_tree().create_timer(1.1).timeout
 	GameManager.playerMove=true
 	canZoom=true

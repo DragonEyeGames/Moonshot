@@ -11,7 +11,7 @@ func _ready() -> void:
 			child.freeze=true
 		for subChild in child.get_children():
 			if(GameManager.camera):
-				subChild.scale*=GameManager.camera.zoom
+				subChild.scale*=3.8#*GameManager.camera.zoom
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

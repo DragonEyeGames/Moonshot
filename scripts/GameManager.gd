@@ -23,6 +23,7 @@ var instants = ["Protein", "IceCream", "H Mac", "H Cup", "Carrots"]
 var nonstackingList = ["Tape", "H Cup", "Jug"]
 var nonstackingDict = [{"name": "Tape", "amount": 15}, {"name": "Tape", "amount": 1}, {"name": "Tape", "amount": pickedUpJugWater}]
 
+var mousePos:Vector2
 var tapeHolder
 
 var hud

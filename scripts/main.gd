@@ -17,3 +17,5 @@ func _process(delta: float) -> void:
 	GameManager.sunPower=$DirectionalLight2D.energy
 	if(Input.is_action_just_pressed("Escape")):
 		get_tree().quit()
+	GameManager.mousePos = get_global_mouse_position()
+	#print(get_global_mouse_position())

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8fbtnlq1oocd"]
+[gd_scene load_steps=10 format=3 uid="uid://b8fbtnlq1oocd"]
 
 [ext_resource type="Texture2D" uid="uid://372hu3xsfi0g" path="res://assets/proteinBar.png" id="1_sditr"]
 [ext_resource type="Texture2D" uid="uid://boi5dfsykcyy0" path="res://assets/DuctTape.png" id="2_ji6jm"]
 [ext_resource type="Texture2D" uid="uid://c5q3d26io6w74" path="res://assets/IceCream.png" id="2_ri7ka"]
 [ext_resource type="Texture2D" uid="uid://bvpfpu83as5gb" path="res://assets/Rag.png" id="3_khph6"]
 [ext_resource type="Texture2D" uid="uid://dfffmhh10mmyc" path="res://assets/dehydrated.png" id="3_o85l3"]
+[ext_resource type="Texture2D" uid="uid://c766gyyxf6bw1" path="res://assets/Water Filter.png" id="4_2xpek"]
 [ext_resource type="Texture2D" uid="uid://d2pnhnvx1kk01" path="res://assets/macHydrated.png" id="4_wvdm6"]
 [ext_resource type="Texture2D" uid="uid://c70althcu8by2" path="res://assets/cup.png" id="5_7on13"]
 [ext_resource type="Texture2D" uid="uid://rciu6av3yice" path="res://assets/agua.png" id="6_vb3cu"]
@@ -44,6 +45,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Rag" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.52, 0.52)
 texture = ExtResource("3_khph6")
 
@@ -56,6 +58,23 @@ scale = Vector2(0.52, 0.52)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 200
 text = "Rag"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Filter" type="Sprite2D" parent="."]
+position = Vector2(1, -14)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("4_2xpek")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Filter"]
+offset_left = -361.5385
+offset_top = -203.84616
+offset_right = 1060.6836
+offset_bottom = 92.450165
+scale = Vector2(0.52, 0.52)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 138
+text = "Water Filter"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -189,6 +189,8 @@ func openBagPickup():
 	pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
 	
 func closedBagDrop():
+	if(pickable==null):
+		return
 	$CanvasLayer/PlantBag.loadInventory()
 	pickable.set_deferred("freeze", true)
 	await get_tree().create_timer(0).timeout

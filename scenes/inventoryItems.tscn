@@ -62,11 +62,31 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Filter" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.8235294, 0.5921569, 0, 1)
 position = Vector2(1, -14)
 scale = Vector2(0.52, 0.52)
 texture = ExtResource("4_2xpek")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Filter"]
+offset_left = -361.5385
+offset_top = -203.84616
+offset_right = 1060.6836
+offset_bottom = 92.450165
+scale = Vector2(0.52, 0.52)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 138
+text = "Water Filter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CleanFilter" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -14)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("4_2xpek")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CleanFilter"]
 offset_left = -361.5385
 offset_top = -203.84616
 offset_right = 1060.6836

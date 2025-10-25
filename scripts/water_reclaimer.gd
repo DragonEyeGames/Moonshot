@@ -50,6 +50,7 @@ func _process(delta: float) -> void:
 	$ColorRect3/RichTextLabel.text=str(round(efficiency*100)/100)
 	if(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and canZoom and not zoomed):
 		zoom("fadeToArm")
+		GameManager.collisionTool=self
 	elif(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and canZoom and zoomed):
 		unzoom("revealToArm")
 	if(Input.is_action_just_pressed("Click") and not filterDragging and filterEntered):
@@ -73,7 +74,8 @@ func _process(delta: float) -> void:
 		$Control/ColorRect3/Control/Door.global_position.y=GameManager.mousePos.y+innerOffset
 		if($Control/ColorRect3/Control/Door.position.y>32):
 			$Control/ColorRect3/Control/Door.position.y=32
-			if($Control/ColorRect3/ColorRect/Filter/Filter/CollisionPolygon2D2):
+			var collisionPolygon=$Control/ColorRect3/ColorRect/Filter/Filter/CollisionPolygon2D2
+			if(collisionPolygon!=null):
 				$Control/ColorRect3/ColorRect/Filter/Filter/CollisionPolygon2D2.disabled=false
 		elif($Control/ColorRect3/Control/Door.position.y<0):
 			$Control/ColorRect3/Control/Door.position.y=0
@@ -128,3 +130,13 @@ func _filter_door_entered() -> void:
 
 func _filter_door_exited() -> void:
 	filterDoorEntered=false
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("HHAAUALAAL")
+	if("Filter" in area.name):
+		area.get_parent().freeze=true
+		area.get_parent().scale=Vector2(.75, .75)
+		area.get_parent().position=Vector2(23, 11)
+	else:
+		print(area.name)

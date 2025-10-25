@@ -4,65 +4,53 @@
 [ext_resource type="PackedScene" uid="uid://coaotjijpvoi2" path="res://scenes/bag_items.tscn" id="2_8dtae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
-size = Vector2(641.6424, 1014.4601)
+size = Vector2(1255.8484, 760.9063)
 
 [sub_resource type="Animation" id="Animation_6blhx"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:size")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(680.1669, 1057.5281)]
+"values": [Vector2(311.80466, 406.40982)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(311.80466, 406.40982)]
+"values": [1.2489982]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
+tracks/2/path = NodePath("warning:color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.2489982]
+"values": [Color(0.20392157, 0.09411765, 0.007843138, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("warning:color")
+tracks/3/path = NodePath("Cover:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.20392157, 0.09411765, 0.007843138, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Cover:color")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -98,22 +86,10 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:scale")
+tracks/2/path = NodePath("Cover:color")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1.745, 0.73), Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Cover:color")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -125,58 +101,34 @@ resource_name = "open"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:size")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(680.1669, 1057.5281)]
+"values": [Vector2(311.80466, 406.40982), Vector2(367, 174)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(311.80466, 406.40982), Vector2(367, 174)]
+"values": [1.2489982, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
+tracks/2/path = NodePath("Cover:color")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.2489982, 0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:scale")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.745, 0.73)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Cover:color")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -231,10 +183,9 @@ _data = {
 z_index = -2
 offset_left = 311.80466
 offset_top = 406.40982
-offset_right = 991.97156
-offset_bottom = 1463.9379
+offset_right = 1606.8047
+offset_bottom = 1209.4097
 rotation = 1.2489982
-scale = Vector2(1.745, 0.73)
 mouse_filter = 2
 color = Color(0.34414157, 0.17461061, 0.025434045, 1)
 script = ExtResource("1_6bjnb")
@@ -245,7 +196,7 @@ collision_layer = 1024
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bag"]
-position = Vector2(341.97275, 524.3237)
+position = Vector2(649.0758, 397.54688)
 shape = SubResource("RectangleShape2D_tuyoq")
 
 [node name="open" type="AnimationPlayer" parent="."]
@@ -280,14 +231,14 @@ visible = false
 z_index = -1
 z_as_relative = false
 position = Vector2(162.49551, 728.5979)
-scale = Vector2(0.57000005, 1.3700001)
+scale = Vector2(5, 5)
 
 [node name="Interior" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 14.32665
 offset_top = 21.917816
-offset_right = 666.4756
-offset_bottom = 1032.8767
+offset_right = 1276.0
+offset_bottom = 779.0
 mouse_filter = 2
 color = Color(0.2384842, 0.11481408, 0.011228062, 1)
 
@@ -308,43 +259,43 @@ color = Color(0.34509805, 0.1764706, 0.023529412, 1)
 position = Vector2(130.08595, 102.739716)
 
 [node name="Marker2D2" type="Marker2D" parent="Points of Movement"]
-position = Vector2(543.83954, 180.8219)
+position = Vector2(1127, 129)
 
 [node name="Marker2D3" type="Marker2D" parent="Points of Movement"]
-position = Vector2(229.79941, 286.30136)
+position = Vector2(314.99997, 162)
 
 [node name="Marker2D4" type="Marker2D" parent="Points of Movement"]
-position = Vector2(418.91113, 242.46573)
+position = Vector2(580, 175)
 
 [node name="Marker2D5" type="Marker2D" parent="Points of Movement"]
-position = Vector2(99.140396, 449.31506)
+position = Vector2(172.00002, 359)
 
 [node name="Marker2D6" type="Marker2D" parent="Points of Movement"]
-position = Vector2(240.68768, 508.2192)
+position = Vector2(759, 463.99997)
 
 [node name="Marker2D7" type="Marker2D" parent="Points of Movement"]
-position = Vector2(88.25215, 794.52057)
+position = Vector2(1087, 696)
 
 [node name="Marker2D8" type="Marker2D" parent="Points of Movement"]
-position = Vector2(568.4813, 398.6302)
+position = Vector2(864, 240)
 
 [node name="Marker2D9" type="Marker2D" parent="Points of Movement"]
-position = Vector2(182.23494, 893.1507)
+position = Vector2(828, 629.00006)
 
 [node name="Marker2D10" type="Marker2D" parent="Points of Movement"]
-position = Vector2(320.91687, 884.93146)
+position = Vector2(1109, 447.00006)
 
 [node name="Marker2D11" type="Marker2D" parent="Points of Movement"]
-position = Vector2(483.6676, 773.97253)
+position = Vector2(572, 603)
 
 [node name="Marker2D12" type="Marker2D" parent="Points of Movement"]
-position = Vector2(557.5931, 886.3014)
+position = Vector2(770, 90)
 
 [node name="Marker2D13" type="Marker2D" parent="Points of Movement"]
-position = Vector2(616.6189, 765.7534)
+position = Vector2(951, 408)
 
 [node name="Marker2D16" type="Marker2D" parent="Points of Movement"]
-position = Vector2(362.17764, 694.52057)
+position = Vector2(362.00003, 653)
 
 [node name="Marker2D18" type="Marker2D" parent="Points of Movement"]
 position = Vector2(174.7851, 665.7534)

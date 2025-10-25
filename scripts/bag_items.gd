@@ -9,9 +9,6 @@ func _ready() -> void:
 	for child in get_children():
 		if not child.name=="Carrots":
 			child.freeze=true
-		for subChild in child.get_children():
-			if(GameManager.camera):
-				subChild.scale*=3.8#*GameManager.camera.zoom
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

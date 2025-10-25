@@ -12,9 +12,12 @@ var filterItemEntered:=false
 
 var filterDoorEntered:=false
 
+var mouseEntered:=false
+
+@export var filter: PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	print($Control/ColorRect3/ColorRect/Filter.global_position)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,32 +56,8 @@ func _process(delta: float) -> void:
 		GameManager.collisionTool=self
 	elif(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and canZoom and zoomed):
 		unzoom("revealToArm")
-	if(Input.is_action_just_pressed("Click") and not filterDragging and filterEntered):
-		filterDragging=true
-		offset=$Control/ColorRect.global_position.x-GameManager.mousePos.x
-	elif(Input.is_action_just_released("Click") and filterDragging):
-		filterDragging=false
-	if(filterDragging):
-		$Control/ColorRect.global_position.x=GameManager.mousePos.x+offset
-		if($Control/ColorRect.position.x<-50):
-			$Control/ColorRect.position.x=-50
-		elif($Control/ColorRect.position.x>26):
-			$Control/ColorRect.position.x=26
-	if(Input.is_action_just_pressed("Click") and not innerFilterDragging and filterDoorEntered):
-		innerFilterDragging=true
-		print("clic")
-		innerOffset=$Control/ColorRect3/Control/Door.global_position.y-GameManager.mousePos.y
-	elif(Input.is_action_just_released("Click") and innerFilterDragging):
-		innerFilterDragging=false
-	if(innerFilterDragging):
-		$Control/ColorRect3/Control/Door.global_position.y=GameManager.mousePos.y+innerOffset
-		if($Control/ColorRect3/Control/Door.position.y>32):
-			$Control/ColorRect3/Control/Door.position.y=32
-			var collisionPolygon=$Control/ColorRect3/ColorRect/Filter/Filter/CollisionPolygon2D2
-			if(collisionPolygon!=null):
-				$Control/ColorRect3/ColorRect/Filter/Filter/CollisionPolygon2D2.disabled=false
-		elif($Control/ColorRect3/Control/Door.position.y<0):
-			$Control/ColorRect3/Control/Door.position.y=0
+	outerFilter()
+	innerFilter()
 	if(filterZoomEntered and Input.is_action_just_pressed("Click")):
 		extraZoom()
 		
@@ -132,11 +111,54 @@ func _filter_door_exited() -> void:
 	filterDoorEntered=false
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("HHAAUALAAL")
-	if("Filter" in area.name):
-		area.get_parent().freeze=true
-		area.get_parent().scale=Vector2(.75, .75)
-		area.get_parent().position=Vector2(23, 11)
-	else:
-		print(area.name)
+func _on_area_2d_mouse_entered() -> void:
+	if not has_node("Control/ColorRect3/ColorRect/Filter/Filter/CollisionPolygon2D2"):
+		print("MAUSE")
+		mouseEntered=true
+
+func innerFilter():
+	if(Input.is_action_just_pressed("Click") and not innerFilterDragging and filterDoorEntered):
+		innerFilterDragging=true
+		innerOffset=$Control/ColorRect3/Control/Door.global_position.y-GameManager.mousePos.y
+	elif(Input.is_action_just_released("Click") and innerFilterDragging):
+		innerFilterDragging=false
+	if(innerFilterDragging):
+		$Control/ColorRect3/Control/Door.global_position.y=GameManager.mousePos.y+innerOffset
+		if($Control/ColorRect3/Control/Door.position.y>32):
+			$Control/ColorRect3/Control/Door.position.y=32
+			if(has_node("Control/ColorRect3/ColorRect/Filter/Filter/CollisionPolygon2D2")):
+				$Control/ColorRect3/ColorRect/Filter/Filter/CollisionPolygon2D2.disabled=false
+		elif($Control/ColorRect3/Control/Door.position.y<0):
+			$Control/ColorRect3/Control/Door.position.y=0
+			
+func outerFilter():
+	if(Input.is_action_just_pressed("Click") and not filterDragging and filterEntered):
+		filterDragging=true
+		offset=$Control/ColorRect.global_position.x-GameManager.mousePos.x
+	elif(Input.is_action_just_released("Click") and filterDragging):
+		filterDragging=false
+	if(filterDragging):
+		$Control/ColorRect.global_position.x=GameManager.mousePos.x+offset
+		if($Control/ColorRect.position.x<-50):
+			$Control/ColorRect.position.x=-50
+		elif($Control/ColorRect.position.x>26):
+			$Control/ColorRect.position.x=26
+
+
+func _on_child_order_changed() -> void:
+	if(mouseEntered):
+		for child in get_children():
+			if(str(child.name)=="Filter"):
+				child.queue_free()
+				child=filter.instantiate()
+				$Control/ColorRect3/ColorRect.add_child(child)
+				child.set_deferred("freeze", true)
+				child.set_deferred("global_position", Vector2(-2485.5, -3693.8))
+				child.set_deferred("rotation", 0)
+				child.set_deferred("scale", Vector2(0.75, 0.75))
+				child.get_node("Filter").get_child(0).set_deferred("disabled", false)
+				print("got em")
+
+
+func _on_area_2d_mouse_exited() -> void:
+	mouseEntered=false

@@ -18,6 +18,9 @@ var pickedUp=false
 #Whether or not the bag that items can be deposited in is open
 var bagOpen=false
 
+#Packed Scenes
+@export var filter: PackedScene
+
 func _ready() -> void:
 	flashlightEvents()
 	GameManager.playerHand=$CanvasLayer/OverlayArm/Bones/Skeleton2D/Base/Segment/Hand
@@ -166,13 +169,14 @@ func closedBagPickup():
 	if(pickable==null):
 		return
 	#var world_pos=pickable.global_position
-	pickable.freeze=true
+	pickable.queue_free()
 	pickedUp=true
 	#var oldPos = pickable.global_position
-	pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
+	pickable = filter.instantiate()
+	$CanvasLayer/OverlayArm/Sprites/Square4.add_child(pickable)
 	#pickable.rotation+=PI/2
 	for child in pickable.get_children():
-		child.scale*=GameManager.camera.zoom
+		child.scale*=3.8
 	#pickable.scale*=GameManager.camera.zoom
 	pickable.position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.position
 
@@ -181,7 +185,7 @@ func openBagPickup():
 	if(handHeldItem=="BagItem"):
 		var oldPickable=pickable
 		pickable=oldPickable.duplicate(true)
-		pickable.scale=Vector2(.57, 1.37)
+		pickable.scale=Vector2(1, 1)
 		oldPickable.get_parent().add_child(pickable)
 		#pickable.get_node("BagItem").name=oldPickable.name
 		oldPickable.queue_free()
@@ -212,7 +216,7 @@ func openBagDrop():
 			if(child.visible):
 				handHeldItem=child.name
 				break
-	$CanvasLayer/PlantBag.newItem(handHeldItem, pickable.global_position, pickable.rotation)
+	$CanvasLayer/PlantBag.newItem(handHeldItem, pickable.global_position, $CanvasLayer/OverlayArm/Sprites/Square4.rotation)
 	var pickableSafe=pickable
 	pickableSafe.queue_free()
 	pickable=null

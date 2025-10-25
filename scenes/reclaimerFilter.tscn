@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://4xc3pyxq71q3"]
+
+[ext_resource type="Script" uid="uid://1axpesiatuwx" path="res://scenes/waterFilter.gd" id="1_a4a4a"]
+[ext_resource type="Texture2D" uid="uid://c766gyyxf6bw1" path="res://assets/Water Filter.png" id="2_3vv2p"]
+
+[node name="Filter" type="RigidBody2D"]
+scale = Vector2(0.75, 0.75)
+collision_layer = 512
+collision_mask = 256
+freeze = true
+script = ExtResource("1_a4a4a")
+
+[node name="Jug2" type="Sprite2D" parent="."]
+scale = Vector2(0.1512, 0.1512)
+texture = ExtResource("2_3vv2p")
+offset = Vector2(8.333335, 43.792156)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.26, 1.26)
+polygon = PackedVector2Array(19.047619, 8.730158, -16.666666, 8.730158, -17.460316, 3.174603, -16.666666, 0, 18.253967, 0, 19.841269, 3.9682536)
+
+[node name="Filter" type="Area2D" parent="."]
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Filter"]
+scale = Vector2(1.26, 1.26)
+polygon = PackedVector2Array(19.047619, 8.730158, -16.666666, 8.730158, -17.460316, 3.174603, -16.666666, 0, 18.253967, 0, 19.841269, 3.9682536)
+disabled = true

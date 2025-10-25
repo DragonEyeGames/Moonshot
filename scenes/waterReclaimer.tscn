@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://f7m0p5xdy0wb"]
+[gd_scene load_steps=13 format=3 uid="uid://f7m0p5xdy0wb"]
 
 [ext_resource type="Script" uid="uid://d0p4lip8fx5pe" path="res://scripts/water_reclaimer.gd" id="1_qj4il"]
 [ext_resource type="PackedScene" uid="uid://xl7hoyu6js47" path="res://scenes/jugFiller.tscn" id="2_tmb4y"]
 [ext_resource type="PackedScene" uid="uid://4xc3pyxq71q3" path="res://scenes/reclaimerFilter.tscn" id="2_xigmd"]
 [ext_resource type="Texture2D" uid="uid://chtdaquk74bsq" path="res://assets/shelf.png" id="3_l503n"]
+[ext_resource type="Script" uid="uid://1axpesiatuwx" path="res://scenes/waterFilter.gd" id="5_1rt82"]
+[ext_resource type="Texture2D" uid="uid://c766gyyxf6bw1" path="res://assets/Water Filter.png" id="6_ftds1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q457c"]
 radius = 278.25888
@@ -293,6 +295,32 @@ color = Color(0.35663593, 0.18782693, 0.06474287, 1)
 
 [node name="Filter" parent="Control/ColorRect3/ColorRect" instance=ExtResource("2_xigmd")]
 position = Vector2(23, 11)
+
+[node name="Filter2" type="RigidBody2D" parent="Control/ColorRect3/ColorRect"]
+position = Vector2(23, 11)
+scale = Vector2(0.75, 0.75)
+collision_layer = 512
+collision_mask = 256
+freeze = true
+script = ExtResource("5_1rt82")
+
+[node name="Jug2" type="Sprite2D" parent="Control/ColorRect3/ColorRect/Filter2"]
+scale = Vector2(0.1512, 0.1512)
+texture = ExtResource("6_ftds1")
+offset = Vector2(8.333335, 43.792156)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Control/ColorRect3/ColorRect/Filter2"]
+scale = Vector2(1.26, 1.26)
+polygon = PackedVector2Array(19.047619, 8.730158, -16.666666, 8.730158, -17.460316, 3.174603, -16.666666, 0, 18.253967, 0, 19.841269, 3.9682536)
+
+[node name="Filter" type="Area2D" parent="Control/ColorRect3/ColorRect/Filter2"]
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Control/ColorRect3/ColorRect/Filter2/Filter"]
+scale = Vector2(1.26, 1.26)
+polygon = PackedVector2Array(19.047619, 8.730158, -16.666666, 8.730158, -17.460316, 3.174603, -16.666666, 0, 18.253967, 0, 19.841269, 3.9682536)
+disabled = true
 
 [node name="Control" type="Control" parent="Control/ColorRect3"]
 clip_contents = true

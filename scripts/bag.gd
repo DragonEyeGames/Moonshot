@@ -98,11 +98,13 @@ func loadInventory():
 				print(item["name"])
 				var holder=$BagItems.duplicate()
 				$"Bag O' Holding".add_child(holder)
+				holder.display=false
 				holder.global_position=$"Points of Movement".get_child(randi_range(0, len($"Points of Movement".get_children())-1)).global_position
 				holder.visible=true
 				holder.get_node(item["name"]).visible=true
 		else:
 			var holder=$BagItems.duplicate()
+			holder.display=false
 			$"Bag O' Holding".add_child(holder)
 			holder.visible=true
 			holder.global_position=$"Points of Movement".get_child(randi_range(0, len($"Points of Movement".get_children())-1)).global_position
@@ -110,6 +112,7 @@ func loadInventory():
 	
 func newItem(type, newLocation, newRotation):
 	var holder=$BagItems.duplicate()
+	holder.display=false
 	$"Bag O' Holding".add_child(holder)
 	holder.get_node(type).visible=true
 	holder.global_position=newLocation

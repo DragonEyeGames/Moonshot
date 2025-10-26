@@ -93,14 +93,18 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 
 func _in_bag_entered(area: Area2D) -> void:
-	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and handHeldItem=="" and GameManager.playerTool=="bag" and bagOpen==true):
+	if(area.get_parent().visible):
+		print("INtered")
+		print(handHeldItem)
+	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and GameManager.playerTool=="bag" and bagOpen==true):
 		if canPickUp:
 			handHeldItem=area.name
 			pickable=area.get_parent()
 			var oldParent=area.get_parent().get_parent()
-			pickable.call_deferred("reparent", $CanvasLayer/PlantBag)
-			if(oldParent!=$CanvasLayer/PlantBag):
+			pickable.call_deferred("reparent", $"CanvasLayer/PlantBag/Bag O' Holding")
+			if(oldParent!=$CanvasLayer/PlantBag and oldParent!=$"CanvasLayer/PlantBag/Bag O' Holding"):
 				oldParent.queue_free()
+			print(pickable)
 
 
 func _in_bag_exited(area: Area2D) -> void:
@@ -161,6 +165,7 @@ func movement():
 		move_and_slide()
 		
 func closedBagPickup():
+	canPickUp=false
 	handHeldItem=str(pickable.get_child(-1).name)
 	if(not maxedInventory(handHeldItem)):
 		$CanvasLayer/PlantBag.get_node("full").play("full")
@@ -172,66 +177,32 @@ func closedBagPickup():
 		return
 	if(pickable==null):
 		return
-	#var world_pos=pickable.global_position
 	pickedUp=true
-	#var oldPos = pickable.global_position
-	#if(handHeldItem=="Filter"):
-		#pickable.queue_free()
-		#pickable = filter.instantiate()
-		#$CanvasLayer/OverlayArm/Sprites/Square4.add_child(pickable)
-	#elif(handHeldItem=="CleanFilter"):
-		#pickable.queue_free()
-		#pickable = cleanFilter.instantiate()
-		#$CanvasLayer/OverlayArm/Sprites/Square4.add_child(pickable)
-	#elif(handHeldItem=="Rag"):
-		#pickable.queue_free()
-		#pickable = rag.instantiate()
-		#$CanvasLayer/OverlayArm/Sprites/Square4.add_child(pickable)
-	#else:
 	pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
-	#pickable.rotation+=PI/2
 	for child in pickable.get_children():
 		child.scale*=3.8
-	#pickable.scale*=GameManager.camera.zoom
 	pickable.position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.position
 
 func openBagPickup():
 	pickedUp=true
+	canPickUp=false
 	if(handHeldItem=="BagItem"):
-		var oldPickable=pickable
-		pickable=oldPickable.duplicate(true)
 		pickable.scale=Vector2(1, 1)
-		oldPickable.get_parent().add_child(pickable)
-		#pickable.get_node("BagItem").name=oldPickable.name
-		oldPickable.queue_free()
 		pickable.visible=true
 	GameManager.subtract(handHeldItem, 1)
 	pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
 	
 func closedBagDrop():
-	
 	if(pickable==null):
 		return
 	pickable.set_deferred("freeze", true)
-	await get_tree().create_timer(0).timeout
 	var screenPos=pickable.global_position
-	#if(handHeldItem=="Filter"):
-		#pickable.queue_free()
-		#pickable = filter.instantiate()
-		#GameManager.collisionTool.add_child(pickable)
-	#elif(handHeldItem=="CleanFilter"):
-		#pickable.queue_free()
-		#pickable = cleanFilter.instantiate()
-		#GameManager.collisionTool.add_child(pickable)
-	#else:
 	pickable.reparent(GameManager.collisionTool)
 	for child in pickable.get_children():
 		child.scale/=3.8
 	pickable.global_position=get_canvas_transform().affine_inverse() * screenPos
-	await get_tree().create_timer(0).timeout
 	if(pickable):
 		pickable.set_deferred("freeze", false)
-	await get_tree().create_timer(0).timeout
 	pickable=null
 	handHeldItem=""
 
@@ -244,7 +215,6 @@ func openBagDrop():
 	$CanvasLayer/PlantBag.newItem(handHeldItem, pickable.global_position, $CanvasLayer/OverlayArm/Sprites/Square4.rotation)
 	pickable.queue_free()
 	GameManager.add(handHeldItem, 1)
-	print(pickable)
 	pickable=null
 	
 func maxedInventory(item) -> bool:

@@ -85,7 +85,6 @@ func subtract(item, count):
 			if(thing["count"]<=0):
 				inventory.erase(thing)
 			return
-	inventory.append({"name": item, "count": count})
 
 func zoomCamera(target, zoom):
 	camera.following=target

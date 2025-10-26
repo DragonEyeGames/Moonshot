@@ -15,7 +15,6 @@ var open=false
 	#newThings()
 	
 func _process(delta: float) -> void:
-	print(GameManager.inventory)
 	if(not mouseEntered and open):
 		mouseTimeOut+=delta
 	if(mouseTimeOut>1):
@@ -87,7 +86,6 @@ func newThings():
 	#	index+=1
 		
 func loadInventory():
-	print("LOADING")
 	#GameManager.inventory.clear()
 	#for child in $"Bag O' Holding".get_children():
 	#	if(child.visible):

@@ -205,6 +205,7 @@ libraries = {
 }
 
 [node name="Bag O\' Holding" type="Node2D" parent="."]
+visible = false
 
 [node name="warning" type="ColorRect" parent="."]
 z_index = -1
@@ -308,5 +309,6 @@ position = Vector2(500.28653, 479.45206)
 
 [connection signal="area_entered" from="Bag" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Bag" to="." method="_on_area_2d_area_exited"]
+[connection signal="child_order_changed" from="Bag" to="." method="_on_bag_child_order_changed"]
 [connection signal="mouse_entered" from="Bag" to="." method="_on_bag_mouse_entered"]
 [connection signal="mouse_exited" from="Bag" to="." method="_on_bag_mouse_exited"]

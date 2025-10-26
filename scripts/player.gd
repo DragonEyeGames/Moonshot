@@ -205,9 +205,11 @@ func openBagPickup():
 		#pickable.get_node("BagItem").name=oldPickable.name
 		oldPickable.queue_free()
 		pickable.visible=true
+	GameManager.subtract(handHeldItem, 1)
 	pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
 	
 func closedBagDrop():
+	
 	if(pickable==null):
 		return
 	pickable.set_deferred("freeze", true)
@@ -231,8 +233,6 @@ func closedBagDrop():
 		pickable.set_deferred("freeze", false)
 	await get_tree().create_timer(0).timeout
 	pickable=null
-	#print("rising?")
-	#GameManager.subtract(handHeldItem, 1)
 	handHeldItem=""
 
 func openBagDrop():
@@ -242,8 +242,9 @@ func openBagDrop():
 				handHeldItem=child.name
 				break
 	$CanvasLayer/PlantBag.newItem(handHeldItem, pickable.global_position, $CanvasLayer/OverlayArm/Sprites/Square4.rotation)
-	var pickableSafe=pickable
-	pickableSafe.queue_free()
+	pickable.queue_free()
+	GameManager.add(handHeldItem, 1)
+	print(pickable)
 	pickable=null
 	
 func maxedInventory(item) -> bool:

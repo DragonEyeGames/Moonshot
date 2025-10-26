@@ -1368,34 +1368,22 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Vert Hallway2/Roof:modulate")
+tracks/4/path = NodePath("../Vert Hallway2/walls5:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Vert Hallway2/walls5:visible")
+tracks/5/path = NodePath("../Vert Hallway2/Roof:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../Vert Hallway2/Roof:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1443,34 +1431,22 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Vert Hallway2/Roof:modulate")
-tracks/3/interp = 2
+tracks/3/path = NodePath("../Vert Hallway2/Roof:visible")
+tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Vert Hallway2/Roof:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../Vert Hallway2/walls5:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Vert Hallway2/walls5:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -1518,34 +1494,22 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Vert Hallway2/Roof:modulate")
-tracks/3/interp = 2
+tracks/3/path = NodePath("../Vert Hallway2/walls5:visible")
+tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Vert Hallway2/walls5:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../Vert Hallway2/Roof:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Vert Hallway2/Roof:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -2246,11 +2210,7 @@ scale = Vector2(1, 0.73)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Oxygenator Room/StaticBody2D"]
 z_index = 1
 position = Vector2(-78.181816, 774.5952)
-polygon = PackedVector2Array(-316.36362, 1120.7969, -552.7273, 1008.71704, -790.90906, 874.22144, -940, 744.7073, -1085.4545, 570.36084, -1227.2727, 298.8789, -1276.3636, 244.08447, -1321.8181, 206.72461, -1361.8181, 194.27148, -1345.4545, 241.59375, -1265.4545, 373.59888, -1245.4545, 415.93994, -1138.1818, 600.2488, -1012.72723, 779.5764, -820, 941.46924, -574.5455, 1088.4182, -312.72726, 1188.0447)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Oxygenator Room/StaticBody2D"]
-polygon = PackedVector2Array(1126.1744, 327.2961, 1157.0469, 338.32858, 1146.3087, 380.61966, 1097.9866, 496.46042, 970.4697, 707.9158, 859.06036, 842.144, 677.8523, 996.5983, 453.69125, 1108.7616, 276.51004, 1151.0526, 276.51004, 1128.9878, 426.8456, 1088.5354, 524.8322, 1037.0507, 712.75165, 923.0486, 915.4362, 717.1095, 1075.1677, 463.36304)
-disabled = true
+polygon = PackedVector2Array(-316.36362, 1120.7969, -552.7273, 1008.71704, -790.90906, 874.22144, -940, 744.7073, -1085.4545, 570.36084, -1227.2727, 298.8789, -1278.1816, 124.53296, -1306.8516, -45.058167, -1318.1816, -112.079834, -1312.7275, -291.40723, -1283.6367, -480.69727, -1221.8184, -665.00635, -1150.9092, -814.4458, -1083.6367, -936.4883, -980, -1068.4932, -909.0908, -1148.1943, -829.0908, -1217.9326, -732.72754, -1287.6714, -654.5459, -1339.9751, -527.27246, -1414.6948, -401.81836, -1466.9985, -300, -1501.8682, -229.09082, -1521.7935, -130.90918, -1539.228, 34.54492, -1556.6626, 230.90918, -1551.6812, 400, -1529.2651, 569.0908, -1481.9429, 752.72754, -1399.751, 898.18164, -1320.0498, 1036.3633, -1207.9702, 1165.4541, -1075.9653, 1290.9092, -901.61914, 1360, -804.4834, 1481.8179, -809.46436, 1303.6357, -1008.7173, 1165.4541, -1180.5728, 1009.0908, -1325.0313, 889.0908, -1414.6948, 696.3633, -1516.812, 549.0908, -1574.0972, 378.18164, -1616.4385, 194.54492, -1638.8545, 69.09082, -1641.3447, -67.27246, -1631.3823, -181.81836, -1613.9478, -280, -1591.5317, -398.18164, -1551.6812, -494.5459, -1514.3213, -630.9092, -1444.583, -763.6367, -1362.3911, -878.18164, -1267.7461, -976.36426, -1173.1011, -1065.4551, -1075.9653, -1190.9092, -894.147, -1258.1816, -744.7075, -1307.2725, -615.1929, -1374.5459, -403.48682, -1370.9092, -42.34131, -1325.4551, 206.72461, -1265.4545, 373.59888, -1245.4545, 415.93994, -1138.1818, 600.2488, -1012.72723, 779.5764, -820, 941.46924, -574.5455, 1088.4182, -312.72726, 1188.0447, -72.72754, 1230.386, 263.63574, 1225.4045, 450.90918, 1188.0447, 558.18164, 1145.7036, 756.3633, 1058.5305, 860, 998.75464, 934.5449, 946.4507, 1040, 861.7683, 1167.2725, 734.7446, 1294.5449, 572.8518, 1396.3633, 388.54297, 1472.727, 211.70605, 1509.0908, 42.341064, 1496.3633, 0, 1429.0908, 134.4956, 1374.5454, 286.42578, 1296.3633, 448.31885, 1163.6357, 625.1555, 1074.5449, 729.7634, 927.27246, 859.2776, 816.3633, 933.9973, 681.81836, 1008.7173, 540, 1068.4932, 389.09082, 1113.325, 127.27246, 1150.6848, -103.63672, 1148.1941)
 
 [node name="PointLight2D2" type="PointLight2D" parent="Oxygenator Room"]
 texture = ExtResource("15_acxlu")
@@ -2743,11 +2703,7 @@ scale = Vector2(1, 0.73)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Water Reclaimer/StaticBody2D"]
 z_index = 1
 position = Vector2(-78.181816, 774.5952)
-polygon = PackedVector2Array(-316.36362, 1120.7969, -552.7273, 1008.71704, -790.90906, 874.22144, -940, 744.7073, -1085.4545, 570.36084, -1227.2727, 298.8789, -1276.3636, 244.08447, -1321.8181, 206.72461, -1361.8181, 194.27148, -1345.4545, 241.59375, -1265.4545, 373.59888, -1245.4545, 415.93994, -1138.1818, 600.2488, -1012.72723, 779.5764, -820, 941.46924, -574.5455, 1088.4182, -312.72726, 1188.0447)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Water Reclaimer/StaticBody2D"]
-polygon = PackedVector2Array(1126.1744, 327.2961, 1157.0469, 338.32858, 1146.3087, 380.61966, 1097.9866, 496.46042, 970.4697, 707.9158, 859.06036, 842.144, 677.8523, 996.5983, 453.69125, 1108.7616, 276.51004, 1151.0526, 276.51004, 1128.9878, 426.8456, 1088.5354, 524.8322, 1037.0507, 712.75165, 923.0486, 915.4362, 717.1095, 1075.1677, 463.36304)
-disabled = true
+polygon = PackedVector2Array(-316.36362, 1120.7969, -552.7273, 1008.71704, -790.90906, 874.22144, -940, 744.7073, -1085.4545, 570.36084, -1227.2727, 298.8789, -1250.9092, 229.14111, -1289.0913, 69.73926, -1314.5459, -124.53223, -1310.9092, -301.36914, -1252.7275, -587.7949, -1178.1821, -772.1045, -1074.5459, -946.4502, -994.5459, -1051.0586, -863.6367, -1185.5537, -712.72754, -1305.1055, -552.72754, -1402.2412, -358.18213, -1481.9424, -214.5459, -1524.2832, -27.27295, -1554.1719, 125.4541, -1559.1523, 318.18164, -1541.7178, 499.9995, -1504.3584, 656.3633, -1447.0732, 807.2722, -1374.8438, 901.8179, -1310.0869, 1021.8179, -1220.4229, 1098.1814, -1150.6846, 1196.3633, -1036.1143, 1267.2722, -936.4883, 1370.9087, -752.1787, 1456.3633, -453.2998, 1476.3633, -236.6123, 1463.636, -22.416016, 1414.5449, 181.81836, 1365.4541, 303.86084, 1267.2722, 480.69775, 1156.3633, 645.08105, 1074.5449, 739.72656, 925.4541, 861.76855, 778.1814, 956.4136, 576.3633, 1048.5684, 487.27222, 1085.9282, 494.54517, 1168.1196, 689.0906, 1090.9092, 879.9995, 983.81104, 1012.7268, 886.6753, 1147.2722, 752.1797, 1238.1814, 642.5908, 1309.0906, 547.9453, 1379.9995, 413.4497, 1445.4541, 273.97314, 1507.2722, 74.71973, 1534.5449, -161.89258, 1530.9087, -341.21973, 1487.2722, -615.1924, 1379.9995, -874.2217, 1301.8179, -1008.7168, 1212.7268, -1125.7783, 1125.4541, -1227.8945, 1010.9087, -1325.0303, 921.8179, -1392.2783, 798.1814, -1469.4893, 607.2722, -1554.1719, 438.1814, -1606.4756, 256.36328, -1633.873, 21.817871, -1638.8535, -107.27295, -1628.8916, -287.27295, -1589.041, -467.27295, -1526.7744, -636.3638, -1444.582, -827.27295, -1312.5771, -965.4551, -1188.0449, -1090.9097, -1036.1143, -1161.8184, -929.0156, -1240.0005, -789.53906, -1314.5459, -595.2676, -1378.1821, -433.37402, -1376.3638, -281.44434, -1372.7275, -64.756836, -1343.6367, 129.51465, -1316.3638, 226.65039, -1265.4545, 373.59888, -1245.4545, 415.93994, -1138.1818, 600.2488, -1012.72723, 779.5764, -820, 941.46924, -574.5455, 1088.4182, -312.72726, 1188.0447)
 
 [node name="PointLight2D2" type="PointLight2D" parent="Water Reclaimer"]
 texture = ExtResource("15_acxlu")

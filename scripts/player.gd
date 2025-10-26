@@ -64,8 +64,7 @@ func flashlightEvents():
 	flashlightEvents()
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("Enterador")
+func _on_area_2d_area_entered(area: Area2D) -> void: 
 	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and area.name=="SpeckleArea"):
 		area.get_parent().modulate.a-=.5
 		if(area.get_parent().modulate.a<=.1):
@@ -91,8 +90,6 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		elif(not is_instance_valid(pickable)):
 			pickable=null
 			handHeldItem=""
-		else:
-			print(pickable)
 
 
 func _in_bag_entered(area: Area2D) -> void:
@@ -237,6 +234,7 @@ func closedBagDrop():
 		pickable.set_deferred("freeze", false)
 	await get_tree().create_timer(0).timeout
 	pickable=null
+	await GameManager.subtract(handHeldItem, 1)
 	handHeldItem=""
 
 func openBagDrop():

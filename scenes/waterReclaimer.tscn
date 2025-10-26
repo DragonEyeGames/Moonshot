@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://f7m0p5xdy0wb"]
+[gd_scene load_steps=22 format=3 uid="uid://f7m0p5xdy0wb"]
 
 [ext_resource type="Script" uid="uid://d0p4lip8fx5pe" path="res://scripts/water_reclaimer.gd" id="1_qj4il"]
 [ext_resource type="PackedScene" uid="uid://xl7hoyu6js47" path="res://scenes/jugFiller.tscn" id="2_tmb4y"]
@@ -11,22 +11,6 @@ radius = 278.25888
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmb4y"]
 size = Vector2(10, 61)
-
-[sub_resource type="Animation" id="Animation_y1ael"]
-resource_name = "good_to_bad"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0.54460394, 0.059529707, 1), Color(1, 0.38431373, 0, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_1rt82"]
 length = 0.001
@@ -41,22 +25,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0.54460394, 0.059529707, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_ftds1"]
-resource_name = "bad_to_good"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 0.38431373, 0, 1), Color(0, 0.54460394, 0.059529707, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_y3sjj"]
@@ -75,6 +43,22 @@ tracks/0/keys = {
 "values": [Color(1, 0.38431373, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_ftds1"]
+resource_name = "bad_to_good"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.38431373, 0, 1), Color(0, 0.54460394, 0.059529707, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_awx6k"]
 resource_name = "good"
 loop_mode = 1
@@ -91,13 +75,80 @@ tracks/0/keys = {
 "values": [Color(0, 0.54460394, 0.059529707, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_y1ael"]
+resource_name = "good_to_bad"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.54460394, 0.059529707, 1), Color(1, 0.38431373, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hnmsm"]
+resource_name = "bad_to_horrible"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.38431373, 0, 1), Color(0.7670247, 2.5268644e-06, 9.62615e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3hjxw"]
+resource_name = "horrible"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.7670247, 2.503395e-06, 9.611249e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_e205o"]
+resource_name = "horrible_to_bad"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.7670247, 2.503395e-06, 9.611249e-07, 1), Color(1, 0.38431373, 0, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y3sjj"]
 _data = {
 &"RESET": SubResource("Animation_1rt82"),
 &"bad": SubResource("Animation_y3sjj"),
 &"bad_to_good": SubResource("Animation_ftds1"),
+&"bad_to_horrible": SubResource("Animation_hnmsm"),
 &"good": SubResource("Animation_awx6k"),
-&"good_to_bad": SubResource("Animation_y1ael")
+&"good_to_bad": SubResource("Animation_y1ael"),
+&"horrible": SubResource("Animation_3hjxw"),
+&"horrible_to_bad": SubResource("Animation_e205o")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1rt82"]

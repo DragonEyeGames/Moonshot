@@ -9,18 +9,16 @@ var innerOffset
 var filterZoomEntered:=false
 
 var filterItemEntered:=false
-
+var orderSwapping=false
 var filterDoorEntered:=false
-
+var childCount:=0
 var mouseEntered:=false
 var filterClean:=false
 @export var filter: PackedScene
 @export var cleanFilter: PackedScene
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	print($Control/ColorRect3/ColorRect/Filter.global_position)
-
-
+	childCount=len(get_children())
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(GameManager.baseHumidity>200):
@@ -63,8 +61,9 @@ func _process(delta: float) -> void:
 		GameManager.collisionTool=self
 	elif(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and canZoom and zoomed):
 		unzoom("revealToArm")
-	outerFilter()
-	innerFilter()
+	if(GameManager.player.handHeldItem==""):
+		outerFilter()
+		innerFilter()
 	if(filterZoomEntered and Input.is_action_just_pressed("Click")):
 		extraZoom()
 		
@@ -152,28 +151,36 @@ func outerFilter():
 
 
 func _on_child_order_changed() -> void:
-	if(mouseEntered):
-		for child in get_children():
-			if(str(child.name)=="Filter"):
-				filterClean=false
-				child.queue_free()
-				child=filter.instantiate()
-				$Control/ColorRect3/ColorRect.add_child(child)
-				child.set_deferred("freeze", true)
-				child.set_deferred("global_position", Vector2(-2485.5, -3693.8))
-				child.set_deferred("rotation", 0)
-				child.set_deferred("scale", Vector2(0.75, 0.75))
-				child.get_node("Filter").get_child(0).set_deferred("disabled", false)
-			if(str(child.name)=="CleanFilter"):
-				filterClean=true
-				child.queue_free()
-				child=cleanFilter.instantiate()
-				$Control/ColorRect3/ColorRect.add_child(child)
-				child.set_deferred("freeze", true)
-				child.set_deferred("global_position", Vector2(-2485.5, -3693.8))
-				child.set_deferred("rotation", 0)
-				child.set_deferred("scale", Vector2(0.75, 0.75))
-				child.get_node("CleanFilter").get_child(0).set_deferred("disabled", false)
+	print("CHHANANGE")
+	if(len(get_children())<childCount or orderSwapping):
+		childCount=len(get_children())
+		return
+	orderSwapping=true
+	childCount=len(get_children())
+	print("UUNNONO")
+	if(mouseEntered and len($Control/ColorRect3/ColorRect.get_children())==2):
+		var child = get_child(-1)
+		if(str(child.name)=="Filter"):
+			filterClean=false
+			child.queue_free()
+			child=filter.instantiate()
+			$Control/ColorRect3/ColorRect.add_child(child)
+			child.set_deferred("freeze", true)
+			child.set_deferred("global_position", Vector2(-2485.5, -3693.8))
+			child.set_deferred("rotation", 0)
+			child.set_deferred("scale", Vector2(0.75, 0.75))
+			child.get_node("Filter").get_child(0).set_deferred("disabled", false)
+		elif(str(child.name)=="CleanFilter"):
+			filterClean=true
+			child.queue_free()
+			child=cleanFilter.instantiate()
+			$Control/ColorRect3/ColorRect.add_child(child)
+			child.set_deferred("freeze", true)
+			child.set_deferred("global_position", Vector2(-2485.5, -3693.8))
+			child.set_deferred("rotation", 0)
+			child.set_deferred("scale", Vector2(0.75, 0.75))
+			child.get_node("CleanFilter").get_child(0).set_deferred("disabled", false)
+	orderSwapping=false
 
 
 func _on_area_2d_mouse_exited() -> void:
@@ -181,7 +188,6 @@ func _on_area_2d_mouse_exited() -> void:
 
 
 func _on_area_2d_3_body_entered(body: Node2D) -> void:
-	print("move")
 	body.set_deferred("freeze", true)
 	body.set_deferred("global_position", $Area2D3.global_position)
 	body.set_deferred("linear_velocity", Vector2(0, 0))
@@ -194,3 +200,7 @@ func _on_status_animation_finished(anim_name: StringName) -> void:
 		$Control/ColorRect/Light/Status.play("bad")
 	if(anim_name=="bad_to_good"):
 		$Control/ColorRect/Light/Status.play("good")
+	if(anim_name=="bad_to_horrible"):
+		$Control/ColorRect/Light/Status.play("horrible")
+	if(anim_name=="horrible_to_bad"):
+		$Control/ColorRect/Light/Status.play("bad")

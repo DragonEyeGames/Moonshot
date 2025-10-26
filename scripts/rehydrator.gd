@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 	#water=GameManager.water
 	if(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and len(GameManager.inventory)<=4 and $WurterJug.visible):
 		GameManager.pickedUpJugWater=water
-		GameManager.add("Jug", 1)
+		GameManager.add("Jug", water)
 		$WurterJug.visible=false
 	elif(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]["name"]=="Jug" and $WurterJug.visible==false):
 		water=GameManager.inventory[GameManager.selectedSlot]["count"]
@@ -21,10 +21,12 @@ func _process(_delta: float) -> void:
 		$WurterJug.visible=true
 		GameManager.pickedUpJugWater=0
 		GameManager.selectedSlot=-1
-	if(colliding and Input.is_action_just_pressed("Interact") and len(GameManager.inventory)>0 and interactingList.has(GameManager.inventory[GameManager.selectedSlot]) and not GameManager.selectedSlot==-1):
-		if(GameManager.inventory[GameManager.selectedSlot]=='Cup'):
+	if(colliding and Input.is_action_just_pressed("Interact") and len(GameManager.inventory)>0 and interactingList.has(GameManager.inventory[GameManager.selectedSlot]["name"]) and not GameManager.selectedSlot==-1):
+		if(GameManager.inventory[GameManager.selectedSlot]["name"]=='Cup'):
 			if(water>=20):
 				water-=20
+				GameManager.subtract("Cup", 1)
+				GameManager.add("H Cup", 1)
 			else:
 				return
 		else:
@@ -32,7 +34,6 @@ func _process(_delta: float) -> void:
 				water-=10
 			else:
 				return
-		GameManager.inventory[GameManager.selectedSlot]="H " + GameManager.inventory[GameManager.selectedSlot]
 		GameManager.selectedSlot=-1
 	#GameManager.water=water
 

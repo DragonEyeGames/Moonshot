@@ -1,10 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://313clql8xlh4"]
+[gd_scene load_steps=25 format=3 uid="uid://313clql8xlh4"]
 
 [ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://scripts/player.gd" id="1_hqtel"]
 [ext_resource type="PackedScene" uid="uid://bn36inecn6soy" path="res://scenes/VisibleItems/filter.tscn" id="2_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://cqcdyf84adame" path="res://assets/icon.svg" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://bh8srau4aa02y" path="res://assets/helmet-310867_1920.png" id="3_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://c0gojnvdo64ix" path="res://scenes/VisibleItems/cleanFilter.tscn" id="3_jej6c"]
 [ext_resource type="Texture2D" uid="uid://dyysu3210vtw8" path="res://assets/flashlight.png" id="4_1jxqw"]
+[ext_resource type="PackedScene" uid="uid://chncs0swd8q8" path="res://scenes/VisibleItems/rag.tscn" id="4_f1ej7"]
 [ext_resource type="Texture2D" uid="uid://y61752g3nw8m" path="res://assets/square.png" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://dka8iksr4cahl" path="res://scenes/wateringCan.tscn" id="6_fjrip"]
 [ext_resource type="PackedScene" uid="uid://w2ju0oer6ydy" path="res://scenes/seed_bag.tscn" id="6_tuyoq"]
@@ -227,6 +229,8 @@ z_index = 2
 collision_layer = 2
 script = ExtResource("1_hqtel")
 filter = ExtResource("2_d2wvv")
+cleanFilter = ExtResource("3_jej6c")
+rag = ExtResource("4_f1ej7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 20)

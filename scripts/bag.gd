@@ -18,10 +18,12 @@ func _process(delta: float) -> void:
 	if(not mouseEntered and open):
 		mouseTimeOut+=delta
 	if(mouseTimeOut>1):
-		$open.play("close")
 		mouseTimeOut=0
 		open=false
 		GameManager.player.bagOpen=false
+		$open.play("close")
+		await get_tree().create_timer(1).timeout
+		loadInventory()
 	if(mouseEntered):
 		mouseTimeIn+=delta
 	if(mouseTimeIn>=1 and not open):
@@ -34,8 +36,6 @@ func _process(delta: float) -> void:
 				GameManager.carrots+=1
 			else:
 				await GameManager.add(GameManager.player.handHeldItem, 1)
-				print(GameManager.inventory)
-				loadInventory()
 			if(GameManager.player.pickable):
 				GameManager.player.pickable.queue_free()
 			GameManager.player.handHeldItem=""
@@ -71,6 +71,7 @@ func _on_bag_mouse_exited() -> void:
 	mouseEntered=false
 	
 func openBag():
+	loadInventory()
 	$open.play("open")
 	open=true
 	GameManager.player.bagOpen=true

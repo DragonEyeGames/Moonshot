@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2xxynf0fcwu0"]
+
+[ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://wurterJug.png" id="1_tejjl"]
+[ext_resource type="Script" uid="uid://ccrthlwpbf7ja" path="res://rehydrator.gd" id="1_xlocb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tejjl"]
+radius = 216.0
+height = 480.0
+
+[node name="Rehydrator" type="Node2D"]
+script = ExtResource("1_xlocb")
+
+[node name="WurterJug" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(9.094947e-13, -64.42953)
+scale = Vector2(0.345, 0.345)
+texture = ExtResource("1_tejjl")
+
+[node name="Desk" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Desk"]
+z_index = 1
+offset_left = -214.7651
+offset_right = 214.7651
+offset_bottom = 96.64435
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Desk"]
+offset_left = -204.02686
+offset_top = 53.691284
+offset_right = -161.07384
+offset_bottom = 161.07385
+color = Color(0.37761015, 0.26601747, 0.046704635, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Desk"]
+offset_left = 161.07382
+offset_top = 53.691284
+offset_right = 204.02684
+offset_bottom = 161.07385
+color = Color(0.37761015, 0.26601747, 0.046704635, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_tejjl")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

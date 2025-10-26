@@ -15,6 +15,7 @@ var filterDoorEntered:=false
 var mouseEntered:=false
 
 @export var filter: PackedScene
+@export var cleanFilter: PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print($Control/ColorRect3/ColorRect/Filter.global_position)
@@ -113,7 +114,6 @@ func _filter_door_exited() -> void:
 
 func _on_area_2d_mouse_entered() -> void:
 	if not has_node("Control/ColorRect3/ColorRect/Filter/Filter/CollisionPolygon2D2"):
-		print("MAUSE")
 		mouseEntered=true
 
 func innerFilter():
@@ -157,8 +157,25 @@ func _on_child_order_changed() -> void:
 				child.set_deferred("rotation", 0)
 				child.set_deferred("scale", Vector2(0.75, 0.75))
 				child.get_node("Filter").get_child(0).set_deferred("disabled", false)
-				print("got em")
+			if(str(child.name)=="CleanFilter"):
+				child.queue_free()
+				child=cleanFilter.instantiate()
+				$Control/ColorRect3/ColorRect.add_child(child)
+				child.set_deferred("freeze", true)
+				child.set_deferred("global_position", Vector2(-2485.5, -3693.8))
+				child.set_deferred("rotation", 0)
+				child.set_deferred("scale", Vector2(0.75, 0.75))
+				child.get_node("CleanFilter").get_child(0).set_deferred("disabled", false)
 
 
 func _on_area_2d_mouse_exited() -> void:
 	mouseEntered=false
+
+
+func _on_area_2d_3_body_entered(body: Node2D) -> void:
+	print("move")
+	body.set_deferred("freeze", true)
+	body.set_deferred("global_position", $Area2D3.global_position)
+	body.set_deferred("linear_velocity", Vector2(0, 0))
+	await get_tree().create_timer(.1).timeout
+	body.set_deferred("freeze", false)

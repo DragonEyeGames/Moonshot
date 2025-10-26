@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cba4fq4q3t4ra" path="res://scenes/VisibleItems/jug.tscn" id="3_78mh5"]
 [ext_resource type="PackedScene" uid="uid://dc3osrlnf768a" path="res://scenes/VisibleItems/h_cup.tscn" id="4_78mh5"]
 [ext_resource type="PackedScene" uid="uid://bn36inecn6soy" path="res://scenes/VisibleItems/filter.tscn" id="4_fuds8"]
-[ext_resource type="Texture2D" uid="uid://c766gyyxf6bw1" path="res://assets/Water Filter.png" id="5_tefpj"]
+[ext_resource type="PackedScene" uid="uid://c0gojnvdo64ix" path="res://scenes/VisibleItems/cleanFilter.tscn" id="4_tefpj"]
 [ext_resource type="PackedScene" uid="uid://cljdup7ghuiy1" path="res://scenes/VisibleItems/hMac.tscn" id="6_ylmxj"]
 [ext_resource type="PackedScene" uid="uid://chncs0swd8q8" path="res://scenes/VisibleItems/rag.tscn" id="8_ylmxj"]
 [ext_resource type="PackedScene" uid="uid://550t1wp0jtst" path="res://scenes/VisibleItems/tape.tscn" id="10_78mh5"]
@@ -25,32 +25,12 @@ texture = ExtResource("2_6dd0p")
 
 [node name="Jug" parent="." instance=ExtResource("3_78mh5")]
 
+[node name="CleanFilter" parent="." instance=ExtResource("4_tefpj")]
+visible = false
+
 [node name="Filter" parent="." instance=ExtResource("4_fuds8")]
 visible = false
 modulate = Color(0.93530446, 0.62569475, 0.39201283, 1)
-
-[node name="CleanFilter" type="RigidBody2D" parent="."]
-visible = false
-collision_layer = 512
-collision_mask = 256
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="CleanFilter"]
-scale = Vector2(2, 2)
-polygon = PackedVector2Array(19.047619, 8.730158, -16.666666, 8.730158, -17.460316, 3.174603, -16.666666, 0, 18.253967, 0, 19.841269, 3.9682536)
-
-[node name="Jug2" type="Sprite2D" parent="CleanFilter"]
-position = Vector2(5.9604645e-08, 2.3841858e-07)
-scale = Vector2(0.19, 0.19)
-texture = ExtResource("5_tefpj")
-offset = Vector2(8.333335, 43.792156)
-
-[node name="CleanFilter" type="Area2D" parent="CleanFilter"]
-collision_layer = 2052
-collision_mask = 0
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="CleanFilter/CleanFilter"]
-scale = Vector2(2, 2)
-polygon = PackedVector2Array(19.047619, 8.730158, -16.666666, 8.730158, -17.460316, 3.174603, -16.666666, 0, 18.253967, 0, 19.841269, 3.9682536)
 
 [node name="H Cup" parent="." instance=ExtResource("4_78mh5")]
 

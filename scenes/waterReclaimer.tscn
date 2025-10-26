@@ -4,8 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://xl7hoyu6js47" path="res://scenes/jugFiller.tscn" id="2_tmb4y"]
 [ext_resource type="PackedScene" uid="uid://4xc3pyxq71q3" path="res://scenes/reclaimerFilter.tscn" id="2_xigmd"]
 [ext_resource type="Texture2D" uid="uid://chtdaquk74bsq" path="res://assets/shelf.png" id="3_l503n"]
-[ext_resource type="Script" uid="uid://1axpesiatuwx" path="res://scenes/waterFilter.gd" id="5_1rt82"]
-[ext_resource type="Texture2D" uid="uid://c766gyyxf6bw1" path="res://assets/Water Filter.png" id="6_ftds1"]
+[ext_resource type="PackedScene" uid="uid://yejvi0goukkr" path="res://scenes/reclaimerFilterClean.tscn" id="3_y1ael"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q457c"]
 radius = 278.25888
@@ -25,6 +24,9 @@ size = Vector2(104, 75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftds1"]
 size = Vector2(78, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3sjj"]
+size = Vector2(1300, 27)
+
 [node name="Water Reclaimer" type="ColorRect"]
 offset_left = 547.651
 offset_top = -1005.37
@@ -34,6 +36,9 @@ mouse_filter = 2
 color = Color(0.18359, 0.18359, 0.18359, 1)
 script = ExtResource("1_qj4il")
 filter = ExtResource("2_xigmd")
+cleanFilter = ExtResource("3_y1ael")
+maxPower = null
+efficiency = null
 
 [node name="ProgressBar" type="HSlider" parent="."]
 layout_mode = 0
@@ -296,32 +301,6 @@ color = Color(0.35663593, 0.18782693, 0.06474287, 1)
 [node name="Filter" parent="Control/ColorRect3/ColorRect" instance=ExtResource("2_xigmd")]
 position = Vector2(23, 11)
 
-[node name="Filter2" type="RigidBody2D" parent="Control/ColorRect3/ColorRect"]
-position = Vector2(23, 11)
-scale = Vector2(0.75, 0.75)
-collision_layer = 512
-collision_mask = 256
-freeze = true
-script = ExtResource("5_1rt82")
-
-[node name="Jug2" type="Sprite2D" parent="Control/ColorRect3/ColorRect/Filter2"]
-scale = Vector2(0.1512, 0.1512)
-texture = ExtResource("6_ftds1")
-offset = Vector2(8.333335, 43.792156)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Control/ColorRect3/ColorRect/Filter2"]
-scale = Vector2(1.26, 1.26)
-polygon = PackedVector2Array(19.047619, 8.730158, -16.666666, 8.730158, -17.460316, 3.174603, -16.666666, 0, 18.253967, 0, 19.841269, 3.9682536)
-
-[node name="Filter" type="Area2D" parent="Control/ColorRect3/ColorRect/Filter2"]
-collision_layer = 2052
-collision_mask = 0
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Control/ColorRect3/ColorRect/Filter2/Filter"]
-scale = Vector2(1.26, 1.26)
-polygon = PackedVector2Array(19.047619, 8.730158, -16.666666, 8.730158, -17.460316, 3.174603, -16.666666, 0, 18.253967, 0, 19.841269, 3.9682536)
-disabled = true
-
 [node name="Control" type="Control" parent="Control/ColorRect3"]
 clip_contents = true
 anchors_preset = 0
@@ -386,19 +365,14 @@ collision_mask = 0
 position = Vector2(265.349, 255.37)
 shape = SubResource("RectangleShape2D_ftds1")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(265.349, 181.37)
-shape = SubResource("RectangleShape2D_ftds1")
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(263.349, 218.37)
+collision_layer = 0
+collision_mask = 512
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(314.349, 221.37)
-rotation = 1.5707964
-shape = SubResource("RectangleShape2D_ftds1")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(217.349, 221.37)
-rotation = 1.5707964
-shape = SubResource("RectangleShape2D_ftds1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(-24, 270.5)
+shape = SubResource("RectangleShape2D_y3sjj")
 
 [connection signal="child_order_changed" from="." to="." method="_on_child_order_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
@@ -412,3 +386,4 @@ shape = SubResource("RectangleShape2D_ftds1")
 [connection signal="mouse_exited" from="Control/ColorRect3/Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="Area2D2" to="." method="_filter_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D2" to="." method="_filter_mouse_exited"]
+[connection signal="body_entered" from="Area2D3" to="." method="_on_area_2d_3_body_entered"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0gojnvdo64ix"]
+
+[ext_resource type="Texture2D" uid="uid://c766gyyxf6bw1" path="res://assets/Water Filter.png" id="1_xs6us"]
+
+[node name="CleanFilter" type="RigidBody2D"]
+collision_layer = 512
+collision_mask = 256
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(19.047619, 8.730158, -16.666666, 8.730158, -17.460316, 3.174603, -16.666666, 0, 18.253967, 0, 19.841269, 3.9682536)
+
+[node name="Jug2" type="Sprite2D" parent="."]
+position = Vector2(5.9604645e-08, 2.3841858e-07)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("1_xs6us")
+offset = Vector2(8.333335, 43.792156)
+
+[node name="CleanFilter" type="Area2D" parent="."]
+collision_layer = 2052
+collision_mask = 0
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="CleanFilter"]
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(19.047619, 8.730158, -16.666666, 8.730158, -17.460316, 3.174603, -16.666666, 0, 18.253967, 0, 19.841269, 3.9682536)

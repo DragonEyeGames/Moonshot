@@ -7,9 +7,10 @@
 radius = 208.11775
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v5rch"]
-radius = 12.0
+radius = 11.045361
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iavrl"]
+radius = 9.055386
 
 [sub_resource type="Gradient" id="Gradient_v5rch"]
 offsets = PackedFloat32Array(0, 0.013215859, 0.052863438, 0.08370044)
@@ -127,6 +128,8 @@ default_color = Color(3.85046e-06, 0, 0.8422105, 1)
 
 [node name="Area2D" type="Area2D" parent="Hole/BlueStart"]
 position = Vector2(41, 83)
+collision_layer = 5120
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hole/BlueStart/Area2D"]
 shape = SubResource("CircleShape2D_v5rch")
@@ -138,6 +141,8 @@ default_color = Color(1.4439226e-07, 0.56607246, 0.14590678, 1)
 
 [node name="Area2D" type="Area2D" parent="Hole/GreenStart"]
 position = Vector2(42, 82)
+collision_layer = 5120
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hole/GreenStart/Area2D"]
 shape = SubResource("CircleShape2D_v5rch")
@@ -149,6 +154,8 @@ default_color = Color(0.67940176, 0.67940164, 0, 1)
 
 [node name="Area2D" type="Area2D" parent="Hole/YellowStart"]
 position = Vector2(41, 83)
+collision_layer = 5120
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hole/YellowStart/Area2D"]
 shape = SubResource("CircleShape2D_v5rch")
@@ -380,4 +387,7 @@ mouse_filter = 2
 [connection signal="mouse_exited" from="Hole/GreenStart/Area2D" to="." method="_red_exited"]
 [connection signal="mouse_entered" from="Hole/YellowStart/Area2D" to="." method="_on_area_2d_mouse_entered" binds= [3]]
 [connection signal="mouse_exited" from="Hole/YellowStart/Area2D" to="." method="_red_exited"]
-[connection signal="area_entered" from="Hole/RedGoal/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Hole/RedGoal/Area2D" to="." method="_on_area_2d_area_entered" binds= [4]]
+[connection signal="area_entered" from="Hole/BlueGoal/Area2D" to="." method="_on_area_2d_area_entered" binds= [5]]
+[connection signal="area_entered" from="Hole/GreenGoal/Area2D" to="." method="_on_area_2d_area_entered" binds= [6]]
+[connection signal="area_entered" from="Hole/YellowGoal/Area2D" to="." method="_on_area_2d_area_entered" binds= [7]]

@@ -37,9 +37,10 @@ func _process(delta: float) -> void:
 		$ColorRect2.color=Color(.05, .05, .05)
 	power=maxPower
 	powerSap(delta)
-	if(power-(leak*delta)<=GameManager.baseCarbon):
-		GameManager.baseOxygen+=power-(leak*delta)
-		GameManager.baseCarbon-=power+(leak*delta)
+	power-=(leak*delta)
+	if(power<=GameManager.baseCarbon):
+		GameManager.baseOxygen+=power
+		GameManager.baseCarbon-=power
 		if(GameManager.baseOxygen<0):
 			GameManager.baseCarbon+=abs(GameManager.baseOxygen)
 			GameManager.baseOxygen=0

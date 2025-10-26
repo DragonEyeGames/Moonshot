@@ -13,9 +13,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	powerEmission=GameManager.sunPower*6
-	powerEmission-=dirt*powerEmission
-	if(randi_range(0, 500)==5):
+	powerEmission=GameManager.sunPower*2
+	powerEmission-=dirt
+	if(randi_range(0, 1000)==5):
 		var random=randf_range(1, 2)
 		dirt+=delta*random
 		for number in range(round(random)):
@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 				randi_range(255, 50),
 				randi_range(535, 20)
 			)
-	GameManager.solarOutput=powerEmission
+	#GameManager.solarOutput=powerEmission
 	
 	if(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]["name"]=="Rag" and not zoomed and canZoom):
 		GameManager.zoomCamera($ZoomPoint, 3)

@@ -1,5 +1,5 @@
 extends Node
-
+class_name Manager
 #the space suit for the player
 var helmet
 var player: Player
@@ -15,14 +15,14 @@ var playerState: possibleStates=possibleStates.OUTSIDE
 
 var flashlightOn=false
 var playerEnergy:=100.0
-var inventory=[{"name": "CleanFilter", "count": 1}, {"name": "Rag", "count": 1}]
+var inventory=[{"name": "CleanFilter", "count": 1}]
 var selectedSlot=0
 var playerMove=true
 var dead=""
 var instants = ["Protein", "IceCream", "H Mac", "H Cup", "Carrots"]
 var nonstackingList = ["Tape", "H Cup", "Jug"]
 var nonstackingDict = [{"name": "Tape", "amount": 15}, {"name": "Tape", "amount": 1}, {"name": "Tape", "amount": pickedUpJugWater}]
-
+var currentEmission:=0.0
 var mousePos:Vector2
 var tapeHolder
 
@@ -37,7 +37,7 @@ var pickedUpJugWater=0
 
 var playerHand
 
-var solarOutput:=0.0
+var solarOtput:=0.0
 
 var playerAnimator: AnimationPlayer
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://ectb2uu36h7a"]
+[gd_scene load_steps=96 format=3 uid="uid://ectb2uu36h7a"]
 
 [ext_resource type="Script" uid="uid://doqvjt1ivyo14" path="res://scenes/building.gd" id="1_nm462"]
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="2_vs5tt"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dpvvx0k4pp6gi" path="res://scenes/suit_holder.tscn" id="17_8yjaw"]
 [ext_resource type="Texture2D" uid="uid://cu1wcy3kbe7oc" path="res://assets/Circle Building/BuildingFrontDoor.png" id="18_vkygi"]
 [ext_resource type="Texture2D" uid="uid://b4whrnyeukevj" path="res://assets/Circle Building/BuildingBackWall.png" id="19_c646r"]
+[ext_resource type="PackedScene" uid="uid://dp884u7yo5ue" path="res://scenes/energyPanel.tscn" id="19_dc40y"]
 [ext_resource type="Texture2D" uid="uid://djt87l3exdnuh" path="res://assets/Circle Building/BuildingText.png" id="19_rh2sc"]
 [ext_resource type="Texture2D" uid="uid://d02jo0htw5klf" path="res://assets/Circle Building/BuildingBackDoor.png" id="21_2f2c6"]
 [ext_resource type="PackedScene" uid="uid://c5eiodc6x61h" path="res://scenes/farm.tscn" id="26_2f2c6"]
@@ -2081,12 +2082,21 @@ libraries = {
 texture = ExtResource("19_c646r")
 
 [node name="Systems Connector" type="ColorRect" parent="Systems Connector"]
+visible = false
 z_index = 1
 offset_left = -182.55002
 offset_top = -248.32216
 offset_right = 246.9805
 offset_bottom = 174.49669
 color = Color(0.19973189, 0.19973168, 0.19973168, 1)
+
+[node name="EnergyPanel" parent="Systems Connector" instance=ExtResource("19_dc40y")]
+z_index = 1
+offset_left = -247.27304
+offset_top = -50.909027
+offset_right = 71.726654
+offset_bottom = 232.31253
+scale = Vector2(1.285, 1.285)
 
 [node name="Entrance Point" type="Node2D" parent="."]
 position = Vector2(39, -2037)

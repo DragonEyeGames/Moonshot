@@ -38,6 +38,7 @@ func _process(delta: float) -> void:
 			selectedWire.get_node("Area2D").position=Vector2(48, 81)
 		else:
 			dragging=false
+			collided=false
 			selectedWire.points[-1]=selectedWire.to_local($Hole.get_child(selectedInt+4).to_global($Hole.get_child(selectedInt+4).points[-1]))
 			$Hole.get_child(selectedInt+4).add_point($Hole.get_child(selectedInt+4).to_local(selectedWire.to_global(selectedWire.points[-2])))
 			selectedWire.get_node("Area2D").get_child(0).disabled=true
@@ -55,6 +56,7 @@ func _process(delta: float) -> void:
 		for child in $Panels.get_children():
 			powerEmission+=child.powerEmission
 		GameManager.basePower+=powerEmission*delta
+		GameManager.currentEmission=round(powerEmission*delta*100)/100
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	colliding=true
@@ -85,9 +87,11 @@ func unzoom():
 
 
 func _red_exited() -> void:
-	entered=false
-	#selectedWire=null
-	#selectedInt=0
+	if(not dragging):
+		entered=false
+		collided=false
+		selectedWire=null
+		selectedInt=0
 	
 func flicker():
 	await get_tree().create_timer(randf_range(4, 7)).timeout
@@ -95,8 +99,8 @@ func flicker():
 	flicker()
 
 
-func _on_area_2d_area_entered(_area: Area2D) -> void:
-	if(dragging):
+func _on_area_2d_area_entered(_area: Area2D, line: int) -> void:
+	if(dragging and selectedInt+4==line):
 		collided=true
 
 

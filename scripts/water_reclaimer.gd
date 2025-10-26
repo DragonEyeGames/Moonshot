@@ -13,7 +13,7 @@ var filterItemEntered:=false
 var filterDoorEntered:=false
 
 var mouseEntered:=false
-
+var filterClean:=false
 @export var filter: PackedScene
 @export var cleanFilter: PackedScene
 # Called when the node enters the scene tree for the first time.
@@ -40,12 +40,18 @@ func _process(delta: float) -> void:
 		efficiency =  (1 - (($ProgressBar.value/2)-.5))*4
 		$ColorRect2.color=Color(1, 0, 0)
 		maxPower=maxPower/efficiency
-		print(maxPower)
 	else:
 		$ColorRect2.color=Color(.05, .05, .05)
 	$ProgressBar.editable=overriden
 	power=maxPower
 	powerSap(delta)
+	if(not filterClean):
+		power*=.3
+		if($Control/ColorRect/Light/Status.current_animation=="good"):
+			$Control/ColorRect/Light/Status.play("good_to_bad")
+	else:
+		if($Control/ColorRect/Light/Status.current_animation=="bad"):
+			$Control/ColorRect/Light/Status.play("bad_to_good")
 	if(GameManager.baseHumidity>power):
 		GameManager.baseHumidity-=power
 		GameManager.baseWater+=power
@@ -149,6 +155,7 @@ func _on_child_order_changed() -> void:
 	if(mouseEntered):
 		for child in get_children():
 			if(str(child.name)=="Filter"):
+				filterClean=false
 				child.queue_free()
 				child=filter.instantiate()
 				$Control/ColorRect3/ColorRect.add_child(child)
@@ -158,6 +165,7 @@ func _on_child_order_changed() -> void:
 				child.set_deferred("scale", Vector2(0.75, 0.75))
 				child.get_node("Filter").get_child(0).set_deferred("disabled", false)
 			if(str(child.name)=="CleanFilter"):
+				filterClean=true
 				child.queue_free()
 				child=cleanFilter.instantiate()
 				$Control/ColorRect3/ColorRect.add_child(child)
@@ -179,3 +187,10 @@ func _on_area_2d_3_body_entered(body: Node2D) -> void:
 	body.set_deferred("linear_velocity", Vector2(0, 0))
 	await get_tree().create_timer(.1).timeout
 	body.set_deferred("freeze", false)
+
+
+func _on_status_animation_finished(anim_name: StringName) -> void:
+	if(anim_name=="good_to_bad"):
+		$Control/ColorRect/Light/Status.play("bad")
+	if(anim_name=="bad_to_good"):
+		$Control/ColorRect/Light/Status.play("good")

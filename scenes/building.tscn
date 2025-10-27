@@ -1,6 +1,6 @@
 [gd_scene load_steps=97 format=3 uid="uid://ectb2uu36h7a"]
 
-[ext_resource type="Script" uid="uid://doqvjt1ivyo14" path="res://scenes/building.gd" id="1_nm462"]
+[ext_resource type="Script" uid="uid://doqvjt1ivyo14" path="res://scripts/buildingClass.gd" id="1_nm462"]
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="2_vs5tt"]
 [ext_resource type="PackedScene" uid="uid://bhfbg0qejw4m0" path="res://scenes/solar_panels.tscn" id="3_f1gjg"]
 [ext_resource type="Texture2D" uid="uid://bojfmxqgvlflk" path="res://assets/AirlockAssets/backWall.png" id="3_ll25w"]

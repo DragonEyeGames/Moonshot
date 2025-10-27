@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://yejvi0goukkr"]
 
-[ext_resource type="Script" uid="uid://1axpesiatuwx" path="res://scenes/waterFilter.gd" id="1_wmvyw"]
+[ext_resource type="Script" uid="uid://1axpesiatuwx" path="res://scripts/waterFilter.gd" id="1_wmvyw"]
 [ext_resource type="Texture2D" uid="uid://c766gyyxf6bw1" path="res://assets/Water Filter.png" id="2_y54bs"]
 
 [node name="CleanFilter" type="RigidBody2D"]

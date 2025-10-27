@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bhfbg0qejw4m0"]
 
 [ext_resource type="PackedScene" uid="uid://d1n5hu37p0cb8" path="res://scenes/panel.tscn" id="1_msrpr"]
-[ext_resource type="Script" uid="uid://bjmuh4wp33sof" path="res://scenes/powerConverter.gd" id="1_v5rch"]
+[ext_resource type="Script" uid="uid://bjmuh4wp33sof" path="res://scripts/powerConverter.gd" id="1_v5rch"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0m43s"]
 radius = 208.11775

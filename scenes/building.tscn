@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://ectb2uu36h7a"]
+[gd_scene load_steps=97 format=3 uid="uid://ectb2uu36h7a"]
 
 [ext_resource type="Script" uid="uid://doqvjt1ivyo14" path="res://scenes/building.gd" id="1_nm462"]
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="2_vs5tt"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://c5eiodc6x61h" path="res://scenes/farm.tscn" id="26_2f2c6"]
 [ext_resource type="PackedScene" uid="uid://sesvget8ak2p" path="res://scenes/shelf.tscn" id="29_ll25w"]
 [ext_resource type="PackedScene" uid="uid://c2xxynf0fcwu0" path="res://scenes/waterStation.tscn" id="30_2f2c6"]
+[ext_resource type="PackedScene" uid="uid://18tl0xb0wbl0" path="res://scenes/computer.tscn" id="33_dc40y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yopf"]
 size = Vector2(512, 1151)
@@ -2720,6 +2721,9 @@ offset_top = -10.909241
 offset_right = -150.09094
 offset_bottom = 258.46075
 scale = Vector2(1.415, 1.415)
+
+[node name="Node2D" parent="." instance=ExtResource("33_dc40y")]
+position = Vector2(-365, -2533)
 
 [connection signal="body_entered" from="Airlock/Area2D" to="Airlock" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Airlock/Area2D" to="Airlock" method="_on_area_2d_body_exited"]

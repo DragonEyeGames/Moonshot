@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://18tl0xb0wbl0"]
+
+[ext_resource type="Script" uid="uid://dmwvq1hv17gyk" path="res://scenes/computer.gd" id="1_om4aa"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_om4aa")
+startingText = "Welcome to Moon Base Gamma. It is your task to get this base ready for future residents. If you succeed, you will have your name etched on a plaque. If you fail, we will send in another person who can hopefully do better."
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -129.0
+offset_top = -80.0
+offset_right = 141.0
+offset_bottom = 79.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -123.0
+offset_top = -74.0
+offset_right = 135.0
+offset_bottom = 73.0
+color = Color(0.12955844, 0.12955847, 0.12955844, 1)
+
+[node name="ZoomPoint" type="Node2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -119.0
+offset_top = -71.0
+offset_right = 3727.1538
+offset_bottom = 2098.231
+scale = Vector2(0.065, 0.065)
+theme_override_font_sizes/normal_font_size = 220
+text = "Welcome to Moon Base Gamma. It is your task to get this base ready for future residents. If you succeed, you will have your name etched on a plaque. If you fail, we will send in another person who can hopefully do better.
+"

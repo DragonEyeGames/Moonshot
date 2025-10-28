@@ -8,7 +8,7 @@ var selected:=""
 var zoomed=false
 var canZoom=true
 var lastPage=false
-var textFinished=false
+var textFinished=true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,7 +33,8 @@ func _process(delta: float) -> void:
 		$RichTextLabel.visible_ratio=1.0
 	if(entered and not zoomed and canZoom and Input.is_action_just_pressed("Interact")):
 		zoom()
-		updateText()
+		if(not lastPage and not textFinished):
+			updateText()
 	elif(entered and zoomed and canZoom and Input.is_action_just_pressed("Interact")):
 		unzoom()
 		

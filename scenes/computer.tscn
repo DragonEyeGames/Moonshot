@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://18tl0xb0wbl0"]
+[gd_scene load_steps=6 format=3 uid="uid://18tl0xb0wbl0"]
 
 [ext_resource type="Script" uid="uid://dmwvq1hv17gyk" path="res://scripts/computer.gd" id="1_om4aa"]
 [ext_resource type="Texture2D" uid="uid://berljblq3mt4r" path="res://assets/folder.png" id="2_8pqrt"]
 [ext_resource type="Texture2D" uid="uid://dx51kox23al1i" path="res://assets/EXE.png" id="3_7ikar"]
+[ext_resource type="Script" uid="uid://5hjbfw8bptdj" path="res://scripts/systemsController.gd" id="4_tjrug"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_om4aa"]
 radius = 156.0
@@ -102,6 +103,9 @@ offset_top = -51.0
 offset_right = 96.0
 offset_bottom = 57.0
 color = Color(0.46229059, 0.46229059, 0.46229059, 1)
+script = ExtResource("4_tjrug")
+fallingColor = Color(0.57254905, 0, 0, 1)
+risingColor = Color(0, 0.40392157, 0, 1)
 
 [node name="Systems_Popup2" type="ColorRect" parent="Interface/Systems_Popup"]
 layout_mode = 0
@@ -130,7 +134,8 @@ offset_right = 1375.4286
 offset_bottom = 137.57143
 scale = Vector2(0.14, 0.14)
 theme_override_font_sizes/normal_font_size = 80
-text = "Oxygen . . . . . . RISING (60%)"
+bbcode_enabled = true
+text = "Oxygen . . . . . . . . . [color=green]Rising (60%)[/color]"
 
 [node name="Water" type="RichTextLabel" parent="Interface/Systems_Popup"]
 layout_mode = 0
@@ -140,7 +145,8 @@ offset_right = 1376.4286
 offset_bottom = 155.57143
 scale = Vector2(0.14, 0.14)
 theme_override_font_sizes/normal_font_size = 80
-text = "Water . . . . . . . RISING (400Ml)"
+bbcode_enabled = true
+text = "Water . . . . . . . . . . [color=green]Rising (400Ml)[/color]"
 
 [node name="Power" type="RichTextLabel" parent="Interface/Systems_Popup"]
 layout_mode = 0
@@ -150,7 +156,8 @@ offset_right = 1376.4286
 offset_bottom = 171.57143
 scale = Vector2(0.14, 0.14)
 theme_override_font_sizes/normal_font_size = 80
-text = "Power . . . . . . . Falling (400 kW)"
+bbcode_enabled = true
+text = "Power . . . . . . . . . . [color=#a61600]Falling (400 kW)[/color]"
 
 [node name="Oxygenator" type="RichTextLabel" parent="Interface/Systems_Popup"]
 layout_mode = 0
@@ -160,7 +167,39 @@ offset_right = 1376.4286
 offset_bottom = 188.57143
 scale = Vector2(0.14, 0.14)
 theme_override_font_sizes/normal_font_size = 80
-text = "Oxygenator . . [Leaking]"
+bbcode_enabled = true
+text = "Oxygenator . . . . . [color=#a61600]Leaking[/color]"
+
+[node name="WaterReclaimer" type="RichTextLabel" parent="Interface/Systems_Popup"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 75.0
+offset_right = 1376.4286
+offset_bottom = 203.57143
+scale = Vector2(0.14, 0.14)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "Water Reclaimer . [color=#a61600]Replace Filter[/color]"
+
+[node name="Solar Array" type="RichTextLabel" parent="Interface/Systems_Popup"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 90.0
+offset_right = 1376.4286
+offset_bottom = 218.57143
+scale = Vector2(0.14, 0.14)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "Solar Array . . . . . . [color=#a61600]0% Output[/color]"
+
+[node name="Button" type="Button" parent="Interface"]
+offset_left = 84.0
+offset_top = -51.0
+offset_right = 255.42859
+offset_bottom = 77.57135
+scale = Vector2(0.07, 0.07)
+theme_override_font_sizes/font_size = 80
+text = "X"
 
 [connection signal="body_entered" from="Area2D" to="." method="_player_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_player_exited"]

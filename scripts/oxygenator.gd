@@ -10,19 +10,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$ProgressBar.editable=overriden
 	if(GameManager.baseCarbon>500):
-		efficiency=.7
 		maxPower=10
 	elif(GameManager.baseCarbon>400):
-		efficiency=.85
 		maxPower=5
 	elif(GameManager.baseCarbon>300):
-		efficiency=1.1
-		maxPower=1.1
+		maxPower=2.5
 	elif(GameManager.baseCarbon>200):
-		efficiency=1.3
-		maxPower=.2
+		maxPower=1.25
 	elif(GameManager.baseCarbon>100):
-		maxPower=.1
+		maxPower=.5
 	else:
 		maxPower=0
 	efficiency =  1 - ((maxPower/10)-.5)

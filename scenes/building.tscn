@@ -2143,7 +2143,8 @@ position = Vector2(-12.080537, 48.322147)
 scale = Vector2(1.995, 1.995)
 
 [node name="SuitHolder" parent="Entrance Point" instance=ExtResource("17_8yjaw")]
-position = Vector2(741.8182, 759.9999)
+z_index = 1
+position = Vector2(943.63635, 792.7271)
 scale = Vector2(1.645, 1.645)
 
 [node name="BackWall" type="Sprite2D" parent="Entrance Point"]

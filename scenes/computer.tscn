@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://18tl0xb0wbl0"]
+[gd_scene load_steps=5 format=3 uid="uid://18tl0xb0wbl0"]
 
 [ext_resource type="Script" uid="uid://dmwvq1hv17gyk" path="res://scripts/computer.gd" id="1_om4aa"]
 [ext_resource type="Texture2D" uid="uid://berljblq3mt4r" path="res://assets/folder.png" id="2_8pqrt"]
+[ext_resource type="Texture2D" uid="uid://dx51kox23al1i" path="res://assets/EXE.png" id="3_7ikar"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_om4aa"]
 radius = 156.0
@@ -23,7 +24,7 @@ offset_left = -123.0
 offset_top = -74.0
 offset_right = 135.0
 offset_bottom = 73.0
-color = Color(0.12955844, 0.12955847, 0.12955844, 1)
+color = Color(0.0798076, 0.19303459, 0.3310446, 1)
 
 [node name="ZoomPoint" type="Node2D" parent="."]
 
@@ -46,9 +47,121 @@ shape = SubResource("CapsuleShape2D_om4aa")
 
 [node name="Interface" type="Node2D" parent="."]
 
-[node name="Folder" type="Sprite2D" parent="Interface"]
-position = Vector2(-76, -5)
-texture = ExtResource("2_8pqrt")
+[node name="folder" type="TextureButton" parent="Interface"]
+offset_left = -111.99999
+offset_top = -46.0
+offset_right = 400.0
+offset_bottom = 466.0
+scale = Vector2(0.045, 0.045)
+texture_normal = ExtResource("2_8pqrt")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interface/folder"]
+layout_mode = 0
+offset_left = 22.222094
+offset_top = 422.22223
+offset_right = 488.88885
+offset_bottom = 622.22217
+theme_override_font_sizes/normal_font_size = 120
+text = "Folder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="RichTextLabel" parent="Interface"]
+offset_left = -123.0
+offset_top = -74.0
+offset_right = 521.99994
+offset_bottom = -25.0
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/normal_font_size = 29
+text = "MOON BASE GAMMA - SYSTEM TERMINAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Systems" type="TextureButton" parent="Interface"]
+offset_left = -114.0
+offset_top = -15.0
+offset_right = 398.0
+offset_bottom = 497.0
+scale = Vector2(0.055, 0.055)
+texture_normal = ExtResource("3_7ikar")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interface/Systems"]
+layout_mode = 0
+offset_left = -18.181793
+offset_top = 454.54547
+offset_right = 563.6365
+offset_bottom = 654.5454
+theme_override_font_sizes/normal_font_size = 120
+text = "Systems"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Systems_Popup" type="ColorRect" parent="Interface"]
+offset_left = -96.0
+offset_top = -51.0
+offset_right = 96.0
+offset_bottom = 57.0
+color = Color(0.46229059, 0.46229059, 0.46229059, 1)
+
+[node name="Systems_Popup2" type="ColorRect" parent="Interface/Systems_Popup"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 9.0
+color = Color(0.66245234, 0.66245234, 0.6624523, 1)
+
+[node name="Title" type="RichTextLabel" parent="Interface/Systems_Popup"]
+layout_mode = 0
+offset_right = 3200.0
+offset_bottom = 149.99994
+scale = Vector2(0.06, 0.06)
+theme_override_font_sizes/normal_font_size = 100
+text = "Systems.exe"
+
+[node name="Status" type="RichTextLabel" parent="Interface/Systems_Popup"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Oxygen" type="RichTextLabel" parent="Interface/Systems_Popup"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 9.0
+offset_right = 1375.4286
+offset_bottom = 137.57143
+scale = Vector2(0.14, 0.14)
+theme_override_font_sizes/normal_font_size = 80
+text = "Oxygen . . . . . . RISING (60%)"
+
+[node name="Water" type="RichTextLabel" parent="Interface/Systems_Popup"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 27.0
+offset_right = 1376.4286
+offset_bottom = 155.57143
+scale = Vector2(0.14, 0.14)
+theme_override_font_sizes/normal_font_size = 80
+text = "Water . . . . . . . RISING (400Ml)"
+
+[node name="Power" type="RichTextLabel" parent="Interface/Systems_Popup"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 43.0
+offset_right = 1376.4286
+offset_bottom = 171.57143
+scale = Vector2(0.14, 0.14)
+theme_override_font_sizes/normal_font_size = 80
+text = "Power . . . . . . . Falling (400 kW)"
+
+[node name="Oxygenator" type="RichTextLabel" parent="Interface/Systems_Popup"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 60.0
+offset_right = 1376.4286
+offset_bottom = 188.57143
+scale = Vector2(0.14, 0.14)
+theme_override_font_sizes/normal_font_size = 80
+text = "Oxygenator . . [Leaking]"
 
 [connection signal="body_entered" from="Area2D" to="." method="_player_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_player_exited"]
+[connection signal="pressed" from="Interface/Systems" to="." method="_on_systems_pressed"]

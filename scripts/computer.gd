@@ -4,9 +4,11 @@ extends Node2D
 var displayedText=-1
 var visibleCharacters:=0.0
 var entered=false
-
+var selected:=""
 var zoomed=false
 var canZoom=true
+var lastPage=false
+var textFinished=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,6 +17,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if(displayedText+1>=len(textToDisplay) and lastPage==false):
+		lastPage=true
+	if(lastPage and $RichTextLabel.visible_ratio>=1.0 and textFinished==false):
+		textFinished=true
+		$Interface.visible=true
+		$RichTextLabel.visible=false
 #	prints(entered, zoomed, canZoom)
 	if($RichTextLabel.visible_ratio<1.0):
 		visibleCharacters+=delta*25
@@ -29,7 +37,7 @@ func _process(delta: float) -> void:
 	elif(entered and zoomed and canZoom and Input.is_action_just_pressed("Interact")):
 		unzoom()
 		
-	if(Input.is_action_just_pressed("Click") and $RichTextLabel.visible_ratio>=1.0 and entered):
+	if(Input.is_action_just_pressed("Click") and $RichTextLabel.visible_ratio>=1.0 and entered and not lastPage):
 		updateText()
 	elif(Input.is_action_just_pressed("Click") and $RichTextLabel.visible_ratio<1.0 and entered):
 		$RichTextLabel.visible_ratio=1.0
@@ -66,3 +74,10 @@ func unzoom():
 	GameManager.playerAnimator.play("appear")
 	await get_tree().create_timer(1.1).timeout
 	canZoom=true
+
+
+func _on_systems_pressed() -> void:
+	if(selected!="systems"):
+		selected="systems"
+	else:
+		$Interface/Systems_Popup.visible=true

@@ -47,6 +47,7 @@ func _process(delta: float) -> void:
 	oxygen()
 	water()
 	energy()
+	oxygenator()
 	
 
 func oxygen():
@@ -90,3 +91,14 @@ func energy():
 		var showingColor="[color=" + str(rising)
 		suffix=showingColor + "]Rising"
 	$Power.text="Power . . . . . . . . . . "+ suffix+ " " + str(round(GameManager.basePower*10)/10)+"KwH"
+
+func oxygenator():
+	var prefix="Nominal"
+	var falling=fallingColor.to_html(true)
+	if(GameManager.oxygenator.leak>0):
+		prefix=""
+		if(colorShowing):
+			prefix+="[color=" + falling +"]"
+		prefix+="Leaking"
+	$Oxygenator.text="Oxygenator . . . . . " + prefix
+	

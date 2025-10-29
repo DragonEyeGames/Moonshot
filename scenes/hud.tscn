@@ -47,10 +47,12 @@ offset_left = 1336.0
 offset_top = 24.0
 offset_right = 1880.0
 offset_bottom = 352.0
+mouse_filter = 2
 
 [node name="Oxygen" type="ProgressBar" parent="Stats"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_filter = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_61f8s")
 theme_override_styles/fill = SubResource("StyleBoxFlat_g10ll")
@@ -59,6 +61,7 @@ value = 100.0
 [node name="Stamina" type="ProgressBar" parent="Stats"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_640wx")
 theme_override_styles/fill = SubResource("StyleBoxFlat_a2258")
 value = 100.0
@@ -66,6 +69,7 @@ value = 100.0
 [node name="Energy" type="ProgressBar" parent="Stats"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_64ctp")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8sq4i")
 value = 100.0
@@ -73,6 +77,7 @@ value = 100.0
 [node name="Food" type="ProgressBar" parent="Stats"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1xsix")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rftc2")
 value = 100.0
@@ -80,6 +85,7 @@ value = 100.0
 [node name="Water" type="ProgressBar" parent="Stats"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_gpiub")
 theme_override_styles/fill = SubResource("StyleBoxFlat_amv7k")
 max_value = 400.0
@@ -88,6 +94,7 @@ value = 400.0
 [node name="Health" type="ProgressBar" parent="Stats"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1fv7p")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4u2vk")
 value = 100.0
@@ -105,26 +112,32 @@ offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.56, 0.56)
+mouse_filter = 2
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Slot1" parent="Inventory" instance=ExtResource("2_64ctp")]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Slot2" parent="Inventory" instance=ExtResource("2_64ctp")]
 layout_mode = 2
+mouse_filter = 1
 slotIndex = 1
 
 [node name="Slot3" parent="Inventory" instance=ExtResource("2_64ctp")]
 layout_mode = 2
+mouse_filter = 1
 slotIndex = 2
 
 [node name="Slot4" parent="Inventory" instance=ExtResource("2_64ctp")]
 layout_mode = 2
+mouse_filter = 1
 slotIndex = 3
 
 [node name="Slot5" parent="Inventory" instance=ExtResource("2_64ctp")]
 layout_mode = 2
+mouse_filter = 1
 slotIndex = 4
 
 [node name="Date+Time" type="Control" parent="."]
@@ -132,11 +145,13 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="Day" type="RichTextLabel" parent="Date+Time"]
 layout_mode = 0
 offset_right = 328.0
 offset_bottom = 128.0
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 70
 text = "Day 1"
 horizontal_alignment = 1
@@ -147,6 +162,7 @@ layout_mode = 0
 offset_top = 88.0
 offset_right = 328.0
 offset_bottom = 216.0
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 57
 text = "12:00"
 horizontal_alignment = 1
@@ -158,6 +174,7 @@ offset_top = 40.0
 offset_right = 1110.0
 offset_bottom = 166.0
 scale = Vector2(0.81, 0.81)
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 48
 text = "FPS: 60.0"
 horizontal_alignment = 1
@@ -171,4 +188,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)

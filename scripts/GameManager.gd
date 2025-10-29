@@ -5,6 +5,8 @@ var helmet
 var player: Player
 var playerSprinting := false
 
+var oxygenator
+
 #the player state state machine
 enum possibleStates {
 	OUTSIDE,

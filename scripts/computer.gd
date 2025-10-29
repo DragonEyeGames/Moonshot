@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var textToDisplay: Array[String]
-var displayedText=-1
+var displayedText=2
 var visibleCharacters:=0.0
 var entered=false
 var selected:=""
@@ -81,4 +81,10 @@ func _on_systems_pressed() -> void:
 	if(selected!="systems"):
 		selected="systems"
 	else:
+		selected=""
 		$Interface/Systems_Popup.visible=true
+
+
+func _on_exit_pressed() -> void:
+	selected=""
+	$Interface/Systems_Popup.visible=false

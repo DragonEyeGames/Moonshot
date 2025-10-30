@@ -152,14 +152,12 @@ func outerFilter():
 
 
 func _on_child_order_changed() -> void:
-	print("CHHANANGE")
 	if(len(get_children())<childCount or orderSwapping):
 		childCount=len(get_children())
 		return
 	orderSwapping=true
 	childCount=len(get_children())
-	print("UUNNONO")
-	if(mouseEntered and len($Control/ColorRect3/ColorRect.get_children())==2):
+	if(mouseEntered and zoomed and len($Control/ColorRect3/ColorRect.get_children())==2):
 		var child = get_child(-1)
 		if(str(child.name)=="Filter"):
 			filterClean=false

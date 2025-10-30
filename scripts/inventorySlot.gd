@@ -18,7 +18,6 @@ func _process(_delta: float) -> void:
 		for child in $InventoryItems.get_children():
 			child.visible=false
 		#print(GameManager.inventory[slotIndex])
-		print(GameManager.inventory[slotIndex]["name"])
 		$InventoryItems.get_node(GameManager.inventory[slotIndex]["name"]).visible=true
 		if(GameManager.selectedSlot==slotIndex):
 			$Outline.visible=true
@@ -44,8 +43,6 @@ func _process(_delta: float) -> void:
 					GameManager.carrots-=1
 					if(GameManager.carrots<=0):
 						GameManager.inventory.remove_at(slotIndex)
-				else:
-					print(itemSelected)
 				GameManager.selectedSlot=-1
 				$Outline.visible=false
 		else:

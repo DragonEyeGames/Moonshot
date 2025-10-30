@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmfr86mcjur1b"
-path="res://.godot/imported/shelf.png-17d6986112ac4a4ab9f529fa4cf1412f.ctex"
+uid="uid://clwei00msolvb"
+path="res://.godot/imported/jugOutline.png-5144de2c8cd427a4e28d0b01e59e589c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shelf.png"
-dest_files=["res://.godot/imported/shelf.png-17d6986112ac4a4ab9f529fa4cf1412f.ctex"]
+source_file="res://assets/jugOutline.png"
+dest_files=["res://.godot/imported/jugOutline.png-5144de2c8cd427a4e28d0b01e59e589c.ctex"]
 
 [params]
 

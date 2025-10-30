@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxtf4ma6b5hs8"
-path="res://.godot/imported/wurterJug.png-9ebac6dee97d91f04f429d3fb2c79f25.ctex"
+path="res://.godot/imported/Jug.png-01bf23abba16a5be6b9e760f6894f1bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wurterJug.png"
-dest_files=["res://.godot/imported/wurterJug.png-9ebac6dee97d91f04f429d3fb2c79f25.ctex"]
+source_file="res://assets/Jug.png"
+dest_files=["res://.godot/imported/Jug.png-01bf23abba16a5be6b9e760f6894f1bb.ctex"]
 
 [params]
 

@@ -1,26 +1,72 @@
-[gd_scene load_steps=2 format=3 uid="uid://cba4fq4q3t4ra"]
+[gd_scene load_steps=11 format=3 uid="uid://cba4fq4q3t4ra"]
 
-[ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/wurterJug.png" id="1_mom0h"]
+[ext_resource type="Script" uid="uid://bhp67edk1dbdu" path="res://scripts/jug.gd" id="1_b3r0t"]
+[ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/Jug.png" id="1_mom0h"]
+[ext_resource type="Shader" uid="uid://dnwmo2vvypjkr" path="res://scenes/VisibleItems/water.gdshader" id="2_t3w44"]
+[ext_resource type="Texture2D" uid="uid://cgr4oumdd4o62" path="res://assets/jug_underlay.png" id="3_kf67k"]
+[ext_resource type="Texture2D" uid="uid://clwei00msolvb" path="res://assets/jugOutline.png" id="5_k4r23"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kf67k"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_733ow"]
+noise = SubResource("FastNoiseLite_kf67k")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b3r0t"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k4r23"]
+noise = SubResource("FastNoiseLite_b3r0t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y65ut"]
+shader = ExtResource("2_t3w44")
+shader_parameter/horizon = 0.49600002356
+shader_parameter/noise = SubResource("NoiseTexture2D_733ow")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_k4r23")
+shader_parameter/wave_frequency = 9.875000469062499
+shader_parameter/wave_magnitude = 0.010000000475
+shader_parameter/tides_magnitude = 0.0870000041325
+shader_parameter/noise_wave = 0.8430000400425
+shader_parameter/tides_speed = 0.0
+shader_parameter/wave_speed = 3.802000180595
+shader_parameter/water_color = Color(0, 0, 0.7764706, 1)
+shader_parameter/shine_color = Color(0.15294118, 0.4392157, 0.7137255, 0)
+shader_parameter/shine_position = 0.050000002375
+shader_parameter/shine_width = 0.0
+shader_parameter/shine_intensity = 0.5
+shader_parameter/noise_scale = 2.0
+shader_parameter/noise2_scale = 1.0
 
 [node name="Jug" type="RigidBody2D"]
 visible = false
 collision_layer = 512
 collision_mask = 256
 freeze = true
+script = ExtResource("1_b3r0t")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-scale = Vector2(1.26, 1.26)
-polygon = PackedVector2Array(10.82447, 26.045456, -10.199044, 26.045456, -10.47567, -3.0001893, -2.730164, -7.1495667, -2.1769137, -13.511947, 1.9724641, -13.511947, 2.5257144, -7.1495667, 10.271219, -3.2768145)
+visible = false
+scale = Vector2(2.14, 2.14)
+polygon = PackedVector2Array(11.111111, 22.222221, -8.730158, 22.222221, -8.730158, -2.3809524, -3.174603, -3.174603, -3.174603, -7.936507, 3.9682536, -7.936507, 4.7619047, -3.9682536, 9.523809, -2.3809524)
 
 [node name="Jug2" type="Sprite2D" parent="."]
-scale = Vector2(0.065, 0.065)
+clip_children = 2
+scale = Vector2(0.11, 0.11)
 texture = ExtResource("1_mom0h")
-offset = Vector2(0, 127.125496)
+offset = Vector2(0, 127)
+
+[node name="Jug3" type="Sprite2D" parent="Jug2"]
+material = SubResource("ShaderMaterial_y65ut")
+scale = Vector2(2, 2)
+texture = ExtResource("3_kf67k")
 
 [node name="Jug" type="Area2D" parent="."]
 collision_layer = 2052
 collision_mask = 0
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Jug"]
-scale = Vector2(1.26, 1.26)
-polygon = PackedVector2Array(10.82447, 26.045456, -10.199044, 26.045456, -10.47567, -3.0001893, -2.730164, -7.1495667, -2.1769137, -13.511947, 1.9724641, -13.511947, 2.5257144, -7.1495667, 10.271219, -3.2768145)
+scale = Vector2(2.14, 2.14)
+polygon = PackedVector2Array(11.111111, 22.222221, -8.730158, 22.222221, -8.730158, -2.3809524, -3.174603, -3.174603, -3.174603, -7.936507, 3.9682536, -7.936507, 4.7619047, -3.9682536, 9.523809, -2.3809524)
+
+[node name="JugOutline" type="Sprite2D" parent="."]
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("5_k4r23")
+offset = Vector2(0, 127)

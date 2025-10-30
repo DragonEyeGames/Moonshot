@@ -11,16 +11,15 @@ center_of_mass = Vector2(10, 0)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(2.3841858e-06, -9.536743e-07)
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.145, 0.145)
 texture = ExtResource("1_4hadb")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-scale = Vector2(0.95, 0.95)
-polygon = PackedVector2Array(3.5047512, 23.393623, -32.28472, 8.656784, -32.28472, -6.080063, -0.7057743, -23.974792, 31.925806, -7.1326904, 34.031067, 4.4462585)
+polygon = PackedVector2Array(-22, 11, -23, -18, 21, -19, 21, 14)
 
 [node name="IceCream" type="Area2D" parent="."]
 collision_layer = 2052
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="IceCream"]
-polygon = PackedVector2Array(3.329516, 22.223923, -30.670485, 8.223923, -30.670485, -5.7760773, -0.67048407, -22.776077, 30.329515, -6.7760773, 32.329517, 4.2239227)
+polygon = PackedVector2Array(-22, 11, -23, -18, 21, -19, 21, 14)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5eiodc6x61h"]
+[gd_scene load_steps=9 format=3 uid="uid://c5eiodc6x61h"]
 
 [ext_resource type="Script" uid="uid://ci5ughirdgwn8" path="res://scripts/farm.gd" id="1_o03py"]
 [ext_resource type="Script" uid="uid://sryc24cvut1g" path="res://scripts/dropper.gd" id="2_jjgid"]
 [ext_resource type="PackedScene" uid="uid://c3w4cpinjn8dd" path="res://scenes/seed.tscn" id="2_kjpqf"]
-[ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/wurterJug.png" id="4_k3ns2"]
+[ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/Jug.png" id="4_k3ns2"]
+[ext_resource type="Texture2D" uid="uid://lh7i423l7poe" path="res://assets/farm.png" id="5_7byxm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o03py"]
 radius = 337.0534
@@ -21,52 +22,6 @@ offset_right = 237.58391
 offset_bottom = 244.2953
 color = Color(0.26150593, 0.14489442, 0.021798393, 1)
 script = ExtResource("1_o03py")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-show_behind_parent = true
-layout_mode = 0
-offset_left = 494.47653
-offset_top = -20.100674
-offset_right = 1023.3356
-offset_bottom = 527.55035
-rotation = 1.5707964
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 466.4765
-offset_top = 324.89935
-offset_right = 518.8255
-offset_bottom = 808.12085
-rotation = 1.5707964
-color = Color(0.18845937, 0.09082221, 0.005555805, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 458.47653
-offset_top = 230.89934
-offset_right = 510.82553
-offset_bottom = 714.12085
-rotation = 1.5707964
-color = Color(0.18845937, 0.09082221, 0.005555805, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 458.4765
-offset_top = 117.89934
-offset_right = 510.8255
-offset_bottom = 601.12085
-rotation = 1.5707964
-color = Color(0.18845937, 0.09082221, 0.005555805, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 469.4765
-offset_top = 4.8993397
-offset_right = 521.8255
-offset_bottom = 488.12085
-rotation = 1.5707964
-color = Color(0.18845937, 0.09082221, 0.005555805, 1)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -142,6 +97,7 @@ scale = Vector2(0.295, 0.295)
 texture = ExtResource("4_k3ns2")
 
 [node name="ColorRect7" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -24.523483
 offset_top = -6.100662
@@ -156,6 +112,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jug"]
 position = Vector2(224.47652, -44.100662)
 shape = SubResource("CircleShape2D_k3ns2")
+
+[node name="Farm" type="Sprite2D" parent="."]
+position = Vector2(229.47652, 404.89935)
+scale = Vector2(0.51, 0.545)
+texture = ExtResource("5_7byxm")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

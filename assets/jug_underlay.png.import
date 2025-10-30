@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmfr86mcjur1b"
-path="res://.godot/imported/shelf.png-17d6986112ac4a4ab9f529fa4cf1412f.ctex"
+uid="uid://cgr4oumdd4o62"
+path="res://.godot/imported/jug_underlay.png-ee7dee89876ded223d19fb5f1b662ea7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shelf.png"
-dest_files=["res://.godot/imported/shelf.png-17d6986112ac4a4ab9f529fa4cf1412f.ctex"]
+source_file="res://assets/jug_underlay.png"
+dest_files=["res://.godot/imported/jug_underlay.png-ee7dee89876ded223d19fb5f1b662ea7.ctex"]
 
 [params]
 

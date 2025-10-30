@@ -13,15 +13,16 @@
 [node name="InventoryItems" type="Node2D"]
 
 [node name="Protein" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.15, 0.15)
+position = Vector2(4, -16)
+scale = Vector2(0.555, 0.555)
 texture = ExtResource("1_sditr")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Protein"]
-offset_left = -639.99994
-offset_top = -746.6666
-offset_right = 782.2222
-offset_bottom = -450.37033
+offset_left = -223.42343
+offset_top = -187.38739
+offset_right = 1198.7987
+offset_bottom = 108.908905
+scale = Vector2(0.315, 0.315)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 200
 text = "Protein Bar"
@@ -100,14 +101,15 @@ vertical_alignment = 1
 
 [node name="IceCream" type="Sprite2D" parent="."]
 visible = false
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.57, 0.57)
 texture = ExtResource("2_ri7ka")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="IceCream"]
-offset_left = -639.99994
-offset_top = -746.6666
-offset_right = 782.2222
-offset_bottom = -450.37033
+offset_left = -208.77191
+offset_top = -233.33333
+offset_right = 1213.4502
+offset_bottom = 62.962967
+scale = Vector2(0.3, 0.3)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 200
 text = "Ice Cream"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2xxynf0fcwu0"]
 
-[ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/wurterJug.png" id="1_tejjl"]
+[ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/Jug.png" id="1_tejjl"]
 [ext_resource type="Script" uid="uid://ccrthlwpbf7ja" path="res://scripts/rehydrator.gd" id="1_xlocb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tejjl"]

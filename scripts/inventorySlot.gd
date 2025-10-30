@@ -18,6 +18,7 @@ func _process(_delta: float) -> void:
 		for child in $InventoryItems.get_children():
 			child.visible=false
 		#print(GameManager.inventory[slotIndex])
+		print(GameManager.inventory[slotIndex]["name"])
 		$InventoryItems.get_node(GameManager.inventory[slotIndex]["name"]).visible=true
 		if(GameManager.selectedSlot==slotIndex):
 			$Outline.visible=true

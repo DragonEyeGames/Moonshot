@@ -8,7 +8,7 @@
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_kf67k"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_733ow"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b3r0t"]
 noise = SubResource("FastNoiseLite_kf67k")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_b3r0t"]
@@ -19,7 +19,7 @@ noise = SubResource("FastNoiseLite_b3r0t")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y65ut"]
 shader = ExtResource("2_t3w44")
 shader_parameter/horizon = 0.49600002356
-shader_parameter/noise = SubResource("NoiseTexture2D_733ow")
+shader_parameter/noise = SubResource("NoiseTexture2D_b3r0t")
 shader_parameter/noise2 = SubResource("NoiseTexture2D_k4r23")
 shader_parameter/wave_frequency = 14.834000704615
 shader_parameter/wave_magnitude = 0.0050000002375
@@ -58,6 +58,11 @@ material = SubResource("ShaderMaterial_y65ut")
 scale = Vector2(2, 2)
 texture = ExtResource("3_kf67k")
 
+[node name="JugOutline" type="Sprite2D" parent="."]
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("5_k4r23")
+offset = Vector2(0, 127)
+
 [node name="Jug" type="Area2D" parent="."]
 collision_layer = 2052
 collision_mask = 0
@@ -65,8 +70,3 @@ collision_mask = 0
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Jug"]
 scale = Vector2(2.14, 2.14)
 polygon = PackedVector2Array(11.111111, 22.222221, -8.730158, 22.222221, -8.730158, -2.3809524, -3.174603, -3.174603, -3.174603, -7.936507, 3.9682536, -7.936507, 4.7619047, -3.9682536, 9.523809, -2.3809524)
-
-[node name="JugOutline" type="Sprite2D" parent="."]
-scale = Vector2(0.11, 0.11)
-texture = ExtResource("5_k4r23")
-offset = Vector2(0, 127)

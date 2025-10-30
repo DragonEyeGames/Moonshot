@@ -10,6 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	$WurterJug/Jug3.position=Vector2(15, 270).lerp(Vector2(15, -155), water/100)
 	#water=GameManager.water
 	if(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and len(GameManager.inventory)<=4 and $WurterJug.visible):
 		GameManager.pickedUpJugWater=water

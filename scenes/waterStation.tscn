@@ -1,7 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2xxynf0fcwu0"]
+[gd_scene load_steps=12 format=3 uid="uid://c2xxynf0fcwu0"]
 
 [ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/Jug.png" id="1_tejjl"]
 [ext_resource type="Script" uid="uid://ccrthlwpbf7ja" path="res://scripts/rehydrator.gd" id="1_xlocb"]
+[ext_resource type="Shader" uid="uid://dnwmo2vvypjkr" path="res://scenes/VisibleItems/water.gdshader" id="3_6o2n7"]
+[ext_resource type="Texture2D" uid="uid://cgr4oumdd4o62" path="res://assets/jug_underlay.png" id="4_0b0u3"]
+[ext_resource type="Texture2D" uid="uid://clwei00msolvb" path="res://assets/jugOutline.png" id="5_dmkk4"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_eokd4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_733ow"]
+noise = SubResource("FastNoiseLite_eokd4")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nkn22"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k4r23"]
+noise = SubResource("FastNoiseLite_nkn22")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_opijt"]
+shader = ExtResource("3_6o2n7")
+shader_parameter/horizon = 0.49600002356
+shader_parameter/noise = SubResource("NoiseTexture2D_733ow")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_k4r23")
+shader_parameter/wave_frequency = 14.834000704615
+shader_parameter/wave_magnitude = 0.0050000002375
+shader_parameter/tides_magnitude = 0.0870000041325
+shader_parameter/noise_wave = 0.8430000400425
+shader_parameter/tides_speed = 0.0010000000475
+shader_parameter/wave_speed = 1.158000055005
+shader_parameter/water_color = Color(0, 0.29803923, 0.6901961, 1)
+shader_parameter/shine_color = Color(0, 0, 0, 1)
+shader_parameter/shine_position = 0.050000002375
+shader_parameter/shine_width = 0.0
+shader_parameter/shine_intensity = 0.5
+shader_parameter/noise_scale = 2.0
+shader_parameter/noise2_scale = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tejjl"]
 radius = 216.0
@@ -10,11 +42,25 @@ height = 480.0
 [node name="Rehydrator" type="Node2D"]
 script = ExtResource("1_xlocb")
 
+[node name="JugOutline" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(0, -108)
+scale = Vector2(0.345, 0.345)
+texture = ExtResource("5_dmkk4")
+offset = Vector2(0, 127)
+
 [node name="WurterJug" type="Sprite2D" parent="."]
+clip_children = 2
 z_index = 2
 position = Vector2(9.094947e-13, -64.42953)
 scale = Vector2(0.345, 0.345)
 texture = ExtResource("1_tejjl")
+
+[node name="Jug3" type="Sprite2D" parent="WurterJug"]
+material = SubResource("ShaderMaterial_opijt")
+position = Vector2(14.492753, -155.27673)
+scale = Vector2(2, 2)
+texture = ExtResource("4_0b0u3")
 
 [node name="Desk" type="Node2D" parent="."]
 

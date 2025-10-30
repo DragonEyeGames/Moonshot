@@ -60,7 +60,7 @@ visibility_layer = 0
 color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.1
+energy = 0.34
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("following")]
 zoom = Vector2(0.75, 0.75)

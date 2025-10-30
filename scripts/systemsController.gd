@@ -48,6 +48,8 @@ func _process(delta: float) -> void:
 	water()
 	energy()
 	oxygenator()
+	waterReclaimer()
+	powerGrid()
 	
 
 func oxygen():
@@ -102,3 +104,17 @@ func oxygenator():
 		prefix+="Leaking"
 	$Oxygenator.text="Oxygenator . . . . . " + prefix
 	
+func waterReclaimer():
+	var prefix:=""
+	var falling=fallingColor.to_html(true)
+	if(GameManager.waterReclaimer.filterClean==false):
+		prefix="Replace Filter"
+		if(colorShowing):
+			prefix="[color=" + falling +"]" + prefix
+	else:
+		prefix="Stable"
+	
+	$WaterReclaimer.text="Water Reclaimer . " + str(prefix)
+
+func powerGrid():
+	$"Solar Array".text="Solar Array . . . . . . " + str(GameManager.currentEmission*10) +" kWh"

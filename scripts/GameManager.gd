@@ -6,6 +6,8 @@ var player: Player
 var playerSprinting := false
 
 var oxygenator
+var waterReclaimer
+var solarField
 
 #the player state state machine
 enum possibleStates {

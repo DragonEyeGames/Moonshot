@@ -19,6 +19,7 @@ var filterClean:=false
 
 func _ready() -> void:
 	childCount=len(get_children())
+	GameManager.waterReclaimer=self
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(GameManager.baseHumidity>200):
@@ -144,10 +145,10 @@ func outerFilter():
 		filterDragging=false
 	if(filterDragging):
 		$Control/ColorRect.global_position.x=GameManager.mousePos.x+offset
-		if($Control/ColorRect.position.x<-50):
-			$Control/ColorRect.position.x=-50
-		elif($Control/ColorRect.position.x>26):
-			$Control/ColorRect.position.x=26
+		if($Control/ColorRect.position.x<-375):
+			$Control/ColorRect.position.x=-375
+		elif($Control/ColorRect.position.x>-300):
+			$Control/ColorRect.position.x=-300
 
 
 func _on_child_order_changed() -> void:

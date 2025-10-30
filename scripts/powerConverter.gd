@@ -14,6 +14,7 @@ var connectedWires=0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	flicker()
+	GameManager.solarField=self
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,6 +56,8 @@ func _process(delta: float) -> void:
 		var powerEmission:=0.0
 		for child in $Panels.get_children():
 			powerEmission+=child.powerEmission
+		if(powerEmission<0):
+			powerEmission=0
 		GameManager.basePower+=powerEmission*delta
 		GameManager.currentEmission=round(powerEmission*delta*100)/100
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://313clql8xlh4"]
+[gd_scene load_steps=28 format=3 uid="uid://313clql8xlh4"]
 
 [ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://scripts/player.gd" id="1_hqtel"]
 [ext_resource type="PackedScene" uid="uid://bn36inecn6soy" path="res://scenes/VisibleItems/filter.tscn" id="2_d2wvv"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bnoqv312svl4k" path="res://scenes/bag.tscn" id="7_smehm"]
 [ext_resource type="Script" uid="uid://cp0sd7il7sd3y" path="res://scripts/tape.gd" id="7_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://csk5nfyi47xdp" path="res://scenes/hud.tscn" id="10_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://kkljxiluisix" path="res://assets/playerDust.png" id="14_f1ej7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur7pv"]
 radius = 46.0
@@ -224,7 +225,15 @@ modifications/0 = SubResource("SkeletonModification2DCCDIK_fjrip")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4r1p"]
 size = Vector2(217.1538, 218.3018)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="Curve" id="Curve_oprun"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 0.20224726), 1.5409313, 1.5409313, 0, 0, Vector2(0.50416666, 0.3370787), 0.20224714, 0.20224714, 0, 0, Vector2(0.7875, 0.20224726), -1.1440244, -1.1440244, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_a8ls1"]
+offsets = PackedFloat32Array(0, 0.27570093, 0.78971964, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.44313726, 1, 1, 1, 0.6627451, 1, 1, 1, 0)
+
+[node name="Player" type="CharacterBody2D"]
 z_index = 2
 collision_layer = 2
 script = ExtResource("1_hqtel")
@@ -411,6 +420,42 @@ scale = Vector2(0.35, 0.35)
 shape = SubResource("RectangleShape2D_y4r1p")
 
 [node name="HUD" parent="." instance=ExtResource("10_y4r1p")]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(-4, 48)
+emitting = false
+amount = 100
+texture = ExtResource("14_f1ej7")
+lifetime = 5.0
+randomness = 0.1
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 100.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+scale_amount_curve = SubResource("Curve_oprun")
+color_ramp = SubResource("Gradient_a8ls1")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(-4, 48)
+emitting = false
+amount = 100
+texture = ExtResource("14_f1ej7")
+lifetime = 5.0
+randomness = 0.1
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 100.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+scale_amount_curve = SubResource("Curve_oprun")
+color_ramp = SubResource("Gradient_a8ls1")
 
 [connection signal="area_entered" from="CanvasLayer/OverlayArm/Sprites/Square4/Area2D" to="." method="_in_bag_entered"]
 [connection signal="area_exited" from="CanvasLayer/OverlayArm/Sprites/Square4/Area2D" to="." method="_in_bag_exited"]

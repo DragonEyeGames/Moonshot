@@ -165,6 +165,15 @@ func movement():
 	velocity*=speed*healthMod
 	if(GameManager.playerMove):
 		move_and_slide()
+		if(abs(velocity.x)>0):
+			$CPUParticles2D.emitting=true
+			if(speed*healthMod>=500):
+				$CPUParticles2D2.emitting=true
+			else:
+				$CPUParticles2D2.emitting=false
+		else:
+			$CPUParticles2D.emitting=false
+			$CPUParticles2D2.emitting=false
 		
 func closedBagPickup():
 	fromBag=false

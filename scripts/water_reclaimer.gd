@@ -167,7 +167,9 @@ func _on_child_order_changed() -> void:
 			child.set_deferred("freeze", true)
 			child.set_deferred("global_position", Vector2(-2485.5, -3693.8))
 			child.set_deferred("rotation", 0)
-			child.set_deferred("scale", Vector2(0.75, 0.75))
+			child.set_deferred("scale", Vector2.ONE)
+			for sub in child.get_children():
+				sub.set_deferred("scale", sub.scale*.75)
 			child.get_node("Filter").get_child(0).set_deferred("disabled", false)
 		elif(str(child.name)=="CleanFilter"):
 			filterClean=true
@@ -177,7 +179,9 @@ func _on_child_order_changed() -> void:
 			child.set_deferred("freeze", true)
 			child.set_deferred("global_position", Vector2(-2485.5, -3693.8))
 			child.set_deferred("rotation", 0)
-			child.set_deferred("scale", Vector2(0.75, 0.75))
+			child.set_deferred("scale", Vector2.ONE)
+			for sub in child.get_children():
+				sub.set_deferred("scale", sub.scale*.75)
 			child.get_node("CleanFilter").get_child(0).set_deferred("disabled", false)
 	orderSwapping=false
 

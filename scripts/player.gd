@@ -183,7 +183,8 @@ func closedBagPickup():
 	pickedUp=true
 	pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
 	for child in pickable.get_children():
-		child.scale*=3.8
+		print(child.scale)
+		child.scale*=GameManager.camera.zoom
 	pickable.position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.position
 
 func openBagPickup():
@@ -202,7 +203,11 @@ func closedBagDrop():
 	pickable.set_deferred("freeze", true)
 	if(not fromBag):
 		for child in pickable.get_children():
-			child.scale/=3.8
+			child.scale/=GameManager.camera.zoom
+			print(child.scale)
+	elif(str(GameManager.collisionTool.name)=="Water Reclaimer"):
+		for child in pickable.get_children():
+			child.set_deferred("scale", child.scale/2)
 	var screenPos=pickable.global_position
 	pickable.reparent(GameManager.collisionTool)
 	pickable.global_position=get_canvas_transform().affine_inverse() * screenPos

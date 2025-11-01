@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://313clql8xlh4"]
+[gd_scene load_steps=30 format=3 uid="uid://313clql8xlh4"]
 
 [ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://scripts/player.gd" id="1_hqtel"]
 [ext_resource type="PackedScene" uid="uid://bn36inecn6soy" path="res://scenes/VisibleItems/filter.tscn" id="2_d2wvv"]
@@ -225,6 +225,14 @@ modifications/0 = SubResource("SkeletonModification2DCCDIK_fjrip")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4r1p"]
 size = Vector2(217.1538, 218.3018)
 
+[sub_resource type="Curve" id="Curve_f1ej7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.13333333, 0.13483155), 1.5409313, 1.5409313, 0, 0, Vector2(0.51666665, 0.26966298), 0.20224714, 0.20224714, 0, 0, Vector2(0.8041667, 0.1460675), -1.1440244, -1.1440244, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_f1ej7"]
+offsets = PackedFloat32Array(0, 0.11214953, 0.7616823, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.6784314, 1, 1, 1, 0.49803922, 1, 1, 1, 0)
+
 [sub_resource type="Curve" id="Curve_oprun"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 0.20224726), 1.5409313, 1.5409313, 0, 0, Vector2(0.50416666, 0.3370787), 0.20224714, 0.20224714, 0, 0, Vector2(0.7875, 0.20224726), -1.1440244, -1.1440244, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 5
@@ -425,7 +433,7 @@ shape = SubResource("RectangleShape2D_y4r1p")
 z_index = -1
 position = Vector2(-4, 48)
 emitting = false
-amount = 100
+amount = 30
 texture = ExtResource("14_f1ej7")
 lifetime = 5.0
 randomness = 0.1
@@ -436,14 +444,14 @@ initial_velocity_min = 60.0
 initial_velocity_max = 100.0
 angular_velocity_min = -720.0
 angular_velocity_max = 720.0
-scale_amount_curve = SubResource("Curve_oprun")
-color_ramp = SubResource("Gradient_a8ls1")
+scale_amount_curve = SubResource("Curve_f1ej7")
+color_ramp = SubResource("Gradient_f1ej7")
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
 z_index = -1
 position = Vector2(-4, 48)
 emitting = false
-amount = 100
+amount = 150
 texture = ExtResource("14_f1ej7")
 lifetime = 5.0
 randomness = 0.1

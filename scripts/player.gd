@@ -165,7 +165,7 @@ func movement():
 	velocity*=speed*healthMod
 	if(GameManager.playerMove):
 		move_and_slide()
-		if(abs(velocity.x)>0):
+		if((abs(velocity.x)>0 or abs(velocity.y)>0) and GameManager.playerState==GameManager.possibleStates.OUTSIDE):
 			$CPUParticles2D.emitting=true
 			if(speed*healthMod>=500):
 				$CPUParticles2D2.emitting=true

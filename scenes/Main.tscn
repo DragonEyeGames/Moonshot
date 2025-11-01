@@ -236,6 +236,74 @@ texture = ExtResource("10_lhr70")
 position = Vector2(-1010, -1811)
 texture = ExtResource("10_lhr70")
 
+[node name="Dust99" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-3094, -61)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust100" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-3403, -159)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust101" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-3647, -86)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust102" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-3594, 135)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust103" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-3268, 249)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust104" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-2674, 168)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust105" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-2269, 295)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust106" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-2259, -59)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust107" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-2803, -76)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust108" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-1777, 282)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust109" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-1415, 318)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust110" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-1315, -95)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust111" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-1787, -136)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust112" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-2463, -754)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust120" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(2640, -451)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust121" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-5214, -880)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust122" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-3498, -797)
+texture = ExtResource("10_lhr70")
+
 [node name="Dust27" type="Sprite2D" parent="Lunar Ground"]
 position = Vector2(1208, -527)
 texture = ExtResource("10_lhr70")
@@ -245,19 +313,176 @@ position = Vector2(-499, 251)
 texture = ExtResource("10_lhr70")
 
 [node name="Pebble03" type="Sprite2D" parent="Lunar Ground"]
-position = Vector2(-848, -1381)
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-749.5952, -1389.9604)
 rotation = 2.9513516
 scale = Vector2(0.235, 0.235)
 texture = ExtResource("11_wp0k4")
 
 [node name="Pebble05" type="Sprite2D" parent="Lunar Ground"]
-position = Vector2(-2108, -1141.9999)
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-2009.5952, -1150.9603)
 rotation = 0.82903135
 scale = Vector2(0.235, 0.235)
 texture = ExtResource("11_wp0k4")
 
 [node name="Pebble08" type="Sprite2D" parent="Lunar Ground"]
-position = Vector2(-456, -346)
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-357.5952, -354.96045)
+rotation = 1.6510814
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble04" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(1954.4045, -1273.9604)
+rotation = 2.9513516
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble06" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(694.40454, -1034.9603)
+rotation = 0.82903135
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble09" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(2346.4045, -238.96043)
+rotation = 1.6510814
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble07" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(960.40485, -1.9605713)
+rotation = 2.9513516
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble10" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-299.59515, 237.03955)
+rotation = 0.82903135
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble11" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(1352.4048, 1033.0394)
+rotation = 1.6510814
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble12" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-2227.595, -314.96042)
+rotation = 2.9513516
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble13" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-3487.595, -75.9603)
+rotation = 0.82903135
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble14" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-1835.595, 720.03955)
+rotation = 1.6510814
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble15" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-4931.5947, -959.9603)
+rotation = 2.9513516
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble16" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-6191.5947, -720.9602)
+rotation = 0.82903135
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble17" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-4539.5947, 75.03961)
+rotation = 1.6510814
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble18" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-4009.5952, -601.96045)
+rotation = 2.9513516
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble21" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-3552.9998, -1318)
+rotation = 2.9513516
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble22" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-3132.0002, -646.00006)
+rotation = 2.9513516
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble23" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(1362.9998, -1595)
+rotation = 2.9513516
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble24" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(3610.9998, -888.00006)
+rotation = 2.9513516
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble25" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(1605.0001, 785.9998)
+rotation = 2.9513516
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble26" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-3077.9995, 1055)
+rotation = 2.9513516
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble27" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-1502.0001, -1720.9998)
+rotation = 2.9513516
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble19" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-5269.595, -362.96036)
+rotation = 0.82903135
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble20" type="Sprite2D" parent="Lunar Ground"]
+modulate = Color(1, 1, 1, 0.6509804)
+position = Vector2(-3617.5952, 433.03946)
 rotation = 1.6510814
 scale = Vector2(0.235, 0.235)
 texture = ExtResource("11_wp0k4")
@@ -432,6 +657,86 @@ texture = ExtResource("12_bjd11")
 
 [node name="Dust71" type="Sprite2D" parent="Lunar Ground"]
 position = Vector2(-3692, -901)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust77" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-3375, -282)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust78" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-3098, 44)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust79" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-2829, 508)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust80" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-2593, 899)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust81" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-2284, 785)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust82" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-2269, 424)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust83" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(482, 399)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust84" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(2143, -322)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust85" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(2716, -674)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust86" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(3569, -224)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust87" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(2820, 245)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust88" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(2515, 643)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust89" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(1515, 1143)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust90" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(799, 1285)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust91" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-667, 1399)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust92" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-1610, 1285)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust93" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-2692, 785)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust94" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-3716, 544)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust95" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-4005, 544)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust96" type="Sprite2D" parent="Lunar Ground"]
+position = Vector2(-4005, 544)
 texture = ExtResource("12_bjd11")
 
 [node name="Dust72" type="Sprite2D" parent="Lunar Ground"]

@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 folder_colors={
 "res://addons/": "gray",
 "res://assets/": "red",
+"res://assets/craters/": "blue",
 "res://builds/": "pink",
 "res://images/": "purple",
 "res://scenes/": "orange",
@@ -133,4 +134,4 @@ Click={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.38928655, 0.38928664, 0.38928658, 1)
+environment/defaults/default_clear_color=Color(0.40327662, 0.3928764, 0.36516353, 1)

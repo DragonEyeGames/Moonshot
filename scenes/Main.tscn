@@ -1,10 +1,18 @@
-[gd_scene load_steps=8 format=4 uid="uid://dnnka5th1gldj"]
+[gd_scene load_steps=18 format=4 uid="uid://dnnka5th1gldj"]
 
 [ext_resource type="Script" uid="uid://dt3i83nbqr5t7" path="res://scripts/main.gd" id="1_c01mt"]
 [ext_resource type="Texture2D" uid="uid://bot5iwir3qe7s" path="res://assets/rock.png" id="2_nxtc6"]
 [ext_resource type="PackedScene" uid="uid://313clql8xlh4" path="res://scenes/player.tscn" id="3_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://ectb2uu36h7a" path="res://scenes/building.tscn" id="4_q8u5g"]
+[ext_resource type="Texture2D" uid="uid://gud026082ljy" path="res://assets/craters/Crater01.png" id="6_c01mt"]
 [ext_resource type="Script" uid="uid://ciwk8lbq7ss13" path="res://scripts/camera.gd" id="6_wp0k4"]
+[ext_resource type="Texture2D" uid="uid://0s7mci0e8lib" path="res://assets/craters/Dust01.png" id="7_nxtc6"]
+[ext_resource type="Texture2D" uid="uid://b56kutnmjlgb3" path="res://assets/craters/Dust02.png" id="8_q8u5g"]
+[ext_resource type="Texture2D" uid="uid://04xonosvqhh2" path="res://assets/craters/Crater02.png" id="9_lhr70"]
+[ext_resource type="Texture2D" uid="uid://cl20rhcb2g774" path="res://assets/craters/Dust03.png" id="10_lhr70"]
+[ext_resource type="Texture2D" uid="uid://h2kct8wxkvpi" path="res://assets/craters/Pebble01.png" id="11_wp0k4"]
+[ext_resource type="Texture2D" uid="uid://dnbgkck0py8x1" path="res://assets/craters/Dust04.png" id="12_bjd11"]
+[ext_resource type="Texture2D" uid="uid://rcblaf2kc7mj" path="res://assets/craters/Crater03.png" id="13_qmy6f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2au82"]
 texture = ExtResource("2_nxtc6")
@@ -36,17 +44,27 @@ texture = ExtResource("2_nxtc6")
 [sub_resource type="TileSet" id="TileSet_8tn2x"]
 sources/0 = SubResource("TileSetAtlasSource_2au82")
 
+[sub_resource type="Curve" id="Curve_qmy6f"]
+_limits = [0.0, 20.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5208333, 11.235954), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_mwfav"]
+offsets = PackedFloat32Array(0.009345794, 0.12616822, 0.5140187, 0.8598131, 1)
+colors = PackedColorArray(0.34509805, 0.34509805, 0.23529412, 0, 0.44705883, 0.44705883, 0.33333334, 0.17254902, 0.49803922, 0.49803922, 0.38431373, 0.5254902, 0.44705883, 0.44705883, 0.33333334, 0.27450982, 0.34509805, 0.34509805, 0.23529412, 0)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_c01mt")
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="player" parent="." instance=ExtResource("3_jlsqs")]
-z_index = 4
-position = Vector2(-131.9999, -3475)
+z_index = 3
+position = Vector2(-361.99997, -643.00024)
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+visible = false
 z_index = -2
 texture_filter = 1
 scale = Vector2(10, 10)
@@ -68,3 +86,405 @@ zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
 script = ExtResource("6_wp0k4")
 following = NodePath("../player")
+
+[node name="Crater01" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.7411765)
+position = Vector2(-1227, -1193)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("6_c01mt")
+
+[node name="Crater11" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.7411765)
+position = Vector2(-5351, -108)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("6_c01mt")
+
+[node name="Crater04" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.7411765)
+position = Vector2(-2732, -1247)
+scale = Vector2(0.355, 0.29)
+texture = ExtResource("6_c01mt")
+
+[node name="Dust01" type="Sprite2D" parent="."]
+position = Vector2(-539, -1323)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust04" type="Sprite2D" parent="."]
+position = Vector2(-1633, -755)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust05" type="Sprite2D" parent="."]
+position = Vector2(-1591, -1382)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust06" type="Sprite2D" parent="."]
+position = Vector2(782, -1161)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust07" type="Sprite2D" parent="."]
+position = Vector2(640, -292)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust08" type="Sprite2D" parent="."]
+position = Vector2(-262, -288)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust09" type="Sprite2D" parent="."]
+position = Vector2(-989, -1600)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust10" type="Sprite2D" parent="."]
+position = Vector2(-1244, -1542)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust11" type="Sprite2D" parent="."]
+position = Vector2(-1520, -569)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust12" type="Sprite2D" parent="."]
+position = Vector2(-2005, -690)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust13" type="Sprite2D" parent="."]
+position = Vector2(-2419, -1045)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust14" type="Sprite2D" parent="."]
+position = Vector2(-2440, -665)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust15" type="Sprite2D" parent="."]
+position = Vector2(-2290, -360)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust16" type="Sprite2D" parent="."]
+position = Vector2(-1759, -932)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust17" type="Sprite2D" parent="."]
+position = Vector2(-965, -1479)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust18" type="Sprite2D" parent="."]
+position = Vector2(-815, -1174)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust19" type="Sprite2D" parent="."]
+position = Vector2(643, -1057)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust20" type="Sprite2D" parent="."]
+position = Vector2(844, -676)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust21" type="Sprite2D" parent="."]
+position = Vector2(231, -255)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust22" type="Sprite2D" parent="."]
+position = Vector2(-504, -579)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust23" type="Sprite2D" parent="."]
+position = Vector2(-1110, -437)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust24" type="Sprite2D" parent="."]
+position = Vector2(-1110, -437)
+texture = ExtResource("7_nxtc6")
+
+[node name="Dust02" type="Sprite2D" parent="."]
+position = Vector2(-779, -517)
+texture = ExtResource("8_q8u5g")
+
+[node name="Dust03" type="Sprite2D" parent="."]
+position = Vector2(-779, -517)
+texture = ExtResource("8_q8u5g")
+
+[node name="Crater02" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.7137255)
+position = Vector2(-926.00024, -455.99994)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("9_lhr70")
+
+[node name="Crater10" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.7137255)
+position = Vector2(-4185.0005, -1513)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("9_lhr70")
+
+[node name="Crater03" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.7137255)
+position = Vector2(756.00024, -1329)
+scale = Vector2(0.275, 0.215)
+texture = ExtResource("9_lhr70")
+
+[node name="Crater09" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.7137255)
+position = Vector2(-1572, 659)
+scale = Vector2(0.275, 0.215)
+texture = ExtResource("9_lhr70")
+
+[node name="Dust25" type="Sprite2D" parent="."]
+position = Vector2(-1864, -919)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust26" type="Sprite2D" parent="."]
+position = Vector2(-1010, -1811)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust27" type="Sprite2D" parent="."]
+position = Vector2(1208, -527)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust28" type="Sprite2D" parent="."]
+position = Vector2(-499, 251)
+texture = ExtResource("10_lhr70")
+
+[node name="Pebble03" type="Sprite2D" parent="."]
+position = Vector2(-848, -1381)
+rotation = -3.3318336
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble05" type="Sprite2D" parent="."]
+position = Vector2(-2108, -1141.9999)
+rotation = 0.8290314
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Pebble08" type="Sprite2D" parent="."]
+position = Vector2(-456, -346)
+rotation = 1.6510814
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("11_wp0k4")
+
+[node name="Dust29" type="Sprite2D" parent="."]
+position = Vector2(-1623, -1617)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust30" type="Sprite2D" parent="."]
+position = Vector2(-1860, 513)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust31" type="Sprite2D" parent="."]
+position = Vector2(-1649, -1444)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust32" type="Sprite2D" parent="."]
+position = Vector2(-2972, -399)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust33" type="Sprite2D" parent="."]
+position = Vector2(-915, -849)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust34" type="Sprite2D" parent="."]
+position = Vector2(1426, -1121)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust35" type="Sprite2D" parent="."]
+position = Vector2(2015, -371)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust36" type="Sprite2D" parent="."]
+position = Vector2(-1983, -371)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust37" type="Sprite2D" parent="."]
+position = Vector2(1526, -910)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust38" type="Sprite2D" parent="."]
+position = Vector2(-1849, -365)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust39" type="Sprite2D" parent="."]
+position = Vector2(-915, 369)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust40" type="Sprite2D" parent="."]
+position = Vector2(-86, -76)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust41" type="Sprite2D" parent="."]
+position = Vector2(628, -559)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust42" type="Sprite2D" parent="."]
+position = Vector2(-1706, -1812)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust43" type="Sprite2D" parent="."]
+position = Vector2(-1368, -1907)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust44" type="Sprite2D" parent="."]
+position = Vector2(-640, -1852)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust45" type="Sprite2D" parent="."]
+position = Vector2(-264, -1648)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust46" type="Sprite2D" parent="."]
+position = Vector2(-64, -1199)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust47" type="Sprite2D" parent="."]
+position = Vector2(22, -940)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust48" type="Sprite2D" parent="."]
+position = Vector2(236, -1323)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust49" type="Sprite2D" parent="."]
+position = Vector2(543, -1557)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust50" type="Sprite2D" parent="."]
+position = Vector2(676, -1774)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust51" type="Sprite2D" parent="."]
+position = Vector2(1243, -1835)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust52" type="Sprite2D" parent="."]
+position = Vector2(1771, -1841)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust53" type="Sprite2D" parent="."]
+position = Vector2(2294, -1563)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust54" type="Sprite2D" parent="."]
+position = Vector2(2105, -1607)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust55" type="Sprite2D" parent="."]
+position = Vector2(2768, -1482)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust56" type="Sprite2D" parent="."]
+position = Vector2(3216, -1643)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust57" type="Sprite2D" parent="."]
+position = Vector2(3332, -1992)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust58" type="Sprite2D" parent="."]
+position = Vector2(3329, -2529)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust59" type="Sprite2D" parent="."]
+position = Vector2(-2640, -1305)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust60" type="Sprite2D" parent="."]
+position = Vector2(-3023, -1468)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust61" type="Sprite2D" parent="."]
+position = Vector2(-3495, -1647)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust62" type="Sprite2D" parent="."]
+position = Vector2(-4122, -1699)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust63" type="Sprite2D" parent="."]
+position = Vector2(-4622, -1473)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust64" type="Sprite2D" parent="."]
+position = Vector2(-5021, -1416)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust65" type="Sprite2D" parent="."]
+position = Vector2(-5705, -1473)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust66" type="Sprite2D" parent="."]
+position = Vector2(-6039, -1709)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust67" type="Sprite2D" parent="."]
+position = Vector2(-6039, -1709)
+texture = ExtResource("10_lhr70")
+
+[node name="Dust68" type="Sprite2D" parent="."]
+position = Vector2(1282, -1177)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust69" type="Sprite2D" parent="."]
+position = Vector2(-3081, -724)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust70" type="Sprite2D" parent="."]
+position = Vector2(-3347, -832)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust71" type="Sprite2D" parent="."]
+position = Vector2(-3692, -901)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust72" type="Sprite2D" parent="."]
+position = Vector2(-4066, -822)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust73" type="Sprite2D" parent="."]
+position = Vector2(-4470, -595)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust74" type="Sprite2D" parent="."]
+position = Vector2(-3584, -497)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust75" type="Sprite2D" parent="."]
+position = Vector2(-2886, -322)
+texture = ExtResource("12_bjd11")
+
+[node name="Dust76" type="Sprite2D" parent="."]
+position = Vector2(-2886, -322)
+texture = ExtResource("12_bjd11")
+
+[node name="Crater05" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.67058825)
+position = Vector2(1657, -920)
+scale = Vector2(0.41, 0.325)
+texture = ExtResource("13_qmy6f")
+
+[node name="Crater06" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.67058825)
+position = Vector2(3421, -1400)
+scale = Vector2(0.41, 0.325)
+texture = ExtResource("13_qmy6f")
+
+[node name="Crater07" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.67058825)
+position = Vector2(2982, 480)
+scale = Vector2(0.41, 0.325)
+texture = ExtResource("13_qmy6f")
+
+[node name="Crater08" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.67058825)
+position = Vector2(-4387, -917)
+scale = Vector2(0.41, 0.325)
+texture = ExtResource("13_qmy6f")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-37, -1463)
+amount = 1000
+lifetime = 6.0
+randomness = 0.95
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(7000, 4000)
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_qmy6f")
+color_ramp = SubResource("Gradient_mwfav")

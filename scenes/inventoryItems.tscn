@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8fbtnlq1oocd"]
+[gd_scene load_steps=11 format=3 uid="uid://b8fbtnlq1oocd"]
 
 [ext_resource type="Texture2D" uid="uid://372hu3xsfi0g" path="res://assets/proteinBar.png" id="1_sditr"]
 [ext_resource type="Texture2D" uid="uid://boi5dfsykcyy0" path="res://assets/DuctTape.png" id="2_ji6jm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://uwnjyu6rtfop" path="res://assets/macHydrated.png" id="4_wvdm6"]
 [ext_resource type="Texture2D" uid="uid://c70althcu8by2" path="res://assets/cup.png" id="5_7on13"]
 [ext_resource type="Texture2D" uid="uid://rciu6av3yice" path="res://assets/agua.png" id="6_vb3cu"]
+[ext_resource type="Texture2D" uid="uid://dy4c53krfqpij" path="res://assets/Seeds.png" id="7_g4ica"]
 
 [node name="InventoryItems" type="Node2D"]
 
@@ -134,6 +135,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Mac" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-3, 12)
 scale = Vector2(0.37, 0.37)
 texture = ExtResource("3_o85l3")
@@ -152,15 +154,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SeedBag" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("3_o85l3")
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("7_g4ica")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SeedBag"]
-offset_left = -640.0
-offset_top = -959.99994
-offset_right = 782.22217
-offset_bottom = -373.3333
+offset_left = -399.99997
+offset_top = -414.11768
+offset_right = 1022.22217
+offset_bottom = 172.54895
+scale = Vector2(0.585, 0.585)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 200
 text = "Seeds"

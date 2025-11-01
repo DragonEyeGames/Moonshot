@@ -2,7 +2,7 @@ extends ElectronicZoom
 
 var previousPower=0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$ColorRect/RichTextLabel.text=str(round(GameManager.basePower*100)/100)
 	$ColorRect3/RichTextLabel.text=str(round((GameManager.basePower-previousPower)*100)/100)
 	$ColorRect4/RichTextLabel.text=str(GameManager.currentEmission)

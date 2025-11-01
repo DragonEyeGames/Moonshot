@@ -40,10 +40,11 @@ radius = 216.0
 height = 480.0
 
 [node name="Rehydrator" type="Node2D"]
+z_index = 1
 script = ExtResource("1_xlocb")
 
 [node name="JugOutline" type="Sprite2D" parent="."]
-top_level = true
+z_index = 2
 position = Vector2(0, -108)
 scale = Vector2(0.345, 0.345)
 texture = ExtResource("5_dmkk4")
@@ -51,7 +52,7 @@ offset = Vector2(0, 127)
 
 [node name="WurterJug" type="Sprite2D" parent="."]
 clip_children = 2
-z_index = 2
+z_index = 1
 position = Vector2(9.094947e-13, -64.42953)
 scale = Vector2(0.345, 0.345)
 texture = ExtResource("1_tejjl")
@@ -63,6 +64,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("4_0b0u3")
 
 [node name="Desk" type="Node2D" parent="."]
+z_index = -1
 
 [node name="ColorRect" type="ColorRect" parent="Desk"]
 z_index = 1

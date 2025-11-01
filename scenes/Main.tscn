@@ -37,7 +37,6 @@ texture = ExtResource("2_nxtc6")
 sources/0 = SubResource("TileSetAtlasSource_2au82")
 
 [node name="Node2D" type="Node2D"]
-y_sort_enabled = true
 script = ExtResource("1_c01mt")
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -50,7 +49,8 @@ tile_map_data = PackedByteArray("AAD/////AAAAAAIAAAAAAP//AAAAAAIAAAAAAAAAAAAAAAI
 tile_set = SubResource("TileSet_8tn2x")
 
 [node name="player" parent="." instance=ExtResource("3_jlsqs")]
-position = Vector2(-2372, -3454)
+z_index = 4
+position = Vector2(2929, -3836)
 
 [node name="Building" parent="." instance=ExtResource("4_q8u5g")]
 position = Vector2(-16, -192)

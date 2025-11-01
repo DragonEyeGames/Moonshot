@@ -64,7 +64,7 @@ func oxygen():
 	elif(oxygenState==1):
 		var showingColor="[color=" + str(rising)
 		oxygenSuffix=showingColor + "]Rising"
-	$Oxygen.text="Oxygen . . . . . . . . . "+ oxygenSuffix+ " " + str(round((GameManager.baseOxygen/(GameManager.baseOxygen+GameManager.baseCarbon))*10000)/100)+"%"
+	$Oxygen.text="Oxygen . . . . . . . . . "+ oxygenSuffix+ " " + str(round((GameManager.baseOxygen/(GameManager.baseOxygen+GameManager.baseCarbon))*10000.0)/100.0)+"%"
 	
 func water():
 	var rising=risingColor.to_html(true)

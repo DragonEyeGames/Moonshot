@@ -1,43 +1,25 @@
 [gd_scene load_steps=2 format=3 uid="uid://fe12rc7ar7df"]
 
-[ext_resource type="Texture2D" uid="uid://dfffmhh10mmyc" path="res://assets/dehydrated.png" id="1_efdef"]
+[ext_resource type="Texture2D" uid="uid://dy4c53krfqpij" path="res://assets/Seeds.png" id="1_efdef"]
 
 [node name="SeedBag" type="RigidBody2D"]
 visible = false
 collision_layer = 512
 collision_mask = 256
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(20.785532, 29.49736, -12.214468, 29.49736, -21.214468, 24.49736, -21.214468, -10.50264, -27.214468, -11.50264, -26.214468, -27.50264, 29.785532, -25.50264, 25.785532, -13.50264, 21.785532, -10.50264, 20.785532, -5.50264)
-
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.07, 0.07)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_efdef")
 offset = Vector2(28.571428, 14.285714)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -19.0
-offset_top = -8.0
-offset_right = 21.0
-offset_bottom = 21.0
-scale = Vector2(0.73, 0.73)
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "SEED"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="RichTextLabel"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.9, 0.9)
+polygon = PackedVector2Array(25, 33, -19, 33, -19, 26, -17, 9, -17, -13, -9, -18, 4, -20, 18, -16, 21.785532, -10.50264, 22, -5)
 
 [node name="SeedBag" type="Area2D" parent="."]
 collision_layer = 2052
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SeedBag"]
-polygon = PackedVector2Array(20.785532, 29.49736, -12.214468, 29.49736, -21.214468, 24.49736, -21.214468, -10.50264, -27.214468, -11.50264, -26.214468, -27.50264, 29.785532, -25.50264, 25.785532, -13.50264, 21.785532, -10.50264, 20.785532, -5.50264)
+scale = Vector2(0.9, 0.9)
+polygon = PackedVector2Array(25, 33, -19, 33, -19, 26, -17, 9, -17, -13, -9, -18, 4, -20, 18, -16, 21.785532, -10.50264, 22, -5)

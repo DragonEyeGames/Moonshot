@@ -18,6 +18,8 @@ var pickedUp=false
 #Whether or not the bag that items can be deposited in is open
 var bagOpen=false
 
+var fromBag=false
+
 #Packed Scenes
 @export var filter: PackedScene
 @export var cleanFilter: PackedScene
@@ -165,6 +167,7 @@ func movement():
 		move_and_slide()
 		
 func closedBagPickup():
+	fromBag=false
 	canPickUp=false
 	handHeldItem=str(pickable.get_child(-1).name)
 	if(not maxedInventory(handHeldItem)):
@@ -184,6 +187,7 @@ func closedBagPickup():
 	pickable.position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.position
 
 func openBagPickup():
+	fromBag=true
 	pickedUp=true
 	canPickUp=false
 	if(handHeldItem=="BagItem"):
@@ -196,10 +200,11 @@ func closedBagDrop():
 	if(pickable==null):
 		return
 	pickable.set_deferred("freeze", true)
+	if(not fromBag):
+		for child in pickable.get_children():
+			child.scale/=3.8
 	var screenPos=pickable.global_position
 	pickable.reparent(GameManager.collisionTool)
-	for child in pickable.get_children():
-		child.scale/=3.8
 	pickable.global_position=get_canvas_transform().affine_inverse() * screenPos
 	if(pickable):
 		pickable.set_deferred("freeze", false)

@@ -51,7 +51,7 @@ var currentTime=12
 var day=1
 var sunPower=0
 
-var baseOxygen=700
+var baseOxygen:=700.0
 var baseCarbon=200
 
 var playerTool=""

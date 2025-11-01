@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 		#GameManager.inventory.erase("Watering Can")
 		#GameManager.playerTool="wateringCan"
 		#zoom()
-	elif(jugCollision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]=="Jug" and $ColorRect6/WurterJug.visible==false):
+	elif(jugCollision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]["name"]=="Jug" and $ColorRect6/WurterJug.visible==false):
 		GameManager.inventory.erase("Jug")
 		$ColorRect6/WurterJug.visible=true
 		water=GameManager.pickedUpJugWater

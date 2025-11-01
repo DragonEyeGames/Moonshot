@@ -1,9 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bn36inecn6soy"]
 
-[ext_resource type="Texture2D" uid="uid://c766gyyxf6bw1" path="res://assets/Water Filter.png" id="1_yqa6n"]
+[ext_resource type="Texture2D" uid="uid://cmk1fyiryqrvd" path="res://assets/dirtyFilter.png" id="1_yqa6n"]
 
 [node name="Filter" type="RigidBody2D"]
-modulate = Color(0.49803922, 0.34117648, 0.05882353, 1)
 collision_layer = 512
 collision_mask = 256
 freeze = true

@@ -30,7 +30,6 @@ visible = false
 
 [node name="Filter" parent="." instance=ExtResource("4_fuds8")]
 visible = false
-modulate = Color(0.93530446, 0.62569475, 0.39201283, 1)
 
 [node name="H Cup" parent="." instance=ExtResource("4_78mh5")]
 

@@ -1,10 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://4xc3pyxq71q3"]
 
 [ext_resource type="Script" uid="uid://1axpesiatuwx" path="res://scripts/waterFilter.gd" id="1_a4a4a"]
-[ext_resource type="Texture2D" uid="uid://c766gyyxf6bw1" path="res://assets/Water Filter.png" id="2_3vv2p"]
+[ext_resource type="Texture2D" uid="uid://cmk1fyiryqrvd" path="res://assets/dirtyFilter.png" id="2_a4a4a"]
 
 [node name="Filter" type="RigidBody2D"]
-modulate = Color(0.66512144, 0.41025534, 0.14517185, 1)
 scale = Vector2(0.75, 0.75)
 collision_layer = 512
 collision_mask = 256
@@ -13,12 +12,12 @@ script = ExtResource("1_a4a4a")
 
 [node name="Jug2" type="Sprite2D" parent="."]
 scale = Vector2(0.1512, 0.1512)
-texture = ExtResource("2_3vv2p")
+texture = ExtResource("2_a4a4a")
 offset = Vector2(8.333335, 43.792156)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
 scale = Vector2(1.26, 1.26)
-polygon = PackedVector2Array(19.047619, 8.730158, -16.666666, 8.730158, -17.460316, 3.174603, -16.666666, 0, 18.253967, 0, 19.841269, 3.9682536)
+polygon = PackedVector2Array(23.280424, 11.640212, -21.16402, 11.640212, -22.222223, 4.2328043, -21.16402, 0, 23.280424, 0, 24.338625, 5.291005)
 
 [node name="Filter" type="Area2D" parent="."]
 collision_layer = 2052
@@ -26,5 +25,4 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Filter"]
 scale = Vector2(1.26, 1.26)
-polygon = PackedVector2Array(19.047619, 8.730158, -16.666666, 8.730158, -17.460316, 3.174603, -16.666666, 0, 18.253967, 0, 19.841269, 3.9682536)
-disabled = true
+polygon = PackedVector2Array(23.280424, 11.640212, -21.16402, 11.640212, -22.222223, 4.2328043, -21.16402, 0, 23.280424, 0, 24.338625, 5.291005)

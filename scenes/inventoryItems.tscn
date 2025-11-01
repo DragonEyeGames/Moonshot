@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8fbtnlq1oocd"]
+[gd_scene load_steps=12 format=3 uid="uid://b8fbtnlq1oocd"]
 
 [ext_resource type="Texture2D" uid="uid://372hu3xsfi0g" path="res://assets/proteinBar.png" id="1_sditr"]
 [ext_resource type="Texture2D" uid="uid://boi5dfsykcyy0" path="res://assets/DuctTape.png" id="2_ji6jm"]
 [ext_resource type="Texture2D" uid="uid://c5q3d26io6w74" path="res://assets/IceCream.png" id="2_ri7ka"]
 [ext_resource type="Texture2D" uid="uid://bvpfpu83as5gb" path="res://assets/Rag.png" id="3_khph6"]
 [ext_resource type="Texture2D" uid="uid://cma2mph1rf637" path="res://assets/dehydrated.png" id="3_o85l3"]
-[ext_resource type="Texture2D" uid="uid://c766gyyxf6bw1" path="res://assets/Water Filter.png" id="4_2xpek"]
+[ext_resource type="Texture2D" uid="uid://cmk1fyiryqrvd" path="res://assets/dirtyFilter.png" id="4_gg0w5"]
 [ext_resource type="Texture2D" uid="uid://uwnjyu6rtfop" path="res://assets/macHydrated.png" id="4_wvdm6"]
 [ext_resource type="Texture2D" uid="uid://c70althcu8by2" path="res://assets/cup.png" id="5_7on13"]
+[ext_resource type="Texture2D" uid="uid://w6dpxidd41jf" path="res://assets/cleanFilter.png" id="5_v6pda"]
 [ext_resource type="Texture2D" uid="uid://rciu6av3yice" path="res://assets/agua.png" id="6_vb3cu"]
 [ext_resource type="Texture2D" uid="uid://dy4c53krfqpij" path="res://assets/Seeds.png" id="7_g4ica"]
 
@@ -65,11 +66,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Filter" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.8235294, 0.5921569, 0, 1)
 position = Vector2(1, -14)
 scale = Vector2(0.52, 0.52)
-texture = ExtResource("4_2xpek")
+texture = ExtResource("4_gg0w5")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Filter"]
 offset_left = -361.5385
@@ -79,7 +78,7 @@ offset_bottom = 92.450165
 scale = Vector2(0.52, 0.52)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 138
-text = "Water Filter"
+text = "Dirty Filter"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -87,7 +86,7 @@ vertical_alignment = 1
 visible = false
 position = Vector2(1, -14)
 scale = Vector2(0.52, 0.52)
-texture = ExtResource("4_2xpek")
+texture = ExtResource("5_v6pda")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CleanFilter"]
 offset_left = -361.5385
@@ -97,7 +96,7 @@ offset_bottom = 92.450165
 scale = Vector2(0.52, 0.52)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 138
-text = "Water Filter"
+text = "Clean Filter"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -154,6 +153,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SeedBag" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.425, 0.425)
 texture = ExtResource("7_g4ica")
 

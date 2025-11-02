@@ -177,6 +177,12 @@ func movement(delta):
 			$flip.play("left")
 		elif(new_value>0 and $Sprites.scale.x<0):
 			$flip.play("right")
+		if(abs(velocity.x)<abs(velocity.y)):
+			$"Sprites-2".visible=true
+			$Sprites.visible=false
+		elif(abs(velocity.x)>abs(velocity.y)):
+			$Sprites.visible=true
+			$"Sprites-2".visible=false
 		$Horizontal.set("parameters/blend_position", new_value)
 		if((abs(velocity.x)>0 or abs(velocity.y)>0) and GameManager.playerState==GameManager.possibleStates.OUTSIDE):
 			$CPUParticles2D.emitting=true

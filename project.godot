@@ -35,6 +35,7 @@ folder_colors={
 "res://addons/": "gray",
 "res://assets/": "red",
 "res://assets/craters/": "blue",
+"res://assets/player/": "yellow",
 "res://builds/": "pink",
 "res://images/": "purple",
 "res://scenes/": "orange",

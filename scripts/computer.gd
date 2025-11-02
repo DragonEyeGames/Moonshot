@@ -88,3 +88,12 @@ func _on_systems_pressed() -> void:
 func _on_exit_pressed() -> void:
 	selected=""
 	$Interface/Systems_Popup.visible=false
+	$Interface/Instructions_Popup.visible=false
+
+
+func _on_instructions_pressed() -> void:
+	if(selected!="instructions"):
+		selected="instructions"
+	else:
+		selected=""
+		$Interface/Instructions_Popup.visible=true

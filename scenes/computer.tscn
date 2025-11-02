@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://18tl0xb0wbl0"]
+[gd_scene load_steps=7 format=3 uid="uid://18tl0xb0wbl0"]
 
 [ext_resource type="Script" uid="uid://dmwvq1hv17gyk" path="res://scripts/computer.gd" id="1_om4aa"]
 [ext_resource type="Texture2D" uid="uid://berljblq3mt4r" path="res://assets/folder.png" id="2_8pqrt"]
 [ext_resource type="Texture2D" uid="uid://dx51kox23al1i" path="res://assets/EXE.png" id="3_7ikar"]
 [ext_resource type="Script" uid="uid://5hjbfw8bptdj" path="res://scripts/systemsController.gd" id="4_tjrug"]
+[ext_resource type="Texture2D" uid="uid://br6plw6uilwlw" path="res://assets/Instructions.png" id="4_uiul0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_om4aa"]
 radius = 156.0
@@ -49,6 +50,7 @@ shape = SubResource("CapsuleShape2D_om4aa")
 [node name="Interface" type="Node2D" parent="."]
 
 [node name="folder" type="TextureButton" parent="Interface"]
+visible = false
 offset_left = -111.99999
 offset_top = -46.0
 offset_right = 400.0
@@ -80,9 +82,9 @@ vertical_alignment = 1
 
 [node name="Systems" type="TextureButton" parent="Interface"]
 offset_left = -114.0
-offset_top = -15.0
+offset_top = -4.0
 offset_right = 398.0
-offset_bottom = 497.0
+offset_bottom = 508.0
 scale = Vector2(0.055, 0.055)
 texture_normal = ExtResource("3_7ikar")
 
@@ -97,7 +99,27 @@ text = "Systems"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Instructions" type="TextureButton" parent="Interface"]
+offset_left = -113.0
+offset_top = -45.0
+offset_right = 399.0
+offset_bottom = 467.0
+scale = Vector2(0.055, 0.055)
+texture_normal = ExtResource("4_uiul0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interface/Instructions"]
+layout_mode = 0
+offset_left = -109.09088
+offset_top = 436.36365
+offset_right = 654.5455
+offset_bottom = 636.3636
+theme_override_font_sizes/normal_font_size = 120
+text = "Instructions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Systems_Popup" type="ColorRect" parent="Interface"]
+visible = false
 offset_left = -96.0
 offset_top = -51.0
 offset_right = 96.0
@@ -134,7 +156,7 @@ offset_top = 9.0
 offset_right = 1375.4286
 offset_bottom = 137.57143
 scale = Vector2(0.14, 0.14)
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 77
 bbcode_enabled = true
 text = "Oxygen . . . . . . . . . [color=green]Rising (60%)[/color]"
 
@@ -145,7 +167,7 @@ offset_top = 27.0
 offset_right = 1376.4286
 offset_bottom = 155.57143
 scale = Vector2(0.14, 0.14)
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 77
 bbcode_enabled = true
 text = "Water . . . . . . . . . . [color=green]Rising (400Ml)[/color]"
 
@@ -153,10 +175,10 @@ text = "Water . . . . . . . . . . [color=green]Rising (400Ml)[/color]"
 layout_mode = 0
 offset_left = 5.0
 offset_top = 43.0
-offset_right = 1376.4286
+offset_right = 1333.5714
 offset_bottom = 171.57143
 scale = Vector2(0.14, 0.14)
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 77
 bbcode_enabled = true
 text = "Power . . . . . . . . . . [color=#a61600]Falling (400 kW)[/color]"
 
@@ -167,7 +189,7 @@ offset_top = 60.0
 offset_right = 1376.4286
 offset_bottom = 188.57143
 scale = Vector2(0.14, 0.14)
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 77
 bbcode_enabled = true
 text = "Oxygenator . . . . . [color=#a61600]Leaking[/color]"
 
@@ -178,7 +200,7 @@ offset_top = 75.0
 offset_right = 1376.4286
 offset_bottom = 203.57143
 scale = Vector2(0.14, 0.14)
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 77
 bbcode_enabled = true
 text = "Water Reclaimer . [color=#a61600]Replace Filter[/color]"
 
@@ -189,7 +211,7 @@ offset_top = 90.0
 offset_right = 1376.4286
 offset_bottom = 218.57143
 scale = Vector2(0.14, 0.14)
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 77
 bbcode_enabled = true
 text = "Solar Array . . . . . . [color=#a61600]0% Output[/color]"
 
@@ -202,7 +224,54 @@ scale = Vector2(0.07, 0.07)
 theme_override_font_sizes/font_size = 80
 text = "X"
 
+[node name="Instructions_Popup" type="ColorRect" parent="Interface"]
+visible = false
+offset_left = -96.0
+offset_top = -51.0
+offset_right = 96.0
+offset_bottom = 57.0
+color = Color(0.46229059, 0.46229059, 0.46229059, 1)
+
+[node name="Systems_Popup2" type="ColorRect" parent="Interface/Instructions_Popup"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 9.0
+color = Color(0.66245234, 0.66245234, 0.6624523, 1)
+
+[node name="Title" type="RichTextLabel" parent="Interface/Instructions_Popup"]
+layout_mode = 0
+offset_left = 1.9999999
+offset_right = 3202.0
+offset_bottom = 149.99994
+scale = Vector2(0.06, 0.06)
+theme_override_font_sizes/normal_font_size = 100
+text = "Instructions.txt"
+
+[node name="Exit" type="Button" parent="Interface/Instructions_Popup"]
+layout_mode = 0
+offset_left = 180.0
+offset_right = 351.4286
+offset_bottom = 128.57135
+scale = Vector2(0.07, 0.07)
+theme_override_font_sizes/font_size = 80
+text = "X"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interface/Instructions_Popup"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 12.0
+offset_right = 4653.0
+offset_bottom = 2362.0
+scale = Vector2(0.04, 0.04)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 210
+bbcode_enabled = true
+text = "Welcome to Moon Base Gamma. This is an old NASA research station. It is being rehabitized as part of project MOONSHOT. As we are all aware, the Earth is running out of room for humans. The closest place to put people? The moon. You getting this station up and running is the first part in a multi step system to terraform the Moon. Your work is very important. Now, to fix this base you will most likely need to fix several key components. The water reclaimer, oxygenator, and power grid are most likely broken in some way due to time. You must fix these. There is also currently no oxygen in the base so it is of your best intrest to work fast to get power and the oxygenator up and running. Good luck. If you succeed, your name will be remembered forever. This is because it will be laser engraved on the door to this base. Now get to it before your oxygen runs out."
+
 [connection signal="body_entered" from="Area2D" to="." method="_player_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_player_exited"]
 [connection signal="pressed" from="Interface/Systems" to="." method="_on_systems_pressed"]
+[connection signal="pressed" from="Interface/Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="Interface/Systems_Popup/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Interface/Instructions_Popup/Exit" to="." method="_on_exit_pressed"]

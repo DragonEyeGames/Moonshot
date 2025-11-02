@@ -168,7 +168,6 @@ func movement(delta):
 		var target = velocity.x/300
 		var current = $Horizontal.get("parameters/blend_position")
 		var new_value = lerp(current, target, delta * 5)
-		print(new_value)
 		if(new_value<-1):
 			new_value=-1
 		elif(new_value>1):
@@ -184,6 +183,14 @@ func movement(delta):
 			$Sprites.visible=true
 			$"Sprites-2".visible=false
 		$Horizontal.set("parameters/blend_position", new_value)
+		var targetY = velocity.y/300
+		var currentY = $Vertical.get("parameters/blend_position")
+		var new_valueY = lerp(currentY, targetY, delta * 5)
+		if(new_valueY<-1):
+			new_valueY=-1
+		elif(new_valueY>1):
+			new_valueY=1
+		$Vertical.set("parameters/blend_position", new_valueY)
 		if((abs(velocity.x)>0 or abs(velocity.y)>0) and GameManager.playerState==GameManager.possibleStates.OUTSIDE):
 			$CPUParticles2D.emitting=true
 			if(speed*healthMod>=500):

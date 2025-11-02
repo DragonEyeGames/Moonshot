@@ -31,12 +31,12 @@ func _ready() -> void:
 	GameManager.playerAnimator=$StateController
 	GameManager.hud=$HUD
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	perFrameUpdate()
 	seedCheck()
 	flashlight()
 	sprintCheck()
-	movement()
+	movement(delta)
 	
 func _physics_process(_delta: float) -> void:
 	#All of the fun interactions with moving stuff to and fro shelves
@@ -157,7 +157,7 @@ func sprintCheck():
 	else:
 		speed=300
 		
-func movement():
+func movement(delta):
 	velocity = Input.get_vector("Left", "Right", "Up", "Down")
 	var healthMod = float(GameManager.health/100.0)
 	if(healthMod<.6):
@@ -165,6 +165,19 @@ func movement():
 	velocity*=speed*healthMod
 	if(GameManager.playerMove):
 		move_and_slide()
+		var target = velocity.x/300
+		var current = $Horizontal.get("parameters/blend_position")
+		var new_value = lerp(current, target, delta * 5)
+		print(new_value)
+		if(new_value<-1):
+			new_value=-1
+		elif(new_value>1):
+			new_value=1
+		if(new_value<0 and $Sprites.scale.x>0):
+			$flip.play("left")
+		elif(new_value>0 and $Sprites.scale.x<0):
+			$flip.play("right")
+		$Horizontal.set("parameters/blend_position", new_value)
 		if((abs(velocity.x)>0 or abs(velocity.y)>0) and GameManager.playerState==GameManager.possibleStates.OUTSIDE):
 			$CPUParticles2D.emitting=true
 			if(speed*healthMod>=500):

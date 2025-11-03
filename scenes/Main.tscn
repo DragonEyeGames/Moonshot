@@ -54,12 +54,14 @@ offsets = PackedFloat32Array(0.009345794, 0.12616822, 0.5140187, 0.8598131, 1)
 colors = PackedColorArray(0.34509805, 0.34509805, 0.23529412, 0, 0.44705883, 0.44705883, 0.33333334, 0.17254902, 0.49803922, 0.49803922, 0.38431373, 0.5254902, 0.44705883, 0.44705883, 0.33333334, 0.27450982, 0.34509805, 0.34509805, 0.23529412, 0)
 
 [node name="Node2D" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_c01mt")
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="player" parent="." instance=ExtResource("3_jlsqs")]
-position = Vector2(-361.99997, -643.00024)
+y_sort_enabled = true
+position = Vector2(-2364.9998, -1839.9999)
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -71,6 +73,7 @@ tile_map_data = PackedByteArray("AAD/////AAAAAAIAAAAAAP//AAAAAAIAAAAAAAAAAAAAAAI
 tile_set = SubResource("TileSet_8tn2x")
 
 [node name="Building" parent="." instance=ExtResource("4_q8u5g")]
+y_sort_enabled = true
 position = Vector2(-16, -192)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

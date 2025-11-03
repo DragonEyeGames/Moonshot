@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://313clql8xlh4"]
+[gd_scene load_steps=69 format=3 uid="uid://313clql8xlh4"]
 
 [ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://scripts/player.gd" id="1_hqtel"]
 [ext_resource type="PackedScene" uid="uid://bn36inecn6soy" path="res://scenes/VisibleItems/filter.tscn" id="2_d2wvv"]
@@ -26,10 +26,11 @@
 [ext_resource type="Texture2D" uid="uid://b8hwjdib0fkj3" path="res://assets/player/RightLeg.png" id="24_wqfne"]
 [ext_resource type="Texture2D" uid="uid://bbujinpax2m4s" path="res://assets/player/Torso.png" id="25_wnwbv"]
 [ext_resource type="Texture2D" uid="uid://cso6djam6e25k" path="res://assets/player/Helmet.png" id="26_gl8cc"]
+[ext_resource type="Texture2D" uid="uid://bm6cf7okvaxmr" path="res://assets/player/HelmetBack.png" id="27_31cv2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur7pv"]
-radius = 46.0
-height = 134.0
+radius = 58.0
+height = 122.0
 
 [sub_resource type="Animation" id="Animation_sweqy"]
 length = 0.001
@@ -233,6 +234,10 @@ joint_data/1/editor_draw_gizmo = true
 enabled = true
 modification_count = 1
 modifications/0 = SubResource("SkeletonModification2DCCDIK_fjrip")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_31cv2"]
+radius = 32.5
+height = 152.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4r1p"]
 size = Vector2(217.1538, 218.3018)
@@ -2138,7 +2143,7 @@ tracks/25/path = NodePath("Sprites-2/RightLeg:z_index")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -2149,6 +2154,45 @@ _data = {
 &"RESET": SubResource("Animation_jc3p3"),
 &"idle": SubResource("Animation_bj30b"),
 &"walk": SubResource("Animation_ujl30")
+}
+
+[sub_resource type="Animation" id="Animation_pf23h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites-2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites-2/BackpackFront:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites-2/Helmet:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("26_gl8cc")]
 }
 
 [sub_resource type="Animation" id="Animation_31cv2"]
@@ -2178,32 +2222,17 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 2]
 }
-
-[sub_resource type="Animation" id="Animation_pf23h"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites-2:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites-2/BackpackFront:z_index")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites-2/Helmet:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0]
+"values": [ExtResource("26_gl8cc"), ExtResource("27_31cv2")]
 }
 
 [sub_resource type="Animation" id="Animation_dt7fs"]
@@ -2233,6 +2262,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [2, 0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites-2/Helmet:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("27_31cv2"), ExtResource("26_gl8cc")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dt7fs"]
 _data = {
@@ -2251,8 +2292,7 @@ rag = ExtResource("4_f1ej7")
 metadata/_edit_vertical_guides_ = [169.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 20)
-rotation = 1.5707964
+position = Vector2(1, 86)
 shape = SubResource("CapsuleShape2D_ur7pv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -2417,14 +2457,13 @@ offset_bottom = 40.0
 [node name="SeedBag" parent="CanvasLayer" instance=ExtResource("6_tuyoq")]
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 z_index = 100
 scale = Vector2(2, 2)
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_qlg0r")
+shape = SubResource("CapsuleShape2D_31cv2")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(20, -11)

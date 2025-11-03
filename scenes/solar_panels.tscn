@@ -355,27 +355,15 @@ libraries = {
 
 [node name="Panel" parent="Panels" instance=ExtResource("1_msrpr")]
 z_index = 1
-offset_left = 712.0
-offset_top = 47.0
-offset_right = 992.0
-offset_bottom = 615.0
-mouse_filter = 2
+position = Vector2(1379, 172.99998)
 
 [node name="Panel2" parent="Panels" instance=ExtResource("1_msrpr")]
 z_index = 1
-offset_left = -188.0
-offset_top = 47.0
-offset_right = 92.0
-offset_bottom = 615.0
-mouse_filter = 2
+position = Vector2(465, 218)
 
 [node name="Panel3" parent="Panels" instance=ExtResource("1_msrpr")]
 z_index = 1
-offset_left = 1607.0
-offset_top = 41.0
-offset_right = 1887.0
-offset_bottom = 609.0
-mouse_filter = 2
+position = Vector2(-515, 213)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

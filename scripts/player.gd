@@ -182,6 +182,7 @@ func movement(delta):
 		elif(abs(velocity.x)>abs(velocity.y)):
 			$Sprites.visible=true
 			$"Sprites-2".visible=false
+			
 		$Horizontal.set("parameters/blend_position", new_value)
 		var targetY = velocity.y/300
 		var currentY = $Vertical.get("parameters/blend_position")
@@ -190,6 +191,10 @@ func movement(delta):
 			new_valueY=-1
 		elif(new_valueY>1):
 			new_valueY=1
+		if(new_valueY<0 and $"Sprites-2".scale.x>0):
+			$VertFlip.play("back")
+		elif(new_valueY>0 and $"Sprites-2".scale.x<0):
+			$VertFlip.play("front")
 		$Vertical.set("parameters/blend_position", new_valueY)
 		if((abs(velocity.x)>0 or abs(velocity.y)>0) and GameManager.playerState==GameManager.possibleStates.OUTSIDE):
 			$CPUParticles2D.emitting=true

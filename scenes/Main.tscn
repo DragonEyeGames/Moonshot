@@ -61,7 +61,7 @@ script = ExtResource("1_c01mt")
 
 [node name="player" parent="." instance=ExtResource("3_jlsqs")]
 y_sort_enabled = true
-position = Vector2(-2364.9998, -1839.9999)
+position = Vector2(2421, -1799.9999)
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

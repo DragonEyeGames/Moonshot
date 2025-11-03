@@ -1,16 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8fbtnlq1oocd"]
+[gd_scene load_steps=13 format=3 uid="uid://b8fbtnlq1oocd"]
 
 [ext_resource type="Texture2D" uid="uid://372hu3xsfi0g" path="res://assets/proteinBar.png" id="1_sditr"]
-[ext_resource type="Texture2D" uid="uid://boi5dfsykcyy0" path="res://assets/DuctTape.png" id="2_ji6jm"]
 [ext_resource type="Texture2D" uid="uid://c5q3d26io6w74" path="res://assets/IceCream.png" id="2_ri7ka"]
-[ext_resource type="Texture2D" uid="uid://bvpfpu83as5gb" path="res://assets/Rag.png" id="3_khph6"]
+[ext_resource type="Texture2D" uid="uid://djx83fjy6ibda" path="res://assets/Tape.png" id="2_v6pda"]
+[ext_resource type="Texture2D" uid="uid://bvg0pdpfr6tm1" path="res://assets/Rag.png" id="3_khph6"]
 [ext_resource type="Texture2D" uid="uid://cma2mph1rf637" path="res://assets/dehydrated.png" id="3_o85l3"]
 [ext_resource type="Texture2D" uid="uid://cmk1fyiryqrvd" path="res://assets/dirtyFilter.png" id="4_gg0w5"]
 [ext_resource type="Texture2D" uid="uid://uwnjyu6rtfop" path="res://assets/macHydrated.png" id="4_wvdm6"]
-[ext_resource type="Texture2D" uid="uid://c70althcu8by2" path="res://assets/cup.png" id="5_7on13"]
+[ext_resource type="Texture2D" uid="uid://dvs41u1dy8pf6" path="res://assets/cup.png" id="5_7on13"]
 [ext_resource type="Texture2D" uid="uid://w6dpxidd41jf" path="res://assets/cleanFilter.png" id="5_v6pda"]
 [ext_resource type="Texture2D" uid="uid://rciu6av3yice" path="res://assets/agua.png" id="6_vb3cu"]
 [ext_resource type="Texture2D" uid="uid://dy4c53krfqpij" path="res://assets/Seeds.png" id="7_g4ica"]
+[ext_resource type="Texture2D" uid="uid://chryd33c4owfk" path="res://assets/WaterCup.png" id="11_v6pda"]
 
 [node name="InventoryItems" type="Node2D"]
 
@@ -33,15 +34,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Tape" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("2_ji6jm")
+position = Vector2(-2, 11)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("2_v6pda")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Tape"]
-offset_left = -640.0
-offset_top = -833.3333
-offset_right = 782.22217
-offset_bottom = -537.037
+offset_left = -422.98846
+offset_top = -372.4138
+offset_right = 999.2337
+offset_bottom = -76.11746
+scale = Vector2(0.605, 0.605)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 200
 text = "Tape"
@@ -50,15 +52,16 @@ vertical_alignment = 1
 
 [node name="Rag" type="Sprite2D" parent="."]
 visible = false
-scale = Vector2(0.52, 0.52)
+position = Vector2(-22, 20)
+scale = Vector2(0.69, 0.69)
 texture = ExtResource("3_khph6")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Rag"]
-offset_left = -351.9231
-offset_top = -286.5385
-offset_right = 1070.2991
-offset_bottom = 9.7578125
-scale = Vector2(0.52, 0.52)
+offset_left = -295.65216
+offset_top = -231.88406
+offset_right = 1126.5701
+offset_bottom = 64.41226
+scale = Vector2(0.46, 0.46)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 200
 text = "Rag"
@@ -66,6 +69,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Filter" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1, -14)
 scale = Vector2(0.52, 0.52)
 texture = ExtResource("4_gg0w5")
@@ -190,18 +194,18 @@ vertical_alignment = 1
 
 [node name="Cup" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, 24)
+position = Vector2(1, -3)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("5_7on13")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Cup"]
-offset_left = -213.33333
-offset_top = -337.7778
-offset_right = 1208.8888
-offset_bottom = 248.88882
+offset_left = -219.99998
+offset_top = -326.6667
+offset_right = 1202.2222
+offset_bottom = 259.99994
 scale = Vector2(0.32, 0.32)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 200
+theme_override_font_sizes/normal_font_size = 350
 text = "Cup"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -209,15 +213,15 @@ vertical_alignment = 1
 [node name="H Cup" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, 9.536743e-07)
-scale = Vector2(0.025, 0.025)
-texture = ExtResource("6_vb3cu")
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("11_v6pda")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="H Cup"]
-offset_left = -3520.0
-offset_top = -5440.0
-offset_right = -2097.7778
-offset_bottom = -4853.3335
-scale = Vector2(5.4, 5.4)
+offset_left = -265.11627
+offset_top = -358.13953
+offset_right = 1157.106
+offset_bottom = 228.52698
+scale = Vector2(0.375, 0.375)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 200
 text = "Cup o' Water"

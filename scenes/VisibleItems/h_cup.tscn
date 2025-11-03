@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dc3osrlnf768a"]
 
-[ext_resource type="Texture2D" uid="uid://rciu6av3yice" path="res://assets/agua.png" id="1_bkepd"]
+[ext_resource type="Texture2D" uid="uid://chryd33c4owfk" path="res://assets/WaterCup.png" id="1_bkepd"]
 
 [node name="H Cup" type="RigidBody2D"]
 visible = false
@@ -9,14 +9,12 @@ collision_mask = 256
 freeze = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-5.9604645e-08, -3.8146973e-06)
-scale = Vector2(0.01, 0.01)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("1_bkepd")
-offset = Vector2(0, 200)
+offset = Vector2(0, 72)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-scale = Vector2(1.79, 1.79)
-polygon = PackedVector2Array(5.7429647, 17.014544, -5.632457, 17.014544, -8.085979, -14.658197, -0.502365, -15.550388, 7.973439, -14.881246)
+polygon = PackedVector2Array(13, 28, 7, 31, 0, 32, -8, 31, -12, 29, -18, -2, -10, -8, 1, -9, 13, -7, 19, -1)
 
 [node name="H Cup" type="Area2D" parent="."]
 position = Vector2(2.3841858e-07, 1.9073486e-06)
@@ -24,5 +22,4 @@ collision_layer = 2052
 collision_mask = 0
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="H Cup"]
-scale = Vector2(1.79, 1.79)
-polygon = PackedVector2Array(5.7429647, 17.014544, -5.632457, 17.014544, -8.085979, -14.658197, -0.502365, -15.550388, 7.973439, -14.881246)
+polygon = PackedVector2Array(13, 28, 7, 31, 0, 32, -8, 31, -12, 29, -18, -2, -10, -8, 1, -9, 13, -7, 19, -1)

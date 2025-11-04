@@ -41,7 +41,7 @@ var pickedUpJugWater=0
 
 var playerHand
 
-var solarOtput:=0.0
+var solarOutput:=0.0
 
 var playerAnimator: AnimationPlayer
 

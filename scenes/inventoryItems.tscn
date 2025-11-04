@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8fbtnlq1oocd"]
+[gd_scene load_steps=14 format=3 uid="uid://b8fbtnlq1oocd"]
 
 [ext_resource type="Texture2D" uid="uid://372hu3xsfi0g" path="res://assets/proteinBar.png" id="1_sditr"]
 [ext_resource type="Texture2D" uid="uid://c5q3d26io6w74" path="res://assets/IceCream.png" id="2_ri7ka"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://rciu6av3yice" path="res://assets/agua.png" id="6_vb3cu"]
 [ext_resource type="Texture2D" uid="uid://dy4c53krfqpij" path="res://assets/Seeds.png" id="7_g4ica"]
 [ext_resource type="Texture2D" uid="uid://chryd33c4owfk" path="res://assets/WaterCup.png" id="11_v6pda"]
+[ext_resource type="Texture2D" uid="uid://cg3ghqcsptdlu" path="res://assets/FilledJug.png" id="12_jwm1v"]
 
 [node name="InventoryItems" type="Node2D"]
 
@@ -34,6 +35,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Tape" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-2, 11)
 scale = Vector2(0.435, 0.435)
 texture = ExtResource("2_v6pda")
@@ -231,15 +233,15 @@ vertical_alignment = 1
 [node name="Jug" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, 9.536743e-07)
-scale = Vector2(0.025, 0.025)
-texture = ExtResource("6_vb3cu")
+scale = Vector2(0.245, 0.245)
+texture = ExtResource("12_jwm1v")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Jug"]
-offset_left = -3520.0
-offset_top = -5440.0
-offset_right = -2097.7778
-offset_bottom = -4853.3335
-scale = Vector2(5.4, 5.4)
+offset_left = -836.7346
+offset_top = -808.1632
+offset_right = 585.48755
+offset_bottom = -221.4967
+scale = Vector2(1.19, 1.19)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 200
 text = "Jug"

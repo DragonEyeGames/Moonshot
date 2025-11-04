@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://sesvget8ak2p"]
+[gd_scene load_steps=8 format=3 uid="uid://sesvget8ak2p"]
 
 [ext_resource type="Texture2D" uid="uid://cmfr86mcjur1b" path="res://assets/shelf.png" id="1_0edba"]
 [ext_resource type="Script" uid="uid://c2djasrejrea" path="res://scripts/shelf.gd" id="1_0iu12"]
 [ext_resource type="PackedScene" uid="uid://coaotjijpvoi2" path="res://scenes/bag_items.tscn" id="3_00mi8"]
+[ext_resource type="Script" uid="uid://bogs4gwbrcc3u" path="res://scenes/shelf_sort.gd" id="3_viw0s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7o7sa"]
 radius = 144.0
@@ -11,12 +12,18 @@ height = 432.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oyalq"]
 size = Vector2(742, 36)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_viw0s"]
+size = Vector2(192, 73)
+
 [node name="Shelf" type="Node2D"]
 script = ExtResource("1_0iu12")
 
 [node name="Shelf" type="Sprite2D" parent="."]
+position = Vector2(-1, 150)
 scale = Vector2(0.275, 0.275)
 texture = ExtResource("1_0edba")
+offset = Vector2(3.6363635, -545.4545)
+script = ExtResource("3_viw0s")
 
 [node name="shelfArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -86,6 +93,12 @@ collision_mask = 512
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(40, 220)
 shape = SubResource("RectangleShape2D_oyalq")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-1, 144.5)
+shape = SubResource("RectangleShape2D_viw0s")
 
 [connection signal="body_entered" from="shelfArea" to="." method="_on_shelf_area_body_entered"]
 [connection signal="body_exited" from="shelfArea" to="." method="_on_shelf_area_body_exited"]

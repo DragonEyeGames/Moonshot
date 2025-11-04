@@ -231,17 +231,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Jug" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(0, 9.536743e-07)
 scale = Vector2(0.245, 0.245)
 texture = ExtResource("12_jwm1v")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Jug"]
-offset_left = -836.7346
-offset_top = -808.1632
-offset_right = 585.48755
-offset_bottom = -221.4967
-scale = Vector2(1.19, 1.19)
+offset_left = -502.04077
+offset_top = -628.5714
+offset_right = 920.1814
+offset_bottom = -41.904907
+scale = Vector2(0.71, 0.71)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 200
 text = "Jug"

@@ -44,7 +44,6 @@ z_index = 1
 script = ExtResource("1_xlocb")
 
 [node name="JugOutline" type="Sprite2D" parent="."]
-z_index = 2
 position = Vector2(0, -108)
 scale = Vector2(0.345, 0.345)
 texture = ExtResource("5_dmkk4")
@@ -52,7 +51,7 @@ offset = Vector2(0, 127)
 
 [node name="WurterJug" type="Sprite2D" parent="."]
 clip_children = 2
-z_index = 1
+z_index = -1
 position = Vector2(9.094947e-13, -64.42953)
 scale = Vector2(0.345, 0.345)
 texture = ExtResource("1_tejjl")
@@ -64,10 +63,9 @@ scale = Vector2(2, 2)
 texture = ExtResource("4_0b0u3")
 
 [node name="Desk" type="Node2D" parent="."]
-z_index = -1
+z_index = -2
 
 [node name="ColorRect" type="ColorRect" parent="Desk"]
-z_index = 1
 offset_left = -214.7651
 offset_right = 214.7651
 offset_bottom = 96.64435
@@ -75,14 +73,14 @@ color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="Desk"]
 offset_left = -204.02686
-offset_top = 53.691284
+offset_top = 94.0
 offset_right = -161.07384
 offset_bottom = 161.07385
 color = Color(0.37761015, 0.26601747, 0.046704635, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="Desk"]
 offset_left = 161.07382
-offset_top = 53.691284
+offset_top = 93.0
 offset_right = 204.02684
 offset_bottom = 161.07385
 color = Color(0.37761015, 0.26601747, 0.046704635, 1)

@@ -156,6 +156,7 @@ mouse_filter = 1
 slotIndex = 4
 
 [node name="Date+Time" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0.8)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -184,6 +185,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0.8)
 offset_left = 672.0
 offset_top = 40.0
 offset_right = 1110.0

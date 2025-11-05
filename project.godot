@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Moonshot"
-run/main_scene="uid://dnnka5th1gldj"
+run/main_scene="uid://cqxgsf3s7qidq"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]
@@ -37,6 +37,7 @@ folder_colors={
 "res://assets/craters/": "blue",
 "res://assets/player/": "yellow",
 "res://builds/": "pink",
+"res://fonts/": "green",
 "res://images/": "purple",
 "res://scenes/": "orange",
 "res://scenes/VisibleItems/": "yellow",
@@ -135,4 +136,4 @@ Click={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.40327662, 0.3928764, 0.36516353, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

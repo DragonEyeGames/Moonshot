@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://313clql8xlh4"]
+[gd_scene load_steps=73 format=3 uid="uid://313clql8xlh4"]
 
 [ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://scripts/player.gd" id="1_hqtel"]
 [ext_resource type="PackedScene" uid="uid://bn36inecn6soy" path="res://scenes/VisibleItems/filter.tscn" id="2_d2wvv"]
@@ -241,6 +241,84 @@ height = 152.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4r1p"]
 size = Vector2(217.1538, 218.3018)
+
+[sub_resource type="Animation" id="Animation_g3eks"]
+resource_name = "in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_v86rl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_13sgg"]
+resource_name = "out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i6lef"]
+_data = {
+&"RESET": SubResource("Animation_v86rl"),
+&"in": SubResource("Animation_g3eks"),
+&"out": SubResource("Animation_13sgg")
+}
 
 [sub_resource type="Curve" id="Curve_f1ej7"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.13333333, 0.13483155), 1.5409313, 1.5409313, 0, 0, Vector2(0.51666665, 0.26966298), 0.20224714, 0.20224714, 0, 0, Vector2(0.8041667, 0.1460675), -1.1440244, -1.1440244, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -2300,11 +2378,12 @@ visible = false
 texture = ExtResource("2_sweqy")
 
 [node name="Helmet" type="Sprite2D" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("3_2hs0m")
 
 [node name="PointLight2D" type="PointLight2D" parent="Helmet"]
+visible = false
 position = Vector2(0.000488281, 0)
 scale = Vector2(12.5, 19.133)
 shadow_enabled = true
@@ -2358,6 +2437,7 @@ collision_mask = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/OverlayArm/Sprites/Square4/Area2D"]
 position = Vector2(75.39637, 15.6974125)
+scale = Vector2(1.345, 1.345)
 shape = SubResource("CircleShape2D_qlg0r")
 
 [node name="Square5" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites/Square4"]
@@ -2471,6 +2551,22 @@ scale = Vector2(0.35, 0.35)
 shape = SubResource("RectangleShape2D_y4r1p")
 
 [node name="HUD" parent="." instance=ExtResource("10_y4r1p")]
+
+[node name="ColorRect2" type="ColorRect" parent="HUD"]
+z_index = 10
+offset_left = -31.0
+offset_top = -23.0
+offset_right = 1964.0
+offset_bottom = 1103.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/ColorRect2"]
+libraries = {
+&"": SubResource("AnimationLibrary_i6lef")
+}
+autoplay = "in"
+speed_scale = 0.5
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 show_behind_parent = true

@@ -2135,6 +2135,10 @@ texture = ExtResource("21_2f2c6")
 offset = Vector2(29.090908, 941.81836)
 script = ExtResource("13_hs87p")
 
+[node name="Node2D" parent="Entrance Point/BackWall" instance=ExtResource("33_dc40y")]
+position = Vector2(-810.90906, 100)
+scale = Vector2(1.425, 1.425)
+
 [node name="Solar Panels" parent="." instance=ExtResource("3_f1gjg")]
 position = Vector2(-2886, 106)
 

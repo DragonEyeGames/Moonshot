@@ -78,11 +78,8 @@ func unzoom():
 
 
 func _on_systems_pressed() -> void:
-	if(selected!="systems"):
-		selected="systems"
-	else:
-		selected=""
-		$Interface/Systems_Popup.visible=true
+	selected=""
+	$Interface/Systems_Popup.visible=true
 
 
 func _on_exit_pressed() -> void:
@@ -92,8 +89,4 @@ func _on_exit_pressed() -> void:
 
 
 func _on_instructions_pressed() -> void:
-	if(selected!="instructions"):
-		selected="instructions"
-	else:
-		selected=""
-		$Interface/Instructions_Popup.visible=true
+	$Interface/Instructions_Popup.visible=true

@@ -61,7 +61,7 @@ script = ExtResource("1_c01mt")
 
 [node name="player" parent="." instance=ExtResource("3_jlsqs")]
 y_sort_enabled = true
-position = Vector2(94.000244, -350.00012)
+position = Vector2(-67.999985, -497)
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -984,6 +984,15 @@ modulate = Color(1, 1, 1, 0.67058825)
 position = Vector2(-4387, -917)
 scale = Vector2(0.41, 0.325)
 texture = ExtResource("13_qmy6f")
+
+[node name="ColorRect" type="ColorRect" parent="Lunar Ground"]
+z_index = -5
+offset_left = -6474.0
+offset_top = -5549.0
+offset_right = 4593.0
+offset_bottom = 2258.0
+mouse_filter = 2
+color = Color(0.48397404, 0.4571336, 0.4364223, 1)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Lunar Ground"]
 position = Vector2(-37, -1463)

@@ -19,6 +19,7 @@ offset_left = -129.0
 offset_top = -80.0
 offset_right = 141.0
 offset_bottom = 79.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
@@ -26,16 +27,19 @@ offset_left = -123.0
 offset_top = -74.0
 offset_right = 135.0
 offset_bottom = 73.0
+mouse_filter = 2
 color = Color(0.0798076, 0.19303459, 0.3310446, 1)
 
 [node name="ZoomPoint" type="Node2D" parent="."]
+position = Vector2(-50, 25)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -119.0
+offset_left = -120.0
 offset_top = -71.0
-offset_right = 3727.1538
+offset_right = 3726.1538
 offset_bottom = 2098.231
 scale = Vector2(0.065, 0.065)
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 185
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -260,12 +264,12 @@ text = "X"
 layout_mode = 0
 offset_left = 3.0
 offset_top = 12.0
-offset_right = 4653.0
-offset_bottom = 2362.0
-scale = Vector2(0.04, 0.04)
+offset_right = 932.99994
+offset_bottom = 471.99994
+scale = Vector2(0.2, 0.2)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/normal_font_size = 210
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "Welcome to Moon Base Gamma. This is an old NASA research station. It is being rehabitized as part of project MOONSHOT. As we are all aware, the Earth is running out of room for humans. The closest place to put people? The moon. You getting this station up and running is the first part in a multi step system to terraform the Moon. Your work is very important. Now, to fix this base you will most likely need to fix several key components. The water reclaimer, oxygenator, and power grid are most likely broken in some way due to time. You must fix these. There is also currently no oxygen in the base so it is of your best intrest to work fast to get power and the oxygenator up and running. Good luck. If you succeed, your name will be remembered forever. This is because it will be laser engraved on the door to this base. Now get to it before your oxygen runs out."
 

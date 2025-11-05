@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://csk5nfyi47xdp"]
+[gd_scene load_steps=16 format=3 uid="uid://csk5nfyi47xdp"]
 
 [ext_resource type="Script" uid="uid://dilfx7ei5wrr0" path="res://scripts/hud.gd" id="1_37p78"]
 [ext_resource type="PackedScene" uid="uid://coamir61ehm7a" path="res://scenes/inventorySlot.tscn" id="2_64ctp"]
+[ext_resource type="FontFile" uid="uid://de3jhormdk4qb" path="res://fonts/SpaceNova-6Rpd1.otf" id="3_5ysmq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61f8s"]
 bg_color = Color(0.5555985, 0.69966775, 1, 1)
@@ -43,10 +44,12 @@ bg_color = Color(0.84526026, 0.17486033, 0.08260592, 1)
 script = ExtResource("1_37p78")
 
 [node name="Stats" type="VBoxContainer" parent="."]
-offset_left = 1336.0
-offset_top = 24.0
-offset_right = 1880.0
-offset_bottom = 352.0
+modulate = Color(1, 1, 1, 0.8)
+offset_left = 1505.0
+offset_top = 32.0
+offset_right = 2049.0
+offset_bottom = 360.0
+scale = Vector2(0.655, 0.655)
 mouse_filter = 2
 
 [node name="Oxygen" type="ProgressBar" parent="Stats"]
@@ -54,6 +57,8 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 mouse_filter = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5ysmq")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/background = SubResource("StyleBoxFlat_61f8s")
 theme_override_styles/fill = SubResource("StyleBoxFlat_g10ll")
 value = 100.0
@@ -62,6 +67,8 @@ value = 100.0
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 mouse_filter = 2
+theme_override_fonts/font = ExtResource("3_5ysmq")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/background = SubResource("StyleBoxFlat_640wx")
 theme_override_styles/fill = SubResource("StyleBoxFlat_a2258")
 value = 100.0
@@ -70,6 +77,8 @@ value = 100.0
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 mouse_filter = 2
+theme_override_fonts/font = ExtResource("3_5ysmq")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/background = SubResource("StyleBoxFlat_64ctp")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8sq4i")
 value = 100.0
@@ -78,6 +87,8 @@ value = 100.0
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 mouse_filter = 2
+theme_override_fonts/font = ExtResource("3_5ysmq")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/background = SubResource("StyleBoxFlat_1xsix")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rftc2")
 value = 100.0
@@ -86,6 +97,8 @@ value = 100.0
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 mouse_filter = 2
+theme_override_fonts/font = ExtResource("3_5ysmq")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/background = SubResource("StyleBoxFlat_gpiub")
 theme_override_styles/fill = SubResource("StyleBoxFlat_amv7k")
 max_value = 400.0
@@ -95,6 +108,8 @@ value = 400.0
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 mouse_filter = 2
+theme_override_fonts/font = ExtResource("3_5ysmq")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/background = SubResource("StyleBoxFlat_1fv7p")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4u2vk")
 value = 100.0
@@ -190,3 +205,33 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="StatBlocker" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.6)
+z_index = -1
+offset_left = 1375.0
+offset_top = 19.0
+offset_right = 1897.0
+offset_bottom = 258.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StatBlocker"]
+modulate = Color(1, 1, 1, 0.8)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 19.0
+offset_right = 120.0
+offset_bottom = 236.0
+theme_override_fonts/normal_font = ExtResource("3_5ysmq")
+text = "Oxygen
+
+Stamina
+
+Energy
+
+Food
+
+Water
+
+Health"
+horizontal_alignment = 2

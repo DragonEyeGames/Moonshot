@@ -1,0 +1,350 @@
+[gd_scene load_steps=16 format=3 uid="uid://cqxgsf3s7qidq"]
+
+[ext_resource type="Script" uid="uid://tf44hyxovb8q" path="res://scenes/menu.gd" id="1_g3eks"]
+[ext_resource type="FontFile" uid="uid://de3jhormdk4qb" path="res://fonts/SpaceNova-6Rpd1.otf" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://ompiokswf6tc" path="res://assets/menu/Earth.png" id="2_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://g7mexb2dhvya" path="res://assets/menu/Moon.png" id="3_4ytvr"]
+[ext_resource type="PackedScene" uid="uid://cscgwhr8hllqm" path="res://scenes/star.tscn" id="4_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://dcxs8rxv8jlvh" path="res://assets/menu/Button.png" id="5_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://oms0xrnk61s0" path="res://assets/menu/MenuTextHolder.png" id="7_v86rl"]
+
+[sub_resource type="Environment" id="Environment_v86rl"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.87
+glow_bloom = 0.31
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 2.35
+
+[sub_resource type="Animation" id="Animation_mhnvy"]
+resource_name = "twinkle"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:glow_intensity")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.87, 0.74]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:glow_bloom")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.31, 0.01]
+}
+
+[sub_resource type="Animation" id="Animation_4ytvr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:glow_intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.87]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:glow_bloom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.31]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g3eks"]
+_data = {
+&"RESET": SubResource("Animation_4ytvr"),
+&"twinkle": SubResource("Animation_mhnvy")
+}
+
+[sub_resource type="Animation" id="Animation_g3eks"]
+resource_name = "in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_v86rl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_13sgg"]
+resource_name = "out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i6lef"]
+_data = {
+&"RESET": SubResource("Animation_v86rl"),
+&"in": SubResource("Animation_g3eks"),
+&"out": SubResource("Animation_13sgg")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g3eks")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_right = 1929.0
+offset_bottom = 743.0
+theme_override_fonts/normal_font = ExtResource("1_yqeox")
+theme_override_font_sizes/normal_font_size = 200
+text = "Project Moonshot"
+horizontal_alignment = 1
+
+[node name="Earth" type="Sprite2D" parent="."]
+modulate = Color(0.5053218, 0.5053218, 0.5053218, 0.85600007)
+position = Vector2(959, 692)
+texture = ExtResource("2_mhnvy")
+
+[node name="Moon" type="Sprite2D" parent="."]
+position = Vector2(959.00006, 422.00003)
+scale = Vector2(0.915, 0.915)
+texture = ExtResource("3_4ytvr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -31.0
+offset_top = -6.0
+offset_right = 1929.0
+offset_bottom = 1108.0
+color = Color(0, 0, 0, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v86rl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g3eks")
+}
+autoplay = "twinkle"
+speed_scale = 0.5
+
+[node name="Node2D" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.674)
+scale = Vector2(0.64, 0.64)
+
+[node name="Star" parent="Node2D" instance=ExtResource("4_mhnvy")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(366.00003, 606.00006)
+scale = Vector2(1, 1)
+
+[node name="Star2" parent="Node2D" instance=ExtResource("4_mhnvy")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(629.6875, 1170.3125)
+scale = Vector2(1, 1)
+
+[node name="Star3" parent="Node2D" instance=ExtResource("4_mhnvy")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(1392.1875, 1182.8125)
+scale = Vector2(1, 1)
+
+[node name="Star4" parent="Node2D" instance=ExtResource("4_mhnvy")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(2343.75, 1179.6875)
+scale = Vector2(1, 1)
+
+[node name="Star5" parent="Node2D" instance=ExtResource("4_mhnvy")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(2735.9375, 959.37506)
+scale = Vector2(1, 1)
+
+[node name="Star6" parent="Node2D" instance=ExtResource("4_mhnvy")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(2871.875, 242.18758)
+scale = Vector2(1, 1)
+
+[node name="Star7" parent="Node2D" instance=ExtResource("4_mhnvy")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(968.75, 910.9375)
+scale = Vector2(1, 1)
+
+[node name="Star8" parent="Node2D" instance=ExtResource("4_mhnvy")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(137.49991, 1179.6875)
+scale = Vector2(1, 1)
+
+[node name="Star9" parent="Node2D" instance=ExtResource("4_mhnvy")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(1432.8125, 109.375046)
+scale = Vector2(1, 1)
+
+[node name="Star10" parent="Node2D" instance=ExtResource("4_mhnvy")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(139.06255, 201.5625)
+scale = Vector2(1, 1)
+
+[node name="Start" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 686.0
+offset_top = 449.0
+offset_right = 1482.0
+offset_bottom = 706.0
+scale = Vector2(0.73, 0.73)
+texture_normal = ExtResource("5_4ytvr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Start"]
+modulate = Color(1.1377786, 1.1377786, 1.1377786, 1)
+layout_mode = 0
+offset_left = 124.65759
+offset_top = 43.835632
+offset_right = 709.589
+offset_bottom = 215.06848
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_yqeox")
+theme_override_font_sizes/normal_font_size = 107
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="How" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 682.0
+offset_top = 673.00006
+offset_right = 1478.0
+offset_bottom = 930.00006
+scale = Vector2(0.73, 0.73)
+texture_normal = ExtResource("5_4ytvr")
+flip_h = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="How"]
+modulate = Color(1.1377786, 1.1377786, 1.1377786, 1)
+layout_mode = 0
+offset_left = 124.65759
+offset_top = 43.835632
+offset_right = 709.589
+offset_bottom = 215.06848
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_yqeox")
+theme_override_font_sizes/normal_font_size = 80
+text = "How to
+Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = -31.0
+offset_top = -23.0
+offset_right = 1964.0
+offset_bottom = 1103.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect2"]
+libraries = {
+&"": SubResource("AnimationLibrary_i6lef")
+}
+autoplay = "in"
+speed_scale = 0.5
+
+[node name="HowTo" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuTextHolder" type="Sprite2D" parent="HowTo"]
+z_index = 1
+position = Vector2(919.00006, 609.00006)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("7_v86rl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HowTo"]
+modulate = Color(1.4164544, 1.4164544, 1.4164544, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 479.0
+offset_top = 200.0
+offset_right = 1492.0
+offset_bottom = 967.0
+theme_override_font_sizes/normal_font_size = 45
+text = "Project Moonshot is a game where you have to repair an old lunar base! You need to walk around and repair various systems. The oxygenator, power grid, and water reclaimer are all down. The computer at the entrance tells you how all of your systems are doing. There are shelves throughout the base that you will interact with by pressing 'e'. This will zoom in on them and make it easier to see! Some of these items are food, like the ice cream, but others are needed for repairing systems. An example of one of these is the duct tape. It is used to repair the oxygenator pipes. A rag is used to clean off solar panels, and a filter is used to replace the old one in the water reclaimer. To put something in your bag, simply interact with the shelf and then click when hovering an object to pick it up! Once picked up release when you are hovering over the bag to put it in your inventory. To take something out of your inventory you will need to click on the bag, pick up the item, and drag it out of the bag. You can select items in your inventory with the number keys. Now get repairing! Humanity counts on you!"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="How" to="." method="_on_how_pressed"]

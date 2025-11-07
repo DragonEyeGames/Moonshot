@@ -42,7 +42,7 @@ func _on_shelf_area_body_exited(_body: Node2D) -> void:
 	colliding=false
 	
 func zoom():
-	GameManager.zoomCamera($ZoomPoint, 3.8)
+	GameManager.zoomCamera($ZoomPoint, 3.5)
 	zoomed=true
 	canZoom=false
 	GameManager.playerMove=false

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rdf0r2m00wnn"
+path="res://.godot/imported/hARITON zOE - NEW dAYS (uNIQUE TECh).mp3-264de053dbe29ba244609db3b05ebbd6.mp3str"
+
+[deps]
+
+source_file="res://Sounds/hARITON zOE - NEW dAYS (uNIQUE TECh).mp3"
+dest_files=["res://.godot/imported/hARITON zOE - NEW dAYS (uNIQUE TECh).mp3-264de053dbe29ba244609db3b05ebbd6.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

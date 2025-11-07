@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://313clql8xlh4"]
+[gd_scene load_steps=74 format=3 uid="uid://313clql8xlh4"]
 
 [ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://scripts/player.gd" id="1_hqtel"]
 [ext_resource type="PackedScene" uid="uid://bn36inecn6soy" path="res://scenes/VisibleItems/filter.tscn" id="2_d2wvv"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bnoqv312svl4k" path="res://scenes/bag.tscn" id="7_smehm"]
 [ext_resource type="Script" uid="uid://cp0sd7il7sd3y" path="res://scripts/tape.gd" id="7_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://csk5nfyi47xdp" path="res://scenes/hud.tscn" id="10_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://be1dhoy7tjr8q" path="res://assets/Arm.png" id="11_pf23h"]
 [ext_resource type="Texture2D" uid="uid://kkljxiluisix" path="res://assets/playerDust.png" id="14_f1ej7"]
 [ext_resource type="Texture2D" uid="uid://dwscxwfrxf62o" path="res://assets/player/Leg.png" id="15_4r5pv"]
 [ext_resource type="Texture2D" uid="uid://bhvjpxr7y7bsp" path="res://assets/player/Chest.png" id="16_60mlk"]
@@ -2407,24 +2408,24 @@ scale = Vector2(1.26, 1.26)
 [node name="Sprites" type="Node2D" parent="CanvasLayer/OverlayArm"]
 
 [node name="Square2" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
-position = Vector2(257.00006, 381.00006)
-rotation = -1.9149005
-scale = Vector2(1.9545962, 1.0212588)
+position = Vector2(256.99982, 380.99677)
+rotation = -1.3496931
+scale = Vector2(1.9536818, 1.0208023)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square3" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
-position = Vector2(160.9342, 39.199158)
-rotation = -1.9828987
-scale = Vector2(2.2674108, 1.0220865)
+position = Vector2(358.8988, 41.018433)
+rotation = -1.6217341
+scale = Vector2(2.2661731, 1.0214617)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square4" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(10.14093, -372.8697)
-rotation = -1.9832332
-scale = Vector2(0.9945658, 1.0211513)
+position = Vector2(363.44244, -397.58453)
+rotation = -1.6220686
+scale = Vector2(0.99371785, 1.020349)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(4.777954, 1.1951294)
 
@@ -2480,11 +2481,20 @@ position = Vector2(84.55326, 8.703087)
 [node name="Skeleton2D" type="Skeleton2D" parent="CanvasLayer/OverlayArm/Bones"]
 modification_stack = SubResource("SkeletonModificationStack2D_smehm")
 
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D"]
+position = Vector2(96.82538, -526.9841)
+scale = Vector2(0.42999998, 0.42999998)
+texture = ExtResource("11_pf23h")
+skeleton = NodePath("..")
+polygon = PackedVector2Array(121.11853, 2058.5447, 98.40112, 1249.5933, 83.21118, 1093.8954, 80.39404, 37.762207, 651.68066, 47.612, 681.69385, 1103.9185, 671.84375, 1271.3645, 680.18286, 2082.665)
+uv = PackedVector2Array(121.11853, 2058.5447, 98.40112, 1249.5933, 83.21118, 1093.8954, 80.39404, 37.762207, 651.68066, 47.612, 681.69385, 1103.9185, 671.84375, 1271.3645, 680.18286, 2082.665)
+bones = ["Base", PackedFloat32Array(1, 1, 0.5, 0, 0, 0.5, 1, 1), "Base/Segment", PackedFloat32Array(0, 0.5, 1, 1, 1, 1, 0.5, 0), "Base/Segment/Hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)]
+
 [node name="Base" type="Bone2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D"]
 position = Vector2(257.00006, 381.00006)
 rotation = -1.9149005
 scale = Vector2(0.9999982, 0.9999982)
-rest = Transform2D(0.26381347, -0.96457285, 0.96457285, 0.26381347, 257, 381)
+rest = Transform2D(-0.04564139, -0.99892235, 0.99892235, -0.04564139, 256.99982, 380.99677)
 auto_calculate_length_and_angle = false
 length = 406.88
 bone_angle = 0.0
@@ -2498,7 +2508,7 @@ update_scale = false
 position = Vector2(354.1726, 24.873505)
 rotation = -0.06799824
 scale = Vector2(0.9999956, 0.9999956)
-rest = Transform2D(0.5295665, -0.8482732, 0.8482732, 0.5295665, 354.14087, 24.878784)
+rest = Transform2D(0.99767596, -0.067944944, 0.067944944, 0.99767596, 354.1704, 24.873535)
 auto_calculate_length_and_angle = false
 length = 203.706
 bone_angle = 0.0
@@ -2524,7 +2534,7 @@ update_scale = false
 [node name="IK Targets" type="Node2D" parent="CanvasLayer/OverlayArm"]
 
 [node name="TIP" type="Node2D" parent="CanvasLayer/OverlayArm/IK Targets"]
-position = Vector2(-3, -413)
+position = Vector2(363.49207, -402.38092)
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/OverlayArm/IK Targets/TIP"]
 visible = false

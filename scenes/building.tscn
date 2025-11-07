@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://ectb2uu36h7a"]
+[gd_scene load_steps=99 format=3 uid="uid://ectb2uu36h7a"]
 
 [ext_resource type="Script" uid="uid://doqvjt1ivyo14" path="res://scripts/buildingClass.gd" id="1_nm462"]
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="2_vs5tt"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://be2lx7cj4m6jc" path="res://Sounds/spaceship-air-lock-door-sound-effect_KgnY9NO5.mp3" id="12_hs87p"]
 [ext_resource type="Script" uid="uid://80130qpkri3o" path="res://scripts/building.gd" id="12_rh2sc"]
 [ext_resource type="Texture2D" uid="uid://dxaxo0gldp6tb" path="res://assets/Circle Building/BuildingRoof.png" id="13_2l1rv"]
+[ext_resource type="AudioStream" uid="uid://dmkxcgyw0v52c" path="res://Sounds/Door, Sci Fi - Hydraulic Laboratory Door_ Open or Close Space Doors, Hatches & Airlocks.mp3" id="13_860ve"]
 [ext_resource type="Script" uid="uid://dwsqsexsw27vy" path="res://scenes/y_sort.gd" id="13_hs87p"]
 [ext_resource type="Texture2D" uid="uid://7be7jvqt7t8j" path="res://assets/Circle Building/BuildingFrontWall.png" id="14_vs5tt"]
 [ext_resource type="Texture2D" uid="uid://b2o4dkbqhhuf0" path="res://assets/Circle Building/BuildingLight.png" id="15_acxlu"]
@@ -256,6 +257,18 @@ tracks/14/path = NodePath("AudioStreamPlayer2D:playing")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("AudioStreamPlayer2D2:playing")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -610,6 +623,18 @@ tracks/13/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AudioStreamPlayer2D2:playing")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gwfoe"]
@@ -1840,6 +1865,10 @@ libraries = {
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Airlock"]
 stream = ExtResource("12_hs87p")
+volume_db = 5.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Airlock"]
+stream = ExtResource("13_860ve")
 
 [node name="Vert Hallway" type="Node2D" parent="."]
 z_index = 1

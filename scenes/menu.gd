@@ -20,3 +20,39 @@ func _on_start_pressed() -> void:
 
 func _on_how_pressed() -> void:
 	$HowTo.visible=true
+
+
+func _on_start_mouse_entered() -> void:
+	var tween = create_tween()
+	tween.tween_property($ButtonGlow, "modulate:a", .3, .1)
+	var tween2 = create_tween()
+	tween2.tween_property($Start, "scale", Vector2(.8, .8), .1)
+	var tween3 = create_tween()
+	tween3.tween_property($ButtonGlow, "scale", Vector2(.94, .94), .1)
+
+
+func _on_start_mouse_exited() -> void:
+	var tween = create_tween()
+	tween.tween_property($ButtonGlow, "modulate:a", .05, .1)
+	var tween2 = create_tween()
+	tween2.tween_property($Start, "scale", Vector2(.73, .73), .1)
+	var tween3 = create_tween()
+	tween3.tween_property($ButtonGlow, "scale", Vector2(.9, .9), .1)
+
+
+func _on_how_mouse_entered() -> void:
+	var tween = create_tween()
+	tween.tween_property($ButtonGlow2, "modulate:a", .3, .1)
+	var tween2 = create_tween()
+	tween2.tween_property($How, "scale", Vector2(.8, .8), .1)
+	var tween3 = create_tween()
+	tween3.tween_property($ButtonGlow2, "scale", Vector2(.94, .94), .1)
+
+
+func _on_how_mouse_exited() -> void:
+	var tween = create_tween()
+	tween.tween_property($ButtonGlow2, "modulate:a", .05, .1)
+	var tween2 = create_tween()
+	tween2.tween_property($How, "scale", Vector2(.73, .73), .1)
+	var tween3 = create_tween()
+	tween3.tween_property($ButtonGlow2, "scale", Vector2(.9, .9), .1)

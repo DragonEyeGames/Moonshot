@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqxgsf3s7qidq"]
+[gd_scene load_steps=17 format=3 uid="uid://cqxgsf3s7qidq"]
 
 [ext_resource type="Script" uid="uid://tf44hyxovb8q" path="res://scenes/menu.gd" id="1_g3eks"]
 [ext_resource type="FontFile" uid="uid://de3jhormdk4qb" path="res://fonts/SpaceNova-6Rpd1.otf" id="1_yqeox"]
@@ -7,43 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://cscgwhr8hllqm" path="res://scenes/star.tscn" id="4_mhnvy"]
 [ext_resource type="Texture2D" uid="uid://dcxs8rxv8jlvh" path="res://assets/menu/Button.png" id="5_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://oms0xrnk61s0" path="res://assets/menu/MenuTextHolder.png" id="7_v86rl"]
+[ext_resource type="Texture2D" uid="uid://bldehaoxqfhx4" path="res://assets/menu/ButtonGlow.png" id="8_13sgg"]
 
 [sub_resource type="Environment" id="Environment_v86rl"]
 background_mode = 3
 glow_enabled = true
 glow_intensity = 1.87
 glow_bloom = 0.31
-glow_hdr_threshold = 0.0
-glow_hdr_scale = 2.35
-
-[sub_resource type="Animation" id="Animation_mhnvy"]
-resource_name = "twinkle"
-length = 10.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WorldEnvironment:environment:glow_intensity")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.87, 0.74]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WorldEnvironment:environment:glow_bloom")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.31, 0.01]
-}
+glow_hdr_threshold = 4.0
+glow_hdr_scale = 4.0
+glow_hdr_luminance_cap = 40.2
 
 [sub_resource type="Animation" id="Animation_4ytvr"]
 length = 0.001
@@ -72,10 +45,66 @@ tracks/1/keys = {
 "values": [0.31]
 }
 
+[sub_resource type="Animation" id="Animation_mhnvy"]
+resource_name = "twinkle"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:glow_intensity")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.87, 0.59]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:glow_bloom")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.31, 0.01]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g3eks"]
 _data = {
 &"RESET": SubResource("Animation_4ytvr"),
 &"twinkle": SubResource("Animation_mhnvy")
+}
+
+[sub_resource type="Animation" id="Animation_v86rl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_g3eks"]
@@ -92,33 +121,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_v86rl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -170,6 +172,7 @@ z_index = 1
 layout_mode = 0
 offset_right = 1929.0
 offset_bottom = 743.0
+theme_override_constants/outline_size = 35
 theme_override_fonts/normal_font = ExtResource("1_yqeox")
 theme_override_font_sizes/normal_font_size = 200
 text = "Project Moonshot"
@@ -177,6 +180,7 @@ horizontal_alignment = 1
 
 [node name="Earth" type="Sprite2D" parent="."]
 modulate = Color(0.5053218, 0.5053218, 0.5053218, 0.85600007)
+z_index = -1
 position = Vector2(959, 692)
 texture = ExtResource("2_mhnvy")
 
@@ -186,7 +190,7 @@ scale = Vector2(0.915, 0.915)
 texture = ExtResource("3_4ytvr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
+z_index = -2
 layout_mode = 0
 offset_left = -31.0
 offset_top = -6.0
@@ -260,21 +264,24 @@ scale = Vector2(1, 1)
 
 [node name="Start" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 686.0
-offset_top = 449.0
-offset_right = 1482.0
-offset_bottom = 706.0
+offset_left = 578.00006
+offset_top = 409.00003
+offset_right = 1374.0
+offset_bottom = 666.0
 scale = Vector2(0.73, 0.73)
+pivot_offset = Vector2(393.15063, 124.65753)
 texture_normal = ExtResource("5_4ytvr")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Start"]
-modulate = Color(1.1377786, 1.1377786, 1.1377786, 1)
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
 layout_mode = 0
-offset_left = 124.65759
-offset_top = 43.835632
-offset_right = 709.589
-offset_bottom = 215.06848
+offset_left = 116.43833
+offset_top = 47.94522
+offset_right = 701.36975
+offset_bottom = 219.17807
 mouse_filter = 2
+theme_override_colors/default_color = Color(18.892157, 18.892157, 18.892157, 1)
+theme_override_constants/outline_size = 22
 theme_override_fonts/normal_font = ExtResource("1_yqeox")
 theme_override_font_sizes/normal_font_size = 107
 text = "Start"
@@ -283,11 +290,12 @@ vertical_alignment = 1
 
 [node name="How" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 682.0
-offset_top = 673.00006
-offset_right = 1478.0
-offset_bottom = 930.00006
+offset_left = 592.00006
+offset_top = 635.00006
+offset_right = 1388.0
+offset_bottom = 892.00006
 scale = Vector2(0.73, 0.73)
+pivot_offset = Vector2(397.2602, 135.61633)
 texture_normal = ExtResource("5_4ytvr")
 flip_h = true
 
@@ -299,6 +307,7 @@ offset_top = 43.835632
 offset_right = 709.589
 offset_bottom = 215.06848
 mouse_filter = 2
+theme_override_constants/outline_size = 22
 theme_override_fonts/normal_font = ExtResource("1_yqeox")
 theme_override_font_sizes/normal_font_size = 80
 text = "How to
@@ -343,8 +352,31 @@ offset_left = 479.0
 offset_top = 200.0
 offset_right = 1492.0
 offset_bottom = 967.0
+theme_override_constants/outline_size = 22
 theme_override_font_sizes/normal_font_size = 45
 text = "Project Moonshot is a game where you have to repair an old lunar base! You need to walk around and repair various systems. The oxygenator, power grid, and water reclaimer are all down. The computer at the entrance tells you how all of your systems are doing. There are shelves throughout the base that you will interact with by pressing 'e'. This will zoom in on them and make it easier to see! Some of these items are food, like the ice cream, but others are needed for repairing systems. An example of one of these is the duct tape. It is used to repair the oxygenator pipes. A rag is used to clean off solar panels, and a filter is used to replace the old one in the water reclaimer. To put something in your bag, simply interact with the shelf and then click when hovering an object to pick it up! Once picked up release when you are hovering over the bag to put it in your inventory. To take something out of your inventory you will need to click on the bag, pick up the item, and drag it out of the bag. You can select items in your inventory with the number keys. Now get repairing! Humanity counts on you!"
 
+[node name="ButtonGlow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.050980393)
+z_index = -1
+position = Vector2(974.99994, 496.99994)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("8_13sgg")
+flip_h = true
+flip_v = true
+
+[node name="ButtonGlow2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.050980393)
+z_index = -1
+position = Vector2(986, 741)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("8_13sgg")
+flip_h = true
+flip_v = true
+
+[connection signal="mouse_entered" from="Start" to="." method="_on_start_mouse_entered"]
+[connection signal="mouse_exited" from="Start" to="." method="_on_start_mouse_exited"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="How" to="." method="_on_how_mouse_entered"]
+[connection signal="mouse_exited" from="How" to="." method="_on_how_mouse_exited"]
 [connection signal="pressed" from="How" to="." method="_on_how_pressed"]

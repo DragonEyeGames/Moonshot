@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://313clql8xlh4"]
+[gd_scene load_steps=73 format=3 uid="uid://313clql8xlh4"]
 
 [ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://scripts/player.gd" id="1_hqtel"]
 [ext_resource type="PackedScene" uid="uid://bn36inecn6soy" path="res://scenes/VisibleItems/filter.tscn" id="2_d2wvv"]
@@ -27,9 +27,6 @@
 [ext_resource type="Texture2D" uid="uid://bbujinpax2m4s" path="res://assets/player/Torso.png" id="25_wnwbv"]
 [ext_resource type="Texture2D" uid="uid://cso6djam6e25k" path="res://assets/player/Helmet.png" id="26_gl8cc"]
 [ext_resource type="Texture2D" uid="uid://bm6cf7okvaxmr" path="res://assets/player/HelmetBack.png" id="27_31cv2"]
-[ext_resource type="AudioStream" uid="uid://bjbp3gohtx0is" path="res://Sounds/drone-ethereal-mist-background-235218.mp3" id="28_pf23h"]
-[ext_resource type="AudioStream" uid="uid://b0ux6ns2313xh" path="res://Sounds/fridge-buzz-loop-39612.mp3" id="29_dt7fs"]
-[ext_resource type="AudioStream" uid="uid://rdf0r2m00wnn" path="res://Sounds/hARITON zOE - NEW dAYS (uNIQUE TECh).mp3" id="30_wqfne"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur7pv"]
 radius = 58.0
@@ -2722,24 +2719,6 @@ speed_scale = 1.3
 libraries = {
 &"": SubResource("AnimationLibrary_dt7fs")
 }
-
-[node name="MoonSounds" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("28_pf23h")
-autoplay = true
-parameters/looping = true
-
-[node name="BaseSounds" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("29_dt7fs")
-volume_db = 4.0
-autoplay = true
-playback_type = 1
-parameters/looping = true
-
-[node name="BaseMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("30_wqfne")
-autoplay = true
-playback_type = 1
-parameters/looping = true
 
 [connection signal="area_entered" from="CanvasLayer/OverlayArm/Sprites/Square4/Area2D" to="." method="_in_bag_entered"]
 [connection signal="area_exited" from="CanvasLayer/OverlayArm/Sprites/Square4/Area2D" to="." method="_in_bag_exited"]

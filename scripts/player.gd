@@ -37,32 +37,6 @@ func _process(delta: float) -> void:
 	flashlight()
 	sprintCheck()
 	movement(delta)
-	if(GameManager.playerState==GameManager.possibleStates.OUTSIDE):
-		if($MoonSounds.volume_db<0):
-			$MoonSounds.volume_db+=delta*40
-			if($MoonSounds.volume_db>0):
-				$MoonSounds.volume_db=0
-		if($BaseSounds.volume_db>-80):
-			$BaseSounds.volume_db-=delta*10
-			if($BaseSounds.volume_db<-800):
-				$BaseSounds.volume_db=-80
-		if($BaseMusic.volume_db>-80):
-			$BaseMusic.volume_db-=delta*10
-			if($BaseMusic.volume_db<-800):
-				$BaseMusic.volume_db=-80
-	else:
-		if($MoonSounds.volume_db>-80):
-			$MoonSounds.volume_db-=delta*10
-			if($MoonSounds.volume_db<-800):
-				$MoonSounds.volume_db=-80
-		if($BaseSounds.volume_db<-5):
-			$BaseSounds.volume_db+=delta*40
-			if($BaseSounds.volume_db>-5):
-				$BaseSounds.volume_db=-5
-		if($BaseMusic.volume_db<-5):
-			$BaseMusic.volume_db+=delta*40
-			if($BaseMusic.volume_db>-5):
-				$BaseMusic.volume_db=-5
 	
 func _physics_process(_delta: float) -> void:
 	#All of the fun interactions with moving stuff to and fro shelves

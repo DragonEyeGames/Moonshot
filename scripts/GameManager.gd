@@ -9,6 +9,7 @@ var oxygenator
 var waterReclaimer
 var solarField
 
+var inMenu:=true
 #the player state state machine
 enum possibleStates {
 	OUTSIDE,

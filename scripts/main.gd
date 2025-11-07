@@ -5,6 +5,7 @@ extends Node2D
 func _ready() -> void:
 	GameManager.helmet=$player/Helmet
 	GameManager.player=$player
+	GameManager.inMenu=false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

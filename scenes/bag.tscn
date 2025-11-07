@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnoqv312svl4k"]
+[gd_scene load_steps=13 format=3 uid="uid://bnoqv312svl4k"]
 
 [ext_resource type="Script" uid="uid://beaps3n1ubghn" path="res://scripts/bag.gd" id="1_6bjnb"]
 [ext_resource type="PackedScene" uid="uid://coaotjijpvoi2" path="res://scenes/bag_items.tscn" id="2_8dtae"]
+[ext_resource type="Texture2D" uid="uid://4mewnkiaxa5r" path="res://assets/BagInner.png" id="3_6blhx"]
+[ext_resource type="Texture2D" uid="uid://cb3hyh61rohr7" path="res://assets/BagOuter.png" id="4_la0sw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
 size = Vector2(1255.8484, 760.9063)
@@ -47,14 +49,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Cover:color")
+tracks/3/path = NodePath("Cover:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.34509805, 0.1764706, 0.023529412, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_8dtae"]
@@ -86,14 +88,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Cover:color")
-tracks/2/interp = 2
+tracks/2/path = NodePath("Cover:modulate")
+tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.34509805, 0.1764706, 0.023529412, 0), Color(0.34509805, 0.1764706, 0.023529412, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_qlbld"]
@@ -125,14 +127,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Cover:color")
-tracks/2/interp = 2
+tracks/2/path = NodePath("Cover:modulate")
+tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.34509805, 0.1764706, 0.023529412, 1), Color(0.34509805, 0.1764706, 0.023529412, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_la0sw"]
@@ -184,10 +186,10 @@ z_index = -2
 offset_left = 311.80466
 offset_top = 406.40982
 offset_right = 1606.8047
-offset_bottom = 1209.4097
+offset_bottom = 1209.4102
 rotation = 1.2489982
 mouse_filter = 2
-color = Color(0.34414157, 0.17461061, 0.025434045, 1)
+color = Color(0.34509805, 0.1764706, 0.023529412, 0)
 script = ExtResource("1_6bjnb")
 
 [node name="Bag" type="Area2D" parent="."]
@@ -235,25 +237,16 @@ position = Vector2(162.49551, 728.5979)
 scale = Vector2(5, 5)
 display = true
 
-[node name="Interior" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 14.32665
-offset_top = 21.917816
-offset_right = 1276.0
-offset_bottom = 779.0
-mouse_filter = 2
-color = Color(0.2384842, 0.11481408, 0.011228062, 1)
+[node name="Interior" type="Sprite2D" parent="."]
+position = Vector2(671.32666, 296.33875)
+scale = Vector2(0.835, 0.835)
+texture = ExtResource("3_6blhx")
 
-[node name="Cover" type="ColorRect" parent="."]
-z_index = 10
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.34509805, 0.1764706, 0.023529412, 1)
+[node name="Cover" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(671.32666, 296.33875)
+scale = Vector2(0.835, 0.835)
+texture = ExtResource("4_la0sw")
 
 [node name="Points of Movement" type="Node2D" parent="."]
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://csk5nfyi47xdp"]
+[gd_scene load_steps=17 format=3 uid="uid://csk5nfyi47xdp"]
 
 [ext_resource type="Script" uid="uid://dilfx7ei5wrr0" path="res://scripts/hud.gd" id="1_37p78"]
 [ext_resource type="PackedScene" uid="uid://coamir61ehm7a" path="res://scenes/inventorySlot.tscn" id="2_64ctp"]
 [ext_resource type="FontFile" uid="uid://de3jhormdk4qb" path="res://fonts/SpaceNova-6Rpd1.otf" id="3_5ysmq"]
+[ext_resource type="FontFile" uid="uid://cjog5sibib7b1" path="res://fonts/EdgeOfTheGalaxyRegular-OVEa6.otf" id="4_6fi6k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61f8s"]
 bg_color = Color(0.5555985, 0.69966775, 1, 1)
@@ -184,6 +185,15 @@ text = "12:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ColorRect" type="ColorRect" parent="Date+Time"]
+z_index = -1
+layout_mode = 0
+offset_left = 27.0
+offset_top = 10.0
+offset_right = 295.0
+offset_bottom = 209.0
+color = Color(0, 0, 0, 0.7254902)
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 modulate = Color(1, 1, 1, 0.8)
 offset_left = 672.0
@@ -237,3 +247,96 @@ Water
 
 Health"
 horizontal_alignment = 2
+
+[node name="ToDo" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 31.0
+offset_top = 237.0
+offset_right = 388.0
+offset_bottom = 1035.0
+
+[node name="ColorRect" type="ColorRect" parent="ToDo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78039217)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ToDo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = -16.0
+offset_bottom = -751.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("4_6fi6k")
+theme_override_font_sizes/normal_font_size = 30
+text = "To do:"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ToDo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 55.0
+offset_right = -10.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ToDo/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_6fi6k")
+theme_override_font_sizes/normal_font_size = 30
+text = "Fix Oxygenator Pipe"
+vertical_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ToDo/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_6fi6k")
+theme_override_font_sizes/normal_font_size = 27
+text = "Replace Water Reclaimer Filter"
+vertical_alignment = 1
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="ToDo/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_6fi6k")
+theme_override_font_sizes/normal_font_size = 30
+text = "Reconnect Electric Wires"
+vertical_alignment = 1
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="ToDo/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_6fi6k")
+theme_override_font_sizes/normal_font_size = 30
+text = "Clean Solar Panels"
+vertical_alignment = 1
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="ToDo/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_6fi6k")
+theme_override_font_sizes/normal_font_size = 30
+text = "Grow Food"
+vertical_alignment = 1
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="ToDo/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_6fi6k")
+theme_override_font_sizes/normal_font_size = 30
+text = "Survive"
+vertical_alignment = 1

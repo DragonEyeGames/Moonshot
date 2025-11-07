@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var playerDead=false
 var sprintRegen=2
+var showing=false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -19,6 +20,13 @@ func _process(delta: float) -> void:
 	dayTime()
 	visuals(delta)
 	$RichTextLabel.text = "FPS: " + str(Engine.get_frames_per_second())
+	if(Input.is_action_just_pressed("HUD")):
+		showing=!showing
+	$Stats.visible=showing
+	$"Date+Time".visible=showing
+	$RichTextLabel.visible=showing
+	$StatBlocker.visible=showing
+	$ToDo.visible=showing
 	
 func food(_delta):
 	if(GameManager.food>100):

@@ -32,6 +32,7 @@ func _ready() -> void:
 	GameManager.hud=$HUD
 
 func _process(delta: float) -> void:
+	print(pickable)
 	perFrameUpdate()
 	seedCheck()
 	flashlight()
@@ -95,9 +96,6 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 
 func _in_bag_entered(area: Area2D) -> void:
-	if(area.get_parent().visible):
-		print("INtered")
-		print(handHeldItem)
 	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and GameManager.playerTool=="bag" and bagOpen==true):
 		if canPickUp:
 			handHeldItem=area.name
@@ -106,7 +104,6 @@ func _in_bag_entered(area: Area2D) -> void:
 			pickable.call_deferred("reparent", $"CanvasLayer/PlantBag/Bag O' Holding")
 			if(oldParent!=$CanvasLayer/PlantBag and oldParent!=$"CanvasLayer/PlantBag/Bag O' Holding"):
 				oldParent.queue_free()
-			print(pickable)
 
 
 func _in_bag_exited(area: Area2D) -> void:
@@ -223,7 +220,6 @@ func closedBagPickup():
 	pickedUp=true
 	pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
 	for child in pickable.get_children():
-		print(child.scale)
 		child.scale*=GameManager.camera.zoom
 	pickable.position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.position
 
@@ -244,7 +240,6 @@ func closedBagDrop():
 	if(not fromBag):
 		for child in pickable.get_children():
 			child.scale/=GameManager.camera.zoom
-			print(child.scale)
 	elif(str(GameManager.collisionTool.name)=="Water Reclaimer"):
 		for child in pickable.get_children():
 			child.set_deferred("scale", child.scale/2)

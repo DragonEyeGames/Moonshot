@@ -13,20 +13,19 @@ glow_bloom = 0.31
 glow_hdr_threshold = 0.0
 glow_hdr_scale = 2.35
 
-[sub_resource type="Animation" id="Animation_g3eks"]
-resource_name = "in"
-length = 0.5
+[sub_resource type="Animation" id="Animation_v86rl"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:color")
-tracks/0/interp = 2
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+"values": [Color(0, 0, 0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -41,19 +40,20 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_v86rl"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_g3eks"]
+resource_name = "in"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -91,7 +91,7 @@ _data = {
 &"out": SubResource("Animation_13sgg")
 }
 
-[node name="Control" type="Control"]
+[node name="Dead" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

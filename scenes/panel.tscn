@@ -41,7 +41,7 @@ shape = SubResource("CapsuleShape2D_ixbsq")
 
 [node name="Speckle" type="Sprite2D" parent="."]
 visible = false
-self_modulate = Color(0.7490196, 0.7490196, 0.7490196, 0.6901961)
+self_modulate = Color(0.7490196, 0.7490196, 0.7490196, 0.8745098)
 z_index = 1
 position = Vector2(-734.2856, -377.1428)
 scale = Vector2(0.27, 0.27)

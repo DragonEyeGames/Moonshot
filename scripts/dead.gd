@@ -14,12 +14,7 @@ func _process(_delta: float) -> void:
 
 func _on_start_pressed() -> void:
 	$ColorRect2/AnimationPlayer.play("out")
-	var GameManager = get_node("/root/GameManager")
-	if GameManager == null:
-		push_error("GameManager not found in scene tree.")
-		return
 
-	# --- Reset all variables to their defaults ---
 	GameManager.helmet = null
 	GameManager.player = null
 	GameManager.playerSprinting = false
@@ -83,6 +78,7 @@ func _on_start_pressed() -> void:
 
 	GameManager.food = 100
 	GameManager.water = 400
+	GameManager.inMenu=true
 
 	await get_tree().create_timer(1.1).timeout
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")

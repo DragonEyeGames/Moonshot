@@ -1,16 +1,48 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5eiodc6x61h"]
+[gd_scene load_steps=17 format=3 uid="uid://c5eiodc6x61h"]
 
 [ext_resource type="Script" uid="uid://ci5ughirdgwn8" path="res://scripts/farm.gd" id="1_o03py"]
 [ext_resource type="Script" uid="uid://sryc24cvut1g" path="res://scripts/dropper.gd" id="2_jjgid"]
 [ext_resource type="PackedScene" uid="uid://c3w4cpinjn8dd" path="res://scenes/seed.tscn" id="2_kjpqf"]
 [ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/Jug.png" id="4_k3ns2"]
 [ext_resource type="Texture2D" uid="uid://lh7i423l7poe" path="res://assets/farm.png" id="5_7byxm"]
+[ext_resource type="Shader" uid="uid://dnwmo2vvypjkr" path="res://scenes/VisibleItems/water.gdshader" id="5_fq2vd"]
+[ext_resource type="Texture2D" uid="uid://cgr4oumdd4o62" path="res://assets/jug_underlay.png" id="6_t855c"]
+[ext_resource type="Texture2D" uid="uid://clwei00msolvb" path="res://assets/jugOutline.png" id="7_lakm8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o03py"]
 radius = 337.0534
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgid"]
 size = Vector2(476.4765, 491.89935)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1038h"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b3r0t"]
+noise = SubResource("FastNoiseLite_1038h")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_phtf0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k4r23"]
+noise = SubResource("FastNoiseLite_phtf0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wrfdq"]
+shader = ExtResource("5_fq2vd")
+shader_parameter/horizon = 0.49600002356
+shader_parameter/noise = SubResource("NoiseTexture2D_b3r0t")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_k4r23")
+shader_parameter/wave_frequency = 14.834000704615
+shader_parameter/wave_magnitude = 0.0050000002375
+shader_parameter/tides_magnitude = 0.0870000041325
+shader_parameter/noise_wave = 0.8430000400425
+shader_parameter/tides_speed = 0.0010000000475
+shader_parameter/wave_speed = 1.158000055005
+shader_parameter/water_color = Color(0, 0.29803923, 0.6901961, 1)
+shader_parameter/shine_color = Color(0, 0, 0, 1)
+shader_parameter/shine_position = 0.050000002375
+shader_parameter/shine_width = 0.0
+shader_parameter/shine_intensity = 0.5
+shader_parameter/noise_scale = 2.0
+shader_parameter/noise2_scale = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3ns2"]
 radius = 115.212845
@@ -24,6 +56,7 @@ color = Color(0.26150593, 0.14489442, 0.021798393, 1)
 script = ExtResource("1_o03py")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -70,6 +103,7 @@ offset_right = -30.0
 offset_bottom = -35.0
 
 [node name="Area2D2" type="Area2D" parent="."]
+visible = false
 collision_layer = 16
 collision_mask = 0
 
@@ -88,13 +122,30 @@ offset_right = 276.95303
 offset_bottom = -11.201324
 color = Color(0.24477637, 0.2447764, 0.24477637, 1)
 
-[node name="WurterJug" type="Sprite2D" parent="ColorRect6"]
+[node name="WurterJug" type="Node2D" parent="ColorRect6"]
 visible = false
-show_behind_parent = true
-position = Vector2(57, -63)
-rotation = 3.1415927
-scale = Vector2(0.295, 0.295)
+
+[node name="Jug2" type="Sprite2D" parent="ColorRect6/WurterJug"]
+clip_children = 2
+position = Vector2(54, 19.279999)
+rotation = -3.1415925
+scale = Vector2(0.225, 0.225)
 texture = ExtResource("4_k3ns2")
+offset = Vector2(0, 127)
+
+[node name="Jug3" type="Sprite2D" parent="ColorRect6/WurterJug/Jug2"]
+material = SubResource("ShaderMaterial_wrfdq")
+position = Vector2(13.333369, 392.35568)
+rotation = 3.1415927
+scale = Vector2(2, 2)
+texture = ExtResource("6_t855c")
+
+[node name="JugOutline" type="Sprite2D" parent="ColorRect6/WurterJug"]
+position = Vector2(54, 19.279999)
+rotation = -3.1415925
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("7_lakm8")
+offset = Vector2(0, 127)
 
 [node name="ColorRect7" type="ColorRect" parent="."]
 visible = false
@@ -106,6 +157,7 @@ offset_bottom = 511.89935
 color = Color(0.059416607, 0.030704005, 0.002594001, 1)
 
 [node name="Jug" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 

@@ -164,7 +164,9 @@ func movement(delta):
 		healthMod=.6
 	velocity*=speed*healthMod
 	if(GameManager.playerMove):
+		velocity*=1.5
 		move_and_slide()
+		velocity/=1.5
 		var target = velocity.x/300
 		var current = $Horizontal.get("parameters/blend_position")
 		var new_value = lerp(current, target, delta * 5)

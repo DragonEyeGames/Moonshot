@@ -10,6 +10,8 @@ var water=100
 var standingWater=0
 
 func _process(delta: float) -> void:
+	$ColorRect6/WurterJug/Jug2/Jug3.position=Vector2(-13.0, -160.0).lerp(Vector2(-13.0, 390.0), float(water)/100.0)
+	print($ColorRect6/WurterJug/Jug2/Jug3.position)
 	if(collision and state=="unplanted" and Input.is_action_just_pressed("Interact") and not zoomed and canZoom and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]["name"]=="SeedBag"):
 		GameManager.subtract("SeedBag", 1)
 		GameManager.playerTool="seedBag"
@@ -20,15 +22,15 @@ func _process(delta: float) -> void:
 		#GameManager.playerTool="wateringCan"
 		#zoom()
 	elif(jugCollision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]["name"]=="Jug" and $ColorRect6/WurterJug.visible==false):
-		GameManager.inventory.erase("Jug")
 		$ColorRect6/WurterJug.visible=true
-		water=GameManager.pickedUpJugWater
+		water=GameManager.inventory[GameManager.selectedSlot]["count"]
+		GameManager.inventory.remove_at(GameManager.selectedSlot)
 		GameManager.pickedUpJugWater=-1
 	elif(collision and not jugCollision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and not zoomed and canZoom):
 		GameManager.playerTool="bag"
 		zoom()
 	elif(jugCollision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and len(GameManager.inventory)<=4):
-		GameManager.inventory.add("Jug", 1)
+		GameManager.add("Jug", round(water))
 		$ColorRect6/WurterJug.visible=false
 		GameManager.pickedUpJugWater=water
 		water=0

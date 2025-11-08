@@ -20,7 +20,7 @@ var playerState: possibleStates=possibleStates.OUTSIDE
 
 var flashlightOn=false
 var playerEnergy:=100.0
-var inventory=[{"name": "Rag", "count": 1}]
+var inventory=[]
 var selectedSlot=0
 var playerMove=true
 var dead=""

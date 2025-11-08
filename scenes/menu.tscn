@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqxgsf3s7qidq"]
+[gd_scene load_steps=18 format=3 uid="uid://cqxgsf3s7qidq"]
 
 [ext_resource type="Script" uid="uid://tf44hyxovb8q" path="res://scenes/menu.gd" id="1_g3eks"]
 [ext_resource type="FontFile" uid="uid://de3jhormdk4qb" path="res://fonts/SpaceNova-6Rpd1.otf" id="1_yqeox"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dcxs8rxv8jlvh" path="res://assets/menu/Button.png" id="5_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://oms0xrnk61s0" path="res://assets/menu/MenuTextHolder.png" id="7_v86rl"]
 [ext_resource type="Texture2D" uid="uid://bldehaoxqfhx4" path="res://assets/menu/ButtonGlow.png" id="8_13sgg"]
+[ext_resource type="FontFile" uid="uid://cjog5sibib7b1" path="res://fonts/EdgeOfTheGalaxyRegular-OVEa6.otf" id="8_i6lef"]
 
 [sub_resource type="Environment" id="Environment_v86rl"]
 background_mode = 3
@@ -170,8 +171,11 @@ script = ExtResource("1_g3eks")
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 z_index = 1
 layout_mode = 0
-offset_right = 1929.0
-offset_bottom = 743.0
+offset_left = 82.00001
+offset_top = 5.000001
+offset_right = 2011.0
+offset_bottom = 748.0
+scale = Vector2(0.925, 0.925)
 theme_override_constants/outline_size = 35
 theme_override_fonts/normal_font = ExtResource("1_yqeox")
 theme_override_font_sizes/normal_font_size = 200
@@ -264,10 +268,10 @@ scale = Vector2(1, 1)
 
 [node name="Start" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 578.00006
-offset_top = 409.00003
-offset_right = 1374.0
-offset_bottom = 666.0
+offset_left = 567.5501
+offset_top = 369.30008
+offset_right = 1363.55
+offset_bottom = 626.30005
 scale = Vector2(0.73, 0.73)
 pivot_offset = Vector2(393.15063, 124.65753)
 texture_normal = ExtResource("5_4ytvr")
@@ -290,10 +294,10 @@ vertical_alignment = 1
 
 [node name="How" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 592.00006
-offset_top = 635.00006
-offset_right = 1388.0
-offset_bottom = 892.00006
+offset_left = 581.5501
+offset_top = 595.3001
+offset_right = 1377.55
+offset_bottom = 852.3001
 scale = Vector2(0.73, 0.73)
 pivot_offset = Vector2(397.2602, 135.61633)
 texture_normal = ExtResource("5_4ytvr")
@@ -312,6 +316,32 @@ theme_override_fonts/normal_font = ExtResource("1_yqeox")
 theme_override_font_sizes/normal_font_size = 80
 text = "How to
 Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 574.55005
+offset_top = 819.30005
+offset_right = 1370.55
+offset_bottom = 1076.3
+scale = Vector2(0.73, 0.73)
+pivot_offset = Vector2(397.2602, 135.61633)
+texture_normal = ExtResource("5_4ytvr")
+flip_h = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings"]
+modulate = Color(1.1377786, 1.1377786, 1.1377786, 1)
+layout_mode = 0
+offset_left = 110.60237
+offset_top = 48.47071
+offset_right = 695.53375
+offset_bottom = 219.70355
+mouse_filter = 2
+theme_override_constants/outline_size = 22
+theme_override_fonts/normal_font = ExtResource("1_yqeox")
+theme_override_font_sizes/normal_font_size = 91
+text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -356,10 +386,87 @@ theme_override_constants/outline_size = 22
 theme_override_font_sizes/normal_font_size = 45
 text = "Project Moonshot is a game where you have to repair an old lunar base! You need to walk around and repair various systems. The oxygenator, power grid, and water reclaimer are all down. The computer at the entrance tells you how all of your systems are doing. There are shelves throughout the base that you will interact with by pressing 'e'. This will zoom in on them and make it easier to see! Some of these items are food, like the ice cream, but others are needed for repairing systems. An example of one of these is the duct tape. It is used to repair the oxygenator pipes. A rag is used to clean off solar panels, and a filter is used to replace the old one in the water reclaimer. To put something in your bag, simply interact with the shelf and then click when hovering an object to pick it up! Once picked up release when you are hovering over the bag to put it in your inventory. To take something out of your inventory you will need to click on the bag, pick up the item, and drag it out of the bag. You can select items in your inventory with the number keys. Now get repairing! Humanity counts on you!"
 
+[node name="SettingsMenu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuTextHolder" type="Sprite2D" parent="SettingsMenu"]
+z_index = 1
+position = Vector2(919.00006, 609.00006)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("7_v86rl")
+
+[node name="HSlider" type="HSlider" parent="SettingsMenu"]
+z_index = 1
+layout_mode = 0
+offset_left = 789.0
+offset_top = 545.0
+offset_right = 1486.0
+offset_bottom = 569.0
+scale = Vector2(1, 2)
+min_value = -80.0
+max_value = 0.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SettingsMenu"]
+z_index = 1
+layout_mode = 0
+offset_left = 479.0
+offset_top = 540.0
+offset_right = 779.0
+offset_bottom = 607.0
+theme_override_fonts/normal_font = ExtResource("8_i6lef")
+theme_override_font_sizes/normal_font_size = 47
+text = "Master Volume:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="SettingsMenu"]
+z_index = 1
+layout_mode = 0
+offset_left = 512.0
+offset_top = 205.0
+offset_right = 1439.0
+offset_bottom = 269.0
+theme_override_fonts/normal_font = ExtResource("1_yqeox")
+theme_override_font_sizes/normal_font_size = 60
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Leave" type="TextureButton" parent="SettingsMenu"]
+z_index = 1
+layout_mode = 0
+offset_left = 587.0
+offset_top = 730.00006
+offset_right = 1383.0
+offset_bottom = 987.00006
+scale = Vector2(0.565, 0.565)
+pivot_offset = Vector2(397.2602, 135.61633)
+texture_normal = ExtResource("5_4ytvr")
+flip_h = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SettingsMenu/Leave"]
+modulate = Color(1.1377786, 1.1377786, 1.1377786, 1)
+layout_mode = 0
+offset_left = 69.36604
+offset_top = 38.9502
+offset_right = 654.2974
+offset_bottom = 210.18304
+scale = Vector2(1.13, 1.13)
+mouse_filter = 2
+theme_override_constants/outline_size = 22
+theme_override_fonts/normal_font = ExtResource("1_yqeox")
+theme_override_font_sizes/normal_font_size = 91
+text = "Close"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ButtonGlow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.050980393)
 z_index = -1
-position = Vector2(974.99994, 496.99994)
+position = Vector2(964.55, 457.3)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("8_13sgg")
 flip_h = true
@@ -368,7 +475,16 @@ flip_v = true
 [node name="ButtonGlow2" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.050980393)
 z_index = -1
-position = Vector2(986, 741)
+position = Vector2(975.55005, 701.30005)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("8_13sgg")
+flip_h = true
+flip_v = true
+
+[node name="ButtonGlow3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.050980393)
+z_index = -1
+position = Vector2(968, 940.00006)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("8_13sgg")
 flip_h = true
@@ -380,3 +496,9 @@ flip_v = true
 [connection signal="mouse_entered" from="How" to="." method="_on_how_mouse_entered"]
 [connection signal="mouse_exited" from="How" to="." method="_on_how_mouse_exited"]
 [connection signal="pressed" from="How" to="." method="_on_how_pressed"]
+[connection signal="mouse_entered" from="Settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="Settings" to="." method="_on_settings_mouse_exited"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="changed" from="SettingsMenu/HSlider" to="." method="_on_h_slider_changed"]
+[connection signal="value_changed" from="SettingsMenu/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="SettingsMenu/Leave" to="." method="_on_leave_pressed"]

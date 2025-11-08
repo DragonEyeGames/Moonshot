@@ -68,7 +68,6 @@ func _process(delta: float) -> void:
 		dirty=true
 	else:
 		dirty=false
-	print(cumulativeDirt)
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	colliding=true

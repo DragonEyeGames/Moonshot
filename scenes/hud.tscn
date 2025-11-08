@@ -383,7 +383,7 @@ texture_normal = ExtResource("5_hd3ao")
 texture_click_mask = ExtResource("6_0i1j5")
 script = ExtResource("7_mphia")
 newText = "The solar panels are most likely dirty from all theirs years of sitting out in the harsh environment of the moon. Alll you need to do is wipe them off with a rag. Rags can be found in the storeroom, and the solar panels can be found where one might expect them. Outside. Just interact with them while pressing 'e' and scrub away! Don't worry about damaging the panels. They're nice and powerful!"
-fontSize = 70
+fontSize = 69
 
 [node name="Food" type="RichTextLabel" parent="ToDo/VBoxContainer"]
 custom_minimum_size = Vector2(300, 100)

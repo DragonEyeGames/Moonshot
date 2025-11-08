@@ -241,7 +241,7 @@ modifications/0 = SubResource("SkeletonModification2DCCDIK_fjrip")
 radius = 75.015
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4r1p"]
-size = Vector2(217.1538, 218.3018)
+size = Vector2(1211.6282, 951.1628)
 
 [sub_resource type="Animation" id="Animation_v86rl"]
 length = 0.001
@@ -2411,25 +2411,25 @@ scale = Vector2(1.26, 1.26)
 [node name="Square2" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 visible = false
 position = Vector2(257.00006, 381.00006)
-rotation = -1.6146752
-scale = Vector2(1.9409018, 1.0192286)
+rotation = -1.5061467
+scale = Vector2(1.9408544, 1.0192012)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square3" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 visible = false
-position = Vector2(266.30847, 26.060852)
-rotation = -1.6826733
-scale = Vector2(2.2530217, 1.0162485)
+position = Vector2(304.6994, 29.159302)
+rotation = -1.5741448
+scale = Vector2(2.2530048, 1.016241)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square4" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 self_modulate = Color(0, 0, 0, 1)
 z_index = 1
-position = Vector2(235.10828, -531.6819)
-rotation = -1.683008
-scale = Vector2(0.254, 0.315)
+position = Vector2(334.09473, -528.6763)
+rotation = -1.5744795
+scale = Vector2(0.2539978, 0.3149957)
 texture = ExtResource("9_dt7fs")
 offset = Vector2(218.00537, -0.22698975)
 
@@ -2448,8 +2448,8 @@ shape = SubResource("CircleShape2D_qlg0r")
 self_modulate = Color(0.32482845, 0.19841483, 0.042716093, 1)
 show_behind_parent = true
 z_index = -1
-position = Vector2(-53.873856, -21.031061)
-scale = Vector2(1.8277276, 2.0310116)
+position = Vector2(-377.3786, -65.315414)
+scale = Vector2(5.698, 5.886)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(92.512695, 7.0788574)
 
@@ -2497,7 +2497,7 @@ bones = ["Base", PackedFloat32Array(0.98, 1, 0.98, 0, 0, 0.49, 0.49, 0.49, 0.98,
 
 [node name="Base" type="Bone2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D"]
 position = Vector2(257.00006, 381.00006)
-rotation = -1.158735
+rotation = -1.277788
 scale = Vector2(0.99999803, 0.99999803)
 rest = Transform2D(-0.04564139, -0.99892235, 0.99892235, -0.04564139, 256.99982, 380.99677)
 auto_calculate_length_and_angle = false
@@ -2510,9 +2510,9 @@ remote_path = NodePath("../../../../Sprites/Square2")
 update_scale = false
 
 [node name="Segment" type="Bone2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D/Base"]
-position = Vector2(354.1903, 24.86853)
-rotation = -0.70190936
-scale = Vector2(0.99988586, 0.99988586)
+position = Vector2(354.19037, 24.868652)
+rotation = -0.54107744
+scale = Vector2(0.99988616, 0.99988616)
 rest = Transform2D(0.99767596, -0.067944944, 0.067944944, 0.99767596, 354.1704, 24.873535)
 auto_calculate_length_and_angle = false
 length = 203.706
@@ -2548,7 +2548,7 @@ update_scale = false
 [node name="IK Targets" type="Node2D" parent="CanvasLayer/OverlayArm"]
 
 [node name="TIP" type="Node2D" parent="CanvasLayer/OverlayArm/IK Targets"]
-position = Vector2(229.36511, -736.50793)
+position = Vector2(365.87305, -915.07935)
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/OverlayArm/IK Targets/TIP"]
 visible = false
@@ -2572,8 +2572,9 @@ position = Vector2(4.5, 0)
 shape = SubResource("CircleShape2D_31cv2")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(20, -11)
-scale = Vector2(0.35, 0.35)
+position = Vector2(7, -2.5)
+rotation = 1.5707964
+scale = Vector2(0.07, 0.07)
 shape = SubResource("RectangleShape2D_y4r1p")
 
 [node name="HUD" parent="." instance=ExtResource("10_y4r1p")]

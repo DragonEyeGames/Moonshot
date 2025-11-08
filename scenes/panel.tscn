@@ -1,18 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1n5hu37p0cb8"]
+[gd_scene load_steps=7 format=3 uid="uid://d1n5hu37p0cb8"]
 
 [ext_resource type="Script" uid="uid://l4wpu1ak584h" path="res://scripts/power.gd" id="1_8e8e8"]
 [ext_resource type="Texture2D" uid="uid://cm5nvjg6sq47o" path="res://assets/SolarPanel.png" id="1_ixbsq"]
+[ext_resource type="Texture2D" uid="uid://kkljxiluisix" path="res://assets/playerDust.png" id="3_wdgw4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8e8e8"]
 radius = 602.0
 height = 1887.7144
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8e8e8"]
-radius = 6.0827627
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ixbsq"]
 radius = 379.99997
 height = 1314.2856
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8e8e8"]
+radius = 6.0827627
 
 [node name="Panel" type="Sprite2D"]
 y_sort_enabled = true
@@ -30,17 +31,21 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_8e8e8")
 
 [node name="ZoomPoint" type="Node2D" parent="."]
-position = Vector2(145.00002, 278)
+position = Vector2(-2.857132, 2.8571777)
 
-[node name="Speckle" type="ColorRect" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ixbsq")
+
+[node name="Speckle" type="Sprite2D" parent="."]
 visible = false
+self_modulate = Color(0.7490196, 0.7490196, 0.7490196, 0.6901961)
 z_index = 1
-offset_left = -29.0
-offset_top = -11.999987
-offset_right = -18.538773
-offset_bottom = -0.5729847
-scale = Vector2(2, 2)
-color = Color(0.34325507, 0.3346033, 0.31122136, 1)
+position = Vector2(-734.2856, -377.1428)
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("3_wdgw4")
 
 [node name="SpeckleArea" type="Area2D" parent="Speckle"]
 collision_layer = 4
@@ -50,11 +55,7 @@ collision_mask = 0
 position = Vector2(4.4612503, 5.427002)
 shape = SubResource("CircleShape2D_8e8e8")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_ixbsq")
+[node name="Speckles" type="Node2D" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

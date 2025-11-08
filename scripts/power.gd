@@ -8,24 +8,35 @@ var canZoom=true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for i in range(120):
+		var random=randf_range(1, 2)
+		for number in range(round(random)):
+			var speckle=$Speckle.duplicate()
+			speckle.visible=true
+			$Speckles.add_child(speckle)
+			speckle.position=Vector2(
+				randi_range(-651, 694),
+				randi_range(-320, 342)
+			)
+			speckle.rotation=randi_range(-180, 180)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	dirt=len($Speckles.get_children())*delta
 	powerEmission=GameManager.sunPower*2
 	powerEmission-=dirt
 	if(randi_range(0, 1000)==5):
 		var random=randf_range(1, 2)
-		dirt+=delta*random
 		for number in range(round(random)):
 			var speckle=$Speckle.duplicate()
 			speckle.visible=true
-			self.add_child(speckle)
+			$Speckles.add_child(speckle)
 			speckle.position=Vector2(
-				randi_range(255, 50),
-				randi_range(535, 20)
+				randi_range(-651, 694),
+				randi_range(-320, 342)
 			)
+			speckle.rotation=randi_range(-180, 180)
 	#GameManager.solarOutput=powerEmission
 	
 	if(colliding and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]["name"]=="Rag" and not zoomed and canZoom):

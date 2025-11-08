@@ -302,6 +302,7 @@ custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_6fi6k")
 theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
 text = "Fix Oxygenator Pipe"
 vertical_alignment = 1
 
@@ -323,6 +324,7 @@ custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_6fi6k")
 theme_override_font_sizes/normal_font_size = 29
+bbcode_enabled = true
 text = "Replace Water Filter"
 vertical_alignment = 1
 
@@ -344,6 +346,7 @@ custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_6fi6k")
 theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
 text = "Reconnect Wires"
 vertical_alignment = 1
 
@@ -365,6 +368,7 @@ custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_6fi6k")
 theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
 text = "Clean Solar Panels"
 vertical_alignment = 1
 
@@ -386,6 +390,7 @@ custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_6fi6k")
 theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
 text = "Grow Food"
 vertical_alignment = 1
 
@@ -407,6 +412,7 @@ custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_6fi6k")
 theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
 text = "Drink Water"
 vertical_alignment = 1
 
@@ -428,6 +434,7 @@ custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_6fi6k")
 theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
 text = "Survive"
 vertical_alignment = 1
 
@@ -445,6 +452,7 @@ newText = "You got this covered! You are currently reading this, so therefore yo
 fontSize = 74
 
 [node name="TextHolder" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(849, 526)
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("8_0m4u7")

@@ -29,6 +29,18 @@ func _process(delta: float) -> void:
 	$ToDo.visible=showing
 	if(showing==false and $TextHolder.visible):
 		$TextHolder.visible=false
+	if(not GameManager.oxygenator.leak>0):
+		$ToDo/VBoxContainer/Oxygen.text="[s][color=gray]Fix Oxygenator Pipe"
+	if(GameManager.waterReclaimer.filterClean==false):
+		$ToDo/VBoxContainer/Water.text="Replace Water Filter"
+	else:
+		$ToDo/VBoxContainer/Water.text="[s][color=gray]Replace Water Filter"
+	if(GameManager.solarField.completed):
+		$ToDo/VBoxContainer/Solar.text="[s][color=gray]Clean Solar Panels"
+	if(GameManager.solarField.dirty==false):
+		$ToDo/VBoxContainer/Solar.text="[s][color=gray]Clean Solar Panels"
+	else:
+		$ToDo/VBoxContainer/Solar.text="Clean Solar Panels"
 	
 func food(_delta):
 	if(GameManager.food>100):

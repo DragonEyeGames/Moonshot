@@ -27,6 +27,8 @@ func _process(delta: float) -> void:
 	$RichTextLabel.visible=showing
 	$StatBlocker.visible=showing
 	$ToDo.visible=showing
+	if(showing==false and $TextHolder.visible):
+		$TextHolder.visible=false
 	
 func food(_delta):
 	if(GameManager.food>100):

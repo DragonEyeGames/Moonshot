@@ -1,9 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://csk5nfyi47xdp"]
+[gd_scene load_steps=21 format=3 uid="uid://csk5nfyi47xdp"]
 
 [ext_resource type="Script" uid="uid://dilfx7ei5wrr0" path="res://scripts/hud.gd" id="1_37p78"]
 [ext_resource type="PackedScene" uid="uid://coamir61ehm7a" path="res://scenes/inventorySlot.tscn" id="2_64ctp"]
 [ext_resource type="FontFile" uid="uid://de3jhormdk4qb" path="res://fonts/SpaceNova-6Rpd1.otf" id="3_5ysmq"]
 [ext_resource type="FontFile" uid="uid://cjog5sibib7b1" path="res://fonts/EdgeOfTheGalaxyRegular-OVEa6.otf" id="4_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://n32y3iii54h5" path="res://assets/information.png" id="5_hd3ao"]
+[ext_resource type="BitMap" uid="uid://drinm4aa1glnf" path="res://assets/informationMask.png" id="6_0i1j5"]
+[ext_resource type="Script" uid="uid://cbk7jf0u6s10h" path="res://scenes/information.gd" id="7_mphia"]
+[ext_resource type="Texture2D" uid="uid://oms0xrnk61s0" path="res://assets/menu/MenuTextHolder.png" id="8_0m4u7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61f8s"]
 bg_color = Color(0.5555985, 0.69966775, 1, 1)
@@ -293,7 +297,7 @@ offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="ToDo/VBoxContainer"]
+[node name="Oxygen" type="RichTextLabel" parent="ToDo/VBoxContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_6fi6k")
@@ -301,23 +305,62 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Fix Oxygenator Pipe"
 vertical_alignment = 1
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="ToDo/VBoxContainer"]
+[node name="Information" type="TextureButton" parent="ToDo/VBoxContainer/Oxygen"]
+layout_mode = 0
+offset_left = 228.00002
+offset_top = 13.000001
+offset_right = 628.0
+offset_bottom = 413.0
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("5_hd3ao")
+texture_click_mask = ExtResource("6_0i1j5")
+script = ExtResource("7_mphia")
+newText = "The oxygenator pipe needs to be fixed! It is leaking carbon dioxide everywhere and not making new oxygen! If you want to stay alive much longer, you'll need to tape up all of the holes in the oxygen pipe. Tape can be found in the storeroom and the pipe right by the oxygenator. To fix up the holes, go by a hole with tape selected and press 'e'. Then, click and drag to place down tape! Press 'e' again when the hole is covered to move on! Click anywhere to close this popup."
+fontSize = 63
+
+[node name="Water" type="RichTextLabel" parent="ToDo/VBoxContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_6fi6k")
-theme_override_font_sizes/normal_font_size = 27
-text = "Replace Water Reclaimer Filter"
+theme_override_font_sizes/normal_font_size = 29
+text = "Replace Water Filter"
 vertical_alignment = 1
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="ToDo/VBoxContainer"]
+[node name="Information" type="TextureButton" parent="ToDo/VBoxContainer/Water"]
+layout_mode = 0
+offset_left = 228.00002
+offset_top = 13.000001
+offset_right = 628.0
+offset_bottom = 413.0
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("5_hd3ao")
+texture_click_mask = ExtResource("6_0i1j5")
+script = ExtResource("7_mphia")
+newText = "The water reclaimer isn't making much water because the filter is old. It is your job to replace the filter with a new one! Filters can be found in the store room, and the water reclaimer above the main system connector room. To replace the filter, bring the filter over to the water reclaimer. Click 'e' to interact with the reclaimer. Next, click on the compartment that says 'filter' this will zoom in. Now click and drag those doors open to reveal the water filter! Click to pick it up and then put it in your bag. Click on your bag and pull out the clean filter! Put it where the old one was and you're good to go!"
+fontSize = 56
+
+[node name="Electric" type="RichTextLabel" parent="ToDo/VBoxContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_6fi6k")
-theme_override_font_sizes/normal_font_size = 30
-text = "Reconnect Electric Wires"
+theme_override_font_sizes/normal_font_size = 35
+text = "Reconnect Wires"
 vertical_alignment = 1
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="ToDo/VBoxContainer"]
+[node name="Information" type="TextureButton" parent="ToDo/VBoxContainer/Electric"]
+layout_mode = 0
+offset_left = 228.00002
+offset_top = 13.000001
+offset_right = 628.0
+offset_bottom = 413.0
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("5_hd3ao")
+texture_click_mask = ExtResource("6_0i1j5")
+script = ExtResource("7_mphia")
+newText = "The solar grid isn't outputting any power. We believe that there is an issue with the power converter. If you could check that box it would be great. The wires are most likely not connected. You will have to connect them yourself by dragging them to where they need to go. After those are connected, power should be restored to the building with an increasing flow."
+fontSize = 71
+
+[node name="Solar" type="RichTextLabel" parent="ToDo/VBoxContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_6fi6k")
@@ -325,7 +368,20 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Clean Solar Panels"
 vertical_alignment = 1
 
-[node name="RichTextLabel6" type="RichTextLabel" parent="ToDo/VBoxContainer"]
+[node name="Information" type="TextureButton" parent="ToDo/VBoxContainer/Solar"]
+layout_mode = 0
+offset_left = 228.00002
+offset_top = 13.000001
+offset_right = 628.0
+offset_bottom = 413.0
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("5_hd3ao")
+texture_click_mask = ExtResource("6_0i1j5")
+script = ExtResource("7_mphia")
+newText = "The solar panels are most likely dirty from all theirs years of sitting out in the harsh environment of the moon. Alll you need to do is wipe them off with a rag. Rags can be found in the storeroom, and the solar panels can be found where one might expect them. Outside. Just interact with them while pressing 'e' and scrub away! Don't worry about damaging the panels. They're nice and powerful!"
+fontSize = 70
+
+[node name="Food" type="RichTextLabel" parent="ToDo/VBoxContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_6fi6k")
@@ -333,10 +389,86 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Grow Food"
 vertical_alignment = 1
 
-[node name="RichTextLabel7" type="RichTextLabel" parent="ToDo/VBoxContainer"]
+[node name="Information" type="TextureButton" parent="ToDo/VBoxContainer/Food"]
+layout_mode = 0
+offset_left = 228.00002
+offset_top = 13.000001
+offset_right = 628.0
+offset_bottom = 413.0
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("5_hd3ao")
+texture_click_mask = ExtResource("6_0i1j5")
+script = ExtResource("7_mphia")
+newText = "Just like most people (I assume) you enjoy some food. Now there is only a limited supply of food on the station so you need to grow your own food. Fortunately, when NASA built this base, they wanted to see if plants could grow on the moon. It was shut down before they could find an answer. It is now up to you to figure this out! There will be seeds in the farm room and a jug in the pantry. Pick up the jug with 'e' and put it on the jug holder for the farm by pressing 'e' with it selected. Now that it is watered, grab some seeds from the wall, and interact with the farm to plant. Reach into the bag and click to get a fistfull of seeds! Release when hovering over the farm to drop them. Do this until the bag is empty and you are now a master planter! To harvest your crop (assuming its successful) you will need to interact with the farm and just pick up the carrots by clicking. Happy farming!"
+fontSize = 47
+
+[node name="Drink Water" type="RichTextLabel" parent="ToDo/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_6fi6k")
+theme_override_font_sizes/normal_font_size = 30
+text = "Drink Water"
+vertical_alignment = 1
+
+[node name="Information" type="TextureButton" parent="ToDo/VBoxContainer/Drink Water"]
+layout_mode = 0
+offset_left = 228.00002
+offset_top = 13.000001
+offset_right = 628.0
+offset_bottom = 413.0
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("5_hd3ao")
+texture_click_mask = ExtResource("6_0i1j5")
+script = ExtResource("7_mphia")
+newText = "Drinking water is pretty important! To go about drinking your water you will need to pick up a cup from the pantry. With the cup selected, you will then need to press 'e' when standing by the water jug. This will fill up your cup! Select the cup of water and press e to drink it! Yum! (this cup of water was brought to you by your own sweat and urine)"
+fontSize = 74
+
+[node name="Survive" type="RichTextLabel" parent="ToDo/VBoxContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_6fi6k")
 theme_override_font_sizes/normal_font_size = 30
 text = "Survive"
 vertical_alignment = 1
+
+[node name="Information" type="TextureButton" parent="ToDo/VBoxContainer/Survive"]
+layout_mode = 0
+offset_left = 228.00002
+offset_top = 13.000001
+offset_right = 628.0
+offset_bottom = 413.0
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("5_hd3ao")
+texture_click_mask = ExtResource("6_0i1j5")
+script = ExtResource("7_mphia")
+newText = "You got this covered! You are currently reading this, so therefore you are surviving. Congrats!"
+fontSize = 74
+
+[node name="TextHolder" type="Sprite2D" parent="."]
+position = Vector2(849, 526)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("8_0m4u7")
+
+[node name="TextBox" type="RichTextLabel" parent="TextHolder"]
+offset_left = -604.1666
+offset_top = -570.83325
+offset_right = 781.2501
+offset_bottom = 481.25
+theme_override_font_sizes/normal_font_size = 74
+text = "You got this covered! You are currently reading this, so therefore you are surviving. Congrats!"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="TextHolder"]
+offset_left = -1729.1665
+offset_top = -624.99994
+offset_right = -947.91675
+offset_bottom = 1070.8333
+color = Color(1, 1, 1, 0)
+
+[connection signal="pressed" from="ToDo/VBoxContainer/Oxygen/Information" to="ToDo/VBoxContainer/Oxygen/Information" method="_on_pressed"]
+[connection signal="pressed" from="ToDo/VBoxContainer/Water/Information" to="ToDo/VBoxContainer/Water/Information" method="_on_pressed"]
+[connection signal="pressed" from="ToDo/VBoxContainer/Electric/Information" to="ToDo/VBoxContainer/Electric/Information" method="_on_pressed"]
+[connection signal="pressed" from="ToDo/VBoxContainer/Solar/Information" to="ToDo/VBoxContainer/Solar/Information" method="_on_pressed"]
+[connection signal="pressed" from="ToDo/VBoxContainer/Food/Information" to="ToDo/VBoxContainer/Food/Information" method="_on_pressed"]
+[connection signal="pressed" from="ToDo/VBoxContainer/Drink Water/Information" to="ToDo/VBoxContainer/Drink Water/Information" method="_on_pressed"]
+[connection signal="pressed" from="ToDo/VBoxContainer/Survive/Information" to="ToDo/VBoxContainer/Survive/Information" method="_on_pressed"]

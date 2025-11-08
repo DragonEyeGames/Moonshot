@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://drinm4aa1glnf"
+path="res://.godot/imported/informationMask.png-b25cfd1bb036be13ed07d520402635c5.res"
+
+[deps]
+
+source_file="res://assets/informationMask.png"
+dest_files=["res://.godot/imported/informationMask.png-b25cfd1bb036be13ed07d520402635c5.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

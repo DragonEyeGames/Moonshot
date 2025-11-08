@@ -2410,26 +2410,28 @@ scale = Vector2(1.26, 1.26)
 
 [node name="Square2" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 visible = false
-position = Vector2(256.99982, 380.99677)
-rotation = -0.41197062
-scale = Vector2(1.9451883, 1.0167658)
+position = Vector2(256.99945, 380.99677)
+rotation = -1.6232225
+scale = Vector2(1.9409052, 1.0192418)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square3" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 visible = false
-position = Vector2(590.14905, 262.43884)
-rotation = -1.7163651
-scale = Vector2(2.258458, 1.0161175)
+position = Vector2(263.32733, 28.20929)
+rotation = -1.6915379
+scale = Vector2(2.2530286, 1.0162506)
+skew = 0.0006328821
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square4" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 self_modulate = Color(0, 0, 0, 1)
 z_index = 1
-position = Vector2(540.38074, -291.68805)
-rotation = -1.7166997
-scale = Vector2(0.24945295, 0.3084423)
+position = Vector2(234.40112, -570.52844)
+rotation = -1.6919712
+scale = Vector2(0.24858776, 0.3082909)
+skew = 0.00080776215
 texture = ExtResource("9_dt7fs")
 offset = Vector2(218.00537, -0.22698975)
 
@@ -2490,10 +2492,10 @@ position = Vector2(96.82538, -526.9841)
 scale = Vector2(0.42999998, 0.42999998)
 texture = ExtResource("11_pf23h")
 skeleton = NodePath("..")
-polygon = PackedVector2Array(127.132385, 2054.1204, 106.82654, 1383.0293, 113.7312, 1286.365, 106.82654, 1175.8914, 91.56482, 1022.49713, 73.55762, 3.3046188, 635.98145, 46.567986, 664.8237, 882.99304, 664.8237, 1012.7831, 635.98145, 1142.5732, 635.98145, 1272.3633, 635.98145, 1402.1534, 693.666, 2065.525)
-uv = PackedVector2Array(127.132385, 2054.1204, 112.53282, 1217.547, 111.137436, 1182.6144, 109.4203, 1152.5474, 109.72118, 1123.654, 73.55762, 3.3046188, 635.98145, 46.567986, 642.0385, 864.0054, 642.0385, 1001.3905, 650.1293, 1144.9313, 652.48724, 1274.7213, 658.95654, 1406.7484, 693.666, 2065.525)
-polygons = [PackedInt32Array(4, 5, 6, 7), PackedInt32Array(1, 11, 12, 0), PackedInt32Array(4, 8, 7), PackedInt32Array(3, 8, 9), PackedInt32Array(1, 10, 11), PackedInt32Array(2, 9, 10), PackedInt32Array(1, 2, 10), PackedInt32Array(2, 3, 9), PackedInt32Array(3, 4, 8)]
-bones = ["Base", PackedFloat32Array(0.98, 0.98, 0.98, 0.49, 0.49, 0, 0, 0.49, 0.49, 0.98, 0.98, 0.98, 0.98), "Base/Segment", PackedFloat32Array(0, 0.49, 0.49, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.49, 0.49, 0), "Base/Segment/Hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Base/Segment/Hand/Hand2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+polygon = PackedVector2Array(120.84589, 2064.4358, 122.84299, 1273.1357, 118.01138, 1192.6091, 95.520996, 39.423584, 606.8179, 52.533752, 653.3513, 1071.1006, 657.1489, 1147.0515, 657.1489, 1211.6099, 657.1489, 1264.7756, 658.45325, 1324.5596, 658.45325, 1358.7375, 697.5825, 2077.4624)
+uv = PackedVector2Array(120.84589, 2064.4358, 122.84299, 1273.1357, 118.01138, 1192.6091, 95.520996, 39.423584, 606.8179, 52.533752, 653.3513, 1071.1006, 657.1489, 1147.0515, 657.1489, 1211.6099, 657.1489, 1264.7756, 658.45325, 1324.5596, 658.45325, 1358.7375, 697.5825, 2077.4624)
+polygons = [PackedInt32Array(2, 5, 6), PackedInt32Array(2, 6, 7), PackedInt32Array(1, 7, 8), PackedInt32Array(1, 8, 9), PackedInt32Array(1, 9, 10), PackedInt32Array(2, 7, 1), PackedInt32Array(2, 7, 8), PackedInt32Array(1, 0, 11, 10), PackedInt32Array(2, 3, 4, 5)]
+bones = ["Base", PackedFloat32Array(0.98, 1, 0.98, 0, 0, 0.49, 0.49, 0.49, 0.98, 0.98, 0.98, 0.98), "Base/Segment", PackedFloat32Array(0, 0.98, 1, 0.98, 0.98, 0.98, 0.98, 1, 0.49, 0.49, 0.49, 0), "Base/Segment/Hand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Base/Segment/Hand/Hand2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="Base" type="Bone2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D"]
 position = Vector2(257.00006, 381.00006)
@@ -2548,7 +2550,7 @@ update_scale = false
 [node name="IK Targets" type="Node2D" parent="CanvasLayer/OverlayArm"]
 
 [node name="TIP" type="Node2D" parent="CanvasLayer/OverlayArm/IK Targets"]
-position = Vector2(539.68256, -292.0635)
+position = Vector2(229.36511, -736.50793)
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/OverlayArm/IK Targets/TIP"]
 visible = false

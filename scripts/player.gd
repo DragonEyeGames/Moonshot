@@ -38,6 +38,10 @@ func _process(delta: float) -> void:
 	flashlight()
 	sprintCheck()
 	movement(delta)
+	if(pickedUp):
+		$CanvasLayer/OverlayArm/Sprites/Square4.texture=load("res://assets/ClosedHand.png")
+	else:
+		$CanvasLayer/OverlayArm/Sprites/Square4.texture=load("res://assets/OpenHand.png")
 	
 func _physics_process(_delta: float) -> void:
 	#All of the fun interactions with moving stuff to and fro shelves
@@ -219,6 +223,7 @@ func closedBagPickup():
 		return
 	pickedUp=true
 	pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
+	pickable.z_index-=1
 	for child in pickable.get_children():
 		child.scale*=GameManager.camera.zoom
 	pickable.position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.position
@@ -232,6 +237,7 @@ func openBagPickup():
 		pickable.visible=true
 	GameManager.subtract(handHeldItem, 1)
 	pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
+	pickable.z_index-=1
 	
 func closedBagDrop():
 	if(pickable==null):
@@ -245,6 +251,7 @@ func closedBagDrop():
 			child.set_deferred("scale", child.scale/2)
 	var screenPos=pickable.global_position
 	pickable.reparent(GameManager.collisionTool)
+	pickable.z_index+=1
 	pickable.global_position=get_canvas_transform().affine_inverse() * screenPos
 	if(pickable):
 		pickable.set_deferred("freeze", false)

@@ -32,7 +32,7 @@ func _ready() -> void:
 	GameManager.hud=$HUD
 
 func _process(delta: float) -> void:
-	print(pickable)
+	print(handHeldItem)
 	perFrameUpdate()
 	seedCheck()
 	flashlight()
@@ -78,7 +78,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			pickable=area.get_parent()
 
 func pickUp(item):
-	$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(.9, .9)
+	#$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(.9, .9)
 	handHeldItem=item
 
 

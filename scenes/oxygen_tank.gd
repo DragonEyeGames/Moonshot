@@ -7,6 +7,8 @@ var handEntered=false
 var dragging:=false
 var dragOffset := Vector2.ZERO
 var destinationEntered=false
+var leverEntered=false
+var dragObject:=""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,12 +24,22 @@ func _process(_delta: float) -> void:
 			zoom()
 		elif(zoomed and canZoom):
 			unzoom()
-	if(dragging):
+	if(dragging and dragObject=="pipe"):
 		$Port/Line2D.points[1]=$Port/Line2D.to_local(get_global_mouse_position()+dragOffset)
 		$Port/Area2D.global_position=get_global_mouse_position()
-			
+	elif(dragging and dragObject=="lever"):
+		$ColorRect2/Area2D.global_position=get_global_mouse_position()+dragOffset
+		$ColorRect2/Line2D.points[1]=$ColorRect2/Line2D.to_local(Vector2(48, $ColorRect2/Area2D.global_position.y))
+		$ColorRect2/Line2D.points[1]=Vector2(48,$ColorRect2/Line2D.points[1].y)
+		if(abs($ColorRect2/Line2D.points[1].y-$ColorRect2/Line2D.points[0].y)>72):
+			if($ColorRect2/Line2D.points[1].y-$ColorRect2/Line2D.points[0].y>0):
+				$ColorRect2/Line2D.points[1].y=$ColorRect2/Line2D.points[0].y+72
+			elif($ColorRect2/Line2D.points[1].y-$ColorRect2/Line2D.points[0].y<0):
+				$ColorRect2/Line2D.points[1].y=$ColorRect2/Line2D.points[0].y-72
+				
 	if(handEntered and Input.is_action_just_pressed("Click")):
 		dragging=true
+		dragObject="pipe"
 		dragOffset=get_global_mouse_position()-$Port/Area2D.global_position
 		if(len($Port/Line2D.points)==1):
 			$Port/Line2D.add_point($Port/Line2D.to_local(get_global_mouse_position()+dragOffset))
@@ -35,6 +47,7 @@ func _process(_delta: float) -> void:
 			$Port/Line2D.points[1]=$Port/Line2D.to_local(get_global_mouse_position()+dragOffset)
 	elif(handEntered and Input.is_action_just_released("Click")):
 		dragging=false
+		dragObject=""
 		dragOffset=Vector2.ZERO
 		if(not destinationEntered):
 			$Port/Line2D.remove_point(1)
@@ -42,7 +55,16 @@ func _process(_delta: float) -> void:
 		else:
 			$Port/Line2D.points[1]=$Port/Line2D.to_local($Backpack/Area2D.global_position)
 			$Port/Area2D.global_position=$Backpack/Area2D.global_position
-			
+	if(leverEntered and Input.is_action_just_pressed("Click")):
+		dragging=true
+		dragObject="lever"
+		dragOffset=get_global_mouse_position()-$ColorRect2/Area2D.global_position
+		$ColorRect2/Line2D.points[1]=$ColorRect2/Line2D.to_local(Vector2($ColorRect2/Area2D.global_position))
+		$ColorRect2/Line2D.points[1]=Vector2(48,$ColorRect2/Line2D.points[1].y)
+	elif(leverEntered and Input.is_action_just_released("Click")):
+		dragging=false
+		dragObject=""
+		dragOffset=Vector2.ZERO
 
 
 func _body_entered(_body: Node2D) -> void:
@@ -93,3 +115,11 @@ func _recepticle_mouse_entered() -> void:
 
 func _recepticle_mouse_exited() -> void:
 	destinationEntered=false
+
+
+func _lever_entered() -> void:
+	leverEntered=true
+
+
+func _lever_exited() -> void:
+	leverEntered=false

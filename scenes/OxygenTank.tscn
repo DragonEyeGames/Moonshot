@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvah4eqw2dhsr"]
+[gd_scene load_steps=6 format=3 uid="uid://bvah4eqw2dhsr"]
 
 [ext_resource type="Script" uid="uid://dkgmh3yjkifga" path="res://scenes/oxygen_tank.gd" id="1_yn8us"]
 [ext_resource type="Texture2D" uid="uid://uaerd5ol5akr" path="res://assets/player/Backpack.png" id="2_6rnq6"]
@@ -9,6 +9,9 @@ radius = 29.017237
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lva3w"]
 radius = 296.0
 height = 808.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2rv8"]
+radius = 23.194826
 
 [node name="Tank" type="ColorRect"]
 offset_left = -242.0
@@ -120,9 +123,61 @@ offset_bottom = 677.0
 theme_override_font_sizes/normal_font_size = 20
 text = "To refill: Drag pipe from this black box to the recepticle on the backpack."
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -88.0
+offset_top = 537.0
+offset_right = 40.0
+offset_bottom = 888.0
+mouse_filter = 2
+color = Color(0.52156866, 0.52156866, 0.52156866, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 140.0
+offset_right = 78.0
+offset_bottom = 243.0
+mouse_filter = 2
+color = Color(0.11119685, 0.11119684, 0.11119684, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 270.0
+offset_right = 62.0
+offset_bottom = 310.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "On"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 80.0
+offset_right = 67.0
+offset_bottom = 120.0
+theme_override_font_sizes/normal_font_size = 25
+text = "Off"
+
+[node name="Line2D" type="Line2D" parent="ColorRect2"]
+points = PackedVector2Array(48, 186, 48, 118)
+width = 25.0
+default_color = Color(0.72464263, 0.7246426, 0.7246426, 1)
+
+[node name="Area2D" type="Area2D" parent="ColorRect2"]
+position = Vector2(48, 120)
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect2/Area2D"]
+shape = SubResource("CircleShape2D_d2rv8")
+
 [connection signal="mouse_entered" from="Port/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Port/Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_body_exited"]
 [connection signal="mouse_entered" from="Backpack/Area2D" to="." method="_recepticle_mouse_entered"]
 [connection signal="mouse_exited" from="Backpack/Area2D" to="." method="_recepticle_mouse_exited"]
+[connection signal="mouse_entered" from="ColorRect2/Area2D" to="." method="_lever_entered"]
+[connection signal="mouse_exited" from="ColorRect2/Area2D" to="." method="_lever_exited"]

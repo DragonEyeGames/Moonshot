@@ -1,14 +1,54 @@
-[gd_scene load_steps=7 format=3 uid="uid://18tl0xb0wbl0"]
+[gd_scene load_steps=12 format=3 uid="uid://18tl0xb0wbl0"]
 
 [ext_resource type="Script" uid="uid://dmwvq1hv17gyk" path="res://scripts/computer.gd" id="1_om4aa"]
 [ext_resource type="Texture2D" uid="uid://berljblq3mt4r" path="res://assets/folder.png" id="2_8pqrt"]
 [ext_resource type="Texture2D" uid="uid://dx51kox23al1i" path="res://assets/EXE.png" id="3_7ikar"]
 [ext_resource type="Script" uid="uid://5hjbfw8bptdj" path="res://scripts/systemsController.gd" id="4_tjrug"]
 [ext_resource type="Texture2D" uid="uid://br6plw6uilwlw" path="res://assets/Instructions.png" id="4_uiul0"]
+[ext_resource type="FontFile" uid="uid://cjog5sibib7b1" path="res://fonts/EdgeOfTheGalaxyRegular-OVEa6.otf" id="6_ruko6"]
+[ext_resource type="AudioStream" uid="uid://1jjl04r0tv3p" path="res://Sounds/beep-beep-43875.mp3" id="7_ur38h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_om4aa"]
 radius = 156.0
 height = 462.0
+
+[sub_resource type="Animation" id="Animation_ur38h"]
+resource_name = "beep"
+length = 3.04
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel2:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.59, 0.91, 2.1, 2.39),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Press [b]E[/b] to interact", "Press [b][color=red]E[/color][/b] to interact", "Press [b][color=white]E[/color][/b] to interact", "Press [b][color=red]E[/color][/b] to interact", "Press [b][color=white]E[/color][/b] to interact"]
+}
+
+[sub_resource type="Animation" id="Animation_k4214"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel2:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Press [b]E[/b] to interact"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o4fko"]
+_data = {
+&"RESET": SubResource("Animation_k4214"),
+&"beep": SubResource("Animation_ur38h")
+}
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_om4aa")
@@ -31,7 +71,6 @@ mouse_filter = 2
 color = Color(0.0798076, 0.19303459, 0.3310446, 1)
 
 [node name="ZoomPoint" type="Node2D" parent="."]
-position = Vector2(-50, 25)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = -120.0
@@ -272,6 +311,55 @@ size_flags_vertical = 4
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "Welcome to Moon Base Gamma. This is an old NASA research station. It is being rehabitized as part of project MOONSHOT. As we are all aware, the Earth is running out of room for humans. The closest place to put people? The moon. You getting this station up and running is the first part in a multi step system to terraform the Moon. Your work is very important. Now, to fix this base you will most likely need to fix several key components. The water reclaimer, oxygenator, and power grid are most likely broken in some way due to time. You must fix these. There is also currently no oxygen in the base so it is of your best intrest to work fast to get power and the oxygenator up and running. Good luck. If you succeed, your name will be remembered forever. This is because it will be laser engraved on the door to this base. Now get to it before your oxygen runs out."
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = -114.0
+offset_top = -69.0
+offset_right = 2756.588
+offset_bottom = 766.29407
+scale = Vector2(0.085, 0.085)
+theme_override_constants/outline_size = 100
+theme_override_fonts/normal_font = ExtResource("6_ruko6")
+theme_override_font_sizes/normal_font_size = 281
+text = "Systems Terminal Ready"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = -106.0
+offset_top = -7.9999995
+offset_right = 2327.3335
+offset_bottom = 792.0
+scale = Vector2(0.09, 0.09)
+theme_override_constants/outline_size = 100
+theme_override_fonts/normal_font = ExtResource("6_ruko6")
+theme_override_font_sizes/normal_font_size = 250
+theme_override_font_sizes/bold_font_size = 300
+bbcode_enabled = true
+text = "Press [b]E[/b] to interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_o4fko")
+}
+autoplay = "beep"
+
+[node name="BEEP" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ur38h")
+volume_db = 24.0
+max_distance = 1000.0
+parameters/looping = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_player_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_player_exited"]

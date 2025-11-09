@@ -2239,9 +2239,9 @@ texture = ExtResource("21_2f2c6")
 offset = Vector2(29.090908, 941.81836)
 script = ExtResource("13_hs87p")
 
-[node name="Node2D" parent="Entrance Point/BackWall" instance=ExtResource("33_dc40y")]
-position = Vector2(-810.90906, 100)
-scale = Vector2(1.425, 1.425)
+[node name="Computer" parent="Entrance Point/BackWall" instance=ExtResource("33_dc40y")]
+position = Vector2(-721.8182, 78.18178)
+scale = Vector2(2.055, 2.055)
 
 [node name="Solar Panels" parent="." instance=ExtResource("3_f1gjg")]
 position = Vector2(-2886, 106)
@@ -2793,9 +2793,6 @@ offset_right = -150.09094
 offset_bottom = 258.46075
 scale = Vector2(1.415, 1.415)
 metadata/_edit_use_anchors_ = true
-
-[node name="Node2D" parent="." instance=ExtResource("33_dc40y")]
-position = Vector2(-365, -2533)
 
 [node name="lights" type="Node2D" parent="."]
 z_index = 1

@@ -58,6 +58,8 @@ func _player_exited(_body: Node2D) -> void:
 	entered=false
 	
 func zoom():
+	if($BEEP.playing):
+		$BEEP.playing=false
 	GameManager.zoomCamera($ZoomPoint, 5)
 	zoomed=true
 	canZoom=false

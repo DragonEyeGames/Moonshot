@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://b0ux6ns2313xh" path="res://Sounds/fridge-buzz-loop-39612.mp3" id="2_wia2r"]
 [ext_resource type="AudioStream" uid="uid://rdf0r2m00wnn" path="res://Sounds/hARITON zOE - NEW dAYS (uNIQUE TECh).mp3" id="3_mobtd"]
 [ext_resource type="AudioStream" uid="uid://cbuy2iuaxxdmg" path="res://Sounds/ethereal-landscape-space-music-301238.mp3" id="5_wia2r"]
-[ext_resource type="AudioStream" uid="uid://v5hfrr5shm75" path="res://sad-sorrowful-piano-music-330768.mp3" id="6_mobtd"]
+[ext_resource type="AudioStream" uid="uid://v5hfrr5shm75" path="res://Sounds/sad-sorrowful-piano-music-330768.mp3" id="6_mobtd"]
 
 [node name="Music Holder" type="Node2D"]
 script = ExtResource("1_wia2r")

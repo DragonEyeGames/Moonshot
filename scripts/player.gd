@@ -83,6 +83,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func pickUp(item):
 	#$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(.9, .9)
 	handHeldItem=item
+	pickedUp=true
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
@@ -121,7 +122,8 @@ func seedCheck():
 	if(handHeldItem=="seeds" and Input.is_action_just_released("Click")):
 		GameManager.interactedItem.dropSeeds()
 		handHeldItem=""
-		$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(1, 1)
+		pickedUp=false
+		#$CanvasLayer/OverlayArm/Sprites/Square4.scale=Vector2(1, 1)
 		
 func perFrameUpdate():
 	#Set the areas properties so it collision as if in a canvas layer at mouse pos
@@ -164,9 +166,9 @@ func movement(delta):
 		healthMod=.6
 	velocity*=speed*healthMod
 	if(GameManager.playerMove):
-		velocity*=1.5
+		velocity*=1.25
 		move_and_slide()
-		velocity/=1.5
+		velocity/=1.25
 		var target = velocity.x/300
 		var current = $Horizontal.get("parameters/blend_position")
 		var new_value = lerp(current, target, delta * 5)

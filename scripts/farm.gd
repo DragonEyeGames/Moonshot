@@ -11,7 +11,6 @@ var standingWater=0
 
 func _process(delta: float) -> void:
 	$ColorRect6/WurterJug/Jug2/Jug3.position=Vector2(-13.0, -160.0).lerp(Vector2(-13.0, 390.0), float(water)/100.0)
-	print($ColorRect6/WurterJug/Jug2/Jug3.position)
 	if(collision and state=="unplanted" and Input.is_action_just_pressed("Interact") and not zoomed and canZoom and GameManager.selectedSlot!=-1 and GameManager.inventory[GameManager.selectedSlot]["name"]=="SeedBag"):
 		GameManager.subtract("SeedBag", 1)
 		GameManager.playerTool="seedBag"

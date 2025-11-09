@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2xxynf0fcwu0"]
+[gd_scene load_steps=14 format=3 uid="uid://c2xxynf0fcwu0"]
 
 [ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/Jug.png" id="1_tejjl"]
 [ext_resource type="Script" uid="uid://ccrthlwpbf7ja" path="res://scripts/rehydrator.gd" id="1_xlocb"]
 [ext_resource type="Shader" uid="uid://dnwmo2vvypjkr" path="res://scenes/VisibleItems/water.gdshader" id="3_6o2n7"]
 [ext_resource type="Texture2D" uid="uid://cgr4oumdd4o62" path="res://assets/jug_underlay.png" id="4_0b0u3"]
 [ext_resource type="Texture2D" uid="uid://clwei00msolvb" path="res://assets/jugOutline.png" id="5_dmkk4"]
+[ext_resource type="Texture2D" uid="uid://dmtrvm31fjc3e" path="res://assets/Table.png" id="6_0b0u3"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_eokd4"]
 
@@ -39,11 +40,14 @@ shader_parameter/noise2_scale = 1.0
 radius = 216.0
 height = 480.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b0u3"]
+size = Vector2(560, 80)
+
 [node name="Rehydrator" type="Node2D"]
-z_index = 1
 script = ExtResource("1_xlocb")
 
 [node name="JugOutline" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(0, -108)
 scale = Vector2(0.345, 0.345)
 texture = ExtResource("5_dmkk4")
@@ -51,7 +55,6 @@ offset = Vector2(0, 127)
 
 [node name="WurterJug" type="Sprite2D" parent="."]
 clip_children = 2
-z_index = -1
 position = Vector2(9.094947e-13, -64.42953)
 scale = Vector2(0.345, 0.345)
 texture = ExtResource("1_tejjl")
@@ -63,27 +66,12 @@ scale = Vector2(2, 2)
 texture = ExtResource("4_0b0u3")
 
 [node name="Desk" type="Node2D" parent="."]
-z_index = -2
+z_index = -1
 
-[node name="ColorRect" type="ColorRect" parent="Desk"]
-offset_left = -214.7651
-offset_right = 214.7651
-offset_bottom = 96.64435
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Desk"]
-offset_left = -204.02686
-offset_top = 94.0
-offset_right = -161.07384
-offset_bottom = 161.07385
-color = Color(0.37761015, 0.26601747, 0.046704635, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Desk"]
-offset_left = 161.07382
-offset_top = 93.0
-offset_right = 204.02684
-offset_bottom = 161.07385
-color = Color(0.37761015, 0.26601747, 0.046704635, 1)
+[node name="Table" type="Sprite2D" parent="Desk"]
+position = Vector2(5.0000014, 74.00001)
+scale = Vector2(0.405, 0.405)
+texture = ExtResource("6_0b0u3")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -91,6 +79,12 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_tejjl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(7, 56)
+shape = SubResource("RectangleShape2D_0b0u3")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8fbtnlq1oocd"]
+[gd_scene load_steps=23 format=3 uid="uid://b8fbtnlq1oocd"]
 
 [ext_resource type="Texture2D" uid="uid://372hu3xsfi0g" path="res://assets/proteinBar.png" id="1_sditr"]
 [ext_resource type="Texture2D" uid="uid://c5q3d26io6w74" path="res://assets/IceCream.png" id="2_ri7ka"]
@@ -12,7 +12,40 @@
 [ext_resource type="Texture2D" uid="uid://rciu6av3yice" path="res://assets/agua.png" id="6_vb3cu"]
 [ext_resource type="Texture2D" uid="uid://dy4c53krfqpij" path="res://assets/Seeds.png" id="7_g4ica"]
 [ext_resource type="Texture2D" uid="uid://chryd33c4owfk" path="res://assets/WaterCup.png" id="11_v6pda"]
-[ext_resource type="Texture2D" uid="uid://cg3ghqcsptdlu" path="res://assets/FilledJug.png" id="12_jwm1v"]
+[ext_resource type="Script" uid="uid://cx735i75s5oao" path="res://scenes/inventoryJug.gd" id="12_4odm4"]
+[ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/Jug.png" id="12_f7yvo"]
+[ext_resource type="Shader" uid="uid://dnwmo2vvypjkr" path="res://scenes/VisibleItems/water.gdshader" id="13_4odm4"]
+[ext_resource type="Texture2D" uid="uid://cgr4oumdd4o62" path="res://assets/jug_underlay.png" id="14_drbfb"]
+[ext_resource type="Texture2D" uid="uid://clwei00msolvb" path="res://assets/jugOutline.png" id="15_0ng7s"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pwi6r"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_il0rs"]
+noise = SubResource("FastNoiseLite_pwi6r")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6e1i6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tyrhh"]
+noise = SubResource("FastNoiseLite_6e1i6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lghlp"]
+shader = ExtResource("13_4odm4")
+shader_parameter/horizon = 0.49600002356
+shader_parameter/noise = SubResource("NoiseTexture2D_il0rs")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_tyrhh")
+shader_parameter/wave_frequency = 14.834000704615
+shader_parameter/wave_magnitude = 0.0050000002375
+shader_parameter/tides_magnitude = 0.0870000041325
+shader_parameter/noise_wave = 0.8430000400425
+shader_parameter/tides_speed = 0.0010000000475
+shader_parameter/wave_speed = 1.158000055005
+shader_parameter/water_color = Color(0, 0.29803923, 0.6901961, 1)
+shader_parameter/shine_color = Color(0, 0, 0, 1)
+shader_parameter/shine_position = 0.050000002375
+shader_parameter/shine_width = 0.0
+shader_parameter/shine_intensity = 0.5
+shader_parameter/noise_scale = 2.0
+shader_parameter/noise2_scale = 1.0
 
 [node name="InventoryItems" type="Node2D"]
 
@@ -233,7 +266,7 @@ vertical_alignment = 1
 [node name="Jug" type="Sprite2D" parent="."]
 position = Vector2(0, 9.536743e-07)
 scale = Vector2(0.245, 0.245)
-texture = ExtResource("12_jwm1v")
+script = ExtResource("12_4odm4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Jug"]
 offset_left = -502.04077
@@ -246,6 +279,25 @@ theme_override_font_sizes/normal_font_size = 200
 text = "Jug"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Jug2" type="Sprite2D" parent="Jug"]
+clip_children = 2
+position = Vector2(3.5204225, -126.55061)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("12_f7yvo")
+offset = Vector2(0, 127)
+
+[node name="Jug3" type="Sprite2D" parent="Jug/Jug2"]
+material = SubResource("ShaderMaterial_lghlp")
+position = Vector2(30.665936, -103.09389)
+scale = Vector2(2, 2)
+texture = ExtResource("14_drbfb")
+
+[node name="JugOutline" type="Sprite2D" parent="Jug"]
+position = Vector2(3.5204225, -126.55061)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("15_0ng7s")
+offset = Vector2(0, 127)
 
 [node name="Watering Can" type="Sprite2D" parent="."]
 visible = false

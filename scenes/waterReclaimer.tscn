@@ -339,10 +339,10 @@ color = Color(1, 1, 1, 0)
 
 [node name="JugFiller" parent="." instance=ExtResource("2_tmb4y")]
 layout_mode = 0
-offset_left = 381.349
-offset_top = 97.369995
-offset_right = 432.349
-offset_bottom = 311.37
+offset_left = 598.349
+offset_top = 76.369995
+offset_right = 649.349
+offset_bottom = 290.37
 mouse_filter = 2
 
 [node name="Control" type="Control" parent="."]
@@ -526,6 +526,13 @@ collision_mask = 512
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
 position = Vector2(-24, 270.5)
 shape = SubResource("RectangleShape2D_y3sjj")
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+position = Vector2(313.349, 255.37)
+points = PackedVector2Array(0, 0, 150, -27, 289, -95)
+default_color = Color(0, 0, 0, 1)
+joint_mode = 1
 
 [connection signal="child_order_changed" from="." to="." method="_on_child_order_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

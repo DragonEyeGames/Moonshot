@@ -7,10 +7,11 @@ var waterEmitting=false
 
 func _process(delta: float) -> void:
 	$Water.emitting=waterEmitting
+	$Jug/Jug2/Jug3.position=Vector2(-13.0, 390.0).lerp(Vector2(-13.0, -160.0), float(water)/100.0)
 	if($Water.emitting):
 		if(GameManager.baseWater>0 and water<100 and $Jug.visible):
-			GameManager.baseWater-=delta
-			water+=delta
+			GameManager.baseWater-=delta*10
+			water+=delta*10
 			if(GameManager.baseWater<0):
 				water+=GameManager.baseWater
 				GameManager.baseWater=0
@@ -20,7 +21,7 @@ func _process(delta: float) -> void:
 		else:
 			$Water.emitting=false
 	if(Input.is_action_just_pressed("Interact") and collision and len(GameManager.inventory)<=4 and $Jug.visible):
-		GameManager.add("Jug", water)
+		GameManager.add("Jug", round(water))
 		GameManager.pickedUpJugWater=water
 		water=0
 		$Jug.visible=false

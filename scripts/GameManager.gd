@@ -46,7 +46,7 @@ var solarOutput:=0.0
 
 var playerAnimator: AnimationPlayer
 
-var basePower=200
+var basePower=500
 var health=100
 var currentTime=12
 var day=1

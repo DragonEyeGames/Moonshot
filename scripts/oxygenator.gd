@@ -34,6 +34,8 @@ func _process(delta: float) -> void:
 	power=maxPower
 	powerSap(delta)
 	power-=(leak*delta)
+	if(power<0):
+		power=0
 	if(power<=GameManager.baseCarbon):
 		GameManager.baseOxygen+=power
 		GameManager.baseCarbon-=power

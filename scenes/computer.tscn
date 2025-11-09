@@ -50,9 +50,9 @@ _data = {
 &"beep": SubResource("Animation_ur38h")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Computer" type="Node2D"]
 script = ExtResource("1_om4aa")
-textToDisplay = Array[String](["Welcome to Moon Base Gamma. This is an old research base the we are rehabilitizing for future use. We plan to terraform the Moon because the Earth is running out of space. This is a very important mission and the future of humanity rests on your shoulders. (even if you fail we'll send someone else and replace you)", "It is your task to repair all of the systems that are broken. We can assume that the oxygenator, water reclaimer, and power grid all need repairs. If you succeed this task you will have your name etched outside of the base by one of our robots. Now get to fixing. You tasks will be tracked in this here computer."])
+textToDisplay = Array[String](["Hello there. It seems that we have established a clear connection with you! I shall now share some important tips with you to help you get around the base! First off, most things are interactable with 'e'. If something seems important press e while standing next to it and something might happen. If nothing happens, try holding a different item. (click to continue)", "After you interact with several things using e, you can further interact by clicking. there will be a little hand on screen (yours) and when you click it will grab or move something! Very handy! Now onto more pressing matters. The oxygen, water, and electric systems here are all broken. It is your job to fix them before you die. We need these fixed up for the future of humanity!", "Now to make sure that you don't die in the process, you will have to monitor your own vitals. You have oxygen, power, stamina, health, thirst, and hunger. You need to keep all of these in check or else you will surely die. You can view all of these stats by pressing 'h'. This menu also tells you the time and what tasks you need to do!", "In this menu you will see several things to do off to the side. Next to their name is a little information icon. If you click that, you can learn more about how to accomplish that task! Should make it easy to figure out how to do things! Now if you just press h again this menu will close and you can continue on to important stuff.", "Another very important tool for you is this computer. It has a menu that tells you all of your bases vitals. It lets you know the oxygen levels, water levels, and power levels. This computer is the best way to see what you still need to do aside from the tasks page in the HUD (accessible with 'h'). If the power ever drops too low, don't worry about this computer. It has its own power supply!", "That should be it! Happy repairing! If you ever need to figure out how to do something, consult the task page in the HUD or this computer! Just remember to take care of yourself! Eat, drink, and refill your oxygen tank!"])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -129.0
@@ -73,13 +73,14 @@ color = Color(0.0798076, 0.19303459, 0.3310446, 1)
 [node name="ZoomPoint" type="Node2D" parent="."]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 offset_left = -120.0
 offset_top = -71.0
 offset_right = 3726.1538
 offset_bottom = 2098.231
 scale = Vector2(0.065, 0.065)
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 185
+theme_override_font_sizes/normal_font_size = 174
 
 [node name="Area2D" type="Area2D" parent="."]
 z_index = -1
@@ -91,6 +92,7 @@ position = Vector2(6, 59)
 shape = SubResource("CapsuleShape2D_om4aa")
 
 [node name="Interface" type="Node2D" parent="."]
+visible = false
 
 [node name="folder" type="TextureButton" parent="Interface"]
 visible = false
@@ -313,7 +315,6 @@ bbcode_enabled = true
 text = "Welcome to Moon Base Gamma. This is an old NASA research station. It is being rehabitized as part of project MOONSHOT. As we are all aware, the Earth is running out of room for humans. The closest place to put people? The moon. You getting this station up and running is the first part in a multi step system to terraform the Moon. Your work is very important. Now, to fix this base you will most likely need to fix several key components. The water reclaimer, oxygenator, and power grid are most likely broken in some way due to time. You must fix these. There is also currently no oxygen in the base so it is of your best intrest to work fast to get power and the oxygenator up and running. Good luck. If you succeed, your name will be remembered forever. This is because it will be laser engraved on the door to this base. Now get to it before your oxygen runs out."
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -358,8 +359,29 @@ autoplay = "beep"
 [node name="BEEP" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_ur38h")
 volume_db = 24.0
+autoplay = true
 max_distance = 1000.0
 parameters/looping = true
+
+[node name="Loading" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Loading"]
+layout_mode = 0
+offset_left = -99.0
+offset_top = -41.0
+offset_right = 2554.3333
+offset_bottom = 1065.6666
+scale = Vector2(0.075, 0.075)
+theme_override_fonts/normal_font = ExtResource("6_ruko6")
+theme_override_font_sizes/normal_font_size = 400
+text = "Loading..."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_player_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_player_exited"]

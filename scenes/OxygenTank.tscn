@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bvah4eqw2dhsr"]
+
+[node name="Tank" type="ColorRect"]
+offset_left = -242.0
+offset_top = -463.0
+offset_right = 250.72754
+offset_bottom = 513.3635
+color = Color(0.5211406, 0.5211406, 0.5211405, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 16.363281
+offset_top = 23.63623
+offset_right = 474.54492
+offset_bottom = 558.18164
+theme_override_font_sizes/normal_font_size = 55
+text = "Oxygen Tank
+
+For refilling suits
+
+Use Caution!!!"
+horizontal_alignment = 1
+vertical_alignment = 1

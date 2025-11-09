@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://ectb2uu36h7a"]
+[gd_scene load_steps=101 format=3 uid="uid://ectb2uu36h7a"]
 
 [ext_resource type="Script" uid="uid://doqvjt1ivyo14" path="res://scripts/buildingClass.gd" id="1_nm462"]
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="2_vs5tt"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://c5eiodc6x61h" path="res://scenes/farm.tscn" id="26_2f2c6"]
 [ext_resource type="PackedScene" uid="uid://sesvget8ak2p" path="res://scenes/shelf.tscn" id="29_ll25w"]
 [ext_resource type="PackedScene" uid="uid://c2xxynf0fcwu0" path="res://scenes/waterStation.tscn" id="30_2f2c6"]
+[ext_resource type="PackedScene" uid="uid://bvah4eqw2dhsr" path="res://scenes/OxygenTank.tscn" id="30_t2gq3"]
 [ext_resource type="PackedScene" uid="uid://18tl0xb0wbl0" path="res://scenes/computer.tscn" id="33_dc40y"]
 [ext_resource type="Texture2D" uid="uid://ct4txwsx8l57m" path="res://assets/newSquare.png" id="34_ijljr"]
 
@@ -2290,6 +2291,7 @@ z_index = -1
 texture = ExtResource("11_jc16f")
 
 [node name="Area2D" type="Area2D" parent="Oxygenator Room"]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -2300,6 +2302,7 @@ scale = Vector2(1, 0.85)
 shape = SubResource("CircleShape2D_mt53i")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Oxygenator Room"]
+visible = false
 scale = Vector2(1, 0.73)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Oxygenator Room/StaticBody2D"]
@@ -2311,185 +2314,16 @@ polygon = PackedVector2Array(-316.36362, 1120.7969, -552.7273, 1008.71704, -790.
 texture = ExtResource("19_c646r")
 
 [node name="Oxygenator" parent="Oxygenator Room" instance=ExtResource("9_g4d30")]
-offset_left = -271.73553
-offset_top = -121.85437
-offset_right = 47.26416
-offset_bottom = 161.36719
+offset_left = -245.45447
+offset_top = -450.90866
+offset_right = 73.54523
+offset_bottom = -167.6871
 scale = Vector2(1.38, 1.38)
 metadata/_edit_use_anchors_ = true
 
 [node name="Oxygen Pipe" type="Node2D" parent="Oxygenator Room"]
 position = Vector2(-94.55434, 221.76978)
 scale = Vector2(1.38, 1.38)
-
-[node name="ColorRect" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 135.57114
-offset_top = -146.30856
-offset_right = 330.20248
-offset_bottom = -76.509735
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect2" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 323.4906
-offset_top = -146.30856
-offset_right = 518.12195
-offset_bottom = -76.509735
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect3" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 511.41006
-offset_top = -144.96628
-offset_right = 706.0414
-offset_bottom = -75.16745
-rotation = 0.056689497
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect4" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 693.9604
-offset_top = -131.54346
-offset_right = 888.5917
-offset_bottom = -61.74463
-rotation = 0.21735363
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect5" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 853.692
-offset_top = -96.64413
-offset_right = 1048.3232
-offset_bottom = -26.845299
-rotation = -0.0150235295
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect6" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 1030.8732
-offset_top = -106.040085
-offset_right = 1225.5044
-offset_bottom = -36.241257
-rotation = -0.13104707
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect7" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 1221.4769
-offset_top = -134.22801
-offset_right = 1416.1082
-offset_bottom = -64.429184
-rotation = 0.027736075
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect8" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 1409.3964
-offset_top = -127.5166
-offset_right = 1604.0276
-offset_bottom = -57.717773
-rotation = 0.027736075
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect9" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 1587.9199
-offset_top = -118.12063
-offset_right = 1782.5511
-offset_bottom = -48.3218
-rotation = -0.105408065
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect10" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 1775.8394
-offset_top = -138.25485
-offset_right = 1970.4706
-offset_bottom = -68.456024
-rotation = 0.097403936
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect11" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 1967.7856
-offset_top = -115.436066
-offset_right = 2162.417
-offset_bottom = -45.637238
-rotation = 0.009974487
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect12" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 2144.967
-offset_top = -115.436066
-offset_right = 2339.5984
-offset_bottom = -45.637238
-rotation = 0.059325535
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect13" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 2324.8328
-offset_top = -104.697815
-offset_right = 2519.464
-offset_bottom = -34.898987
-rotation = 0.059325535
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect14" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 2491.276
-offset_top = -91.274994
-offset_right = 2685.9072
-offset_bottom = -21.476166
-rotation = -0.1332996
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect15" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 2655.0347
-offset_top = -119.46291
-offset_right = 2849.666
-offset_bottom = -49.664085
-rotation = -0.02841521
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect16" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 2836.2417
-offset_top = -118.12063
-offset_right = 3030.873
-offset_bottom = -48.3218
-rotation = -0.02841521
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect17" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 3032.9448
-offset_top = -125.129616
-offset_right = 3227.5762
-offset_bottom = -55.330788
-rotation = -0.02841521
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect18" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 3225.3032
-offset_top = -130.3997
-offset_right = 3419.9346
-offset_bottom = -60.600876
-rotation = -0.13143557
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect19" type="ColorRect" parent="Oxygenator Room/Oxygen Pipe"]
-offset_left = 3412.391
-offset_top = -155.43265
-offset_right = 3607.0225
-offset_bottom = -85.63382
-rotation = -0.13143557
-color = Color(0.22670749, 0.22670749, 0.22670746, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="Leak" parent="Oxygenator Room/Oxygen Pipe" instance=ExtResource("12_blq7k")]
 position = Vector2(2659.061, -75.167625)
@@ -2525,6 +2359,25 @@ rotation = 0.0017341923
 [node name="Leak9" parent="Oxygenator Room/Oxygen Pipe" instance=ExtResource("12_blq7k")]
 position = Vector2(3417.6611, -115.90696)
 rotation = 0.0017341923
+
+[node name="Line2D" type="Line2D" parent="Oxygenator Room/Oxygen Pipe"]
+z_index = -1
+points = PackedVector2Array(143.61621, -318.80566, 252.9707, -285.86743, 516.4751, -100.09668, 675.8955, -60.571045, 915.6846, -39.490723, 1106.7256, -57.936035, 1281.956, -104.04932, 1700.9287, -72.42871, 2048.755, -76.38135, 2420.2964, -71.11133, 2798.4253, -69.7937, 2943.3528, -46.07837, 3079.0576, -101.41431, 3235.843, -144.89258, 3450.5994, -115.90698, 3532.2856, -119.85962)
+width = 50.0
+default_color = Color(0.35156304, 0.35156286, 0.35156283, 1)
+joint_mode = 1
+
+[node name="Line2D2" type="Line2D" parent="Oxygenator Room/Oxygen Pipe"]
+z_index = -1
+points = PackedVector2Array(-115.936035, -335.93335, -271.4038, -218.67383, -277.9912, -138.30493, -318.83447, -92.19165, -451.9043, -47.395752)
+width = 50.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Tank" parent="Oxygenator Room" instance=ExtResource("30_t2gq3")]
+offset_left = -1185.4543
+offset_top = -520.0002
+offset_right = -692.7268
+offset_bottom = 456.36334
 
 [node name="Hallway3" parent="." instance=ExtResource("5_0rysw")]
 z_index = -1

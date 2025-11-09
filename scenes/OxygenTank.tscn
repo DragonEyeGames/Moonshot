@@ -1,11 +1,23 @@
-[gd_scene format=3 uid="uid://bvah4eqw2dhsr"]
+[gd_scene load_steps=5 format=3 uid="uid://bvah4eqw2dhsr"]
+
+[ext_resource type="Script" uid="uid://dkgmh3yjkifga" path="res://scenes/oxygen_tank.gd" id="1_yn8us"]
+[ext_resource type="Texture2D" uid="uid://uaerd5ol5akr" path="res://assets/player/Backpack.png" id="2_6rnq6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6rnq6"]
+radius = 29.017237
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lva3w"]
+radius = 296.0
+height = 808.0
 
 [node name="Tank" type="ColorRect"]
 offset_left = -242.0
 offset_top = -463.0
 offset_right = 250.72754
 offset_bottom = 513.3635
+mouse_filter = 2
 color = Color(0.5211406, 0.5211406, 0.5211405, 1)
+script = ExtResource("1_yn8us")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -21,3 +33,96 @@ For refilling suits
 Use Caution!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Port" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 684.0
+offset_right = 174.0
+offset_bottom = 773.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="Port"]
+z_index = 1
+position = Vector2(43, 42)
+collision_layer = 1024
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Port/Area2D"]
+shape = SubResource("CircleShape2D_6rnq6")
+
+[node name="Line2D" type="Line2D" parent="Port"]
+z_index = 2
+position = Vector2(42, 42)
+points = PackedVector2Array(0, 0)
+width = 18.0
+default_color = Color(0.26657522, 0.2665752, 0.2665752, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(248, 696)
+shape = SubResource("CapsuleShape2D_lva3w")
+
+[node name="ZoomPoint" type="Node2D" parent="."]
+position = Vector2(245, 698)
+
+[node name="Backpack" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(463.99997, 852)
+scale = Vector2(0.355, 0.355)
+texture = ExtResource("2_6rnq6")
+
+[node name="Recepticle" type="ColorRect" parent="Backpack"]
+z_index = -1
+offset_left = -287.32385
+offset_top = -518.3099
+offset_right = -227.60556
+offset_bottom = -323.94366
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Recepticle2" type="ColorRect" parent="Backpack"]
+z_index = -1
+offset_left = -304.22528
+offset_top = -467.60565
+offset_right = -227.60556
+offset_bottom = -408.45068
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="Backpack"]
+z_index = 1
+position = Vector2(-292.95767, -439.4366)
+collision_layer = 1024
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Backpack/Area2D"]
+scale = Vector2(2.7, 2.7)
+shape = SubResource("CircleShape2D_6rnq6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 863.0
+offset_right = 491.0
+offset_bottom = 897.0
+color = Color(0.6542321, 0.6542321, 0.654232, 1)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 561.0
+offset_right = 453.0
+offset_bottom = 677.0
+theme_override_font_sizes/normal_font_size = 20
+text = "To refill: Drag pipe from this black box to the recepticle on the backpack."
+
+[connection signal="mouse_entered" from="Port/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Port/Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_body_exited"]
+[connection signal="mouse_entered" from="Backpack/Area2D" to="." method="_recepticle_mouse_entered"]
+[connection signal="mouse_exited" from="Backpack/Area2D" to="." method="_recepticle_mouse_exited"]

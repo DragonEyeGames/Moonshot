@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 	flashlight()
 	sprintCheck()
 	movement(delta)
-	if(pickedUp):
+	if(Input.is_action_pressed("Click")):
 		$CanvasLayer/OverlayArm/Sprites/Square4.texture=load("res://assets/ClosedHand.png")
 	else:
 		$CanvasLayer/OverlayArm/Sprites/Square4.texture=load("res://assets/OpenHand.png")

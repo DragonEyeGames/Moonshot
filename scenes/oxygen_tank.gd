@@ -41,6 +41,12 @@ func _process(delta: float) -> void:
 		if(GameManager.oxygen>100):
 			GameManager.baseOxygen+=GameManager.oxygen-100
 			GameManager.oxygen=100
+	elif(on and not connected):
+		GameManager.baseOxygen-=delta*5
+		GameManager.baseCarbon+=delta*5
+		if(GameManager.baseOxygen<0):
+			GameManager.baseCarbon+=GameManager.baseOxygen
+			GameManager.baseOxygen=0
 	if(colliding and Input.is_action_just_pressed("Interact")):
 		if(not zoomed and canZoom ):
 			GameManager.interactedItem=null
@@ -98,8 +104,10 @@ func _process(delta: float) -> void:
 		dragOffset=Vector2.ZERO
 
 
-func _body_entered(_body: Node2D) -> void:
-	colliding=true
+func _body_entered(body: Node2D) -> void:
+	if(body is Player):
+		colliding=true
+	
 
 
 func _body_exited(_body: Node2D) -> void:

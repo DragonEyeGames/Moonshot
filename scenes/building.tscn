@@ -1927,6 +1927,7 @@ scale = Vector2(0.87, 1.125)
 script = ExtResource("12_rh2sc")
 
 [node name="walls5" type="Sprite2D" parent="Vert Hallway"]
+visible = false
 light_mask = 2
 z_index = 2
 scale = Vector2(0.25, 0.25)
@@ -2105,6 +2106,7 @@ z_index = -1
 texture = ExtResource("11_jc16f")
 
 [node name="Area2D" type="Area2D" parent="Systems Connector"]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -2195,6 +2197,7 @@ z_index = -1
 texture = ExtResource("11_jc16f")
 
 [node name="Area2D" type="Area2D" parent="Entrance Point"]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -2241,7 +2244,7 @@ offset = Vector2(29.090908, 941.81836)
 script = ExtResource("13_hs87p")
 
 [node name="Computer" parent="Entrance Point/BackWall" instance=ExtResource("33_dc40y")]
-position = Vector2(-721.8182, 78.18178)
+position = Vector2(-772.72736, 103.63636)
 scale = Vector2(2.055, 2.055)
 
 [node name="Solar Panels" parent="." instance=ExtResource("3_f1gjg")]
@@ -2384,7 +2387,7 @@ z_index = -1
 position = Vector2(-3792, -1904)
 
 [node name="Store Room" type="Node2D" parent="."]
-position = Vector2(32, -3740.9998)
+position = Vector2(30, -3741.9998)
 scale = Vector2(0.55, 0.55)
 script = ExtResource("12_gwfoe")
 
@@ -2429,6 +2432,7 @@ z_index = -1
 texture = ExtResource("11_jc16f")
 
 [node name="Area2D" type="Area2D" parent="Store Room"]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -2498,6 +2502,7 @@ z_index = -2
 texture = ExtResource("11_jc16f")
 
 [node name="Area2D" type="Area2D" parent="Kitchen"]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -2520,7 +2525,7 @@ z_index = -2
 texture = ExtResource("19_c646r")
 
 [node name="Farm" type="Node2D" parent="."]
-position = Vector2(2803, -3679)
+position = Vector2(2805, -3670)
 scale = Vector2(0.55, 0.55)
 script = ExtResource("12_gwfoe")
 
@@ -2551,6 +2556,7 @@ z_index = -1
 texture = ExtResource("11_jc16f")
 
 [node name="Area2D" type="Area2D" parent="Farm"]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -2619,6 +2625,7 @@ z_index = -1
 texture = ExtResource("11_jc16f")
 
 [node name="Area2D" type="Area2D" parent="Water Reclaimer"]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -2741,7 +2748,7 @@ libraries = {
 }
 
 [node name="PointLight2D8" type="PointLight2D" parent="lights"]
-position = Vector2(2642, -1932)
+position = Vector2(2642, -1931.9999)
 scale = Vector2(0.55, 0.55)
 blend_mode = 2
 texture = ExtResource("15_acxlu")

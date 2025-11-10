@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 			$RichTextLabel.visible_characters+=1
 		if(Input.is_action_just_pressed("Click")):
 			$RichTextLabel.visible_ratio=1
-	elif(Input.is_action_just_pressed("Click") and $RichTextLabel.visible):
+	elif(Input.is_action_just_pressed("Click") and $RichTextLabel.visible and entered):
 		if(displayedText+2>len(textToDisplay)):
 			$RichTextLabel.visible=false
 			await get_tree().create_timer(.1).timeout

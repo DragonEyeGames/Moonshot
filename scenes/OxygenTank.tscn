@@ -39,10 +39,10 @@ vertical_alignment = 1
 
 [node name="Port" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 87.0
-offset_top = 684.0
-offset_right = 174.0
-offset_bottom = 773.0
+offset_left = 127.0
+offset_top = 659.0
+offset_right = 214.0
+offset_bottom = 748.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
@@ -106,6 +106,31 @@ collision_mask = 1024
 scale = Vector2(2.7, 2.7)
 shape = SubResource("CircleShape2D_6rnq6")
 
+[node name="Counter" type="ColorRect" parent="Backpack"]
+offset_left = -199.99992
+offset_top = -425.3521
+offset_right = -95.77458
+offset_bottom = -343.662
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Backpack/Counter"]
+layout_mode = 0
+offset_right = 104.22534
+offset_bottom = 81.690125
+theme_override_font_sizes/normal_font_size = 50
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Backpack/Counter"]
+layout_mode = 0
+offset_top = 81.69014
+offset_right = 104.22534
+offset_bottom = 138.02821
+theme_override_font_sizes/normal_font_size = 27
+text = "Oxygen"
+horizontal_alignment = 1
+
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 285.0
@@ -143,20 +168,22 @@ color = Color(0.11119685, 0.11119684, 0.11119684, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect2"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 270.0
-offset_right = 62.0
-offset_bottom = 310.0
+offset_left = 25.0
+offset_top = 284.0
+offset_right = 65.0
+offset_bottom = 324.0
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 25
 text = "On"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect2"]
+visible = false
 layout_mode = 0
 offset_left = 27.0
 offset_top = 80.0
 offset_right = 67.0
 offset_bottom = 120.0
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 25
 text = "Off"
 
@@ -172,6 +199,60 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect2/Area2D"]
 shape = SubResource("CircleShape2D_d2rv8")
+
+[node name="OnLight" type="ColorRect" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 36.0
+offset_right = 62.0
+offset_bottom = 61.0
+color = Color(0.29954746, 0.29954746, 0.29954743, 1)
+
+[node name="ConnectedLight" type="ColorRect" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 148.0
+offset_right = 172.0
+offset_bottom = 173.0
+color = Color(0.8505808, 0.091314144, 2.8878452e-07, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect2/ConnectedLight"]
+layout_mode = 0
+offset_left = -37.0
+offset_top = 18.0
+offset_right = 58.0
+offset_bottom = 54.0
+text = "Connected"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Counter" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 765.00006
+offset_right = 268.8
+offset_bottom = 846.6902
+scale = Vector2(0.625, 0.625)
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Counter"]
+layout_mode = 0
+offset_right = 140.8
+offset_bottom = 81.599976
+theme_override_font_sizes/normal_font_size = 50
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Counter"]
+layout_mode = 0
+offset_left = 1.5999999
+offset_top = 100.7999
+offset_right = 140.79999
+offset_bottom = 140.7999
+theme_override_font_sizes/normal_font_size = 21
+text = "Base Oxygen"
+horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="Port/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Port/Area2D" to="." method="_on_area_2d_mouse_exited"]

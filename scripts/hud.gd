@@ -99,6 +99,7 @@ func stamina(_delta):
 		GameManager.playerSprinting=false
 		
 func oxygen(_delta):
+	$Stats/Oxygen.value=GameManager.oxygen
 	if(GameManager.helmet.visible):
 		$Stats/Oxygen.value-=_delta/2
 		GameManager.carbon+=_delta/2
@@ -110,6 +111,7 @@ func oxygen(_delta):
 	elif(GameManager.playerState==GameManager.possibleStates.INSIDE and GameManager.helmet.visible==false):
 		GameManager.baseOxygen-=.4*_delta
 		GameManager.baseCarbon+=.4*_delta
+	GameManager.oxygen=$Stats/Oxygen.value
 		
 func energy(_delta):
 	if(GameManager.flashlightOn):

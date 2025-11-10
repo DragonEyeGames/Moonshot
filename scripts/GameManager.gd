@@ -59,6 +59,7 @@ var playerTool=""
 
 var interactedItem
 
+var oxygen=100.0
 var carbon=0.0
 
 var camera

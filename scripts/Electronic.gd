@@ -6,6 +6,7 @@ var power = 0
 @export var efficiency=1
 var priorityNerf=1
 var overriden=false
+var consumption=0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	power=maxPower
@@ -15,16 +16,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	powerSap(delta)
 
-func powerSap(_delta):
+func powerSap(delta):
 	if(not overriden):
 		power*=priorityNerf
-	GameManager.basePower-=power*_delta
+	GameManager.basePower-=power*delta
 	if(GameManager.basePower<0):
 		if(power<abs(GameManager.basePower)):
 			power=0
-			print("NADA")
 		else:
 			power=abs(GameManager.basePower)
 		GameManager.basePower=0
 	power*=efficiency
-	power*=_delta
+	power*=delta
+	consumption=power

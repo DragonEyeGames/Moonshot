@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci62f57jcinle"]
+[gd_scene load_steps=3 format=3 uid="uid://ci62f57jcinle"]
 
 [ext_resource type="Script" uid="uid://crkp8liqrbokp" path="res://scenes/powerController.gd" id="1_ia4iy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ia4iy"]
+radius = 207.0
+height = 544.0
 
 [node name="Power Controller" type="Node2D"]
 script = ExtResource("1_ia4iy")
@@ -38,9 +42,9 @@ color = Color(0.16565639, 0.16565642, 0.16565639, 1)
 
 [node name="ReservedAmount" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_left = 18.181824
+offset_left = 9.636353
 offset_top = 119.99951
-offset_right = 96.36365
+offset_right = 108.63635
 offset_bottom = 149.09033
 text = "100KWH"
 horizontal_alignment = 1
@@ -56,7 +60,7 @@ text = "RESERVES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Panel"]
+[node name="OxygenSlider" type="HSlider" parent="Panel"]
 z_index = 1
 layout_mode = 0
 offset_left = 173.63637
@@ -102,7 +106,7 @@ offset_left = 122.727295
 offset_top = 45.4541
 offset_right = 295.45453
 offset_bottom = 70.9082
-text = "OXYGENATOR"
+text = "OXYGENATOR:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -175,7 +179,7 @@ offset_left = 140.00002
 offset_top = -0.00044389203
 offset_right = 258.18182
 offset_bottom = 39.99907
-text = "Consumption:"
+text = "Change:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -196,6 +200,13 @@ offset_bottom = 39.999557
 text = "100kwj"
 vertical_alignment = 1
 
+[node name="Oxygenator Count" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 269.63635
+offset_top = 44.81787
+offset_right = 351.63635
+offset_bottom = 72.81787
+
 [node name="Cover" type="ColorRect" parent="."]
 z_index = 1
 offset_left = -176.36365
@@ -203,3 +214,17 @@ offset_top = -70.90869
 offset_right = 194.54544
 offset_bottom = 269.0913
 color = Color(1, 1, 1, 0)
+
+[node name="ZoomPoint" type="Node2D" parent="."]
+position = Vector2(11, 109)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 95)
+shape = SubResource("CapsuleShape2D_ia4iy")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

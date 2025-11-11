@@ -1,0 +1,275 @@
+[gd_scene load_steps=5 format=3 uid="uid://bknoq6cm6lles"]
+
+[ext_resource type="Texture2D" uid="uid://ompiokswf6tc" path="res://assets/menu/Earth.png" id="1_5mwtu"]
+[ext_resource type="Script" uid="uid://caj0gnwkvg3yi" path="res://scenes/communications_panel.gd" id="1_bx3m4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0esmx"]
+size = Vector2(247.99998, 181)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bx3m4"]
+radius = 412.0
+height = 824.0
+
+[node name="Communications Panel" type="Node2D"]
+script = ExtResource("1_bx3m4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -332.72726
+offset_top = -269.0909
+offset_right = 350.90897
+offset_bottom = 230.90909
+mouse_filter = 2
+color = Color(0.49747366, 0.49747366, 0.49747366, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="ColorRect" parent="."]
+offset_left = -312.72726
+offset_top = -254.54544
+offset_right = 330.90897
+offset_bottom = -174.54544
+mouse_filter = 2
+color = Color(0.11858138, 0.11858138, 0.11858138, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 56
+text = "Communications Array"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Align" type="ColorRect" parent="."]
+offset_left = 89.090904
+offset_top = -138.18182
+offset_right = 323.63632
+offset_bottom = 30.908997
+mouse_filter = 2
+color = Color(0.24477637, 0.2447764, 0.24477637, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="ColorRect" parent="Align"]
+layout_mode = 0
+offset_left = 9.09082
+offset_top = 3.6362305
+offset_right = 230.90869
+offset_bottom = 34.54541
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Align/Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Align Satellite"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Interface" type="ColorRect" parent="Align"]
+layout_mode = 0
+offset_left = 9.909093
+offset_top = 39.181824
+offset_right = 166.72726
+offset_bottom = 131.7273
+mouse_filter = 2
+color = Color(0.072842635, 0.072842635, 0.072842635, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Earth" type="Sprite2D" parent="Align/Interface"]
+position = Vector2(136.81818, 30.545465)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_5mwtu")
+
+[node name="ColorRect" type="ColorRect" parent="Align/Interface"]
+layout_mode = 0
+offset_left = 75.818184
+offset_top = 72.54546
+offset_right = 79.454414
+offset_bottom = 92.54546
+mouse_filter = 2
+color = Color(0.32544068, 0.32544097, 0.32544082, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="SatelliteDish" type="Node2D" parent="Align/Interface"]
+position = Vector2(77.63632, 74.36365)
+rotation = -0.61086524
+
+[node name="ColorRect2" type="ColorRect" parent="Align/Interface/SatelliteDish"]
+offset_left = -18.182129
+offset_top = -1.8183594
+offset_right = 18.182129
+offset_bottom = 1.8178711
+mouse_filter = 2
+color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="Align/Interface/SatelliteDish"]
+offset_left = -1.8178711
+offset_top = -16.36377
+offset_right = 1.8178711
+offset_bottom = 1.8178711
+mouse_filter = 2
+color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="Align/Interface/SatelliteDish"]
+offset_left = -1.818315
+offset_top = -14.545588
+offset_right = 1.8174272
+offset_bottom = 0.26398277
+rotation = 0.43633232
+mouse_filter = 2
+color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect5" type="ColorRect" parent="Align/Interface/SatelliteDish"]
+offset_left = -1.818315
+offset_top = -12.727406
+offset_right = 1.8174272
+offset_bottom = 2.0821648
+rotation = -0.43633232
+mouse_filter = 2
+color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Strength" type="ColorRect" parent="Align"]
+layout_mode = 0
+offset_left = 9.909096
+offset_top = 136.18182
+offset_right = 231.90909
+offset_bottom = 163.18182
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Align/Strength"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Alignment Strength:"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Align/Strength"]
+layout_mode = 0
+offset_left = 157.0
+offset_right = 222.0
+offset_bottom = 27.0
+mouse_filter = 2
+text = "90%"
+metadata/_edit_use_anchors_ = true
+
+[node name="Left" type="Button" parent="Align"]
+layout_mode = 0
+offset_left = 169.90909
+offset_top = 41.181824
+offset_right = 230.90909
+offset_bottom = 72.18182
+scale = Vector2(0.07, 0.07)
+focus_mode = 0
+theme_override_font_sizes/font_size = 150
+text = "Rotate Left"
+metadata/_edit_use_anchors_ = true
+
+[node name="Right" type="Button" parent="Align"]
+layout_mode = 0
+offset_left = 169.90909
+offset_top = 61.181824
+offset_right = 976.90906
+offset_bottom = 274.18182
+scale = Vector2(0.07, 0.07)
+focus_mode = 0
+theme_override_font_sizes/font_size = 140
+text = "Rotate Right"
+metadata/_edit_use_anchors_ = true
+
+[node name="Angle" type="ColorRect" parent="Align"]
+layout_mode = 0
+offset_left = 170.90909
+offset_top = 83.18182
+offset_right = 227.90909
+offset_bottom = 93.18182
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Align/Angle"]
+layout_mode = 0
+offset_right = 1628.5713
+offset_bottom = 285.71436
+scale = Vector2(0.035, 0.035)
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 150
+text = "Degrees of Rotation"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Degrees" type="ColorRect" parent="Align"]
+layout_mode = 0
+offset_left = 170.90909
+offset_top = 95.18182
+offset_right = 227.90909
+offset_bottom = 131.18182
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Align/Degrees"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1571.5713
+offset_bottom = 992.5714
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.035, 0.035)
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 550
+text = "10°"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="Align"]
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Align/Area2D"]
+position = Vector2(116.909096, 84.68182)
+shape = SubResource("RectangleShape2D_0esmx")
+
+[node name="ZoomPoint" type="Node2D" parent="Align"]
+position = Vector2(118.909096, 85.18182)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_bx3m4")
+
+[node name="ZoomPoint" type="Node2D" parent="."]
+
+[connection signal="pressed" from="Align/Left" to="." method="satelliteLeft"]
+[connection signal="pressed" from="Align/Right" to="." method="satelliteRight"]
+[connection signal="mouse_entered" from="Align/Area2D" to="." method="_align_entered"]
+[connection signal="mouse_exited" from="Align/Area2D" to="." method="_align_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

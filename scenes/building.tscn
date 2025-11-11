@@ -38,7 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://ci62f57jcinle" path="res://scenes/power_controller.tscn" id="31_gwfoe"]
 [ext_resource type="PackedScene" uid="uid://18tl0xb0wbl0" path="res://scenes/computer.tscn" id="33_dc40y"]
 [ext_resource type="Texture2D" uid="uid://ct4txwsx8l57m" path="res://assets/newSquare.png" id="34_ijljr"]
-[ext_resource type="Texture2D" uid="uid://ompiokswf6tc" path="res://assets/menu/Earth.png" id="35_2l1rv"]
+[ext_resource type="PackedScene" uid="uid://bknoq6cm6lles" path="res://scenes/communications_panel.tscn" id="35_2l1rv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yopf"]
 size = Vector2(512, 1151)
@@ -1796,6 +1796,7 @@ offset_left = -203.0
 offset_top = 158.0
 offset_right = 249.0
 offset_bottom = 578.0
+mouse_filter = 2
 
 [node name="door" type="Sprite2D" parent="Airlock/FrontDoors"]
 z_index = 1
@@ -1856,7 +1857,7 @@ offset_left = -191.0
 offset_top = -343.0
 offset_right = 247.0
 offset_bottom = 48.0
-metadata/_edit_use_anchors_ = true
+mouse_filter = 2
 
 [node name="door3" type="Sprite2D" parent="Airlock/BackDoors"]
 z_index = 1
@@ -1907,8 +1908,8 @@ offset_left = -212.0
 offset_top = 19.555542
 offset_right = 260.0
 offset_bottom = 552.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="DoorController" type="AnimationPlayer" parent="Airlock"]
 libraries = {
@@ -1998,8 +1999,8 @@ offset_left = -212.0
 offset_top = 19.555542
 offset_right = 260.0
 offset_bottom = 552.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="Vert Hallway2" type="Node2D" parent="."]
 position = Vector2(-2440, -2902)
@@ -2078,6 +2079,7 @@ offset_left = -212.0
 offset_top = 19.555542
 offset_right = 260.0
 offset_bottom = 552.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Systems Connector" type="Node2D" parent="."]
@@ -2158,6 +2160,7 @@ offset_left = -182.55002
 offset_top = -248.32216
 offset_right = 246.9805
 offset_bottom = 174.49669
+mouse_filter = 2
 color = Color(0.19973189, 0.19973168, 0.19973168, 1)
 
 [node name="EnergyPanel" parent="Systems Connector" instance=ExtResource("19_dc40y")]
@@ -2167,6 +2170,7 @@ offset_top = -50.909027
 offset_right = 71.726654
 offset_bottom = 232.31253
 scale = Vector2(1.285, 1.285)
+mouse_filter = 2
 
 [node name="Entrance Point" type="Node2D" parent="."]
 position = Vector2(39, -2037)
@@ -2320,7 +2324,7 @@ offset_top = -450.90866
 offset_right = 73.54523
 offset_bottom = -167.6871
 scale = Vector2(1.38, 1.38)
-metadata/_edit_use_anchors_ = true
+mouse_filter = 2
 
 [node name="Oxygen Pipe" type="Node2D" parent="Oxygenator Room"]
 position = Vector2(-94.55434, 221.76978)
@@ -2660,7 +2664,7 @@ offset_top = 18.181713
 offset_right = 133.60571
 offset_bottom = 497.37634
 scale = Vector2(1.605, 1.605)
-metadata/_edit_use_anchors_ = true
+mouse_filter = 2
 
 [node name="Shelf" parent="Farm" instance=ExtResource("29_ll25w")]
 position = Vector2(961.8181, 210.90918)
@@ -2694,6 +2698,7 @@ offset_left = 12.726868
 offset_top = -793.4842
 offset_right = 169.09064
 offset_bottom = -262.575
+mouse_filter = 2
 
 [node name="Satellite2" type="ColorRect" parent="Communications/Roof"]
 offset_left = -203.63629
@@ -2701,6 +2706,7 @@ offset_top = -938.9387
 offset_right = -47.272522
 offset_bottom = -193.76685
 rotation = -0.90408057
+mouse_filter = 2
 color = Color(0.8776157, 0.8776158, 0.8776157, 1)
 
 [node name="Floor" type="Sprite2D" parent="Communications"]
@@ -2730,115 +2736,8 @@ polygon = PackedVector2Array(-316.36362, 1120.7969, -552.7273, 1008.71704, -790.
 [node name="BackWall" type="Sprite2D" parent="Communications"]
 texture = ExtResource("19_c646r")
 
-[node name="Communications Panel" type="Node2D" parent="Communications/BackWall"]
+[node name="Communications Panel" parent="Communications/BackWall" instance=ExtResource("35_2l1rv")]
 position = Vector2(-63.636322, -560.00006)
-
-[node name="ColorRect" type="ColorRect" parent="Communications/BackWall/Communications Panel"]
-offset_left = -332.72726
-offset_top = -269.0909
-offset_right = 350.90897
-offset_bottom = 230.90909
-color = Color(0.49747366, 0.49747366, 0.49747366, 1)
-
-[node name="Label" type="ColorRect" parent="Communications/BackWall/Communications Panel"]
-offset_left = -312.72726
-offset_top = -254.54544
-offset_right = 330.90897
-offset_bottom = -174.54544
-color = Color(0.11858138, 0.11858138, 0.11858138, 1)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Communications/BackWall/Communications Panel/Label"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 56
-text = "Communications Array"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Align" type="ColorRect" parent="Communications/BackWall/Communications Panel"]
-offset_left = 89.090904
-offset_top = -138.18182
-offset_right = 323.63632
-offset_bottom = 30.908997
-color = Color(0.24477637, 0.2447764, 0.24477637, 1)
-
-[node name="Label" type="ColorRect" parent="Communications/BackWall/Communications Panel/Align"]
-layout_mode = 0
-offset_left = 9.09082
-offset_top = 3.6362305
-offset_right = 230.90869
-offset_bottom = 34.54541
-color = Color(0, 0, 0, 1)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Communications/BackWall/Communications Panel/Align/Label"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Align Satellite"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Interface" type="ColorRect" parent="Communications/BackWall/Communications Panel/Align"]
-layout_mode = 0
-offset_left = 9.090909
-offset_top = 43.63636
-offset_right = 230.90878
-offset_bottom = 158.18176
-color = Color(0.072842635, 0.072842635, 0.072842635, 1)
-
-[node name="Earth" type="Sprite2D" parent="Communications/BackWall/Communications Panel/Align/Interface"]
-position = Vector2(181.81787, 45.45459)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("35_2l1rv")
-
-[node name="ColorRect" type="ColorRect" parent="Communications/BackWall/Communications Panel/Align/Interface"]
-layout_mode = 0
-offset_left = 120.00004
-offset_top = 94.54545
-offset_right = 123.63627
-offset_bottom = 114.54545
-color = Color(0.32544068, 0.32544097, 0.32544082, 1)
-
-[node name="SatelliteDish" type="Node2D" parent="Communications/BackWall/Communications Panel/Align/Interface"]
-position = Vector2(121.81818, 96.36363)
-rotation = -0.55850536
-
-[node name="ColorRect2" type="ColorRect" parent="Communications/BackWall/Communications Panel/Align/Interface/SatelliteDish"]
-offset_left = -18.182129
-offset_top = -1.8183594
-offset_right = 18.182129
-offset_bottom = 1.8178711
-color = Color(0.4045111, 0.40451115, 0.4045111, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Communications/BackWall/Communications Panel/Align/Interface/SatelliteDish"]
-offset_left = -1.8178711
-offset_top = -16.36377
-offset_right = 1.8178711
-offset_bottom = 1.8178711
-color = Color(0.4045111, 0.40451115, 0.4045111, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Communications/BackWall/Communications Panel/Align/Interface/SatelliteDish"]
-offset_left = -1.818315
-offset_top = -14.545588
-offset_right = 1.8174272
-offset_bottom = 0.26398277
-rotation = 0.43633232
-color = Color(0.4045111, 0.40451115, 0.4045111, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="Communications/BackWall/Communications Panel/Align/Interface/SatelliteDish"]
-offset_left = -1.818315
-offset_top = -12.727406
-offset_right = 1.8174272
-offset_bottom = 2.0821648
-rotation = -0.43633232
-color = Color(0.4045111, 0.40451115, 0.4045111, 1)
 
 [node name="Hallway4" parent="." instance=ExtResource("5_0rysw")]
 position = Vector2(1409, -3682)
@@ -2898,7 +2797,6 @@ offset_top = -10.909241
 offset_right = -150.09094
 offset_bottom = 258.46075
 scale = Vector2(1.415, 1.415)
-metadata/_edit_use_anchors_ = true
 
 [node name="lights" type="Node2D" parent="."]
 z_index = 1

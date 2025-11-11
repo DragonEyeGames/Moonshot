@@ -37,7 +37,8 @@ var collisionTool=null
 var baseWater=100
 var baseHumidity=0
 var suitHumidity=0
-
+var lightNerf:=1.0
+var lightConsumption:=0.0
 var pickedUpJugWater=0
 
 var playerHand

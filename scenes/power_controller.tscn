@@ -63,80 +63,61 @@ vertical_alignment = 1
 [node name="OxygenSlider" type="HSlider" parent="Panel"]
 z_index = 1
 layout_mode = 0
-offset_left = 173.63637
-offset_top = 67.27237
-offset_right = 270.0
-offset_bottom = 83.27237
+offset_left = 173.54543
+offset_top = 76.27237
+offset_right = 269.90906
+offset_bottom = 92.27237
 scale = Vector2(0.655, 0.655)
 value = 75.0
 
 [node name="HSlider2" type="HSlider" parent="Panel"]
 z_index = 1
 layout_mode = 0
-offset_left = 173.63637
-offset_top = 101.817825
-offset_right = 270.0
-offset_bottom = 117.817825
+offset_left = 174.54543
+offset_top = 111.45432
+offset_right = 270.90906
+offset_bottom = 127.45432
 scale = Vector2(0.655, 0.655)
 value = 75.0
 
 [node name="HSlider3" type="HSlider" parent="Panel"]
 z_index = 1
 layout_mode = 0
-offset_left = 173.63637
-offset_top = 136.36328
-offset_right = 270.0
-offset_bottom = 152.36328
-scale = Vector2(0.655, 0.655)
-value = 75.0
-
-[node name="HSlider4" type="HSlider" parent="Panel"]
-z_index = 1
-layout_mode = 0
-offset_left = 173.63637
-offset_top = 169.09055
-offset_right = 270.0
-offset_bottom = 185.09055
+offset_left = 172.54543
+offset_top = 139.36328
+offset_right = 268.90906
+offset_bottom = 155.36328
 scale = Vector2(0.655, 0.655)
 value = 75.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_left = 122.727295
-offset_top = 45.4541
-offset_right = 295.45453
-offset_bottom = 70.9082
+offset_left = 137.63635
+offset_top = 54.81787
+offset_right = 310.3636
+offset_bottom = 80.27197
 text = "OXYGENATOR:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_left = 142.7273
-offset_top = 78.18137
-offset_right = 315.45453
-offset_bottom = 103.63548
-text = "WATER RECLAIMER"
+offset_left = 144.63635
+offset_top = 87.81787
+offset_right = 284.5454
+offset_bottom = 113.27198
+theme_override_font_sizes/normal_font_size = 16
+text = "H2O RECLAIMER:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_left = 122.727295
-offset_top = 110.908646
-offset_right = 295.45453
-offset_bottom = 136.36275
-text = "LIGHTS"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RichTextLabel5" type="RichTextLabel" parent="Panel"]
-layout_mode = 0
-offset_left = 122.72729
-offset_top = 147.27228
-offset_right = 295.4545
-offset_bottom = 172.72638
-text = "COMPUTER"
+offset_left = 146.63635
+offset_top = 115.908646
+offset_right = 354.5454
+offset_bottom = 141.36275
+text = "LIGHTS:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -147,22 +128,17 @@ default_color = Color(0.19450986, 0.43819466, 2.117753e-06, 1)
 
 [node name="Line2D2" type="Line2D" parent="Panel"]
 position = Vector2(97.27272, 116.36319)
-points = PackedVector2Array(0, 0, 58.181763, -43.63623, 156.36359, -43.63623)
+points = PackedVector2Array(0, 0, 62.363632, -34.54532, 159.36363, -34.54532)
 default_color = Color(0.19450986, 0.43819466, 2.117753e-06, 1)
 
 [node name="Line2D3" type="Line2D" parent="Panel"]
 position = Vector2(97.27272, 116.36319)
-points = PackedVector2Array(0, 0, 63.636353, -9.09082, 156.36359, -9.09082)
+points = PackedVector2Array(0, 0, 157.36363, -0.5453186)
 default_color = Color(0.19450986, 0.43819466, 2.117753e-06, 1)
 
 [node name="Line2D4" type="Line2D" parent="Panel"]
 position = Vector2(97.27272, 116.36319)
-points = PackedVector2Array(0, 0, 72.727234, 25.45459, 156.36359, 25.45459)
-default_color = Color(0.19450986, 0.43819466, 2.117753e-06, 1)
-
-[node name="Line2D5" type="Line2D" parent="Panel"]
-position = Vector2(97.27272, 116.36319)
-points = PackedVector2Array(0, 0, 65.45453, 58.18213, 158.18176, 58.18213)
+points = PackedVector2Array(0, 0, 64.36363, 27.454681, 157.36363, 27.454681)
 default_color = Color(0.19450986, 0.43819466, 2.117753e-06, 1)
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="Panel"]
@@ -193,19 +169,35 @@ vertical_alignment = 1
 
 [node name="Used Amount" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_left = 254.54544
-offset_top = -0.00044389203
-offset_right = 332.72726
-offset_bottom = 39.999557
+offset_left = 231.63635
+offset_top = -0.18212838
+offset_right = 309.81818
+offset_bottom = 39.81787
 text = "100kwj"
 vertical_alignment = 1
 
 [node name="Oxygenator Count" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_left = 269.63635
-offset_top = 44.81787
-offset_right = 351.63635
-offset_bottom = 72.81787
+offset_left = 281.63635
+offset_top = 53.81787
+offset_right = 363.63635
+offset_bottom = 81.81787
+
+[node name="ReclaimerCount" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 283.63635
+offset_top = 88.81787
+offset_right = 354.63635
+offset_bottom = 116.81787
+
+[node name="LightCount" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 283.63635
+offset_top = 113.81787
+offset_right = 369.63635
+offset_bottom = 143.81787
+text = ".1 KWH"
+vertical_alignment = 1
 
 [node name="Cover" type="ColorRect" parent="."]
 z_index = 1

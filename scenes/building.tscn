@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://ectb2uu36h7a"]
+[gd_scene load_steps=103 format=3 uid="uid://ectb2uu36h7a"]
 
 [ext_resource type="Script" uid="uid://doqvjt1ivyo14" path="res://scripts/buildingClass.gd" id="1_nm462"]
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="2_vs5tt"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://ci62f57jcinle" path="res://scenes/power_controller.tscn" id="31_gwfoe"]
 [ext_resource type="PackedScene" uid="uid://18tl0xb0wbl0" path="res://scenes/computer.tscn" id="33_dc40y"]
 [ext_resource type="Texture2D" uid="uid://ct4txwsx8l57m" path="res://assets/newSquare.png" id="34_ijljr"]
+[ext_resource type="Texture2D" uid="uid://ompiokswf6tc" path="res://assets/menu/Earth.png" id="35_2l1rv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yopf"]
 size = Vector2(512, 1151)
@@ -2597,7 +2598,7 @@ z_index = -2
 texture = ExtResource("19_c646r")
 
 [node name="Farm" type="Node2D" parent="."]
-position = Vector2(2805, -3670)
+position = Vector2(2649, -33)
 scale = Vector2(0.55, 0.55)
 script = ExtResource("12_gwfoe")
 
@@ -2665,6 +2666,179 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(961.8181, 210.90918)
 scale = Vector2(1.605, 1.605)
 items = ["SeedBag", "SeedBag", "", "", "", "", "", ""]
+
+[node name="Communications" type="Node2D" parent="."]
+position = Vector2(2805, -3670)
+scale = Vector2(0.55, 0.55)
+script = ExtResource("12_gwfoe")
+
+[node name="Roof" type="Sprite2D" parent="Communications"]
+modulate = Color(0.804743, 0.804743, 0.804743, 1)
+light_mask = 0
+z_index = 3
+texture = ExtResource("13_2l1rv")
+
+[node name="State" type="AnimationPlayer" parent="Communications/Roof"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_8cwg4")
+}
+
+[node name="FrontWall" type="Sprite2D" parent="Communications/Roof"]
+light_mask = 2
+z_index = -1
+texture = ExtResource("14_vs5tt")
+
+[node name="Satellite" type="ColorRect" parent="Communications/Roof"]
+offset_left = 12.726868
+offset_top = -793.4842
+offset_right = 169.09064
+offset_bottom = -262.575
+
+[node name="Satellite2" type="ColorRect" parent="Communications/Roof"]
+offset_left = -203.63629
+offset_top = -938.9387
+offset_right = -47.272522
+offset_bottom = -193.76685
+rotation = -0.90408057
+color = Color(0.8776157, 0.8776158, 0.8776157, 1)
+
+[node name="Floor" type="Sprite2D" parent="Communications"]
+modulate = Color(0.310617, 0.310617, 0.310617, 1)
+z_index = -1
+texture = ExtResource("11_jc16f")
+
+[node name="Area2D" type="Area2D" parent="Communications"]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Communications/Area2D"]
+z_index = 1
+position = Vector2(8.053691, 206.71143)
+scale = Vector2(1, 0.85)
+shape = SubResource("CircleShape2D_pt15o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Communications"]
+scale = Vector2(1, 0.73)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Communications/StaticBody2D"]
+z_index = 1
+position = Vector2(-78.181816, 774.5952)
+polygon = PackedVector2Array(-316.36362, 1120.7969, -552.7273, 1008.71704, -790.90906, 874.22144, -940, 744.7073, -1085.4545, 570.36084, -1227.2727, 298.8789, -1281.8181, 119.55176, -1327.2727, 39.850586, -1372.7273, 14.944336, -1343.6362, 124.5332, -1321.8181, 206.72461, -1265.4545, 373.59888, -1245.4545, 415.93994, -1138.1818, 600.2488, -1012.72723, 779.5764, -820, 941.46924, -574.5455, 1088.4182, -312.72726, 1188.0447, -156.36377, 1222.9141, 25.45459, 1232.877, 154.54541, 1232.877, 281.81836, 1217.9331, 390.90918, 1195.5171, 496.36377, 1168.1196, 667.27246, 1103.3628, 838.18164, 1011.208, 981.81836, 911.58203, 1109.0908, 799.50195, 1227.2725, 662.5156, 1347.2725, 483.18848, 1423.6362, 328.76758, 1472.727, 186.7998, 1498.1816, 84.68262, 1525.4546, -52.30371, 1536.3638, -236.6123, 1530.9092, -398.50488, 1498.1816, -560.39844, 1436.3638, -752.1787, 1320, -983.81055, 1205.4546, -1138.2314, 1076.3638, -1270.2363, 909.0908, -1404.7324, 720, -1506.8486, 569.0908, -1566.625, 405.4546, -1611.457, 258.18164, -1633.873, 70.90918, -1643.835, -127.27295, -1623.9102, -305.4546, -1586.5498, -490.90918, -1519.3027, -634.5454, -1447.0732, -796.3638, -1339.9746, -909.0908, -1240.3486, -990.90894, -1158.1563, -1114.5454, -1001.2451, -1178.1819, -914.07227, -1350.9089, -779.5762, -1150.9089, -816.9365, -1147.2727, -824.4082, -1020, -1013.69824, -849.0908, -1200.498, -654.5454, -1339.9746, -492.72705, -1429.6387, -336.36377, -1491.9053, -178.18164, -1531.7559, -5.45459, -1554.1719, 174.54541, -1556.6621, 349.09082, -1541.7178, 458.18164, -1514.3213, 638.18164, -1457.0361, 785.4546, -1384.8066, 960, -1275.2178, 1085.4546, -1168.1191, 1218.1816, -1008.7168, 1332.727, -821.91797, 1420, -610.2119, 1460, -423.4121, 1470.9092, -273.97266, 1470.9092, -124.5332, 1445.4546, 52.30371, 1405.4546, 194.27148, 1316.3638, 405.97803, 1234.5454, 537.9829, 1107.2725, 697.38525, 987.27246, 811.95557, 885.4546, 884.1846, 732.72705, 983.81104, 590.9092, 1048.5679, 443.63623, 1098.3813, 338.18164, 1123.2881, 227.27295, 1143.2134, 76.36377, 1153.1758, -45.45459, 1150.685, -163.63623, 1143.2134)
+
+[node name="BackWall" type="Sprite2D" parent="Communications"]
+texture = ExtResource("19_c646r")
+
+[node name="Communications Panel" type="Node2D" parent="Communications/BackWall"]
+position = Vector2(-63.636322, -560.00006)
+
+[node name="ColorRect" type="ColorRect" parent="Communications/BackWall/Communications Panel"]
+offset_left = -332.72726
+offset_top = -269.0909
+offset_right = 350.90897
+offset_bottom = 230.90909
+color = Color(0.49747366, 0.49747366, 0.49747366, 1)
+
+[node name="Label" type="ColorRect" parent="Communications/BackWall/Communications Panel"]
+offset_left = -312.72726
+offset_top = -254.54544
+offset_right = 330.90897
+offset_bottom = -174.54544
+color = Color(0.11858138, 0.11858138, 0.11858138, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Communications/BackWall/Communications Panel/Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 56
+text = "Communications Array"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Align" type="ColorRect" parent="Communications/BackWall/Communications Panel"]
+offset_left = 89.090904
+offset_top = -138.18182
+offset_right = 323.63632
+offset_bottom = 30.908997
+color = Color(0.24477637, 0.2447764, 0.24477637, 1)
+
+[node name="Label" type="ColorRect" parent="Communications/BackWall/Communications Panel/Align"]
+layout_mode = 0
+offset_left = 9.09082
+offset_top = 3.6362305
+offset_right = 230.90869
+offset_bottom = 34.54541
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Communications/BackWall/Communications Panel/Align/Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Align Satellite"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Interface" type="ColorRect" parent="Communications/BackWall/Communications Panel/Align"]
+layout_mode = 0
+offset_left = 9.090909
+offset_top = 43.63636
+offset_right = 230.90878
+offset_bottom = 158.18176
+color = Color(0.072842635, 0.072842635, 0.072842635, 1)
+
+[node name="Earth" type="Sprite2D" parent="Communications/BackWall/Communications Panel/Align/Interface"]
+position = Vector2(181.81787, 45.45459)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("35_2l1rv")
+
+[node name="ColorRect" type="ColorRect" parent="Communications/BackWall/Communications Panel/Align/Interface"]
+layout_mode = 0
+offset_left = 120.00004
+offset_top = 94.54545
+offset_right = 123.63627
+offset_bottom = 114.54545
+color = Color(0.32544068, 0.32544097, 0.32544082, 1)
+
+[node name="SatelliteDish" type="Node2D" parent="Communications/BackWall/Communications Panel/Align/Interface"]
+position = Vector2(121.81818, 96.36363)
+rotation = -0.55850536
+
+[node name="ColorRect2" type="ColorRect" parent="Communications/BackWall/Communications Panel/Align/Interface/SatelliteDish"]
+offset_left = -18.182129
+offset_top = -1.8183594
+offset_right = 18.182129
+offset_bottom = 1.8178711
+color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Communications/BackWall/Communications Panel/Align/Interface/SatelliteDish"]
+offset_left = -1.8178711
+offset_top = -16.36377
+offset_right = 1.8178711
+offset_bottom = 1.8178711
+color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Communications/BackWall/Communications Panel/Align/Interface/SatelliteDish"]
+offset_left = -1.818315
+offset_top = -14.545588
+offset_right = 1.8174272
+offset_bottom = 0.26398277
+rotation = 0.43633232
+color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Communications/BackWall/Communications Panel/Align/Interface/SatelliteDish"]
+offset_left = -1.818315
+offset_top = -12.727406
+offset_right = 1.8174272
+offset_bottom = 2.0821648
+rotation = -0.43633232
+color = Color(0.4045111, 0.40451115, 0.4045111, 1)
 
 [node name="Hallway4" parent="." instance=ExtResource("5_0rysw")]
 position = Vector2(1409, -3682)
@@ -2878,5 +3052,7 @@ libraries = {
 [connection signal="body_exited" from="Kitchen/Area2D" to="Kitchen" method="playerExit"]
 [connection signal="body_entered" from="Farm/Area2D" to="Farm" method="playerEnter"]
 [connection signal="body_exited" from="Farm/Area2D" to="Farm" method="playerExit"]
+[connection signal="body_entered" from="Communications/Area2D" to="Communications" method="playerEnter"]
+[connection signal="body_exited" from="Communications/Area2D" to="Communications" method="playerExit"]
 [connection signal="body_entered" from="Water Reclaimer/Area2D" to="Water Reclaimer" method="playerEnter"]
 [connection signal="body_exited" from="Water Reclaimer/Area2D" to="Water Reclaimer" method="playerExit"]

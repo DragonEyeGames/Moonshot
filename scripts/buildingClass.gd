@@ -23,3 +23,6 @@ func _process(delta: float) -> void:
 		for light in $lights.get_children():
 				light.energy=0.0
 	GameManager.lightConsumption=consumption
+	for light in $lights.get_children():
+		if(light.energy < get_parent().get_node("DirectionalLight2D").energy):
+			light.energy=get_parent().get_node("DirectionalLight2D").energy

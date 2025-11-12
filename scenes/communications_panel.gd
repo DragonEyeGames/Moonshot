@@ -2,19 +2,38 @@ extends Node2D
 
 var alignEntered:=false
 
-var zoomed=false
-var canZoom=true
-var entered=false
-var extraZoomed=false
-var canExtraZoom=false
+var zoomed:=false
+var canZoom:=true
+var entered:=false
+var extraZoomed:=false
+var canExtraZoom:=false
+var maxBattery:=100.0
+var batteryPower:=0.0
+var power:=5.0
+var nerf:=1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	GameManager.satellite=self
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	$Power/Battery/ProgressBar.value=(batteryPower/maxBattery)*100
+	$Power/Power/Value.text=str(power*nerf) + "KWH"
+	if(batteryPower>100):
+		GameManager.basePower+=batteryPower-100
+		batteryPower=maxBattery
+	if(GameManager.basePower>power*nerf*delta and batteryPower<maxBattery):
+		batteryPower+=power*nerf*delta
+		GameManager.basePower-=power*nerf*delta
+		if(batteryPower>maxBattery):
+			GameManager.basePower+=batteryPower-100
+			power=0.0
+			batteryPower=maxBattery
+	elif(GameManager.basePower<=power*nerf*delta and batteryPower<maxBattery):
+		batteryPower+=GameManager.basePower
+		GameManager.basePower=0
 	if(alignEntered and Input.is_action_just_pressed("Click")):
 		if(not extraZoomed and canExtraZoom):
 			extraZoom($Align/ZoomPoint)
@@ -32,9 +51,15 @@ func _process(_delta: float) -> void:
 		$Align/Strength/RichTextLabel2.text=str(int(round(100*get_percent($Align/Interface/SatelliteDish.rotation_degrees, 15, 40)))) + "%"
 	elif($Align/Interface/SatelliteDish.rotation_degrees>40):
 		$Align/Strength/RichTextLabel2.text=str(int(round(100*get_percent(80-($Align/Interface/SatelliteDish.rotation_degrees), 15, 40)))) + "%"
+	if(batteryPower>=100 and round($Align/Interface/SatelliteDish.rotation_degrees)==40):
+		$Able/ColorRect.color=Color.LIME_GREEN
+		$Button.disabled=true
+	else:
+		$Able/ColorRect.color = Color.ORANGE_RED
+		$Button.disabled=false
 
-func get_percent(value: float, min: float, max: float) -> float:
-	return clamp((value - min) / (max - min), 0.0, 1.0)
+func get_percent(value: float, minVal: float, maxVal: float):
+	return clamp((value - minVal) / (maxVal - minVal), 0.0, 1.0)
 
 func zoom(type="fadeToArm"):
 	GameManager.zoomCamera($ZoomPoint, 4)
@@ -96,3 +121,7 @@ func satelliteLeft() -> void:
 func satelliteRight() -> void:
 	if(extraZoomed):
 		$Align/Interface/SatelliteDish.rotation_degrees+=2.5
+
+
+func _on_button_pressed() -> void:
+	print("GameOver!!!")

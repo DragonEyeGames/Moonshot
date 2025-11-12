@@ -34,6 +34,8 @@ var tapeHolder
 var hud
 var collisionTool=null
 
+var satellite=null
+
 var baseWater=100
 var baseHumidity=0
 var suitHumidity=0

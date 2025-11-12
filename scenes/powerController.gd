@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 	$Panel/ReservedAmount.text=str((round(GameManager.basePower*100)/100)) + "KWH"
 	$"Panel/Input Amount".text=str((round(solarOutput*100)/100)) + "KWH"
 	$"Panel/Used Amount".text=str(-1*(round((finalOxygenator+finalReclaimer+finalLight)*100)/100)) + "KWH"
+	$Panel/CommsCount.text=str(round(GameManager.satellite.power*GameManager.satellite.nerf*10)/10) + "KWH"
 	if(entered and Input.is_action_just_pressed("Interact")):
 		if(not zoomed and canZoom):
 			canZoom=false
@@ -34,6 +35,7 @@ func _process(delta: float) -> void:
 	GameManager.oxygenator.priorityNerf = $Panel/OxygenSlider.value/100
 	GameManager.waterReclaimer.priorityNerf = $Panel/HSlider2.value/100
 	GameManager.lightNerf=$Panel/HSlider3.value/100
+	GameManager.satellite.nerf=$Panel/HSlider4.value/100
 	$"Panel/Oxygenator Count".text=str(round(finalOxygenator*100)/100) + "KWH"
 	$Panel/ReclaimerCount.text=str(round(finalReclaimer*100)/100) + "KWH"
 	$Panel/LightCount.text=str(round(finalLight*100)/100) + "KWH"

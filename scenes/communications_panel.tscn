@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bknoq6cm6lles"]
+[gd_scene load_steps=7 format=3 uid="uid://bknoq6cm6lles"]
 
 [ext_resource type="Texture2D" uid="uid://ompiokswf6tc" path="res://assets/menu/Earth.png" id="1_5mwtu"]
 [ext_resource type="Script" uid="uid://caj0gnwkvg3yi" path="res://scenes/communications_panel.gd" id="1_bx3m4"]
@@ -9,6 +9,12 @@ size = Vector2(247.99998, 181)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bx3m4"]
 radius = 412.0
 height = 824.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bx3m4"]
+bg_color = Color(0.32915837, 0.3291584, 0.3291583, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0esmx"]
+bg_color = Color(0.066763625, 0.6258184, 0.13506135, 1)
 
 [node name="Communications Panel" type="Node2D"]
 script = ExtResource("1_bx3m4")
@@ -46,10 +52,11 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Align" type="ColorRect" parent="."]
-offset_left = 89.090904
-offset_top = -138.18182
-offset_right = 323.63632
-offset_bottom = 30.908997
+offset_left = 56.0
+offset_top = -145.0
+offset_right = 290.5454
+offset_bottom = 24.09082
+scale = Vector2(1.175, 1.175)
 mouse_filter = 2
 color = Color(0.24477637, 0.2447764, 0.24477637, 1)
 metadata/_edit_use_anchors_ = true
@@ -156,13 +163,15 @@ metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Align/Strength"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = 0.027027028
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-text = "Alignment Strength:"
+text = "Signal Strength:"
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Align/Strength"]
@@ -172,6 +181,7 @@ offset_right = 222.0
 offset_bottom = 27.0
 mouse_filter = 2
 text = "90%"
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Left" type="Button" parent="Align"]
@@ -248,6 +258,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="Align"]
+visible = false
 collision_layer = 1024
 collision_mask = 0
 
@@ -259,6 +270,7 @@ shape = SubResource("RectangleShape2D_0esmx")
 position = Vector2(118.909096, 85.18182)
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -267,9 +279,153 @@ shape = SubResource("CapsuleShape2D_bx3m4")
 
 [node name="ZoomPoint" type="Node2D" parent="."]
 
+[node name="Power" type="ColorRect" parent="."]
+offset_left = -305.00003
+offset_top = -150.0
+offset_right = -30.00003
+offset_bottom = 22.0
+scale = Vector2(1.155, 1.155)
+color = Color(0.2520276, 0.25202766, 0.25202763, 1)
+
+[node name="Title" type="ColorRect" parent="Power"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 270.0
+offset_bottom = 38.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Power/Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 23
+text = "Power and Battery"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BatteryTitle" type="ColorRect" parent="Power"]
+layout_mode = 0
+offset_left = 146.32039
+offset_top = 40.692646
+offset_right = 260.32037
+offset_bottom = 65.69264
+color = Color(0.09239707, 0.09239706, 0.09239706, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Power/BatteryTitle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Battery"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Battery" type="ColorRect" parent="Power/BatteryTitle"]
+layout_mode = 0
+offset_top = 30.000004
+offset_right = 113.0
+offset_bottom = 96.0
+color = Color(0.09019608, 0.09019608, 0.09019608, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="Power/BatteryTitle/Battery"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 18.0
+offset_right = 108.0
+offset_bottom = 45.0
+theme_override_styles/background = SubResource("StyleBoxFlat_bx3m4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0esmx")
+value = 50.0
+
+[node name="PowerTitle" type="ColorRect" parent="Power"]
+layout_mode = 0
+offset_left = 9.523834
+offset_top = 40.692646
+offset_right = 133.52383
+offset_bottom = 65.69264
+color = Color(0.09239707, 0.09239706, 0.09239706, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Power/PowerTitle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Power"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Power" type="ColorRect" parent="Power/PowerTitle"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 30.000004
+offset_right = 124.0
+offset_bottom = 96.0
+color = Color(0.09019608, 0.09019608, 0.09019608, 1)
+
+[node name="Input" type="RichTextLabel" parent="Power/PowerTitle/Power"]
+layout_mode = 0
+offset_right = 123.0
+offset_bottom = 30.0
+theme_override_font_sizes/normal_font_size = 21
+text = "Input:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="RichTextLabel" parent="Power/PowerTitle/Power"]
+layout_mode = 0
+offset_top = 28.0
+offset_right = 123.0
+offset_bottom = 58.0
+theme_override_font_sizes/normal_font_size = 21
+text = "900KWH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Able" type="ColorRect" parent="."]
+offset_left = -273.0
+offset_top = 110.0
+offset_right = -20.0
+offset_bottom = 165.0
+color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Able"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 29
+text = "Able to Send:"
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Able"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 8.0
+offset_right = 241.0
+offset_bottom = 48.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 37.0
+offset_top = 108.0
+offset_right = 230.0
+offset_bottom = 165.0
+theme_override_font_sizes/font_size = 35
+text = "SEND"
+
 [connection signal="pressed" from="Align/Left" to="." method="satelliteLeft"]
 [connection signal="pressed" from="Align/Right" to="." method="satelliteRight"]
 [connection signal="mouse_entered" from="Align/Area2D" to="." method="_align_entered"]
 [connection signal="mouse_exited" from="Align/Area2D" to="." method="_align_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

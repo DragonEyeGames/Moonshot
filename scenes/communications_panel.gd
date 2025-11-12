@@ -11,6 +11,7 @@ var maxBattery:=100.0
 var batteryPower:=0.0
 var power:=5.0
 var nerf:=1.0
+@export var noise:=50.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,8 +20,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$Noise/Control/Noise.texture.noise.seed+=1
 	$Power/Battery/ProgressBar.value=(batteryPower/maxBattery)*100
 	$Power/Power/Value.text=str(power*nerf) + "KWH"
+	var points = $Noise/Control/Line2D.points
+	for i in range(points.size()):
+		points[i].y = randf_range(-noise, noise)
+	points[0].y=0
+	points[-1].y=0
+	$Noise/Control/Line2D.points = points
 	if(batteryPower>100):
 		GameManager.basePower+=batteryPower-100
 		batteryPower=maxBattery

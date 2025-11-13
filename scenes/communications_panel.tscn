@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bknoq6cm6lles"]
+[gd_scene load_steps=11 format=3 uid="uid://bknoq6cm6lles"]
 
 [ext_resource type="Texture2D" uid="uid://ompiokswf6tc" path="res://assets/menu/Earth.png" id="1_5mwtu"]
 [ext_resource type="Script" uid="uid://caj0gnwkvg3yi" path="res://scenes/communications_panel.gd" id="1_bx3m4"]
@@ -17,6 +17,9 @@ bg_color = Color(0.32915837, 0.3291584, 0.3291583, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0esmx"]
 bg_color = Color(0.066763625, 0.6258184, 0.13506135, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0esmx"]
+radius = 136.48613
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_mfqoa"]
 frequency = 0.25
 
@@ -26,7 +29,7 @@ noise = SubResource("FastNoiseLite_mfqoa")
 
 [node name="Communications Panel" type="Node2D"]
 script = ExtResource("1_bx3m4")
-noise = 25.0
+noise = 20.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -332.72726
@@ -518,6 +521,14 @@ scale = Vector2(0.24, 0.24)
 texture = ExtResource("3_0esmx")
 offset = Vector2(0.49224854, 4.517212)
 
+[node name="Area2D" type="Area2D" parent="Noise/Knob"]
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Noise/Knob/Area2D"]
+position = Vector2(0.7593147, -4.0968957)
+shape = SubResource("CircleShape2D_0esmx")
+
 [node name="Control" type="Control" parent="Noise"]
 clip_contents = true
 anchors_preset = 0
@@ -550,3 +561,5 @@ texture = SubResource("NoiseTexture2D_o7vv5")
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Noise/Knob/Area2D" to="." method="_knob_entered"]
+[connection signal="mouse_exited" from="Noise/Knob/Area2D" to="." method="_knob_exited"]

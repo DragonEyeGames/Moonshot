@@ -12,6 +12,9 @@ var batteryPower:=0.0
 var power:=5.0
 var nerf:=1.0
 @export var noise:=50.0
+var knobEntered=false
+var rotatingKnob=false
+var rotationDegrees:=-1000
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +23,23 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$Noise/Strength/RichTextLabel2.text=str(round(get_percent(-abs(rotationDegrees), -1500, 0)*1000)/10) + "%"
+	noise=abs(100-round(get_percent(-abs(rotationDegrees), -1500, 0)*1000)/10)*.22
+	$Noise/Control/Noise.self_modulate.a=noise/30
+	if(knobEntered and Input.is_action_just_pressed("Click")):
+		rotatingKnob=true
+	if(rotatingKnob):
+		var diff=$Noise/Knob.rotation_degrees
+		$Noise/Knob.look_at(get_global_mouse_position())
+		$Noise/Knob.rotation+=PI/2
+		diff-=$Noise/Knob.rotation_degrees
+		if(Input.is_action_just_released("Click")):
+			rotatingKnob=false
+		if diff > 180:
+			diff -= 360
+		elif diff < -180:
+			diff += 360
+		rotationDegrees-=diff
 	$Noise/Control/Noise.texture.noise.seed+=1
 	$Power/Battery/ProgressBar.value=(batteryPower/maxBattery)*100
 	$Power/Power/Value.text=str(power*nerf) + "KWH"
@@ -133,3 +153,11 @@ func satelliteRight() -> void:
 
 func _on_button_pressed() -> void:
 	print("GameOver!!!")
+
+
+func _knob_entered() -> void:
+	knobEntered=true
+
+
+func _knob_exited() -> void:
+	knobEntered=false

@@ -22,7 +22,10 @@ func _process(delta: float) -> void:
 	$RichTextLabel.text = "FPS: " + str(Engine.get_frames_per_second())
 	if(Input.is_action_just_pressed("HUD")):
 		showing=!showing
-	$Stats.visible=showing
+	for child in $Stats.get_children():
+		child.visible=showing
+		if(str(child.name)=="Oxygen" and not showing and $Stats/Oxygen/Oxygen.value<=10):
+			child.visible=true
 	$"Date+Time".visible=showing
 	$RichTextLabel.visible=showing
 	$StatBlocker.visible=showing
@@ -99,19 +102,19 @@ func stamina(_delta):
 		GameManager.playerSprinting=false
 		
 func oxygen(_delta):
-	$Stats/Oxygen.value=GameManager.oxygen
+	$Stats/Oxygen/Oxygen.value=GameManager.oxygen
 	if(GameManager.helmet.visible):
-		$Stats/Oxygen.value-=_delta/4
+		$Stats/Oxygen/Oxygen.value-=_delta*40
 		GameManager.carbon+=_delta/4
 		if(GameManager.helmet.visible==false):
-			$Stats/Oxygen.value-=_delta*200
+			$Stats/Oxygen/Oxygen.value-=_delta/4
 			$Stats/Health.value-=_delta*50
-		if($Stats/Oxygen.value<=0 and playerDead==false):
+		if($Stats/Oxygen/Oxygen.value<=0 and playerDead==false):
 			GameManager.health-=_delta*10
 	elif(GameManager.playerState==GameManager.possibleStates.INSIDE and GameManager.helmet.visible==false):
 		GameManager.baseOxygen-=.4*_delta
 		GameManager.baseCarbon+=.4*_delta
-	GameManager.oxygen=$Stats/Oxygen.value
+	GameManager.oxygen=$Stats/Oxygen/Oxygen.value
 		
 func energy(_delta):
 	if(GameManager.flashlightOn):

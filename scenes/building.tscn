@@ -2837,7 +2837,6 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("37_vkygi")
 
 [node name="HallwayOutside" type="Sprite2D" parent="Hallway4"]
-visible = false
 light_mask = 2
 z_index = 6
 scale = Vector2(0.6, 0.6)
@@ -2983,7 +2982,7 @@ libraries = {
 }
 
 [node name="PointLight2D7" type="PointLight2D" parent="lights"]
-position = Vector2(44, -3704)
+position = Vector2(27, -3742)
 scale = Vector2(0.55, 0.55)
 blend_mode = 2
 texture = ExtResource("15_acxlu")

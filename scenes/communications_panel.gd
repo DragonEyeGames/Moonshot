@@ -139,7 +139,7 @@ func extraZoom(target):
 	await get_tree().create_timer(1.1).timeout
 	canExtraZoom=true
 
-func extraUnzoom(type="fade"):
+func extraUnzoom(_type="fade"):
 	GameManager.zoomCamera($ZoomPoint, 4)
 	extraZoomed=false
 	canExtraZoom=false

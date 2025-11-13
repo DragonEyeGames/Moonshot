@@ -101,13 +101,13 @@ func stamina(_delta):
 func oxygen(_delta):
 	$Stats/Oxygen.value=GameManager.oxygen
 	if(GameManager.helmet.visible):
-		$Stats/Oxygen.value-=_delta/2
-		GameManager.carbon+=_delta/2
+		$Stats/Oxygen.value-=_delta/4
+		GameManager.carbon+=_delta/4
 		if(GameManager.helmet.visible==false):
 			$Stats/Oxygen.value-=_delta*200
 			$Stats/Health.value-=_delta*50
 		if($Stats/Oxygen.value<=0 and playerDead==false):
-			GameManager.health-=_delta*25
+			GameManager.health-=_delta*10
 	elif(GameManager.playerState==GameManager.possibleStates.INSIDE and GameManager.helmet.visible==false):
 		GameManager.baseOxygen-=.4*_delta
 		GameManager.baseCarbon+=.4*_delta

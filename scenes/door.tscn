@@ -1,0 +1,340 @@
+[gd_scene load_steps=10 format=3 uid="uid://cvnn7rlofa7jh"]
+
+[ext_resource type="Script" uid="uid://co5y4o7bsjia6" path="res://scenes/door.gd" id="1_hpvv5"]
+[ext_resource type="Texture2D" uid="uid://oms0xrnk61s0" path="res://assets/menu/MenuTextHolder.png" id="2_uvdjg"]
+[ext_resource type="FontFile" uid="uid://b4j6iojfu82en" path="res://fonts/BraveEightyoneRegular-ZVGvm.ttf" id="3_83dcw"]
+[ext_resource type="AudioStream" uid="uid://dmkxcgyw0v52c" path="res://Sounds/Door, Sci Fi - Hydraulic Laboratory Door_ Open or Close Space Doors, Hatches & Airlocks.mp3" id="4_la1wf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tq4q2"]
+size = Vector2(69, 610)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvdjg"]
+radius = 104.0
+height = 692.0
+
+[sub_resource type="Animation" id="Animation_83dcw"]
+resource_name = "open"
+length = 2.84
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Outline:size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.0666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(72, 610), Vector2(72, 334)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Front:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 329)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Top:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 280)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Top:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-38, -290)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Front:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.0666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-38, -10), Vector2(-38, -290)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Outline:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-42, -291)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DoorSFX:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2.07),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("StaticBody2D/CollisionShape2D:shape:size")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 2.07),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(69, 610), Vector2(69, 333)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("StaticBody2D/CollisionShape2D:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 2.07),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-5, 15), Vector2(-6, -125)]
+}
+
+[sub_resource type="Animation" id="Animation_la1wf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Outline:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(72, 610)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Front:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 329)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Top:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 280)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Top:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-38, -290)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Front:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-38, -10)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Outline:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-42, -291)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DoorSFX:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("StaticBody2D/CollisionShape2D:shape:size")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(69, 610)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("StaticBody2D/CollisionShape2D:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5, 15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_18pbm"]
+_data = {
+&"RESET": SubResource("Animation_la1wf"),
+&"open": SubResource("Animation_83dcw")
+}
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_hpvv5")
+
+[node name="Outline" type="ColorRect" parent="."]
+offset_left = -42.0
+offset_top = -291.0
+offset_right = 30.0
+offset_bottom = 319.0
+color = Color(0, 0, 0, 1)
+
+[node name="Top" type="ColorRect" parent="."]
+offset_left = -38.0
+offset_top = -290.0
+offset_right = 26.0
+offset_bottom = -10.0
+color = Color(0.047557652, 0.047557652, 0.04755763, 1)
+
+[node name="Front" type="ColorRect" parent="."]
+offset_left = -38.0
+offset_top = -10.0
+offset_right = 26.0
+offset_bottom = 319.0
+color = Color(0.14044744, 0.14044744, 0.14044744, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-5, 15)
+shape = SubResource("RectangleShape2D_tq4q2")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-6, 6)
+shape = SubResource("CapsuleShape2D_uvdjg")
+
+[node name="Text" type="CanvasLayer" parent="."]
+layer = 3
+visible = false
+
+[node name="MenuTextHolder" type="Sprite2D" parent="Text"]
+position = Vector2(865, 478)
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("2_uvdjg")
+flip_v = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Text/MenuTextHolder"]
+offset_left = -570.5882
+offset_top = -444.11758
+offset_right = 777.9411
+offset_bottom = 573.5293
+theme_override_constants/outline_size = 28
+theme_override_fonts/normal_font = ExtResource("3_83dcw")
+theme_override_font_sizes/normal_font_size = 58
+text = "This  door  leads  to  the communications  center.  This  is how  you  will  let  us  know  that  you  have  finished  repairing  the base.  But  as  an  anti-cheat measure  (you  lazy  human)  you  actually  need  to  do  everything beforehand.  Do  all  of  the  tasks  in  your  HUD  (accessible  with  'h')  and  then  this  door  will  unlock.  Only  then  will  you  be  able  to send  a  message  and  get  yourself off  this  planet.  Thanks  for  all  of  your  work  thus far!  Now  get  back  to  it  before  you  run  out  of  oxygen  and  die  :)
+Best  of  luck."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Door" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_18pbm")
+}
+
+[node name="DoorSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_la1wf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

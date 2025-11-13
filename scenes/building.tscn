@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://ectb2uu36h7a"]
+[gd_scene load_steps=114 format=3 uid="uid://ectb2uu36h7a"]
 
 [ext_resource type="Script" uid="uid://doqvjt1ivyo14" path="res://scripts/buildingClass.gd" id="1_nm462"]
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="2_vs5tt"]
@@ -39,6 +39,9 @@
 [ext_resource type="PackedScene" uid="uid://18tl0xb0wbl0" path="res://scenes/computer.tscn" id="33_dc40y"]
 [ext_resource type="Texture2D" uid="uid://ct4txwsx8l57m" path="res://assets/newSquare.png" id="34_ijljr"]
 [ext_resource type="PackedScene" uid="uid://bknoq6cm6lles" path="res://scenes/communications_panel.tscn" id="35_2l1rv"]
+[ext_resource type="Script" uid="uid://g4w6mcy28ug7" path="res://scripts/hallway.gd" id="36_8yjaw"]
+[ext_resource type="Texture2D" uid="uid://x6iacigdr2gh" path="res://assets/Circle Building/HallwayInside.png" id="37_vkygi"]
+[ext_resource type="Texture2D" uid="uid://bb5favxyxlws6" path="res://assets/Circle Building/HallwayOutside.png" id="38_c646r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yopf"]
 size = Vector2(512, 1151)
@@ -1269,6 +1272,70 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pt15o"]
 radius = 1446.5892
+
+[sub_resource type="Animation" id="Animation_0rysw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HallwayOutside:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ue1jw"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HallwayOutside:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qnfc1"]
+resource_name = "reveal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HallwayOutside:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ow2p3"]
+_data = {
+&"RESET": SubResource("Animation_0rysw"),
+&"hide": SubResource("Animation_ue1jw"),
+&"reveal": SubResource("Animation_qnfc1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vvqs"]
+size = Vector2(1217, 309)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8evq1"]
+size = Vector2(1233, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm6c6"]
+size = Vector2(1697, 625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tq4q2"]
+size = Vector2(69, 610)
 
 [sub_resource type="Animation" id="Animation_tq4q2"]
 length = 0.001
@@ -2739,8 +2806,72 @@ texture = ExtResource("19_c646r")
 [node name="Communications Panel" parent="Communications/BackWall" instance=ExtResource("35_2l1rv")]
 position = Vector2(-63.636322, -560.00006)
 
-[node name="Hallway4" parent="." instance=ExtResource("5_0rysw")]
+[node name="Hallway4" type="Node2D" parent="."]
 position = Vector2(1409, -3682)
+script = ExtResource("36_8yjaw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hallway4"]
+libraries = {
+&"": SubResource("AnimationLibrary_ow2p3")
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hallway4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hallway4/StaticBody2D"]
+position = Vector2(0.5, -154.5)
+shape = SubResource("RectangleShape2D_2vvqs")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hallway4/StaticBody2D"]
+position = Vector2(-0.5, 328)
+shape = SubResource("RectangleShape2D_8evq1")
+
+[node name="Area2D" type="Area2D" parent="Hallway4"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hallway4/Area2D"]
+position = Vector2(-4.5, 15.5)
+shape = SubResource("RectangleShape2D_rm6c6")
+
+[node name="HallwayInside" type="Sprite2D" parent="Hallway4"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("37_vkygi")
+
+[node name="HallwayOutside" type="Sprite2D" parent="Hallway4"]
+visible = false
+light_mask = 2
+z_index = 6
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("38_c646r")
+
+[node name="Door" type="Node2D" parent="Hallway4"]
+
+[node name="ColorRect3" type="ColorRect" parent="Hallway4/Door"]
+offset_left = -42.0
+offset_top = -291.0
+offset_right = 30.0
+offset_bottom = 319.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Hallway4/Door"]
+offset_left = -38.0
+offset_top = -10.0
+offset_right = 26.0
+offset_bottom = 319.0
+color = Color(0.18717614, 0.18717614, 0.18717614, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Hallway4/Door"]
+offset_left = -38.0
+offset_top = -290.0
+offset_right = 26.0
+offset_bottom = -10.0
+color = Color(0.13319641, 0.13319641, 0.13319638, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hallway4/Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hallway4/Door/StaticBody2D"]
+position = Vector2(-5.5, 14)
+shape = SubResource("RectangleShape2D_tq4q2")
 
 [node name="Water Reclaimer" type="Node2D" parent="."]
 position = Vector2(-2417.9998, -3665)
@@ -2952,5 +3083,7 @@ libraries = {
 [connection signal="body_exited" from="Farm/Area2D" to="Farm" method="playerExit"]
 [connection signal="body_entered" from="Communications/Area2D" to="Communications" method="playerEnter"]
 [connection signal="body_exited" from="Communications/Area2D" to="Communications" method="playerExit"]
+[connection signal="body_entered" from="Hallway4/Area2D" to="Hallway4" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Hallway4/Area2D" to="Hallway4" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Water Reclaimer/Area2D" to="Water Reclaimer" method="playerEnter"]
 [connection signal="body_exited" from="Water Reclaimer/Area2D" to="Water Reclaimer" method="playerExit"]

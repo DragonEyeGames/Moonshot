@@ -4,6 +4,14 @@ var playerDead=false
 var sprintRegen=2
 var showing=false
 var flashing=false
+
+var oxygenatorFixed=true
+var reclaimerFixed=true
+var wiresFixed=true
+var panelsFixed=true
+var doorOpened=false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	flash()
@@ -15,6 +23,10 @@ func flash():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if(oxygenatorFixed and reclaimerFixed and wiresFixed and panelsFixed and doorOpened==false):
+		doorOpened=true
+		print("oope")
+		GameManager.door.openUp()
 	stamina(delta)
 	food(delta)
 	water(delta)
@@ -38,16 +50,16 @@ func _process(delta: float) -> void:
 		$TextHolder.visible=false
 	if(not GameManager.oxygenator.leak>0):
 		$ToDo/VBoxContainer/Oxygen.text="[s][color=gray]Fix Oxygenator Pipe"
-	if(GameManager.waterReclaimer.filterClean==false):
-		$ToDo/VBoxContainer/Water.text="Replace Water Filter"
-	else:
+		oxygenatorFixed=true
+	if(GameManager.waterReclaimer.filterClean==true):
 		$ToDo/VBoxContainer/Water.text="[s][color=gray]Replace Water Filter"
+		reclaimerFixed=true
 	if(GameManager.solarField.completed):
-		$ToDo/VBoxContainer/Solar.text="[s][color=gray]Clean Solar Panels"
+		$ToDo/VBoxContainer/Solar.text="[s][color=gray]Reconnect Wires"
+		wiresFixed=true
 	if(GameManager.solarField.dirty==false):
 		$ToDo/VBoxContainer/Solar.text="[s][color=gray]Clean Solar Panels"
-	else:
-		$ToDo/VBoxContainer/Solar.text="Clean Solar Panels"
+		panelsFixed=true
 	
 func food(_delta):
 	if(GameManager.food>100):
@@ -67,13 +79,12 @@ func health(_delta):
 		get_tree().change_scene_to_file("res://scenes/dead.tscn")
 	
 func water(_delta):
-	_delta*=20
+	_delta*=1.8
 	if(GameManager.water>400):
 		GameManager.baseHumidity+=GameManager.water-400
 		GameManager.water=400
 	$Stats/Water/Water.value=GameManager.water
 	$Stats/Water/Water.value-=_delta
-	print($Stats/Water/Water.value)
 	GameManager.water=$Stats/Water/Water.value
 	if(GameManager.helmet.visible==false):
 		GameManager.baseHumidity+=_delta
@@ -98,9 +109,10 @@ func water(_delta):
 func stamina(_delta):
 	if(sprintRegen<=0):
 		$Stats/Stamina/Stamina.value+=_delta*10
-	if(Input.is_action_pressed("Sprint") and $Stats/Stamina/Stamina.value>0 and $Stats/Food.value>25):
+	if(Input.is_action_pressed("Sprint") and $Stats/Stamina/Stamina.value>0):
 		GameManager.playerSprinting=true
 		GameManager.food-=_delta*2
+		GameManager.water-=_delta*2.5
 		$Stats/Stamina/Stamina.value-=_delta*40
 		sprintRegen=2
 	else:

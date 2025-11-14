@@ -71,6 +71,7 @@ var carrots=0
 
 var food = 100
 var water := 400.0
+var door
 
 func _process(_delta: float) -> void:
 	nonstackingDict[2]["amount"] = pickedUpJugWater

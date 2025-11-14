@@ -31,10 +31,9 @@ func _process(delta: float) -> void:
 	elif(mouseEntered and Input.is_action_just_pressed("Click") and GameManager.player.handHeldItem=="" and not open):
 		openBag()
 	elif(Input.is_action_just_released("Click") and collision and GameManager.player.pickable!=null and not GameManager.player.handHeldItem==""):
-		print("ISSUES")
 		if(GameManager.player.bagOpen==false):
-			if(GameManager.player.handHeldItem=="plant"):
-				GameManager.carrots+=1
+			if(GameManager.player.handHeldItem=="Plant"):
+				await GameManager.add("Carrot", 1)
 			else:
 				await GameManager.add(GameManager.player.handHeldItem, 1)
 			if(GameManager.player.pickable):

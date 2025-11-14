@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b8fbtnlq1oocd"]
+[gd_scene load_steps=24 format=3 uid="uid://b8fbtnlq1oocd"]
 
 [ext_resource type="Texture2D" uid="uid://372hu3xsfi0g" path="res://assets/proteinBar.png" id="1_sditr"]
 [ext_resource type="Texture2D" uid="uid://c5q3d26io6w74" path="res://assets/IceCream.png" id="2_ri7ka"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://w6dpxidd41jf" path="res://assets/cleanFilter.png" id="5_v6pda"]
 [ext_resource type="Texture2D" uid="uid://rciu6av3yice" path="res://assets/agua.png" id="6_vb3cu"]
 [ext_resource type="Texture2D" uid="uid://dy4c53krfqpij" path="res://assets/Seeds.png" id="7_g4ica"]
+[ext_resource type="Texture2D" uid="uid://bgab3mfxfc57i" path="res://assets/Carrot.png" id="11_drbfb"]
 [ext_resource type="Texture2D" uid="uid://chryd33c4owfk" path="res://assets/WaterCup.png" id="11_v6pda"]
 [ext_resource type="Script" uid="uid://cx735i75s5oao" path="res://scenes/inventoryJug.gd" id="12_4odm4"]
 [ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/Jug.png" id="12_f7yvo"]
@@ -245,6 +246,23 @@ text = "Cup"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Carrot" type="Sprite2D" parent="."]
+position = Vector2(-12, 0)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("11_drbfb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Carrot"]
+offset_left = -183.90805
+offset_top = -331.0345
+offset_right = 1238.3141
+offset_bottom = 255.63214
+scale = Vector2(0.32, 0.32)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 350
+text = "Carrot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="H Cup" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, 9.536743e-07)
@@ -264,6 +282,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Jug" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, 9.536743e-07)
 scale = Vector2(0.245, 0.245)
 script = ExtResource("12_4odm4")

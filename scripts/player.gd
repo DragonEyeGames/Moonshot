@@ -7,7 +7,7 @@ class_name Player
 var canPickUp:=true
 
 #This is one of the most important things. It is the picked up item itself.
-var pickable: Node2D
+var pickable: Node
 
 #The item (type) being held
 var handHeldItem:=""

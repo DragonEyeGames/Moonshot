@@ -11,8 +11,6 @@ func _process(_delta: float) -> void:
 	if(len(GameManager.inventory)>=slotIndex+1):
 		visible=true
 		$Count.text=str(GameManager.inventory[slotIndex]["count"])
-		if(GameManager.inventory[slotIndex]["name"]=="Carrots"):
-			$InventoryItems.get_node(GameManager.inventory[slotIndex]).get_child(0).text=str(GameManager.carrots) + " Carrot(s)"
 		if(GameManager.inventory[slotIndex]["name"]=="Jug"):
 			$InventoryItems.get_node(GameManager.inventory[slotIndex]["name"]).get_child(0).text=str(round(GameManager.inventory[slotIndex]["count"]*100)/100) + " Water(s)"
 		for child in $InventoryItems.get_children():
@@ -37,7 +35,7 @@ func _process(_delta: float) -> void:
 					GameManager.water+=20
 					GameManager.subtract("H Cup", 1)
 					GameManager.add("Cup", 1)
-				elif(itemSelected=="Carrots"):
+				elif(itemSelected=="Carrot"):
 					GameManager.water+=7.5
 					GameManager.food+=15
 					GameManager.carrots-=1

@@ -1,7 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://coaotjijpvoi2"]
 
 [ext_resource type="Script" uid="uid://b4dbcic140cnp" path="res://scripts/bag_items.gd" id="1_6dd0p"]
-[ext_resource type="Texture2D" uid="uid://c5q3d26io6w74" path="res://assets/IceCream.png" id="2_6dd0p"]
 [ext_resource type="PackedScene" uid="uid://cba4fq4q3t4ra" path="res://scenes/VisibleItems/jug.tscn" id="3_78mh5"]
 [ext_resource type="PackedScene" uid="uid://dc3osrlnf768a" path="res://scenes/VisibleItems/h_cup.tscn" id="4_78mh5"]
 [ext_resource type="PackedScene" uid="uid://bn36inecn6soy" path="res://scenes/VisibleItems/filter.tscn" id="4_fuds8"]
@@ -14,14 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://04xxddr7x5qo" path="res://scenes/VisibleItems/mac.tscn" id="11_78mh5"]
 [ext_resource type="PackedScene" uid="uid://0esli38uwpej" path="res://scenes/VisibleItems/cup.tscn" id="11_fuds8"]
 [ext_resource type="PackedScene" uid="uid://dcqfarm5epv4u" path="res://scenes/VisibleItems/protein.tscn" id="11_ylmxj"]
+[ext_resource type="PackedScene" uid="uid://crjsm7oj63kgp" path="res://scenes/VisibleItems/carrot.tscn" id="14_tefpj"]
 
 [node name="BagItems" type="Node2D"]
 script = ExtResource("1_6dd0p")
-
-[node name="Carrots" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("2_6dd0p")
 
 [node name="Jug" parent="." instance=ExtResource("3_78mh5")]
 
@@ -38,16 +33,15 @@ visible = false
 [node name="H Mac" parent="." instance=ExtResource("6_ylmxj")]
 
 [node name="Tape" parent="." instance=ExtResource("10_78mh5")]
-visible = false
 
 [node name="Rag" parent="." instance=ExtResource("8_ylmxj")]
-visible = false
 
 [node name="SeedBag" parent="." instance=ExtResource("10_ylmxj")]
 
 [node name="Cup" parent="." instance=ExtResource("11_fuds8")]
-visible = false
 
 [node name="Mac" parent="." instance=ExtResource("11_78mh5")]
 
 [node name="Protein" parent="." instance=ExtResource("11_ylmxj")]
+
+[node name="Carrot" parent="." instance=ExtResource("14_tefpj")]

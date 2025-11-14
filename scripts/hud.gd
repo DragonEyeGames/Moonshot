@@ -10,6 +10,7 @@ var reclaimerFixed=false
 var wiresFixed=false
 var panelsFixed=false
 var doorOpened=false
+var carrotsPicked=false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -60,6 +61,11 @@ func _process(delta: float) -> void:
 	if(GameManager.solarField.dirty==false):
 		$ToDo/VBoxContainer/Solar.text="[s][color=gray]Clean Solar Panels"
 		panelsFixed=true
+	if len(GameManager.inventory) >= 1 and not carrotsPicked:
+		for item in GameManager.inventory:
+			if(item["name"].to_lower()=="carrot"):
+				$ToDo/VBoxContainer/Food.text="[s][color=gray]Grow Food"
+				carrotsPicked=true
 	
 func food(_delta):
 	if(GameManager.food>100):

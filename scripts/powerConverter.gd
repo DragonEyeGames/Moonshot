@@ -10,7 +10,8 @@ var selectedWire=null
 var selectedInt
 var completed=false
 var connectedWires=0
-var dirty=false
+var dirty=true
+var loading:=5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -64,10 +65,13 @@ func _process(delta: float) -> void:
 	var cumulativeDirt=0
 	for child in $Panels.get_children():
 		cumulativeDirt+=child.dirt
-	if(cumulativeDirt>1):
-		dirty=true
+	if(loading<=0):
+		if(cumulativeDirt>1):
+			dirty=true
+		else:
+			dirty=false
 	else:
-		dirty=false
+		loading-=1
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	colliding=true

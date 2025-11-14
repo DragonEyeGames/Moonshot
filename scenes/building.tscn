@@ -792,6 +792,54 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Vert Hallway3/walls5:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Vert Hallway3/walls5:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Vert Hallway3/Roof:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Vert Hallway3/Roof:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ejodb"]
 resource_name = "hide"
@@ -819,6 +867,54 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Vert Hallway3/walls5:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Vert Hallway3/walls5:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Vert Hallway3/Roof:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Vert Hallway3/Roof:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_48xji"]
 resource_name = "show"
@@ -841,6 +937,54 @@ tracks/1/path = NodePath("Roof/FrontWall:modulate")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Vert Hallway3/Roof:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Vert Hallway3/Roof:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Vert Hallway3/walls5:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Vert Hallway3/walls5:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -1995,7 +2139,6 @@ scale = Vector2(0.87, 1.125)
 script = ExtResource("12_rh2sc")
 
 [node name="walls5" type="Sprite2D" parent="Vert Hallway"]
-visible = false
 light_mask = 2
 z_index = 2
 scale = Vector2(0.25, 0.25)
@@ -2017,7 +2160,7 @@ texture = ExtResource("5_rh2sc")
 
 [node name="Roof" type="Sprite2D" parent="Vert Hallway"]
 light_mask = 2
-z_index = 2
+z_index = 6
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("6_dc40y")
 
@@ -2139,6 +2282,86 @@ occluder = SubResource("OccluderPolygon2D_3yst8")
 occluder_light_mask = 3
 
 [node name="ColorRect" type="ColorRect" parent="Vert Hallway2"]
+z_index = -1
+offset_left = -212.0
+offset_top = 19.555542
+offset_right = 260.0
+offset_bottom = 552.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Vert Hallway3" type="Node2D" parent="."]
+position = Vector2(2645, -1167)
+scale = Vector2(0.87, 1.125)
+script = ExtResource("12_rh2sc")
+
+[node name="walls5" type="Sprite2D" parent="Vert Hallway3"]
+light_mask = 2
+z_index = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_ll25w")
+
+[node name="walls3" type="Sprite2D" parent="Vert Hallway3"]
+light_mask = 2
+z_index = 1
+y_sort_enabled = true
+position = Vector2(19.540283, 367.11108)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_2f2c6")
+offset = Vector2(-78.16113, -1468.4443)
+script = ExtResource("13_hs87p")
+maximum = 5
+
+[node name="floor" type="Sprite2D" parent="Vert Hallway3"]
+light_mask = 0
+position = Vector2(-9.770065, 0)
+scale = Vector2(0.30337057, 0.25)
+texture = ExtResource("5_rh2sc")
+
+[node name="Roof" type="Sprite2D" parent="Vert Hallway3"]
+light_mask = 2
+z_index = 7
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_dc40y")
+
+[node name="State" type="AnimationPlayer" parent="Vert Hallway3/Roof"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_vkygi")
+}
+
+[node name="Area2D" type="Area2D" parent="Vert Hallway3"]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vert Hallway3/Area2D"]
+position = Vector2(19, 178.5)
+shape = SubResource("RectangleShape2D_2yopf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Vert Hallway3"]
+visible = false
+z_index = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vert Hallway3/StaticBody2D"]
+position = Vector2(245.5, 284)
+shape = SubResource("RectangleShape2D_5j34s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Vert Hallway3/StaticBody2D"]
+position = Vector2(-194, 284)
+shape = SubResource("RectangleShape2D_5j34s")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Vert Hallway3"]
+occluder = SubResource("OccluderPolygon2D_3yst8")
+occluder_light_mask = 3
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Vert Hallway3"]
+position = Vector2(450.5747, 0.8888889)
+occluder = SubResource("OccluderPolygon2D_3yst8")
+occluder_light_mask = 3
+
+[node name="ColorRect" type="ColorRect" parent="Vert Hallway3"]
 z_index = -1
 offset_left = -212.0
 offset_top = 19.555542
@@ -2620,7 +2843,7 @@ items = ["Cup", "Cup", "Cup", "Cup", "", "", "", ""]
 [node name="Roof" type="Sprite2D" parent="Kitchen"]
 modulate = Color(0.804743, 0.804743, 0.804743, 1)
 light_mask = 0
-z_index = 3
+z_index = 2
 texture = ExtResource("13_2l1rv")
 
 [node name="State" type="AnimationPlayer" parent="Kitchen/Roof"]
@@ -2673,7 +2896,7 @@ z_index = -2
 texture = ExtResource("19_c646r")
 
 [node name="Farm" type="Node2D" parent="."]
-position = Vector2(2649, -33)
+position = Vector2(2677, -259)
 scale = Vector2(0.55, 0.55)
 script = ExtResource("12_gwfoe")
 
@@ -2717,17 +2940,13 @@ shape = SubResource("CircleShape2D_pt15o")
 [node name="StaticBody2D" type="StaticBody2D" parent="Farm"]
 scale = Vector2(1, 0.73)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Farm/StaticBody2D"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Farm/StaticBody2D"]
 z_index = 1
 position = Vector2(-78.181816, 774.5952)
-polygon = PackedVector2Array(-316.36362, 1120.7969, -552.7273, 1008.71704, -790.90906, 874.22144, -940, 744.7073, -1085.4545, 570.36084, -1227.2727, 298.8789, -1281.8181, 119.55176, -1327.2727, 39.850586, -1372.7273, 14.944336, -1343.6362, 124.5332, -1321.8181, 206.72461, -1265.4545, 373.59888, -1245.4545, 415.93994, -1138.1818, 600.2488, -1012.72723, 779.5764, -820, 941.46924, -574.5455, 1088.4182, -312.72726, 1188.0447, -156.36377, 1222.9141, 25.45459, 1232.877, 154.54541, 1232.877, 281.81836, 1217.9331, 390.90918, 1195.5171, 496.36377, 1168.1196, 667.27246, 1103.3628, 838.18164, 1011.208, 981.81836, 911.58203, 1109.0908, 799.50195, 1227.2725, 662.5156, 1347.2725, 483.18848, 1423.6362, 328.76758, 1472.727, 186.7998, 1498.1816, 84.68262, 1525.4546, -52.30371, 1536.3638, -236.6123, 1530.9092, -398.50488, 1498.1816, -560.39844, 1436.3638, -752.1787, 1320, -983.81055, 1205.4546, -1138.2314, 1076.3638, -1270.2363, 909.0908, -1404.7324, 720, -1506.8486, 569.0908, -1566.625, 405.4546, -1611.457, 258.18164, -1633.873, 70.90918, -1643.835, -127.27295, -1623.9102, -305.4546, -1586.5498, -490.90918, -1519.3027, -634.5454, -1447.0732, -796.3638, -1339.9746, -909.0908, -1240.3486, -990.90894, -1158.1563, -1114.5454, -1001.2451, -1178.1819, -914.07227, -1350.9089, -779.5762, -1150.9089, -816.9365, -1147.2727, -824.4082, -1020, -1013.69824, -849.0908, -1200.498, -654.5454, -1339.9746, -492.72705, -1429.6387, -336.36377, -1491.9053, -178.18164, -1531.7559, -5.45459, -1554.1719, 174.54541, -1556.6621, 349.09082, -1541.7178, 458.18164, -1514.3213, 638.18164, -1457.0361, 785.4546, -1384.8066, 960, -1275.2178, 1085.4546, -1168.1191, 1218.1816, -1008.7168, 1332.727, -821.91797, 1420, -610.2119, 1460, -423.4121, 1470.9092, -273.97266, 1470.9092, -124.5332, 1445.4546, 52.30371, 1405.4546, 194.27148, 1316.3638, 405.97803, 1234.5454, 537.9829, 1107.2725, 697.38525, 987.27246, 811.95557, 885.4546, 884.1846, 732.72705, 983.81104, 590.9092, 1048.5679, 443.63623, 1098.3813, 338.18164, 1123.2881, 227.27295, 1143.2134, 76.36377, 1153.1758, -45.45459, 1150.685, -163.63623, 1143.2134)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Farm/StaticBody2D"]
-polygon = PackedVector2Array(1126.1744, 327.2961, 1157.0469, 338.32858, 1146.3087, 380.61966, 1097.9866, 496.46042, 970.4697, 707.9158, 859.06036, 842.144, 677.8523, 996.5983, 453.69125, 1108.7616, 276.51004, 1151.0526, 276.51004, 1128.9878, 426.8456, 1088.5354, 524.8322, 1037.0507, 712.75165, 923.0486, 915.4362, 717.1095, 1075.1677, 463.36304)
-disabled = true
+polygon = PackedVector2Array(-316.36362, 1120.7969, -552.7273, 1008.71704, -790.90906, 874.22144, -940, 744.7073, -1085.4545, 570.36084, -1227.2727, 298.8789, -1281.8181, 119.55176, -1310.9089, -117.060974, -1314.5454, -323.78577, -1274.5454, -513.0759, -1212.7273, -682.4408, -1120, -866.74963, -1010.90894, -1028.6426, -889.0908, -1163.1382, -772.7273, -1265.2552, -647.2727, -1342.4657, -514.5454, -1417.1855, -360, -1484.4333, -225.45459, -1521.7932, -225.45459, -1603.985, -294.5454, -1584.0597, -443.63623, -1536.7372, -610.9092, -1457.0361, -770.90894, -1359.9004, -894.5454, -1255.2926, -1003.6362, -1145.7036, -1083.6362, -1048.5679, -1149.0908, -953.9227, -1232.7273, -811.95514, -1309.0908, -602.7397, -1352.7273, -443.33746, -1374.5454, -221.6687, -1372.7273, 14.944336, -1343.6362, 124.5332, -1321.8181, 206.72461, -1265.4545, 373.59888, -1245.4545, 415.93994, -1138.1818, 600.2488, -1012.72723, 779.5764, -820, 941.46924, -574.5455, 1088.4182, -312.72726, 1188.0447, -156.36377, 1222.9141, 25.45459, 1232.877, 154.54541, 1232.877, 281.81836, 1217.9331, 390.90918, 1195.5171, 496.36377, 1168.1196, 667.27246, 1103.3628, 838.18164, 1011.208, 981.81836, 911.58203, 1109.0908, 799.50195, 1227.2725, 662.5156, 1347.2725, 483.18848, 1423.6362, 328.76758, 1472.727, 186.7998, 1498.1816, 84.68262, 1525.4546, -52.30371, 1536.3638, -236.6123, 1530.9092, -398.50488, 1498.1816, -560.39844, 1436.3638, -752.1787, 1320, -983.81055, 1205.4546, -1138.2314, 1076.3638, -1270.2363, 909.0908, -1404.7324, 720, -1506.8486, 569.0908, -1566.625, 354.5454, -1623.9103, 349.09082, -1541.7178, 458.18164, -1514.3213, 638.18164, -1457.0361, 785.4546, -1384.8066, 960, -1275.2178, 1085.4546, -1168.1191, 1218.1816, -1008.7168, 1332.727, -821.91797, 1420, -610.2119, 1460, -423.4121, 1470.9092, -273.97266, 1470.9092, -124.5332, 1445.4546, 52.30371, 1405.4546, 194.27148, 1316.3638, 405.97803, 1234.5454, 537.9829, 1107.2725, 697.38525, 987.27246, 811.95557, 885.4546, 884.1846, 732.72705, 983.81104, 590.9092, 1048.5679, 443.63623, 1098.3813, 338.18164, 1123.2881, 227.27295, 1143.2134, 76.36377, 1153.1758, -45.45459, 1150.685, -163.63623, 1143.2134)
 
 [node name="BackWall" type="Sprite2D" parent="Farm"]
-texture = ExtResource("19_c646r")
+texture = ExtResource("21_2f2c6")
 
 [node name="Farm" parent="Farm" instance=ExtResource("26_2f2c6")]
 offset_left = -325.4547
@@ -3043,6 +3262,8 @@ libraries = {
 [connection signal="body_exited" from="Vert Hallway/Area2D" to="Vert Hallway" method="playerExit"]
 [connection signal="body_entered" from="Vert Hallway2/Area2D" to="Vert Hallway2" method="playerEnter"]
 [connection signal="body_exited" from="Vert Hallway2/Area2D" to="Vert Hallway2" method="playerExit"]
+[connection signal="body_entered" from="Vert Hallway3/Area2D" to="Vert Hallway3" method="playerEnter"]
+[connection signal="body_exited" from="Vert Hallway3/Area2D" to="Vert Hallway3" method="playerExit"]
 [connection signal="body_entered" from="Systems Connector/Area2D" to="Systems Connector" method="playerEnter"]
 [connection signal="body_exited" from="Systems Connector/Area2D" to="Systems Connector" method="playerExit"]
 [connection signal="body_entered" from="Entrance Point/Area2D" to="Entrance Point" method="playerEnter"]

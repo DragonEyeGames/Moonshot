@@ -5,10 +5,10 @@ var sprintRegen=2
 var showing=false
 var flashing=false
 
-var oxygenatorFixed=true
-var reclaimerFixed=true
-var wiresFixed=true
-var panelsFixed=true
+var oxygenatorFixed=false
+var reclaimerFixed=false
+var wiresFixed=false
+var panelsFixed=false
 var doorOpened=false
 
 

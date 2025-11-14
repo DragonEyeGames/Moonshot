@@ -90,7 +90,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	await get_tree().create_timer(.05).timeout
 	if(not area):
 		return
-	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and GameManager.playerTool=="bag"):
+	if(area.get_parent().visible):
 		if(pickable==area.get_parent() and not pickedUp):
 			pickable=null
 			handHeldItem=""

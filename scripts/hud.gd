@@ -79,7 +79,7 @@ func health(_delta):
 		get_tree().change_scene_to_file("res://scenes/dead.tscn")
 	
 func water(_delta):
-	_delta*=1.8
+	_delta*=1.4
 	if(GameManager.water>400):
 		GameManager.baseHumidity+=GameManager.water-400
 		GameManager.water=400

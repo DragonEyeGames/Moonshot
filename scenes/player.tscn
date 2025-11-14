@@ -2411,25 +2411,25 @@ scale = Vector2(1.26, 1.26)
 [node name="Square2" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 visible = false
 position = Vector2(257.00006, 381.00006)
-rotation = -1.5061467
-scale = Vector2(1.9408544, 1.0192012)
+rotation = -1.506146
+scale = Vector2(1.9408513, 1.0191998)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square3" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 visible = false
-position = Vector2(304.6994, 29.159302)
-rotation = -1.5741448
-scale = Vector2(2.2530048, 1.016241)
+position = Vector2(304.6991, 29.158508)
+rotation = -1.5741442
+scale = Vector2(2.252999, 1.0162373)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square4" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 self_modulate = Color(0, 0, 0, 1)
 z_index = 1
-position = Vector2(334.09473, -528.6763)
-rotation = -1.5744795
-scale = Vector2(0.2539978, 0.3149957)
+position = Vector2(334.0951, -528.68024)
+rotation = -1.5744787
+scale = Vector2(0.25399676, 0.31499422)
 texture = ExtResource("9_dt7fs")
 offset = Vector2(218.00537, -0.22698975)
 

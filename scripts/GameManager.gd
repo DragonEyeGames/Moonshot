@@ -18,6 +18,8 @@ enum possibleStates {
 
 var playerState: possibleStates=possibleStates.OUTSIDE
 
+var drankWater:=false
+
 var flashlightOn=false
 var playerEnergy:=100.0
 var inventory=[]

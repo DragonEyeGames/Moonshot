@@ -32,6 +32,7 @@ func _process(_delta: float) -> void:
 					GameManager.water+=10
 					GameManager.subtract("H Mac", 1)
 				elif(itemSelected=="H Cup"):
+					GameManager.drankWater=true
 					GameManager.water+=20
 					GameManager.subtract("H Cup", 1)
 					GameManager.add("Cup", 1)

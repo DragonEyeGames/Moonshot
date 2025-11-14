@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c5eiodc6x61h"]
+[gd_scene load_steps=17 format=3 uid="uid://c5eiodc6x61h"]
 
 [ext_resource type="Script" uid="uid://ci5ughirdgwn8" path="res://scripts/farm.gd" id="1_o03py"]
 [ext_resource type="Script" uid="uid://sryc24cvut1g" path="res://scripts/dropper.gd" id="2_jjgid"]
@@ -14,13 +14,6 @@ radius = 337.0534
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgid"]
 size = Vector2(476.4765, 491.89935)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ref04"]
-radius = 20.615528
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0bgt"]
-radius = 20.0
-height = 112.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1038h"]
 
@@ -121,61 +114,6 @@ shape = SubResource("RectangleShape2D_jjgid")
 [node name="Seed Storage" type="Node2D" parent="."]
 z_index = 1
 
-[node name="Seed4" type="ColorRect" parent="Seed Storage"]
-offset_left = 222.47652
-offset_top = 233.89935
-offset_right = 262.4765
-offset_bottom = 273.89935
-scale = Vector2(0.25, 0.25)
-pivot_offset = Vector2(20, 20)
-color = Color(0.7523463, 0.68147445, 0.3521932, 1)
-
-[node name="Area2D" type="Area2D" parent="Seed Storage/Seed4"]
-collision_layer = 0
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Seed Storage/Seed4/Area2D"]
-position = Vector2(19, 19)
-shape = SubResource("CircleShape2D_ref04")
-
-[node name="stem" type="ColorRect" parent="Seed Storage/Seed4"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 20.0
-offset_right = 56.0
-offset_bottom = 100.0
-rotation = 3.1415927
-scale = Vector2(1, 1e-05)
-color = Color(0.007901493, 0.5104505, 0, 1)
-
-[node name="ColorRect" type="ColorRect" parent="Seed Storage/Seed4/stem"]
-layout_mode = 0
-offset_left = 20.000008
-offset_top = 61.333336
-offset_right = 58.036324
-offset_bottom = 81.19715
-rotation = 0.52534413
-scale = Vector2(1e-05, 1)
-color = Color(0.007843138, 0.50980395, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Seed Storage/Seed4/stem"]
-layout_mode = 0
-offset_left = 16.000011
-offset_top = 74.66667
-offset_right = 54.036327
-offset_bottom = 94.53049
-rotation = 2.6179938
-scale = Vector2(1e-05, 1)
-color = Color(0.007843138, 0.50980395, 0, 1)
-
-[node name="Plant" type="Area2D" parent="Seed Storage/Seed4"]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Seed Storage/Seed4/Plant"]
-position = Vector2(20, -4)
-shape = SubResource("CapsuleShape2D_m0bgt")
-
 [node name="ColorRect6" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 172.47652
@@ -234,7 +172,5 @@ texture = ExtResource("5_7byxm")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="area_entered" from="Seed Storage/Seed4/Area2D" to="Seed Storage/Seed4" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Seed Storage/Seed4/Area2D" to="Seed Storage/Seed4" method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Jug" to="." method="_on_jug_body_entered"]
 [connection signal="body_exited" from="Jug" to="." method="_on_jug_body_exited"]

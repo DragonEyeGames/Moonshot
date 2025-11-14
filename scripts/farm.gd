@@ -7,7 +7,7 @@ var canZoom=true
 var state="unplanted"
 
 var water=100
-var standingWater=10000
+var standingWater=0
 
 func _process(delta: float) -> void:
 	$ColorRect6/WurterJug/Jug2/Jug3.position=Vector2(-13.0, -160.0).lerp(Vector2(-13.0, 390.0), float(water)/100.0)

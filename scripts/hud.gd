@@ -11,6 +11,7 @@ var wiresFixed=false
 var panelsFixed=false
 var doorOpened=false
 var carrotsPicked=false
+var drankWater=false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,9 +25,8 @@ func flash():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(oxygenatorFixed and reclaimerFixed and wiresFixed and panelsFixed and doorOpened==false):
+	if(oxygenatorFixed and reclaimerFixed and wiresFixed and panelsFixed and drankWater and doorOpened==false and carrotsPicked==true):
 		doorOpened=true
-		print("oope")
 		GameManager.door.openUp()
 	stamina(delta)
 	food(delta)
@@ -66,6 +66,9 @@ func _process(delta: float) -> void:
 			if(item["name"].to_lower()=="carrot"):
 				$ToDo/VBoxContainer/Food.text="[s][color=gray]Grow Food"
 				carrotsPicked=true
+	if(GameManager.drankWater):
+		drankWater=true
+		$"ToDo/VBoxContainer/Drink Water".text="[s][color=gray]Drink Water"
 	
 func food(_delta):
 	if(GameManager.food>100):

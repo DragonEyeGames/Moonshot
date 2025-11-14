@@ -16,35 +16,35 @@ bg_color = Color(0.5555985, 0.69966775, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g10ll"]
 bg_color = Color(0.7875102, 0.8585349, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_640wx"]
-bg_color = Color(0.41898027, 0.3666514, 0.11657084, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0i1j5"]
+bg_color = Color(0.41658425, 0.3701309, 0.12782013, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2258"]
-bg_color = Color(0.6666667, 0.5882353, 0.21568628, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mphia"]
+bg_color = Color(0.6114667, 0.522537, 1.92523e-07, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64ctp"]
-bg_color = Color(0.111655, 0.316069, 0.144895, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0m4u7"]
+bg_color = Color(0.108391546, 0.2896125, 0.13493606, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sq4i"]
-bg_color = Color(0.188235, 0.67451, 0.219608, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apjy4"]
+bg_color = Color(0.18155667, 0.6355296, 0.21631533, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xsix"]
-bg_color = Color(0.39416727, 0.17881674, 0.04693389, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5n1hp"]
+bg_color = Color(0.3137255, 0.14117648, 0.03529412, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rftc2"]
-bg_color = Color(0.660212, 0.3239567, 0.11432507, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eld54"]
+bg_color = Color(0.5718001, 0.27530983, 0.09266823, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpiub"]
-bg_color = Color(0.078431375, 0.18039216, 0.77254903, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3swnk"]
+bg_color = Color(0.0627451, 0.14509805, 0.61960787, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amv7k"]
-bg_color = Color(0.2881284, 0.46765363, 0.9791246, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkknv"]
+bg_color = Color(0.24313726, 0.40392157, 0.90588236, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fv7p"]
-bg_color = Color(0.54885155, 0.09412434, 0.031897306, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uxdf7"]
+bg_color = Color(0.4392157, 0.07450981, 0.023529412, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4u2vk"]
-bg_color = Color(0.84526026, 0.17486033, 0.08260592, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5357l"]
+bg_color = Color(0.7647059, 0.15686275, 0.07058824, 1)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_37p78")
@@ -77,7 +77,7 @@ theme_override_fonts/font = ExtResource("3_5ysmq")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/background = SubResource("StyleBoxFlat_61f8s")
 theme_override_styles/fill = SubResource("StyleBoxFlat_g10ll")
-value = 14.01
+value = 100.0
 
 [node name="ColorRect" type="ColorRect" parent="Stats/Oxygen"]
 z_index = -1
@@ -106,56 +106,246 @@ text = "Oxygen"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Stamina" type="ProgressBar" parent="Stats"]
-custom_minimum_size = Vector2(0, 50)
+[node name="Stamina" type="Control" parent="Stats"]
+custom_minimum_size = Vector2(20, 55)
+layout_direction = 3
 layout_mode = 2
-mouse_filter = 2
-theme_override_fonts/font = ExtResource("3_5ysmq")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/background = SubResource("StyleBoxFlat_640wx")
-theme_override_styles/fill = SubResource("StyleBoxFlat_a2258")
-value = 100.0
 
-[node name="Energy" type="ProgressBar" parent="Stats"]
+[node name="Stamina" type="ProgressBar" parent="Stats/Stamina"]
 custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
+layout_direction = 2
+layout_mode = 0
+offset_left = 154.19829
+offset_top = 2.0687075
+offset_right = 698.1983
+offset_bottom = 52.068707
 mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_5ysmq")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/background = SubResource("StyleBoxFlat_64ctp")
-theme_override_styles/fill = SubResource("StyleBoxFlat_8sq4i")
-value = 100.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0i1j5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mphia")
+value = 50.0
 
-[node name="Food" type="ProgressBar" parent="Stats"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-mouse_filter = 2
-theme_override_fonts/font = ExtResource("3_5ysmq")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/background = SubResource("StyleBoxFlat_1xsix")
-theme_override_styles/fill = SubResource("StyleBoxFlat_rftc2")
-value = 100.0
+[node name="ColorRect" type="ColorRect" parent="Stats/Stamina"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1882353, 0.1882353, 0.1882353, 0.79607844)
 
-[node name="Water" type="ProgressBar" parent="Stats"]
-custom_minimum_size = Vector2(0, 50)
+[node name="RichTextLabel" type="RichTextLabel" parent="Stats/Stamina"]
+modulate = Color(1, 1, 1, 0.8)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.67163
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_5ysmq")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Stamina"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Energy" type="Control" parent="Stats"]
+custom_minimum_size = Vector2(20, 55)
+layout_direction = 3
 layout_mode = 2
+
+[node name="Energy" type="ProgressBar" parent="Stats/Energy"]
+custom_minimum_size = Vector2(0, 50)
+layout_direction = 2
+layout_mode = 0
+offset_left = 154.19829
+offset_top = 2.6106973
+offset_right = 698.1983
+offset_bottom = 52.6107
 mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_5ysmq")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/background = SubResource("StyleBoxFlat_gpiub")
-theme_override_styles/fill = SubResource("StyleBoxFlat_amv7k")
+theme_override_styles/background = SubResource("StyleBoxFlat_0m4u7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_apjy4")
+value = 50.0
+
+[node name="ColorRect" type="ColorRect" parent="Stats/Energy"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1882353, 0.1882353, 0.1882353, 0.79607844)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Stats/Energy"]
+modulate = Color(1, 1, 1, 0.8)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.67163
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_5ysmq")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Energy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Food" type="Control" parent="Stats"]
+custom_minimum_size = Vector2(20, 55)
+layout_direction = 3
+layout_mode = 2
+
+[node name="Food" type="ProgressBar" parent="Stats/Food"]
+custom_minimum_size = Vector2(0, 50)
+layout_direction = 2
+layout_mode = 0
+offset_left = 154.19829
+offset_top = 2.6106973
+offset_right = 698.1983
+offset_bottom = 52.6107
+mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5ysmq")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxFlat_5n1hp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_eld54")
+value = 50.0
+
+[node name="ColorRect" type="ColorRect" parent="Stats/Food"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1882353, 0.1882353, 0.1882353, 0.79607844)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Stats/Food"]
+modulate = Color(1, 1, 1, 0.8)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.67163
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_5ysmq")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Food"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Water" type="Control" parent="Stats"]
+custom_minimum_size = Vector2(20, 55)
+layout_direction = 3
+layout_mode = 2
+
+[node name="Water" type="ProgressBar" parent="Stats/Water"]
+custom_minimum_size = Vector2(0, 50)
+layout_direction = 2
+layout_mode = 0
+offset_left = 154.19829
+offset_top = 2.6106973
+offset_right = 698.1983
+offset_bottom = 52.6107
+mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5ysmq")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxFlat_3swnk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qkknv")
 max_value = 400.0
-value = 400.0
+value = 200.0
 
-[node name="Health" type="ProgressBar" parent="Stats"]
-custom_minimum_size = Vector2(0, 50)
+[node name="ColorRect" type="ColorRect" parent="Stats/Water"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1882353, 0.1882353, 0.1882353, 0.79607844)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Stats/Water"]
+modulate = Color(1, 1, 1, 0.8)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.67163
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_5ysmq")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Water"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="Control" parent="Stats"]
+custom_minimum_size = Vector2(20, 55)
+layout_direction = 3
 layout_mode = 2
+
+[node name="Health" type="ProgressBar" parent="Stats/Health"]
+custom_minimum_size = Vector2(0, 50)
+layout_direction = 2
+layout_mode = 0
+offset_left = 154.19829
+offset_top = 2.6106973
+offset_right = 698.1983
+offset_bottom = 52.6107
 mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_5ysmq")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/background = SubResource("StyleBoxFlat_1fv7p")
-theme_override_styles/fill = SubResource("StyleBoxFlat_4u2vk")
-value = 100.0
+theme_override_styles/background = SubResource("StyleBoxFlat_uxdf7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5357l")
+value = 50.0
+
+[node name="ColorRect" type="ColorRect" parent="Stats/Health"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1882353, 0.1882353, 0.1882353, 0.79607844)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Stats/Health"]
+modulate = Color(1, 1, 1, 0.8)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.67163
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_5ysmq")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Health"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Inventory" type="HBoxContainer" parent="."]
 anchors_preset = -1
@@ -259,36 +449,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
-
-[node name="StatBlocker" type="ColorRect" parent="."]
-self_modulate = Color(1, 1, 1, 0.6)
-z_index = -1
-offset_left = 1375.0
-offset_top = 19.0
-offset_right = 1897.0
-offset_bottom = 258.0
-color = Color(0, 0, 0, 1)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="StatBlocker"]
-modulate = Color(1, 1, 1, 0.8)
-layout_mode = 0
-offset_left = 3.0
-offset_top = 19.0
-offset_right = 120.0
-offset_bottom = 236.0
-theme_override_fonts/normal_font = ExtResource("3_5ysmq")
-text = "Oxygen
-
-Stamina
-
-Energy
-
-Food
-
-Water
-
-Health"
-horizontal_alignment = 2
 
 [node name="ToDo" type="Control" parent="."]
 layout_mode = 3

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Moonshot"
-run/main_scene="uid://cqxgsf3s7qidq"
+run/main_scene="uid://dnnka5th1gldj"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]

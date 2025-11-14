@@ -3,10 +3,15 @@ extends CanvasLayer
 var playerDead=false
 var sprintRegen=2
 var showing=false
+var flashing=false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	flash()
 
+func flash():
+	await get_tree().create_timer(.7).timeout
+	flashing=!flashing
+	flash()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,7 +33,6 @@ func _process(delta: float) -> void:
 			child.visible=true
 	$"Date+Time".visible=showing
 	$RichTextLabel.visible=showing
-	$StatBlocker.visible=showing
 	$ToDo.visible=showing
 	if(showing==false and $TextHolder.visible):
 		$TextHolder.visible=false
@@ -48,27 +52,29 @@ func _process(delta: float) -> void:
 func food(_delta):
 	if(GameManager.food>100):
 		GameManager.food=100
-	$Stats/Food.value=GameManager.food
-	$Stats/Food.value-=_delta/4.5
-	GameManager.food=$Stats/Food.value
+	$Stats/Food/Food.value=GameManager.food
+	$Stats/Food/Food.value-=_delta/4.5
+	GameManager.food=$Stats/Food/Food.value
 	if(GameManager.food<=0):
 		GameManager.health-=_delta*4
 		
 func health(_delta):
 	if(GameManager.health>100):
 		GameManager.health=100
-	$Stats/Health.value=GameManager.health
+	$Stats/Health/Health.value=GameManager.health
 	if(GameManager.health<=0):
 		GameManager.dead="Death"
 		get_tree().change_scene_to_file("res://scenes/dead.tscn")
 	
 func water(_delta):
+	_delta*=20
 	if(GameManager.water>400):
 		GameManager.baseHumidity+=GameManager.water-400
 		GameManager.water=400
-	$Stats/Water.value=GameManager.water
-	$Stats/Water.value-=_delta
-	GameManager.water=$Stats/Water.value
+	$Stats/Water/Water.value=GameManager.water
+	$Stats/Water/Water.value-=_delta
+	print($Stats/Water/Water.value)
+	GameManager.water=$Stats/Water/Water.value
 	if(GameManager.helmet.visible==false):
 		GameManager.baseHumidity+=_delta
 		if(GameManager.suitHumidity>_delta):
@@ -79,23 +85,23 @@ func water(_delta):
 			GameManager.suitHumidity=0
 	else:
 		GameManager.suitHumidity+=_delta
-		if($Stats/Energy.value>30):
-			GameManager.suitHumidity-=_delta
-			GameManager.water+=_delta
-			$Stats/Water.value=GameManager.water
-			GameManager.playerEnergy-=_delta/4
-			$Stats/Energy.value=GameManager.playerEnergy
+		#if($Stats/Energy/Energy.value>30):
+			#GameManager.suitHumidity-=_delta
+			#GameManager.water+=_delta
+			#$Stats/Water/Water.value=GameManager.water
+			#GameManager.playerEnergy-=_delta/4
+			#$Stats/Energy/Energy.value=GameManager.playerEnergy
 			
 	if(GameManager.water<=0):
 		GameManager.health-=_delta
 	
 func stamina(_delta):
 	if(sprintRegen<=0):
-		$Stats/Stamina.value+=_delta*10
-	if(Input.is_action_pressed("Sprint") and $Stats/Stamina.value>0 and $Stats/Food.value>25):
+		$Stats/Stamina/Stamina.value+=_delta*10
+	if(Input.is_action_pressed("Sprint") and $Stats/Stamina/Stamina.value>0 and $Stats/Food.value>25):
 		GameManager.playerSprinting=true
 		GameManager.food-=_delta*2
-		$Stats/Stamina.value-=_delta*40
+		$Stats/Stamina/Stamina.value-=_delta*40
 		sprintRegen=2
 	else:
 		sprintRegen-=_delta
@@ -103,12 +109,17 @@ func stamina(_delta):
 		
 func oxygen(_delta):
 	$Stats/Oxygen/Oxygen.value=GameManager.oxygen
+	if(GameManager.oxygen<10):
+		if(flashing):
+			$Stats/Oxygen/RichTextLabel.text="[color=red]Oxygen"
+		else:
+			$Stats/Oxygen/RichTextLabel.text="Oxygen"
 	if(GameManager.helmet.visible):
-		$Stats/Oxygen/Oxygen.value-=_delta*40
+		$Stats/Oxygen/Oxygen.value-=_delta/4
 		GameManager.carbon+=_delta/4
 		if(GameManager.helmet.visible==false):
 			$Stats/Oxygen/Oxygen.value-=_delta/4
-			$Stats/Health.value-=_delta*50
+			$Stats/Health/Health.value-=_delta*50
 		if($Stats/Oxygen/Oxygen.value<=0 and playerDead==false):
 			GameManager.health-=_delta*10
 	elif(GameManager.playerState==GameManager.possibleStates.INSIDE and GameManager.helmet.visible==false):
@@ -118,10 +129,10 @@ func oxygen(_delta):
 		
 func energy(_delta):
 	if(GameManager.flashlightOn):
-		$Stats/Energy.value-=_delta*2
-		if($Stats/Energy.value<=0):
+		$Stats/Energy/Energy.value-=_delta*2
+		if($Stats/Energy/Energy.value<=0):
 			GameManager.flashlightOn=false
-		GameManager.playerEnergy=$Stats/Energy.value
+		GameManager.playerEnergy=$Stats/Energy/Energy.value
 		
 func inventory():
 	if(Input.is_action_just_pressed("1")):
@@ -168,13 +179,13 @@ func visuals(_delta):
 		for stat in $Stats.get_children():
 			stat.visible=true
 	else:
-		$Stats/Oxygen.visible=false
-		$Stats/Energy.visible=false
+		$Stats/Oxygen/Oxygen.visible=false
+		$Stats/Energy/Energy.visible=false
 		if(GameManager.basePower>200):
-			$Stats/Energy.value+=_delta
+			$Stats/Energy/Energy.value+=_delta
 			GameManager.basePower-=_delta
 		if(GameManager.baseOxygen>200):
-			$Stats/Oxygen.value+=_delta*2
+			$Stats/Oxygen/Oxygen.value+=_delta*2
 			GameManager.baseOxygen-=_delta*2
 		if(GameManager.carbon>0):
 			GameManager.carbon-=_delta

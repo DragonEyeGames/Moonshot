@@ -1,19 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://btis1qfm6m6ns"]
+[gd_scene load_steps=4 format=3 uid="uid://btis1qfm6m6ns"]
 
-[ext_resource type="Script" uid="uid://beaps3n1ubghn" path="res://scenes/plantBag.gd" id="1_nbkw2"]
+[ext_resource type="Script" uid="uid://beaps3n1ubghn" path="res://scripts/bag.gd" id="1_nbkw2"]
+[ext_resource type="Texture2D" uid="uid://cb3hyh61rohr7" path="res://assets/BagOuter.png" id="2_r0vck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
 size = Vector2(641.6424, 1014.4601)
 
-[node name="PlantBag" type="ColorRect"]
+[node name="PlantBag" type="Node2D"]
 z_index = 10
-offset_left = 311.80466
-offset_top = 406.40982
-offset_right = 991.97156
-offset_bottom = 1463.9379
+position = Vector2(315, 414)
 rotation = 1.2489982
-color = Color(0.34414157, 0.17461061, 0.025434045, 1)
 script = ExtResource("1_nbkw2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(275.0999, 382.64865)
+rotation = -1.5707964
+scale = Vector2(0.58, 0.58)
+texture = ExtResource("2_r0vck")
 
 [node name="Bag" type="Area2D" parent="."]
 collision_layer = 0

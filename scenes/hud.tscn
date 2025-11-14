@@ -50,7 +50,7 @@ bg_color = Color(0.7647059, 0.15686275, 0.07058824, 1)
 script = ExtResource("1_37p78")
 
 [node name="Stats" type="VBoxContainer" parent="."]
-modulate = Color(1, 1, 1, 0.8)
+modulate = Color(1, 1, 1, 0.93333334)
 offset_left = 1403.0001
 offset_top = 30.0
 offset_right = 2106.817

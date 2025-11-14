@@ -2140,7 +2140,7 @@ script = ExtResource("12_rh2sc")
 
 [node name="walls5" type="Sprite2D" parent="Vert Hallway"]
 light_mask = 2
-z_index = 2
+z_index = 5
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_ll25w")
 
@@ -2217,7 +2217,7 @@ script = ExtResource("12_rh2sc")
 
 [node name="walls5" type="Sprite2D" parent="Vert Hallway2"]
 light_mask = 2
-z_index = 2
+z_index = 6
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_ll25w")
 
@@ -2297,7 +2297,7 @@ script = ExtResource("12_rh2sc")
 
 [node name="walls5" type="Sprite2D" parent="Vert Hallway3"]
 light_mask = 2
-z_index = 2
+z_index = 5
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_ll25w")
 
@@ -2903,7 +2903,7 @@ script = ExtResource("12_gwfoe")
 [node name="Roof" type="Sprite2D" parent="Farm"]
 modulate = Color(0.804743, 0.804743, 0.804743, 1)
 light_mask = 0
-z_index = 3
+z_index = 5
 texture = ExtResource("13_2l1rv")
 
 [node name="State" type="AnimationPlayer" parent="Farm/Roof"]

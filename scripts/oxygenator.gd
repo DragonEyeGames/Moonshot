@@ -1,6 +1,8 @@
 extends ElectronicZoom
 
 var leak = 0
+@export var minimum: int = 1
+@export var maximum: int = 4
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.oxygenator=self
@@ -8,6 +10,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if(GameManager.player.global_position.y>self.global_position.y):
+		z_index=minimum
+	else:
+		z_index=maximum
 	$ProgressBar.editable=overriden
 	if(GameManager.baseCarbon>500):
 		maxPower=10

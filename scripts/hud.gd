@@ -27,6 +27,7 @@ func flash():
 func _process(delta: float) -> void:
 	if(oxygenatorFixed and reclaimerFixed and wiresFixed and panelsFixed and drankWater and doorOpened==false and carrotsPicked==true):
 		doorOpened=true
+		await get_tree().create_timer(.5).timeout
 		GameManager.door.openUp()
 	stamina(delta)
 	food(delta)

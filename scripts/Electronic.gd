@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 class_name Electronic
 
 @export var maxPower := .5

@@ -2969,7 +2969,7 @@ script = ExtResource("12_gwfoe")
 [node name="Roof" type="Sprite2D" parent="Communications"]
 modulate = Color(0.804743, 0.804743, 0.804743, 1)
 light_mask = 0
-z_index = 3
+z_index = 5
 texture = ExtResource("13_2l1rv")
 
 [node name="State" type="AnimationPlayer" parent="Communications/Roof"]

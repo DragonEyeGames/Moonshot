@@ -24,6 +24,7 @@ var fromBag=false
 @export var filter: PackedScene
 @export var cleanFilter: PackedScene
 @export var rag: PackedScene
+@export var carrot: PackedScene
 
 func _ready() -> void:
 	flashlightEvents()
@@ -225,11 +226,16 @@ func closedBagPickup():
 	if(pickable==null):
 		return
 	pickedUp=true
+	if(handHeldItem=="Plant"):
+		pickable.queue_free()
+		pickable=carrot.instantiate()
+		add_child(pickable)
+		pickable.visible=true
 	pickable.reparent($CanvasLayer/OverlayArm/Sprites/Square4)
 	pickable.z_index-=1
 	for child in pickable.get_children():
 		child.scale*=GameManager.camera.zoom
-	pickable.position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.position
+	pickable.global_position=$CanvasLayer/OverlayArm/Sprites/Square4/Position.global_position
 
 func openBagPickup():
 	fromBag=true
@@ -280,3 +286,9 @@ func maxedInventory(item) -> bool:
 		return false
 	else:
 		return true
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	if(body.get_parent().visible and $CanvasLayer/OverlayArm.modulate.a>=.1):
+		GameManager.add(str(body.name), 1)
+		body.queue_free()

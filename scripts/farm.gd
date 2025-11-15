@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 	elif(collision and not jugCollision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and not zoomed and canZoom):
 		GameManager.playerTool="bag"
 		zoom()
+		GameManager.collisionTool=self
 	elif(jugCollision and Input.is_action_just_pressed("Interact") and GameManager.selectedSlot==-1 and len(GameManager.inventory)<=4 and $ColorRect6/WurterJug.visible):
 		GameManager.add("Jug", int(round(water)))
 		$ColorRect6/WurterJug.visible=false

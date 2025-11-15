@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 	elif(Input.is_action_just_pressed("Interact") and not fading and visible):
 		fading=true
 		if(GameManager.interactedItem!=null):
-			await get_tree().create_timer(1).timeout
+			await get_tree().create_timer(.1).timeout
 			GameManager.interactedItem.unzoom()
 		fading=false
 		GameManager.playerTool=""

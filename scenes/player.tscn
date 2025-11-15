@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://313clql8xlh4"]
+[gd_scene load_steps=77 format=3 uid="uid://313clql8xlh4"]
 
 [ext_resource type="Script" uid="uid://h0wpyprc84ee" path="res://scripts/player.gd" id="1_hqtel"]
 [ext_resource type="PackedScene" uid="uid://bn36inecn6soy" path="res://scenes/VisibleItems/filter.tscn" id="2_d2wvv"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dyysu3210vtw8" path="res://assets/flashlight.png" id="4_1jxqw"]
 [ext_resource type="PackedScene" uid="uid://chncs0swd8q8" path="res://scenes/VisibleItems/rag.tscn" id="4_f1ej7"]
 [ext_resource type="Texture2D" uid="uid://y61752g3nw8m" path="res://assets/square.png" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://crjsm7oj63kgp" path="res://scenes/VisibleItems/carrot.tscn" id="5_wqfne"]
 [ext_resource type="PackedScene" uid="uid://dka8iksr4cahl" path="res://scenes/wateringCan.tscn" id="6_fjrip"]
 [ext_resource type="PackedScene" uid="uid://w2ju0oer6ydy" path="res://scenes/seed_bag.tscn" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://bnoqv312svl4k" path="res://scenes/bag.tscn" id="7_smehm"]
@@ -2361,6 +2362,9 @@ _data = {
 &"front": SubResource("Animation_dt7fs")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqfne"]
+size = Vector2(1935, 146)
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
 collision_layer = 2
@@ -2368,6 +2372,7 @@ script = ExtResource("1_hqtel")
 filter = ExtResource("2_d2wvv")
 cleanFilter = ExtResource("3_jej6c")
 rag = ExtResource("4_f1ej7")
+carrot = ExtResource("5_wqfne")
 metadata/_edit_vertical_guides_ = [169.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -2412,24 +2417,24 @@ scale = Vector2(1.26, 1.26)
 visible = false
 position = Vector2(257.00006, 381.00006)
 rotation = -1.506146
-scale = Vector2(1.9408513, 1.0191998)
+scale = Vector2(1.9408436, 1.0191975)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square3" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 visible = false
-position = Vector2(304.6991, 29.158508)
-rotation = -1.5741442
-scale = Vector2(2.252999, 1.0162373)
+position = Vector2(304.69922, 29.157654)
+rotation = -1.5741441
+scale = Vector2(2.252989, 1.016229)
 texture = ExtResource("5_qlg0r")
 offset = Vector2(86, 27.586182)
 
 [node name="Square4" type="Sprite2D" parent="CanvasLayer/OverlayArm/Sprites"]
 self_modulate = Color(0, 0, 0, 1)
 z_index = 1
-position = Vector2(334.0951, -528.68024)
+position = Vector2(334.09528, -528.68256)
 rotation = -1.5744787
-scale = Vector2(0.25399676, 0.31499422)
+scale = Vector2(0.25399452, 0.314991)
 texture = ExtResource("9_dt7fs")
 offset = Vector2(218.00537, -0.22698975)
 
@@ -2497,8 +2502,8 @@ bones = ["Base", PackedFloat32Array(0.98, 1, 0.98, 0, 0, 0.49, 0.49, 0.49, 0.98,
 
 [node name="Base" type="Bone2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D"]
 position = Vector2(257.00006, 381.00006)
-rotation = -1.277788
-scale = Vector2(0.99999803, 0.99999803)
+rotation = -1.2721648
+scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(-0.04564139, -0.99892235, 0.99892235, -0.04564139, 256.99982, 380.99677)
 auto_calculate_length_and_angle = false
 length = 406.88
@@ -2510,9 +2515,9 @@ remote_path = NodePath("../../../../Sprites/Square2")
 update_scale = false
 
 [node name="Segment" type="Bone2D" parent="CanvasLayer/OverlayArm/Bones/Skeleton2D/Base"]
-position = Vector2(354.19037, 24.868652)
-rotation = -0.54107744
-scale = Vector2(0.99988616, 0.99988616)
+position = Vector2(354.1904, 24.86853)
+rotation = -0.37323266
+scale = Vector2(0.9998861, 0.9998861)
 rest = Transform2D(0.99767596, -0.067944944, 0.067944944, 0.99767596, 354.1704, 24.873535)
 auto_calculate_length_and_angle = false
 length = 203.706
@@ -2747,7 +2752,17 @@ libraries = {
 &"": SubResource("AnimationLibrary_dt7fs")
 }
 
+[node name="Killzone" type="Area2D" parent="."]
+position = Vector2(-6, 919)
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-5.5, 63)
+shape = SubResource("RectangleShape2D_wqfne")
+
 [connection signal="area_entered" from="CanvasLayer/OverlayArm/Sprites/Square4/Area2D" to="." method="_in_bag_entered"]
 [connection signal="area_exited" from="CanvasLayer/OverlayArm/Sprites/Square4/Area2D" to="." method="_in_bag_exited"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Killzone" to="." method="_on_area_2d_2_body_entered"]

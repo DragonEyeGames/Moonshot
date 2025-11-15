@@ -7,6 +7,7 @@ var colliding=false
 var canZoom=true
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
+	print("HEY")
 	colliding=true
 
 

@@ -16,12 +16,18 @@ var mouseEntered:=false
 var filterClean:=false
 @export var filter: PackedScene
 @export var cleanFilter: PackedScene
+@export var minimum: int = 1
+@export var maximum: int = 4
 
 func _ready() -> void:
 	childCount=len(get_children())
 	GameManager.waterReclaimer=self
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if(GameManager.player.global_position.y>self.global_position.y):
+		z_index=minimum
+	else:
+		z_index=maximum
 	if(GameManager.baseHumidity>200):
 		efficiency=.8
 		maxPower=1.5

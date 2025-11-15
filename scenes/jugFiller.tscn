@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://xl7hoyu6js47"]
+[gd_scene load_steps=16 format=3 uid="uid://xl7hoyu6js47"]
 
 [ext_resource type="Script" uid="uid://cccwphmjkmgii" path="res://scripts/jugFiller.gd" id="1_e7322"]
 [ext_resource type="Texture2D" uid="uid://dxtf4ma6b5hs8" path="res://assets/Jug.png" id="2_ttvhk"]
 [ext_resource type="Shader" uid="uid://dnwmo2vvypjkr" path="res://scenes/VisibleItems/water.gdshader" id="3_ne6vi"]
 [ext_resource type="Texture2D" uid="uid://cgr4oumdd4o62" path="res://assets/jug_underlay.png" id="4_7flnt"]
 [ext_resource type="Texture2D" uid="uid://clwei00msolvb" path="res://assets/jugOutline.png" id="5_e2wst"]
+[ext_resource type="FontFile" uid="uid://de3jhormdk4qb" path="res://fonts/SpaceNova-6Rpd1.otf" id="6_7flnt"]
 
 [sub_resource type="Curve" id="Curve_qj4il"]
 _limits = [0.0, 5.0, 0.0, 1.0]
@@ -48,32 +49,28 @@ shader_parameter/noise2_scale = 1.0
 radius = 128.0
 height = 306.0
 
-[node name="JugFiller" type="ColorRect"]
-offset_left = 397.349
-offset_top = 64.369995
-offset_right = 448.349
-offset_bottom = 278.37
-color = Color(0.18431373, 0.18431373, 0.18431373, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7flnt"]
+size = Vector2(189.5, 105)
+
+[node name="JugFiller" type="Node2D"]
 script = ExtResource("1_e7322")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 136.0
-offset_top = 1.0
-offset_right = 189.0
-offset_bottom = 219.0
+offset_left = 46.0
+offset_top = -90.0
+offset_right = 99.0
+offset_bottom = 128.0
 color = Color(0.18431373, 0.18431373, 0.18431373, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 29.0
-offset_top = 1.0
-offset_right = 162.0
-offset_bottom = 69.0
+offset_left = -89.0
+offset_top = -123.0
+offset_right = 99.0
+offset_bottom = -22.0
 color = Color(0.18431373, 0.18431373, 0.18431373, 1)
 
 [node name="Water" type="CPUParticles2D" parent="."]
-position = Vector2(91.651, 62.630005)
+position = Vector2(1.651001, -28.369995)
 emitting = false
 amount = 200
 lifetime = 0.48
@@ -84,18 +81,9 @@ initial_velocity_max = 40.0
 scale_amount_curve = SubResource("Curve_qj4il")
 color_ramp = SubResource("Gradient_tmb4y")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 56.651
-offset_top = 19.630005
-offset_right = 128.651
-offset_bottom = 50.630005
-text = "Turn On"
-
 [node name="ColorRect5" type="ColorRect" parent="."]
 visible = false
 z_index = 1
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -137,6 +125,41 @@ collision_mask = 2
 position = Vector2(98.651, 130.63)
 shape = SubResource("CapsuleShape2D_e7322")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = -90.0
+offset_top = -91.0
+offset_right = -39.349
+offset_bottom = 122.630005
+color = Color(0.18431373, 0.18431373, 0.18431373, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -85.0
+offset_top = -119.0
+offset_right = 93.0
+offset_bottom = -78.0
+theme_override_fonts/normal_font = ExtResource("6_7flnt")
+theme_override_font_sizes/normal_font_size = 23
+text = "Jug Filler"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = -45.0
+offset_top = -74.0
+offset_right = 27.0
+offset_bottom = -43.0
+scale = Vector2(1.275, 1.275)
+theme_override_fonts/font = ExtResource("6_7flnt")
+theme_override_font_sizes/font_size = 11
+text = "Turn On"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-90, -91)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(95.25, 162)
+shape = SubResource("RectangleShape2D_7flnt")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

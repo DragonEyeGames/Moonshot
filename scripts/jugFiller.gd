@@ -1,11 +1,16 @@
-extends ColorRect
+extends Node2D
 
 var collision=false
 var water=0
-
+@export var minimum: int = 1
+@export var maximum: int = 4
 var waterEmitting=false
 
 func _process(delta: float) -> void:
+	if(GameManager.player.global_position.y>self.global_position.y):
+		z_index=minimum
+	else:
+		z_index=maximum
 	$Water.emitting=waterEmitting
 	$Jug/Jug2/Jug3.position=Vector2(-13.0, 390.0).lerp(Vector2(-13.0, -160.0), float(water)/100.0)
 	if($Water.emitting):

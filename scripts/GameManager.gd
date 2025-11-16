@@ -48,7 +48,7 @@ var pickedUpJugWater=0
 var playerHand
 
 var solarOutput:=0.0
-
+var tractorBeam
 var playerAnimator: AnimationPlayer
 
 var basePower=500

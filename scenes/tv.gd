@@ -23,6 +23,15 @@ func zoom():
 	await get_tree().create_timer(.1).timeout
 	loadText("[b][Earth]: [/b]This is Mission Control Center broadcasting to Moon Base Gamma. Do you read me?", "Yes", "No", "What?")
 
+func unzoom(type="appear"):
+	GameManager.unzoomCamera()
+	zoomed=false
+	GameManager.playerAnimator.play(type)
+	await get_tree().create_timer(3).timeout
+	GameManager.tractorBeam.abducting=true
+	await get_tree().create_timer(5).timeout
+	get_tree().change_scene_to_file("res://scenes/splash.tscn")
+
 func loadText(newText: String, opt1: String, opt2: String, opt3: String, usingQuestion:=true):
 	page+=1
 	$MessageLog.text+=newText
@@ -36,6 +45,9 @@ func loadText(newText: String, opt1: String, opt2: String, opt3: String, usingQu
 	if(usingQuestion):
 		$Popup.visible=true
 	else:
+		await get_tree().create_timer(.07).timeout
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -80)
+		unzoom()
 		return
 	await optionSelected
 	$Popup.visible=false

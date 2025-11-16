@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://ectb2uu36h7a"]
+[gd_scene load_steps=117 format=3 uid="uid://ectb2uu36h7a"]
 
 [ext_resource type="Script" uid="uid://doqvjt1ivyo14" path="res://scripts/buildingClass.gd" id="1_nm462"]
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="2_vs5tt"]
@@ -41,8 +41,10 @@
 [ext_resource type="PackedScene" uid="uid://bknoq6cm6lles" path="res://scenes/communications_panel.tscn" id="35_2l1rv"]
 [ext_resource type="Script" uid="uid://g4w6mcy28ug7" path="res://scripts/hallway.gd" id="36_8yjaw"]
 [ext_resource type="PackedScene" uid="uid://32bcolc5knef" path="res://scenes/tv.tscn" id="36_c646r"]
+[ext_resource type="Texture2D" uid="uid://c685gr5cgeaqs" path="res://assets/Tractor Beam.png" id="37_tq4q2"]
 [ext_resource type="Texture2D" uid="uid://x6iacigdr2gh" path="res://assets/Circle Building/HallwayInside.png" id="37_vkygi"]
 [ext_resource type="Texture2D" uid="uid://bb5favxyxlws6" path="res://assets/Circle Building/HallwayOutside.png" id="38_c646r"]
+[ext_resource type="Script" uid="uid://dx2dra70fgf2t" path="res://scenes/tractor_beam.gd" id="38_jqsuv"]
 [ext_resource type="PackedScene" uid="uid://cvnn7rlofa7jh" path="res://scenes/door.tscn" id="39_vkygi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yopf"]
@@ -3023,6 +3025,15 @@ position = Vector2(-45.454502, -480.00006)
 
 [node name="TV" parent="Communications/BackWall" instance=ExtResource("36_c646r")]
 position = Vector2(-40, -1059.9999)
+
+[node name="TractorBeam" type="Sprite2D" parent="Communications"]
+visible = false
+z_index = 10
+position = Vector2(-18.181911, -316.36368)
+scale = Vector2(1.8181818, 1.8181818)
+texture = ExtResource("37_tq4q2")
+offset = Vector2(4, -574)
+script = ExtResource("38_jqsuv")
 
 [node name="Hallway4" type="Node2D" parent="."]
 position = Vector2(1409, -3682)

@@ -178,6 +178,8 @@ theme_override_fonts/normal_font = ExtResource("3_lnbu4")
 theme_override_font_sizes/normal_font_size = 18
 theme_override_font_sizes/bold_font_size = 19
 bbcode_enabled = true
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="Popup" type="ColorRect" parent="."]
 visible = false
@@ -217,3 +219,7 @@ offset_bottom = 125.0
 theme_override_fonts/font = ExtResource("3_lnbu4")
 theme_override_font_sizes/font_size = 60
 text = "Choice 3"
+
+[connection signal="pressed" from="Popup/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Popup/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Popup/Button3" to="." method="_on_button_3_pressed"]

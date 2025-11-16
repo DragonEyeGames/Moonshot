@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dp884u7yo5ue"]
 
-[ext_resource type="Script" uid="uid://b7gq5aprsioys" path="res://scripts/energyMonitor.gd" id="1_tmmqt"]
+[ext_resource type="Script" uid="uid://cppwjoovm5jm1" path="res://scripts/energyMonitor.gd" id="1_tmmqt"]
 [ext_resource type="FontFile" uid="uid://b4j6iojfu82en" path="res://fonts/BraveEightyoneRegular-ZVGvm.ttf" id="2_qouhi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmmqt"]

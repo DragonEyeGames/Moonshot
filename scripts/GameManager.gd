@@ -16,7 +16,7 @@ enum possibleStates {
 	INSIDE
 }
 
-var playerState: possibleStates=possibleStates.OUTSIDE
+var playerState: possibleStates=possibleStates.INSIDE
 
 var drankWater:=false
 

@@ -2453,12 +2453,8 @@ color = Color(0.19973189, 0.19973168, 0.19973168, 1)
 
 [node name="EnergyPanel" parent="Systems Connector" instance=ExtResource("19_dc40y")]
 z_index = 1
-offset_left = -247.27304
-offset_top = -50.909027
-offset_right = 71.726654
-offset_bottom = 232.31253
+position = Vector2(-287.27316, -10.90909)
 scale = Vector2(1.285, 1.285)
-mouse_filter = 2
 
 [node name="Entrance Point" type="Node2D" parent="."]
 position = Vector2(39, -2037)
@@ -2542,7 +2538,7 @@ script = ExtResource("13_hs87p")
 position = Vector2(-2886, 106)
 
 [node name="Line2D3" type="Line2D" parent="Solar Panels"]
-points = PackedVector2Array(418, -776, 487, -969, 441, -1054, 467, -1132, 455, -1277, 390, -1405, 453, -1496, 489, -1560, 501, -1642, 482, -1686, 453, -1734, 468, -1861, 487, -1927, 487, -1962, 487, -2005)
+points = PackedVector2Array(418, -776, 487, -969, 441, -1054, 467, -1132, 455, -1277, 390, -1405, 453, -1496, 489, -1560, 501, -1642, 482, -1686, 453, -1734, 468, -1861, 470, -1886)
 width = 15.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 1
@@ -2608,12 +2604,8 @@ polygon = PackedVector2Array(-316.36362, 1120.7969, -552.7273, 1008.71704, -790.
 texture = ExtResource("19_c646r")
 
 [node name="Oxygenator" parent="Oxygenator Room" instance=ExtResource("9_g4d30")]
-offset_left = -245.45447
-offset_top = -450.90866
-offset_right = 73.54523
-offset_bottom = -167.6871
+position = Vector2(-303.63638, -510.90912)
 scale = Vector2(1.38, 1.38)
-mouse_filter = 2
 
 [node name="Oxygen Pipe" type="Node2D" parent="Oxygenator Room"]
 position = Vector2(-94.55434, 221.76978)
@@ -2663,15 +2655,14 @@ joint_mode = 1
 
 [node name="Line2D2" type="Line2D" parent="Oxygenator Room/Oxygen Pipe"]
 z_index = -1
-points = PackedVector2Array(-115.936035, -335.93335, -271.4038, -218.67383, -277.9912, -138.30493, -318.83447, -92.19165, -451.9043, -47.395752)
+points = PackedVector2Array(-150.1914, -283.23242, -222.65527, -280.5974, -271.4038, -218.67383, -277.9912, -138.30493, -318.83447, -92.19165, -451.9043, -47.395752)
 width = 50.0
 default_color = Color(0, 0, 0, 1)
 
 [node name="Tank" parent="Oxygenator Room" instance=ExtResource("30_t2gq3")]
-offset_left = -1185.4543
-offset_top = -520.0002
-offset_right = -692.7268
-offset_bottom = 456.36334
+z_index = 1
+position = Vector2(-905.4545, 252.72726)
+maximum = 5
 
 [node name="Hallway3" parent="." instance=ExtResource("5_0rysw")]
 z_index = -1
@@ -3118,10 +3109,7 @@ polygon = PackedVector2Array(-316.36362, 1120.7969, -552.7273, 1008.71704, -790.
 texture = ExtResource("19_c646r")
 
 [node name="Water Reclaimer" parent="Water Reclaimer" instance=ExtResource("11_pjx8g")]
-offset_left = -469.091
-offset_top = -10.909241
-offset_right = -150.09094
-offset_bottom = 258.46075
+position = Vector2(-532.7278, -116.36365)
 scale = Vector2(1.415, 1.415)
 
 [node name="lights" type="Node2D" parent="."]

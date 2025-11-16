@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvah4eqw2dhsr"]
+[gd_scene load_steps=9 format=3 uid="uid://dwsdqk7otbr0o"]
 
 [ext_resource type="Script" uid="uid://dkgmh3yjkifga" path="res://scenes/oxygen_tank.gd" id="1_yn8us"]
 [ext_resource type="Texture2D" uid="uid://uaerd5ol5akr" path="res://assets/player/Backpack.png" id="2_6rnq6"]
+[ext_resource type="FontFile" uid="uid://de3jhormdk4qb" path="res://fonts/SpaceNova-6Rpd1.otf" id="2_djohn"]
+[ext_resource type="FontFile" uid="uid://b4j6iojfu82en" path="res://fonts/BraveEightyoneRegular-ZVGvm.ttf" id="4_nux1y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6rnq6"]
 radius = 29.017237
@@ -13,22 +15,19 @@ height = 808.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_d2rv8"]
 radius = 23.194826
 
-[node name="Tank" type="ColorRect"]
-offset_left = -242.0
-offset_top = -463.0
-offset_right = 250.72754
-offset_bottom = 513.3635
-mouse_filter = 2
-color = Color(0.5211406, 0.5211406, 0.5211405, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rnq6"]
+size = Vector2(479, 354)
+
+[node name="Tank" type="Node2D"]
 script = ExtResource("1_yn8us")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 16.363281
-offset_top = 23.63623
-offset_right = 474.54492
-offset_bottom = 558.18164
-theme_override_font_sizes/normal_font_size = 55
+offset_left = -225.0
+offset_top = -493.0
+offset_right = 233.18164
+offset_bottom = -165.0
+theme_override_fonts/normal_font = ExtResource("2_djohn")
+theme_override_font_sizes/normal_font_size = 43
 text = "Oxygen Tank
 
 For refilling suits
@@ -38,11 +37,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Port" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 127.0
-offset_top = 659.0
-offset_right = 214.0
-offset_bottom = 748.0
+offset_left = -116.0
+offset_top = -36.0
+offset_right = -29.0
+offset_bottom = 53.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
@@ -63,6 +61,7 @@ width = 18.0
 default_color = Color(0.26657522, 0.2665752, 0.2665752, 1)
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-243, -695)
 collision_layer = 0
 collision_mask = 2
 
@@ -71,16 +70,15 @@ position = Vector2(248, 696)
 shape = SubResource("CapsuleShape2D_lva3w")
 
 [node name="ZoomPoint" type="Node2D" parent="."]
-position = Vector2(245, 698)
+position = Vector2(2, 3)
 
 [node name="Backpack" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(463.99997, 852)
+visible = false
+position = Vector2(208.99998, 154)
 scale = Vector2(0.355, 0.355)
 texture = ExtResource("2_6rnq6")
 
 [node name="Recepticle" type="ColorRect" parent="Backpack"]
-z_index = -1
 offset_left = -287.32385
 offset_top = -518.3099
 offset_right = -227.60556
@@ -89,7 +87,6 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Recepticle2" type="ColorRect" parent="Backpack"]
-z_index = -1
 offset_left = -304.22528
 offset_top = -467.60565
 offset_right = -227.60556
@@ -118,43 +115,45 @@ color = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_right = 104.22534
 offset_bottom = 81.690125
-theme_override_font_sizes/normal_font_size = 50
+theme_override_fonts/normal_font = ExtResource("2_djohn")
+theme_override_font_sizes/normal_font_size = 42
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Backpack/Counter"]
 layout_mode = 0
-offset_top = 81.69014
-offset_right = 104.22534
-offset_bottom = 138.02821
-theme_override_font_sizes/normal_font_size = 27
+offset_left = -28.169067
+offset_top = 87.32395
+offset_right = 135.21121
+offset_bottom = 180.2817
+theme_override_fonts/normal_font = ExtResource("2_djohn")
+theme_override_font_sizes/normal_font_size = 26
 text = "Oxygen"
 horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 285.0
-offset_top = 863.0
-offset_right = 491.0
-offset_bottom = 897.0
+offset_left = 42.0
+offset_top = 168.0
+offset_right = 248.0
+offset_bottom = 202.0
 color = Color(0.6542321, 0.6542321, 0.654232, 1)
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 108.0
-offset_top = 561.0
-offset_right = 453.0
-offset_bottom = 677.0
-theme_override_font_sizes/normal_font_size = 20
-text = "To refill: Drag pipe from this black box to the recepticle on the backpack."
+offset_left = -176.0
+offset_top = -151.0
+offset_right = 210.0
+offset_bottom = -18.0
+theme_override_fonts/normal_font = ExtResource("4_nux1y")
+theme_override_font_sizes/normal_font_size = 19
+text = " To refill: Drag pipe from this black box
+  to the recepticle on the backpack."
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -88.0
-offset_top = 537.0
-offset_right = 40.0
-offset_bottom = 888.0
+offset_left = -331.0
+offset_top = -158.0
+offset_right = -203.0
+offset_bottom = 193.0
 mouse_filter = 2
 color = Color(0.52156866, 0.52156866, 0.52156866, 1)
 
@@ -174,6 +173,7 @@ offset_top = 284.0
 offset_right = 65.0
 offset_bottom = 324.0
 mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_nux1y")
 theme_override_font_sizes/normal_font_size = 25
 text = "On"
 
@@ -223,16 +223,17 @@ offset_left = -37.0
 offset_top = 18.0
 offset_right = 58.0
 offset_bottom = 54.0
+theme_override_fonts/normal_font = ExtResource("4_nux1y")
+theme_override_font_sizes/normal_font_size = 14
 text = "Connected"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Counter" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 128.0
-offset_top = 765.00006
-offset_right = 268.8
-offset_bottom = 846.6902
+offset_left = -114.999985
+offset_top = 70.00012
+offset_right = 25.800003
+offset_bottom = 151.69025
 scale = Vector2(0.625, 0.625)
 color = Color(0, 0, 0, 1)
 
@@ -240,6 +241,7 @@ color = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_right = 140.8
 offset_bottom = 81.599976
+theme_override_fonts/normal_font = ExtResource("4_nux1y")
 theme_override_font_sizes/normal_font_size = 50
 text = "1000"
 horizontal_alignment = 1
@@ -247,13 +249,29 @@ vertical_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Counter"]
 layout_mode = 0
-offset_left = 1.5999999
-offset_top = 100.7999
-offset_right = 140.79999
+offset_left = -17.600027
+offset_top = 81.59981
+offset_right = 171.19997
 offset_bottom = 140.7999
-theme_override_font_sizes/normal_font_size = 21
+theme_override_fonts/normal_font = ExtResource("4_nux1y")
+theme_override_font_sizes/normal_font_size = 24
 text = "Base Oxygen"
 horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -243.0
+offset_top = -516.0
+offset_right = 254.0
+offset_bottom = 282.0
+mouse_filter = 2
+color = Color(0.52156866, 0.52156866, 0.52156866, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.5, 92)
+shape = SubResource("RectangleShape2D_6rnq6")
 
 [connection signal="mouse_entered" from="Port/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Port/Area2D" to="." method="_on_area_2d_mouse_exited"]

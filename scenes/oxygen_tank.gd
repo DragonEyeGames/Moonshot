@@ -1,4 +1,4 @@
-extends ColorRect
+extends Node2D
 
 var colliding=false
 var zoomed=false
@@ -11,7 +11,8 @@ var leverEntered=false
 var dragObject:=""
 var connected:=false
 var on:=false
-
+@export var minimum: int = 1
+@export var maximum: int = 4
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -19,6 +20,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if(GameManager.player.global_position.y>self.global_position.y):
+		z_index=minimum
+	else:
+		z_index=maximum
 	$Backpack/Counter/RichTextLabel.text=str(round(int(GameManager.oxygen)))
 	$Counter/RichTextLabel.text=str(round(int(GameManager.baseOxygen)))
 	#prints(zoomed, len(GameManager.inventory)>4)

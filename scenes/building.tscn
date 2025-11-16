@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://ectb2uu36h7a"]
+[gd_scene load_steps=115 format=3 uid="uid://ectb2uu36h7a"]
 
 [ext_resource type="Script" uid="uid://doqvjt1ivyo14" path="res://scripts/buildingClass.gd" id="1_nm462"]
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="2_vs5tt"]
@@ -34,12 +34,13 @@
 [ext_resource type="PackedScene" uid="uid://c5eiodc6x61h" path="res://scenes/farm.tscn" id="26_2f2c6"]
 [ext_resource type="PackedScene" uid="uid://sesvget8ak2p" path="res://scenes/shelf.tscn" id="29_ll25w"]
 [ext_resource type="PackedScene" uid="uid://c2xxynf0fcwu0" path="res://scenes/waterStation.tscn" id="30_2f2c6"]
-[ext_resource type="PackedScene" uid="uid://bvah4eqw2dhsr" path="res://scenes/OxygenTank.tscn" id="30_t2gq3"]
+[ext_resource type="PackedScene" uid="uid://dwsdqk7otbr0o" path="res://scenes/OxygenTank.tscn" id="30_t2gq3"]
 [ext_resource type="PackedScene" uid="uid://ci62f57jcinle" path="res://scenes/power_controller.tscn" id="31_gwfoe"]
 [ext_resource type="PackedScene" uid="uid://18tl0xb0wbl0" path="res://scenes/computer.tscn" id="33_dc40y"]
 [ext_resource type="Texture2D" uid="uid://ct4txwsx8l57m" path="res://assets/newSquare.png" id="34_ijljr"]
 [ext_resource type="PackedScene" uid="uid://bknoq6cm6lles" path="res://scenes/communications_panel.tscn" id="35_2l1rv"]
 [ext_resource type="Script" uid="uid://g4w6mcy28ug7" path="res://scripts/hallway.gd" id="36_8yjaw"]
+[ext_resource type="PackedScene" uid="uid://32bcolc5knef" path="res://scenes/tv.tscn" id="36_c646r"]
 [ext_resource type="Texture2D" uid="uid://x6iacigdr2gh" path="res://assets/Circle Building/HallwayInside.png" id="37_vkygi"]
 [ext_resource type="Texture2D" uid="uid://bb5favxyxlws6" path="res://assets/Circle Building/HallwayOutside.png" id="38_c646r"]
 [ext_resource type="PackedScene" uid="uid://cvnn7rlofa7jh" path="res://scenes/door.tscn" id="39_vkygi"]
@@ -3018,7 +3019,10 @@ polygon = PackedVector2Array(-316.36362, 1120.7969, -552.7273, 1008.71704, -790.
 texture = ExtResource("19_c646r")
 
 [node name="Communications Panel" parent="Communications/BackWall" instance=ExtResource("35_2l1rv")]
-position = Vector2(-63.636322, -560.00006)
+position = Vector2(-45.454502, -480.00006)
+
+[node name="TV" parent="Communications/BackWall" instance=ExtResource("36_c646r")]
+position = Vector2(-40, -1059.9999)
 
 [node name="Hallway4" type="Node2D" parent="."]
 position = Vector2(1409, -3682)

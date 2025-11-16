@@ -100,7 +100,7 @@ func _process(delta: float) -> void:
 		$Align/Strength/RichTextLabel2.text=str(int(round(100*get_percent($Align/Interface/SatelliteDish.rotation_degrees, 15, 40)))) + "%"
 	elif($Align/Interface/SatelliteDish.rotation_degrees>40):
 		$Align/Strength/RichTextLabel2.text=str(int(round(100*get_percent(80-($Align/Interface/SatelliteDish.rotation_degrees), 15, 40)))) + "%"
-	if(batteryPower>=100 and round($Align/Interface/SatelliteDish.rotation_degrees)==40 and noise==0):
+	if(batteryPower>=100):# and round($Align/Interface/SatelliteDish.rotation_degrees)==40 and noise==0):
 		$Able/ColorRect.color=Color.LIME_GREEN
 		$Button.disabled=false
 	else:
@@ -181,7 +181,9 @@ func satelliteRight() -> void:
 
 
 func _on_button_pressed() -> void:
-	print("GameOver!!!")
+	canZoom=false
+	canExtraZoom=false
+	get_parent().get_child(-1).zoom()
 
 
 func _knob_entered() -> void:

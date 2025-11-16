@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://32bcolc5knef"]
+
+[ext_resource type="Script" uid="uid://7ff76unwip4o" path="res://scenes/tv.gd" id="1_nqyhj"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lslse"]
+frequency = 0.18
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nqyhj"]
+width = 684
+height = 426
+noise = SubResource("FastNoiseLite_lslse")
+
+[sub_resource type="Animation" id="Animation_nqyhj"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Noise:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.5), Color(1, 1, 1, 0.033)]
+}
+
+[sub_resource type="Animation" id="Animation_0vvss"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Noise:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lnbu4"]
+_data = {
+&"RESET": SubResource("Animation_0vvss"),
+&"show": SubResource("Animation_nqyhj")
+}
+
+[node name="TV" type="Node2D"]
+script = ExtResource("1_nqyhj")
+
+[node name="Border" type="ColorRect" parent="."]
+offset_left = -362.0
+offset_top = -223.0
+offset_right = 350.72705
+offset_bottom = 227.90918
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -349.27295
+offset_top = -212.09082
+offset_right = 339.81836
+offset_bottom = 217.0
+color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+
+[node name="Noise" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.5)
+clip_children = 2
+z_index = 1
+position = Vector2(-4.499997, 2.4999814)
+scale = Vector2(1.0073099, 1.0070423)
+texture = SubResource("NoiseTexture2D_nqyhj")
+
+[node name="Visibility Controller" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lnbu4")
+}
+autoplay = "show"
+
+[node name="ZoomPoint" type="Node2D" parent="."]
+position = Vector2(-9, -7)

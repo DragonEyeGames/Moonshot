@@ -1,0 +1,128 @@
+[gd_scene load_steps=9 format=3 uid="uid://02k5rm2tsuii"]
+
+[ext_resource type="Script" uid="uid://dms7wvav61d83" path="res://scenes/splash.gd" id="1_4rrho"]
+[ext_resource type="Texture2D" uid="uid://o8gr07iwiuwv" path="res://assets/TaxalottleSyndicate.png" id="1_10vqf"]
+[ext_resource type="Shader" uid="uid://8vw7fb67c6hh" path="res://transition.gdshader" id="2_4rrho"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5svwm"]
+shader = ExtResource("2_4rrho")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 2
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = false
+shader_parameter/grid_size = Vector2(500, 500)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(2, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 3
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 5.0
+shader_parameter/progress_bias = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_31efs"]
+resource_name = "fadeOut"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [5.0, -1.0]
+}
+
+[sub_resource type="Animation" id="Animation_c8158"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5svwm"]
+resource_name = "fadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r4d6w"]
+_data = {
+&"RESET": SubResource("Animation_c8158"),
+&"fadeIn": SubResource("Animation_5svwm"),
+&"fadeOut": SubResource("Animation_31efs")
+}
+
+[node name="Splash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4rrho")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 539)
+texture = ExtResource("1_10vqf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5svwm")
+layout_mode = 0
+offset_left = -9.0
+offset_top = -6.0
+offset_right = 1929.0
+offset_bottom = 1095.0
+color = Color(0, 0, 0, 1)
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_r4d6w")
+}
+autoplay = "fadeIn"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -21.0
+offset_top = -13.0
+offset_right = 1949.0
+offset_bottom = 1105.0
+color = Color(0, 0, 0, 1)

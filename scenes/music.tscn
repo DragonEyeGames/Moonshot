@@ -14,6 +14,7 @@ script = ExtResource("1_wia2r")
 stream = ExtResource("5_wia2r")
 autoplay = true
 max_distance = 10000000000.0
+attenuation = 0.0
 panning_strength = 0.0
 parameters/looping = true
 
@@ -45,6 +46,7 @@ parameters/looping = true
 
 [node name="DeadMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_mobtd")
+volume_db = -80.0
 autoplay = true
 max_distance = 10000000000.0
 panning_strength = 0.0

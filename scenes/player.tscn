@@ -228,7 +228,7 @@ joint_data/1/bone2d_node = NodePath("Base/Segment")
 joint_data/1/rotate_from_joint = false
 joint_data/1/enable_constraint = true
 joint_data/1/constraint_angle_min = -9.001999
-joint_data/1/constraint_angle_max = 178.93896
+joint_data/1/constraint_angle_max = 178.93895
 joint_data/1/constraint_angle_invert = false
 joint_data/1/constraint_in_localspace = true
 joint_data/1/editor_draw_gizmo = true
@@ -596,7 +596,7 @@ tracks/20/keys = {
 [sub_resource type="Animation" id="Animation_l71n6"]
 resource_name = "idle"
 length = 0.8
-loop_mode = 2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1694,7 +1694,7 @@ tracks/25/keys = {
 [sub_resource type="Animation" id="Animation_bj30b"]
 resource_name = "idle"
 length = 0.8
-loop_mode = 2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2434,7 +2434,7 @@ self_modulate = Color(0, 0, 0, 1)
 z_index = 1
 position = Vector2(235.2414, -529.1015)
 rotation = -1.717526
-scale = Vector2(0.2537411, 0.31469116)
+scale = Vector2(0.25374112, 0.3146912)
 texture = ExtResource("9_dt7fs")
 offset = Vector2(218.00537, -0.22698975)
 
@@ -2583,7 +2583,6 @@ scale = Vector2(0.07, 0.07)
 shape = SubResource("RectangleShape2D_y4r1p")
 
 [node name="HUD" parent="." instance=ExtResource("10_y4r1p")]
-visible = false
 
 [node name="ColorRect2" type="ColorRect" parent="HUD"]
 z_index = 10

@@ -23,7 +23,7 @@ func zoom():
 	await get_tree().create_timer(.1).timeout
 	loadText("[b][Earth]: [/b]This is Mission Control Center broadcasting to Moon Base Gamma. Do you read me?", "Yes", "No", "What?")
 
-func loadText(newText: String, opt1: String, opt2: String, opt3: String):
+func loadText(newText: String, opt1: String, opt2: String, opt3: String, usingQuestion:=true):
 	page+=1
 	$MessageLog.text+=newText
 	$Popup/Button.text=opt1
@@ -33,7 +33,10 @@ func loadText(newText: String, opt1: String, opt2: String, opt3: String):
 		await get_tree().create_timer(.02).timeout
 		$MessageLog.visible_characters+=1
 	await get_tree().create_timer(.05).timeout
-	$Popup.visible=true
+	if(usingQuestion):
+		$Popup.visible=true
+	else:
+		return
 	await optionSelected
 	$Popup.visible=false
 	if(page==1):
@@ -125,7 +128,7 @@ func loadText(newText: String, opt1: String, opt2: String, opt3: String):
 		$MessageLog.visible_characters-=parts[0].length()
 		parts.remove_at(0)
 		$MessageLog.text = "\n".join(parts)
-		var text = " On to the next."
+		var text = " On to the next. Did you drink water?"
 		var textAdditive=""
 		var baseAdditive="\n[b][Earth]: [/b]"
 		if(selectedOption==1):
@@ -139,6 +142,72 @@ func loadText(newText: String, opt1: String, opt2: String, opt3: String):
 			baseAdditive+="I hope that there aren't rabbits on the moon. Im sure that you ate the carrots yourself."
 		text = "\n[b][Moon]: [/b]" + textAdditive + baseAdditive + text
 		loadText(text, "Possibly?", "Yes", "No")
+		selectedOption=0
+	elif(page==6):
+		var parts = $MessageLog.text.split("\n")
+		$MessageLog.visible_characters-=parts[0].length()
+		parts.remove_at(0)
+		$MessageLog.visible_characters-=parts[0].length()
+		parts.remove_at(0)
+		$MessageLog.text = "\n".join(parts)
+		var text = " On to the next. Are you still alive?"
+		var textAdditive=""
+		var baseAdditive="\n[b][Earth]: [/b]"
+		if(selectedOption==1):
+			textAdditive="I definetly drank something. Not sure if it was water or not..."
+			baseAdditive+="Im going to hope it was water."
+		if(selectedOption==2):
+			textAdditive="Ive had so much water its crazy man."
+			baseAdditive+="Good job staying hydrated."
+		if(selectedOption==3):
+			textAdditive="No. I am vegan. It means I don't drink water."
+			baseAdditive+="It doesn't??? Anyways you're still alive so you most likely had some."
+		text = "\n[b][Moon]: [/b]" + textAdditive + baseAdditive + text
+		loadText(text, "Possibly?", "Yes", "No")
+		selectedOption=0
+	elif(page==7):
+		var parts = $MessageLog.text.split("\n")
+		$MessageLog.visible_characters-=parts[0].length()
+		parts.remove_at(0)
+		$MessageLog.visible_characters-=parts[0].length()
+		parts.remove_at(0)
+		$MessageLog.text = "\n".join(parts)
+		var text = " Thats the end of the inspection. Are you ready to be taken home?"
+		var textAdditive=""
+		var baseAdditive="\n[b][Earth]: [/b]"
+		if(selectedOption==1):
+			textAdditive="That's a good question. I can't remember."
+			baseAdditive+="That means that you are alive."
+		if(selectedOption==2):
+			textAdditive="Yup. I am alive and very much sentient."
+			baseAdditive+="Good to know. Congrats on staying alive."
+		if(selectedOption==3):
+			textAdditive="No. I tried my best but got beaten by the first boss."
+			baseAdditive+="Sorry to hear that. But I heard it so it counts as you being alive."
+		text = "\n[b][Moon]: [/b]" + textAdditive + baseAdditive + text
+		loadText(text, "Possibly?", "Yes", "No")
+		selectedOption=0
+	elif(page==8):
+		var parts = $MessageLog.text.split("\n")
+		$MessageLog.visible_characters-=parts[0].length()
+		parts.remove_at(0)
+		$MessageLog.visible_characters-=parts[0].length()
+		parts.remove_at(0)
+		$MessageLog.text = "\n".join(parts)
+		var text = " Good Riddance."
+		var textAdditive=""
+		var baseAdditive="\n[b][Earth]: [/b]"
+		if(selectedOption==1):
+			textAdditive="Possibly? I like life here but miss Earth."
+			baseAdditive+="Well I'll make the decision for you. Yes. You are coming home now."
+		if(selectedOption==2):
+			textAdditive="Yes. Im so excited to get off this rock."
+			baseAdditive+="Glad that you are ready to leave."
+		if(selectedOption==3):
+			textAdditive="No. I though about it but I can't leave my pet rock Jerry on the moon."
+			baseAdditive+="Well... To bad. You are coming home whether you like it or not."
+		text = "\n[b][Moon]: [/b]" + textAdditive + baseAdditive + text
+		loadText(text, "", "", "", false)
 		selectedOption=0
 
 func _on_button_pressed() -> void:

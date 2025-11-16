@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://ectb2uu36h7a"]
+[gd_scene load_steps=118 format=3 uid="uid://ectb2uu36h7a"]
 
 [ext_resource type="Script" uid="uid://doqvjt1ivyo14" path="res://scripts/buildingClass.gd" id="1_nm462"]
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="2_vs5tt"]
@@ -1420,6 +1420,11 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pt15o"]
 radius = 1446.5892
+
+[sub_resource type="Curve" id="Curve_jqsuv"]
+_limits = [0.0, 25.0, 0.0, 1.0]
+_data = [Vector2(0, 25), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Animation" id="Animation_0rysw"]
 length = 0.001
@@ -3027,13 +3032,25 @@ position = Vector2(-45.454502, -480.00006)
 position = Vector2(-40, -1059.9999)
 
 [node name="TractorBeam" type="Sprite2D" parent="Communications"]
-visible = false
 z_index = 10
 position = Vector2(-18.181911, -316.36368)
 scale = Vector2(1.8181818, 1.8181818)
 texture = ExtResource("37_tq4q2")
 offset = Vector2(4, -574)
 script = ExtResource("38_jqsuv")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Communications/TractorBeam"]
+position = Vector2(-8, 234)
+amount = 100
+lifetime = 5.0
+emission_shape = 3
+emission_rect_extents = Vector2(300, 1)
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_jqsuv")
 
 [node name="Hallway4" type="Node2D" parent="."]
 position = Vector2(1409, -3682)

@@ -31,6 +31,7 @@ func _ready() -> void:
 	GameManager.playerHand=$CanvasLayer/OverlayArm/Bones/Skeleton2D/Base/Segment/Hand
 	GameManager.playerAnimator=$StateController
 	GameManager.hud=$HUD
+	GameManager.fadeController=$HUD/ColorRect2/AnimationPlayer
 
 func _process(delta: float) -> void:
 	perFrameUpdate()
@@ -69,7 +70,6 @@ func flashlightEvents():
 		await get_tree().create_timer(randf_range(.1, .2)).timeout
 		$Helmet/PointLight2D.energy=1
 	flashlightEvents()
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void: 
 	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and area.name=="SpeckleArea"):
@@ -170,47 +170,49 @@ func movement(delta):
 		velocity*=1.25
 		move_and_slide()
 		velocity/=1.25
-		var target = velocity.x/300
-		var current = $Horizontal.get("parameters/blend_position")
-		var new_value = lerp(current, target, delta * 5)
-		if(new_value<-1):
-			new_value=-1
-		elif(new_value>1):
-			new_value=1
-		if(new_value<0 and $Sprites.scale.x>0):
-			$flip.play("left")
-		elif(new_value>0 and $Sprites.scale.x<0):
-			$flip.play("right")
-		if(abs(velocity.x)<abs(velocity.y)):
-			$"Sprites-2".visible=true
-			$Sprites.visible=false
-		elif(abs(velocity.x)>abs(velocity.y)):
-			$Sprites.visible=true
-			$"Sprites-2".visible=false
-			
-		$Horizontal.set("parameters/blend_position", new_value)
-		var targetY = velocity.y/300
-		var currentY = $Vertical.get("parameters/blend_position")
-		var new_valueY = lerp(currentY, targetY, delta * 5)
-		if(new_valueY<-1):
-			new_valueY=-1
-		elif(new_valueY>1):
-			new_valueY=1
-		if(new_valueY<0 and $"Sprites-2".scale.x>0):
-			$VertFlip.play("back")
-		elif(new_valueY>0 and $"Sprites-2".scale.x<0):
-			$VertFlip.play("front")
-		$Vertical.set("parameters/blend_position", new_valueY)
-		if((abs(velocity.x)>0 or abs(velocity.y)>0) and GameManager.playerState==GameManager.possibleStates.OUTSIDE):
-			$CPUParticles2D.emitting=true
-			if(speed*healthMod>=500):
-				$CPUParticles2D2.emitting=true
-			else:
-				$CPUParticles2D2.emitting=false
-		else:
-			$CPUParticles2D.emitting=false
-			$CPUParticles2D2.emitting=false
+	else:
+		velocity=Vector2.ZERO
+	var target = velocity.x/300
+	var current = $Horizontal.get("parameters/blend_position")
+	var new_value = lerp(current, target, delta * 5)
+	if(new_value<-1):
+		new_value=-1
+	elif(new_value>1):
+		new_value=1
+	if(new_value<0 and $Sprites.scale.x>0):
+		$flip.play("left")
+	elif(new_value>0 and $Sprites.scale.x<0):
+		$flip.play("right")
+	if(abs(velocity.x)<abs(velocity.y)):
+		$"Sprites-2".visible=true
+		$Sprites.visible=false
+	elif(abs(velocity.x)>abs(velocity.y)):
+		$Sprites.visible=true
+		$"Sprites-2".visible=false
 		
+	$Horizontal.set("parameters/blend_position", new_value)
+	var targetY = velocity.y/300
+	var currentY = $Vertical.get("parameters/blend_position")
+	var new_valueY = lerp(currentY, targetY, delta * 5)
+	if(new_valueY<-1):
+		new_valueY=-1
+	elif(new_valueY>1):
+		new_valueY=1
+	if(new_valueY<0 and $"Sprites-2".scale.x>0):
+		$VertFlip.play("back")
+	elif(new_valueY>0 and $"Sprites-2".scale.x<0):
+		$VertFlip.play("front")
+	$Vertical.set("parameters/blend_position", new_valueY)
+	if((abs(velocity.x)>0 or abs(velocity.y)>0) and GameManager.playerState==GameManager.possibleStates.OUTSIDE):
+		$CPUParticles2D.emitting=true
+		if(speed*healthMod>=500):
+			$CPUParticles2D2.emitting=true
+		else:
+			$CPUParticles2D2.emitting=false
+	else:
+		$CPUParticles2D.emitting=false
+		$CPUParticles2D2.emitting=false
+	
 func closedBagPickup():
 	fromBag=false
 	canPickUp=false

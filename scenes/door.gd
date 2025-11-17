@@ -1,6 +1,7 @@
 extends Node2D
 
 var playerEntered:=false
+var opened=false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.door=self
@@ -8,7 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if(playerEntered and Input.is_action_just_pressed("Interact")):
+	if(playerEntered and Input.is_action_just_pressed("Interact") and opened==false):
 		$Text.visible=!$Text.visible
 		GameManager.playerMove=!$Text.visible
 
@@ -26,6 +27,7 @@ func unzoom(type="appear"):
 	GameManager.playerMove=true
 	
 func openUp():
+	opened=true
 	var roofVisible=get_parent().get_node("HallwayOutside").visible
 	if(roofVisible):
 		get_parent().get_node("HallwayOutside").visible=false

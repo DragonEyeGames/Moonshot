@@ -1,14 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://cqxgsf3s7qidq"]
+[gd_scene load_steps=19 format=3 uid="uid://cqxgsf3s7qidq"]
 
 [ext_resource type="Script" uid="uid://tf44hyxovb8q" path="res://scenes/menu.gd" id="1_g3eks"]
 [ext_resource type="FontFile" uid="uid://de3jhormdk4qb" path="res://fonts/SpaceNova-6Rpd1.otf" id="1_yqeox"]
 [ext_resource type="Texture2D" uid="uid://ompiokswf6tc" path="res://assets/menu/Earth.png" id="2_mhnvy"]
 [ext_resource type="Texture2D" uid="uid://g7mexb2dhvya" path="res://assets/menu/Moon.png" id="3_4ytvr"]
-[ext_resource type="PackedScene" uid="uid://cscgwhr8hllqm" path="res://scenes/star.tscn" id="4_mhnvy"]
 [ext_resource type="Texture2D" uid="uid://dcxs8rxv8jlvh" path="res://assets/menu/Button.png" id="5_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://oms0xrnk61s0" path="res://assets/menu/MenuTextHolder.png" id="7_v86rl"]
 [ext_resource type="Texture2D" uid="uid://bldehaoxqfhx4" path="res://assets/menu/ButtonGlow.png" id="8_13sgg"]
 [ext_resource type="FontFile" uid="uid://cjog5sibib7b1" path="res://fonts/EdgeOfTheGalaxyRegular-OVEa6.otf" id="8_i6lef"]
+[ext_resource type="Texture2D" uid="uid://df40o86pvty0m" path="res://assets/menu/Star.png" id="9_i6lef"]
 
 [sub_resource type="Environment" id="Environment_v86rl"]
 background_mode = 3
@@ -159,6 +159,10 @@ _data = {
 &"out": SubResource("Animation_13sgg")
 }
 
+[sub_resource type="Gradient" id="Gradient_i6lef"]
+offsets = PackedFloat32Array(0, 0.10197368, 0.50328946, 0.9013158, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 18.892157, 18.892157, 18.892157, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -211,60 +215,6 @@ libraries = {
 }
 autoplay = "twinkle"
 speed_scale = 0.5
-
-[node name="Node2D" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0.674)
-scale = Vector2(0.64, 0.64)
-
-[node name="Star" parent="Node2D" instance=ExtResource("4_mhnvy")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(366.00003, 606.00006)
-scale = Vector2(1, 1)
-
-[node name="Star2" parent="Node2D" instance=ExtResource("4_mhnvy")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(629.6875, 1170.3125)
-scale = Vector2(1, 1)
-
-[node name="Star3" parent="Node2D" instance=ExtResource("4_mhnvy")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(1392.1875, 1182.8125)
-scale = Vector2(1, 1)
-
-[node name="Star4" parent="Node2D" instance=ExtResource("4_mhnvy")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(2343.75, 1179.6875)
-scale = Vector2(1, 1)
-
-[node name="Star5" parent="Node2D" instance=ExtResource("4_mhnvy")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(2735.9375, 959.37506)
-scale = Vector2(1, 1)
-
-[node name="Star6" parent="Node2D" instance=ExtResource("4_mhnvy")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(2871.875, 242.18758)
-scale = Vector2(1, 1)
-
-[node name="Star7" parent="Node2D" instance=ExtResource("4_mhnvy")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(968.75, 910.9375)
-scale = Vector2(1, 1)
-
-[node name="Star8" parent="Node2D" instance=ExtResource("4_mhnvy")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(137.49991, 1179.6875)
-scale = Vector2(1, 1)
-
-[node name="Star9" parent="Node2D" instance=ExtResource("4_mhnvy")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(1432.8125, 109.375046)
-scale = Vector2(1, 1)
-
-[node name="Star10" parent="Node2D" instance=ExtResource("4_mhnvy")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(139.06255, 201.5625)
-scale = Vector2(1, 1)
 
 [node name="Start" type="TextureButton" parent="."]
 layout_mode = 0
@@ -489,6 +439,18 @@ scale = Vector2(0.9, 0.9)
 texture = ExtResource("8_13sgg")
 flip_h = true
 flip_v = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(964, 539)
+amount = 15
+texture = ExtResource("9_i6lef")
+lifetime = 20.0
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(900, 500)
+gravity = Vector2(0, 0)
+color_ramp = SubResource("Gradient_i6lef")
 
 [connection signal="mouse_entered" from="Start" to="." method="_on_start_mouse_entered"]
 [connection signal="mouse_exited" from="Start" to="." method="_on_start_mouse_exited"]

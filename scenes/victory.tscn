@@ -1,0 +1,161 @@
+[gd_scene load_steps=12 format=3 uid="uid://ok7jxunubvc8"]
+
+[ext_resource type="FontFile" uid="uid://de3jhormdk4qb" path="res://fonts/SpaceNova-6Rpd1.otf" id="1_faxov"]
+[ext_resource type="Script" uid="uid://cuta2te408tx0" path="res://scenes/victory.gd" id="1_g6lwx"]
+[ext_resource type="FontFile" uid="uid://b4j6iojfu82en" path="res://fonts/BraveEightyoneRegular-ZVGvm.ttf" id="2_hl81x"]
+[ext_resource type="Texture2D" uid="uid://dcxs8rxv8jlvh" path="res://assets/menu/Button.png" id="3_73dpb"]
+[ext_resource type="Texture2D" uid="uid://df40o86pvty0m" path="res://assets/menu/Star.png" id="4_g6lwx"]
+
+[sub_resource type="Environment" id="Environment_5hn41"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.87
+glow_bloom = 0.31
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 2.35
+
+[sub_resource type="Gradient" id="Gradient_n2k88"]
+offsets = PackedFloat32Array(0, 0.21710527, 0.50328946, 0.8059211, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 18.892157, 18.892157, 18.892157, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_eaoty"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_04qlw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_aeqvq"]
+resource_name = "out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rlw0o"]
+_data = {
+&"RESET": SubResource("Animation_04qlw"),
+&"in": SubResource("Animation_eaoty"),
+&"out": SubResource("Animation_aeqvq")
+}
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_g6lwx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 74.0
+offset_right = 1770.0
+offset_bottom = 479.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_faxov")
+theme_override_font_sizes/normal_font_size = 242
+text = "Victory!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 439.0
+offset_right = 1896.0
+offset_bottom = 780.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_hl81x")
+theme_override_font_sizes/normal_font_size = 84
+text = "You got the moon base up and running again! This is a critical point for the future of humanity! Good job!"
+horizontal_alignment = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5hn41")
+
+[node name="Start" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 701.00006
+offset_top = 807.0
+offset_right = 1497.0
+offset_bottom = 1064.0
+scale = Vector2(0.73, 0.73)
+texture_normal = ExtResource("3_73dpb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Start"]
+modulate = Color(1.1377786, 1.1377786, 1.1377786, 1)
+layout_mode = 0
+offset_left = 124.65759
+offset_top = 43.835632
+offset_right = 709.589
+offset_bottom = 215.06848
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("1_faxov")
+theme_override_font_sizes/normal_font_size = 95
+text = "Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(964, 539)
+amount = 15
+texture = ExtResource("4_g6lwx")
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(900, 500)
+gravity = Vector2(0, 0)
+color_ramp = SubResource("Gradient_n2k88")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_rlw0o")
+}
+autoplay = "in"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

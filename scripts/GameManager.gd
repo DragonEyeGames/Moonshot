@@ -44,7 +44,7 @@ var suitHumidity=0
 var lightNerf:=1.0
 var lightConsumption:=0.0
 var pickedUpJugWater=0
-
+var fadeController
 var playerHand
 
 var solarOutput:=0.0
@@ -77,6 +77,8 @@ var door
 
 func _process(_delta: float) -> void:
 	nonstackingDict[2]["amount"] = pickedUpJugWater
+	if(Input.is_action_just_pressed("Escape")):
+		get_tree().quit()
 	
 func add(item, count):
 	for thing in inventory:

@@ -21,7 +21,7 @@ func zoom():
 	await get_tree().create_timer(2.4).timeout
 	$Established.visible=false
 	await get_tree().create_timer(.1).timeout
-	loadText("[b][Earth]: [/b]This is Mission Control Center broadcasting to Moon Base Gamma. Do you read me?", "Yes", "No", "What?")
+	loadText("[b][Earth]: [/b]This is Mission Control Center broadcasting to Moon Base Gamma. Do you read me?", "Yes", "No", "What?", false)
 
 func unzoom(type="appear"):
 	GameManager.unzoomCamera()
@@ -29,9 +29,10 @@ func unzoom(type="appear"):
 	GameManager.playerAnimator.play(type)
 	await get_tree().create_timer(3).timeout
 	GameManager.tractorBeam.abducting=true
-	await get_tree().create_timer(5).timeout
-	get_tree().change_scene_to_file("res://scenes/splash.tscn")
-
+	await get_tree().create_timer(6).timeout
+	GameManager.fadeController.play("out")
+	await get_tree().create_timer(1.1).timeout
+	get_tree().change_scene_to_file("res://scenes/victory.tscn")
 func loadText(newText: String, opt1: String, opt2: String, opt3: String, usingQuestion:=true):
 	page+=1
 	$MessageLog.text+=newText

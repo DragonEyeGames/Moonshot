@@ -41,7 +41,6 @@
 [ext_resource type="PackedScene" uid="uid://bknoq6cm6lles" path="res://scenes/communications_panel.tscn" id="35_2l1rv"]
 [ext_resource type="Script" uid="uid://g4w6mcy28ug7" path="res://scripts/hallway.gd" id="36_8yjaw"]
 [ext_resource type="PackedScene" uid="uid://32bcolc5knef" path="res://scenes/tv.tscn" id="36_c646r"]
-[ext_resource type="Texture2D" uid="uid://c685gr5cgeaqs" path="res://assets/Tractor Beam.png" id="37_tq4q2"]
 [ext_resource type="Texture2D" uid="uid://x6iacigdr2gh" path="res://assets/Circle Building/HallwayInside.png" id="37_vkygi"]
 [ext_resource type="Texture2D" uid="uid://bb5favxyxlws6" path="res://assets/Circle Building/HallwayOutside.png" id="38_c646r"]
 [ext_resource type="Script" uid="uid://dx2dra70fgf2t" path="res://scenes/tractor_beam.gd" id="38_jqsuv"]
@@ -1425,6 +1424,10 @@ radius = 1446.5892
 _limits = [0.0, 25.0, 0.0, 1.0]
 _data = [Vector2(0, 25), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_tq4q2"]
+offsets = PackedFloat32Array(0, 0.04605263, 1)
+colors = PackedColorArray(0, 0.55684614, 5.7756904e-07, 1, 0, 0.6318495, 1.732707e-06, 1, 0, 1, 0, 1)
 
 [sub_resource type="Animation" id="Animation_0rysw"]
 length = 0.001
@@ -3032,10 +3035,10 @@ position = Vector2(-45.454502, -480.00006)
 position = Vector2(-40, -1059.9999)
 
 [node name="TractorBeam" type="Sprite2D" parent="Communications"]
+visible = false
 z_index = 10
 position = Vector2(-18.181911, -316.36368)
 scale = Vector2(1.8181818, 1.8181818)
-texture = ExtResource("37_tq4q2")
 offset = Vector2(4, -574)
 script = ExtResource("38_jqsuv")
 
@@ -3051,6 +3054,7 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 200.0
 initial_velocity_max = 500.0
 scale_amount_curve = SubResource("Curve_jqsuv")
+color_ramp = SubResource("Gradient_tq4q2")
 
 [node name="Hallway4" type="Node2D" parent="."]
 position = Vector2(1409, -3682)

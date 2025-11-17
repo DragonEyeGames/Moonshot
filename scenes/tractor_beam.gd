@@ -11,7 +11,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(abducting):
 		visibleTime+=delta
-		visible=true
+		if(not visible):
+			$AnimationPlayer.play("in")
 		global_position=GameManager.player.global_position
 		if(visibleTime>2):
 			for child in GameManager.player.get_children():

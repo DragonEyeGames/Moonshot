@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://ectb2uu36h7a"]
+[gd_scene load_steps=126 format=3 uid="uid://ectb2uu36h7a"]
 
 [ext_resource type="Script" uid="uid://doqvjt1ivyo14" path="res://scripts/buildingClass.gd" id="1_nm462"]
 [ext_resource type="Script" uid="uid://bcl40scfcgca2" path="res://scripts/airlock.gd" id="2_vs5tt"]
@@ -41,6 +41,8 @@
 [ext_resource type="PackedScene" uid="uid://bknoq6cm6lles" path="res://scenes/communications_panel.tscn" id="35_2l1rv"]
 [ext_resource type="Script" uid="uid://g4w6mcy28ug7" path="res://scripts/hallway.gd" id="36_8yjaw"]
 [ext_resource type="PackedScene" uid="uid://32bcolc5knef" path="res://scenes/tv.tscn" id="36_c646r"]
+[ext_resource type="Shader" uid="uid://bp11hy5r0fug1" path="res://scenes/beam.gdshader" id="37_72utj"]
+[ext_resource type="Texture2D" uid="uid://c685gr5cgeaqs" path="res://assets/Tractor Beam.png" id="37_tq4q2"]
 [ext_resource type="Texture2D" uid="uid://x6iacigdr2gh" path="res://assets/Circle Building/HallwayInside.png" id="37_vkygi"]
 [ext_resource type="Texture2D" uid="uid://bb5favxyxlws6" path="res://assets/Circle Building/HallwayOutside.png" id="38_c646r"]
 [ext_resource type="Script" uid="uid://dx2dra70fgf2t" path="res://scenes/tractor_beam.gd" id="38_jqsuv"]
@@ -1420,6 +1422,19 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_pt15o"]
 radius = 1446.5892
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t8did"]
+frequency = 0.0653
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_swn71"]
+noise = SubResource("FastNoiseLite_t8did")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6i0gt"]
+shader = ExtResource("37_72utj")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 1.0
+shader_parameter/fps = 60.0
+shader_parameter/noise = SubResource("NoiseTexture2D_swn71")
+
 [sub_resource type="Curve" id="Curve_jqsuv"]
 _limits = [0.0, 25.0, 0.0, 1.0]
 _data = [Vector2(0, 25), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -1428,6 +1443,67 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_tq4q2"]
 offsets = PackedFloat32Array(0, 0.04605263, 1)
 colors = PackedColorArray(0, 0.55684614, 5.7756904e-07, 1, 0, 0.6318495, 1.732707e-06, 1, 0, 1, 0, 1)
+
+[sub_resource type="Animation" id="Animation_8cwg4"]
+resource_name = "in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pt15o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hr3pe"]
+_data = {
+&"RESET": SubResource("Animation_pt15o"),
+&"in": SubResource("Animation_8cwg4")
+}
 
 [sub_resource type="Animation" id="Animation_0rysw"]
 length = 0.001
@@ -3036,9 +3112,12 @@ position = Vector2(-40, -1059.9999)
 
 [node name="TractorBeam" type="Sprite2D" parent="Communications"]
 visible = false
+modulate = Color(1, 1, 1, 0)
 z_index = 10
+material = SubResource("ShaderMaterial_6i0gt")
 position = Vector2(-18.181911, -316.36368)
 scale = Vector2(1.8181818, 1.8181818)
+texture = ExtResource("37_tq4q2")
 offset = Vector2(4, -574)
 script = ExtResource("38_jqsuv")
 
@@ -3055,6 +3134,11 @@ initial_velocity_min = 200.0
 initial_velocity_max = 500.0
 scale_amount_curve = SubResource("Curve_jqsuv")
 color_ramp = SubResource("Gradient_tq4q2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Communications/TractorBeam"]
+libraries = {
+&"": SubResource("AnimationLibrary_hr3pe")
+}
 
 [node name="Hallway4" type="Node2D" parent="."]
 position = Vector2(1409, -3682)

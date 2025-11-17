@@ -8,7 +8,7 @@ var entered:=false
 var extraZoomed:=false
 var canExtraZoom:=false
 var maxBattery:=100.0
-var batteryPower:=100.0
+var batteryPower:=0.0
 var power:=5.0
 var nerf:=1.0
 @export var noise:=50.0
@@ -100,7 +100,7 @@ func _process(delta: float) -> void:
 		$Align/Strength/RichTextLabel2.text=str(int(round(100*get_percent($Align/Interface/SatelliteDish.rotation_degrees, 15, 40)))) + "%"
 	elif($Align/Interface/SatelliteDish.rotation_degrees>40):
 		$Align/Strength/RichTextLabel2.text=str(int(round(100*get_percent(80-($Align/Interface/SatelliteDish.rotation_degrees), 15, 40)))) + "%"
-	if(batteryPower>=100):# and round($Align/Interface/SatelliteDish.rotation_degrees)==40 and noise==0):
+	if(batteryPower>=100 and round($Align/Interface/SatelliteDish.rotation_degrees)==40 and noise==0):
 		$Able/ColorRect.color=Color.LIME_GREEN
 		$Button.disabled=false
 	else:

@@ -21,7 +21,7 @@ func zoom():
 	await get_tree().create_timer(2.4).timeout
 	$Established.visible=false
 	await get_tree().create_timer(.1).timeout
-	loadText("[b][Earth]: [/b]This is Mission Control Center broadcasting to Moon Base Gamma. Do you read me?", "Yes", "No", "What?", false)
+	loadText("[b][Earth]: [/b]This is Mission Control Center broadcasting to Moon Base Gamma. Do you read me?", "Yes", "No", "What?")
 
 func unzoom(type="appear"):
 	GameManager.unzoomCamera()
@@ -64,7 +64,7 @@ func loadText(newText: String, opt1: String, opt2: String, opt3: String, usingQu
 			baseAdditive+="I don't appreciate your sarcasm,"
 		if(selectedOption==3):
 			textAdditive="What? What exactly do you mean by 'read me'?"
-			baseAdditive+="Well atleast you responded. Good enough."
+			baseAdditive+="Well at least you responded. Good enough."
 		text = "\n[b][Moon]: [/b]" + textAdditive + baseAdditive + text
 		loadText(text, "Hope Not", "Yes", "No")
 		selectedOption=0
@@ -101,8 +101,8 @@ func loadText(newText: String, opt1: String, opt2: String, opt3: String, usingQu
 		var textAdditive=""
 		var baseAdditive="\n[b][Earth]: [/b]"
 		if(selectedOption==1):
-			textAdditive="Maybe??? Im not very thirsty so..."
-			baseAdditive+="Well ill assume that its working because you grew plants."
+			textAdditive="Maybe??? I'm not very thirsty so..."
+			baseAdditive+="Well i'll assume that its working because you grew plants."
 		if(selectedOption==2):
 			textAdditive="Yup. I got that fixed and have been enjoying my water."
 			baseAdditive+="Glad to hear that you are enjoying your water."
@@ -152,7 +152,7 @@ func loadText(newText: String, opt1: String, opt2: String, opt3: String, usingQu
 			baseAdditive+="Glad that you were able to grow some carrots."
 		if(selectedOption==3):
 			textAdditive="No. I tried but those dang rabbits ate my carrots."
-			baseAdditive+="I hope that there aren't rabbits on the moon. Im sure that you ate the carrots yourself."
+			baseAdditive+="I hope that there aren't rabbits on the moon. I'm sure that you ate the carrots yourself."
 		text = "\n[b][Moon]: [/b]" + textAdditive + baseAdditive + text
 		loadText(text, "Possibly?", "Yes", "No")
 		selectedOption=0
@@ -167,8 +167,8 @@ func loadText(newText: String, opt1: String, opt2: String, opt3: String, usingQu
 		var textAdditive=""
 		var baseAdditive="\n[b][Earth]: [/b]"
 		if(selectedOption==1):
-			textAdditive="I definetly drank something. Not sure if it was water or not..."
-			baseAdditive+="Im going to hope it was water."
+			textAdditive="I definitely drank something. Not sure if it was water or not..."
+			baseAdditive+="I'm going to hope it was water."
 		if(selectedOption==2):
 			textAdditive="Ive had so much water its crazy man."
 			baseAdditive+="Good job staying hydrated."
@@ -214,11 +214,11 @@ func loadText(newText: String, opt1: String, opt2: String, opt3: String, usingQu
 			textAdditive="Possibly? I like life here but miss Earth."
 			baseAdditive+="Well I'll make the decision for you. Yes. You are coming home now."
 		if(selectedOption==2):
-			textAdditive="Yes. Im so excited to get off this rock."
+			textAdditive="Yes. I'm so excited to get off this rock."
 			baseAdditive+="Glad that you are ready to leave."
 		if(selectedOption==3):
 			textAdditive="No. I though about it but I can't leave my pet rock Jerry on the moon."
-			baseAdditive+="Well... To bad. You are coming home whether you like it or not."
+			baseAdditive+="Well... Too bad. You are coming home whether you like it or not."
 		text = "\n[b][Moon]: [/b]" + textAdditive + baseAdditive + text
 		loadText(text, "", "", "", false)
 		selectedOption=0

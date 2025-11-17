@@ -13,6 +13,8 @@ config_version=5
 config/name="Moonshot"
 run/main_scene="uid://02k5rm2tsuii"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/image="uid://c7424xf5bwt4f"
+boot_splash/minimum_display_time=1000
 
 [autoload]
 

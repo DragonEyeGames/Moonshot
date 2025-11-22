@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dnnka5th1gldj"]
+[gd_scene load_steps=16 format=4 uid="uid://dnnka5th1gldj"]
 
 [ext_resource type="Script" uid="uid://dt3i83nbqr5t7" path="res://scripts/main.gd" id="1_c01mt"]
 [ext_resource type="Texture2D" uid="uid://bot5iwir3qe7s" path="res://assets/rock.png" id="2_nxtc6"]
@@ -43,15 +43,6 @@ texture = ExtResource("2_nxtc6")
 
 [sub_resource type="TileSet" id="TileSet_8tn2x"]
 sources/0 = SubResource("TileSetAtlasSource_2au82")
-
-[sub_resource type="Curve" id="Curve_qmy6f"]
-_limits = [0.0, 20.0, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5208333, 11.235954), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Gradient" id="Gradient_mwfav"]
-offsets = PackedFloat32Array(0.009345794, 0.12616822, 0.5140187, 0.8598131, 1)
-colors = PackedColorArray(0.34509805, 0.34509805, 0.23529412, 0, 0.44705883, 0.44705883, 0.33333334, 0.17254902, 0.49803922, 0.49803922, 0.38431373, 0.5254902, 0.44705883, 0.44705883, 0.33333334, 0.27450982, 0.34509805, 0.34509805, 0.23529412, 0)
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -1846,18 +1837,6 @@ offset_right = 10698.0
 offset_bottom = 7275.0
 mouse_filter = 2
 color = Color(0.48397404, 0.4571336, 0.4364223, 1)
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Lunar Ground"]
-position = Vector2(-37, -1463)
-amount = 1200
-lifetime = 10.0
-emission_shape = 3
-emission_rect_extents = Vector2(7000, 4000)
-particle_flag_align_y = true
-spread = 180.0
-gravity = Vector2(0, 0)
-scale_amount_curve = SubResource("Curve_qmy6f")
-color_ramp = SubResource("Gradient_mwfav")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

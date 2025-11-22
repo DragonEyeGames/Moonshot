@@ -18,6 +18,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
+	Music.moon()
 	$ColorRect2/AnimationPlayer.play("out")
 	var save = SaveData.new()
 	save.masterVolume=$SettingsMenu/HSlider.value

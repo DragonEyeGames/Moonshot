@@ -14,6 +14,7 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 func _on_area_2d_body_exited(_body: Node2D) -> void:
 	if(not state=="sealed"):
 		GameManager.playerState=GameManager.possibleStates.OUTSIDE
+		Music.moon()
 		$DoorController.play("close")
 
 
@@ -21,6 +22,7 @@ func _on_airlock_body_entered(_body: Node2D) -> void:
 	if(state==""):
 		state="sealing"
 		GameManager.playerState=GameManager.possibleStates.INSIDE
+		Music.base()
 		$DoorController.play("seal")
 		await get_tree().create_timer(3).timeout
 		state="sealed"
@@ -35,5 +37,6 @@ func _on_outer_body_entered(_body: Node2D) -> void:
 		state="opening"
 		$DoorController.play("exit")
 		GameManager.playerState=GameManager.possibleStates.OUTSIDE
+		Music.moon()
 		await get_tree().create_timer(3).timeout
 		state=""

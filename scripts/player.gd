@@ -60,7 +60,7 @@ func _physics_process(_delta: float) -> void:
 		pickable=null
 		pickedUp=false
 		handHeldItem=""
-		await get_tree().create_timer(.05).timeout
+		await get_tree().process_frame
 		canPickUp=true
 		
 func flashlightEvents():
@@ -88,7 +88,7 @@ func pickUp(item):
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	await get_tree().create_timer(.05).timeout
+	await get_tree().process_frame
 	if(not area):
 		return
 	if(area.get_parent().visible):
@@ -112,7 +112,7 @@ func _in_bag_entered(area: Area2D) -> void:
 
 
 func _in_bag_exited(area: Area2D) -> void:
-	await get_tree().create_timer(.1).timeout
+	await get_tree().process_frame
 	if(not area):
 		return
 	if($CanvasLayer/OverlayArm.modulate.a>=.9 and area.get_parent().visible and not pickedUp and GameManager.playerTool=="bag" and bagOpen==true):

@@ -73,13 +73,13 @@ func _on_killzone_body_entered(body: Node2D) -> void:
 		GameManager.player.canPickUp=true
 		GameManager.player.pickedUp=false
 	body.set_deferred("freeze", true)
-	await get_tree().create_timer(.1).timeout
+	await get_tree().process_frame
 	if(not body):
 		return
 	body.rotation=0
 	body.linear_velocity=Vector2.ZERO
 	body.global_position=body.get_parent().global_position
-	await get_tree().create_timer(.1).timeout
+	await get_tree().process_frame
 	if(not body):
 		return
 	body.set_deferred("freeze", false)

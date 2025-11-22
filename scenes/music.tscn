@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcx8dmbygfykr"]
+[gd_scene load_steps=6 format=3 uid="uid://bcx8dmbygfykr"]
 
 [ext_resource type="AudioStream" uid="uid://bjbp3gohtx0is" path="res://Sounds/drone-ethereal-mist-background-235218.mp3" id="1_ejojg"]
 [ext_resource type="Script" uid="uid://da8782bq6if52" path="res://scripts/musicController.gd" id="1_wia2r"]
-[ext_resource type="AudioStream" uid="uid://b0ux6ns2313xh" path="res://Sounds/fridge-buzz-loop-39612.mp3" id="2_wia2r"]
 [ext_resource type="AudioStream" uid="uid://rdf0r2m00wnn" path="res://Sounds/hARITON zOE - NEW dAYS (uNIQUE TECh).mp3" id="3_mobtd"]
 [ext_resource type="AudioStream" uid="uid://cbuy2iuaxxdmg" path="res://Sounds/ethereal-landscape-space-music-301238.mp3" id="5_wia2r"]
 [ext_resource type="AudioStream" uid="uid://v5hfrr5shm75" path="res://Sounds/sad-sorrowful-piano-music-330768.mp3" id="6_mobtd"]
@@ -24,15 +23,6 @@ volume_db = -80.0
 autoplay = true
 max_distance = 10000000000.0
 panning_strength = 0.0
-parameters/looping = true
-
-[node name="BaseSounds" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_wia2r")
-volume_db = -80.0
-autoplay = true
-max_distance = 10000000000.0
-panning_strength = 0.0
-playback_type = 1
 parameters/looping = true
 
 [node name="BaseMusic" type="AudioStreamPlayer2D" parent="."]

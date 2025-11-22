@@ -5,52 +5,53 @@ var menuSounds:=true
 var baseSounds:=false
 var baseMusic:=false
 var deadMusic:=false
+
+var currentlyPlaying:AudioStreamPlayer2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	currentlyPlaying=$MenuMusic
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if(get_tree().current_scene!=null and get_tree().current_scene.name=="Dead"):
-		deadMusic=true
-		moonSounds=false
-		menuSounds=false
-		baseSounds=false
-		baseMusic=false
-	elif(GameManager.inMenu):
-		deadMusic=false
-		moonSounds=false
-		menuSounds=true
-		baseSounds=false
-		baseMusic=false
-	else:
-		menuSounds=false
-		deadMusic=false
-		if(GameManager.playerState==GameManager.possibleStates.OUTSIDE):
-			moonSounds=true
-			baseMusic=false
-			baseSounds=false
-		else:
-			moonSounds=false
-			baseMusic=true
-			baseSounds=true
-	loadSounds(delta)
+func dead():
+	if($DeadMusic.playing==false):
+		$DeadMusic.playing=true
+	var tween=create_tween()
+	tween.tween_property($DeadMusic, "volume_db", 0, .5)
+	await get_tree().create_timer(.5).timeout
+	var tween2 = create_tween()
+	tween2.tween_property(currentlyPlaying, "volume_db", -80, 0.5)
+	currentlyPlaying.playing=false
+	currentlyPlaying=$DeadMusic
 	
-func loadSounds(delta: float):
-	update(menuSounds, $MenuMusic, delta)
-	update(moonSounds, $MoonSounds, delta)
-	update(baseSounds, $BaseSounds, delta)
-	update(baseMusic, $BaseMusic, delta)
-	update(deadMusic, $DeadMusic, delta)
-
-func update(on: bool, player: AudioStreamPlayer2D, delta: float):
-	if(on):
-		if(player.volume_db<0):
-			player.volume_db+=delta*70
-			if(player.volume_db>0):
-				player.volume_db=0
-	else:
-		if(player.volume_db>-80):
-			player.volume_db-=delta*10
-			if(player.volume_db<-80):
-				player.volume_db=-80
+func moon():
+	if($MoonSounds.playing==false):
+		$MoonSounds.playing=true
+	var tween=create_tween()
+	tween.tween_property($MoonSounds, "volume_db", 0, .5)
+	await get_tree().create_timer(.5).timeout
+	var tween2 = create_tween()
+	tween2.tween_property(currentlyPlaying, "volume_db", -80, 0.5)
+	currentlyPlaying.playing=false
+	currentlyPlaying=$MoonSounds
+	
+func base():
+	if($BaseMusic.playing==false):
+		$BaseMusic.playing=true
+	var tween=create_tween()
+	tween.tween_property($BaseMusic, "volume_db", 0, .5)
+	await get_tree().create_timer(.5).timeout
+	var tween2 = create_tween()
+	tween2.tween_property(currentlyPlaying, "volume_db", -80, 0.5)
+	currentlyPlaying.playing=false
+	currentlyPlaying=$BaseMusic
+	
+func menu():
+	if($MenuMusic.playing==false):
+		$MenuMusic.playing=true
+	var tween=create_tween()
+	tween.tween_property($MenuMusic, "volume_db", 0, .5)
+	await get_tree().create_timer(.5).timeout
+	var tween2 = create_tween()
+	tween2.tween_property(currentlyPlaying, "volume_db", -80, 0.5)
+	currentlyPlaying.playing=false
+	currentlyPlaying=$MenuMusic
+	

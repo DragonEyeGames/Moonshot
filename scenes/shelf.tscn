@@ -101,6 +101,8 @@ shape = SubResource("RectangleShape2D_oyalq")
 position = Vector2(-1, 144.5)
 shape = SubResource("RectangleShape2D_viw0s")
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
 [connection signal="body_entered" from="shelfArea" to="." method="_on_shelf_area_body_entered"]
 [connection signal="body_exited" from="shelfArea" to="." method="_on_shelf_area_body_exited"]
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]

@@ -15,6 +15,7 @@ autoplay = true
 max_distance = 10000000000.0
 attenuation = 0.0
 panning_strength = 0.0
+playback_type = 1
 parameters/looping = true
 
 [node name="MoonSounds" type="AudioStreamPlayer2D" parent="."]
@@ -23,6 +24,7 @@ volume_db = -80.0
 autoplay = true
 max_distance = 10000000000.0
 panning_strength = 0.0
+playback_type = 1
 parameters/looping = true
 
 [node name="BaseMusic" type="AudioStreamPlayer2D" parent="."]
@@ -40,4 +42,5 @@ volume_db = -80.0
 autoplay = true
 max_distance = 10000000000.0
 panning_strength = 0.0
+playback_type = 1
 parameters/looping = true
